@@ -94,6 +94,7 @@ export function lohnZeile(d: Daten, p: Person, monat: string): LohnZeile {
   for (const t of tage) {
     if (t.pauseBegruendung) hinweise.push(`${t.datum.slice(8, 10)}.: Pause zu kurz, begründet`);
     for (const k of t.korrekturen) if (k.antwort === 'widerspruch' && !k.entscheidung) hinweise.push(`${t.datum.slice(8, 10)}.: Widerspruch gegen Korrektur offen`);
+    if (t.geaendertNachUebernahme) hinweise.push(`${t.datum.slice(8, 10)}.: nach der Übernahme geändert (${t.geaendertNachUebernahme.was})${t.exportId ? ', schon exportiert: bitte in der Lohnabrechnung korrigieren' : ''}`);
   }
   if (p.gruppe !== 'angestellt' && kontoStand(d, p.id) > 150) hinweise.push(`Konto über 150 h: ${(kontoStand(d, p.id) - 150).toFixed(1).replace('.', ',')} h auszahlen`);
   return {

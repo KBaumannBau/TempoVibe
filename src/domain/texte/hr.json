@@ -1,0 +1,573 @@
+{
+ "faq": [
+  {
+   "q": "Što ako zaboravim zabilježiti vrijeme?",
+   "a": "Vrijeme ne možeš sam/a promijeniti. Otvori „Provjeri i pošalji dan” i kod „Nešto nije pritisnuto?” dodirni jedan od tri gumba: „Početak je bio u …”, „Kraj je bio u …” ili „Pauza je bila od … do …”. Odaberi vrijeme, na primjer „Kraj je bio u 16:00”. Tvoj poslovođa (Polier) dobiva gotov prijedlog i može ga prihvatiti. Aplikacija te i podsjeća: „Kraj rada još otvoren” (2 sata nakon uobičajenog kraja rada, najkasnije u 20:00) i „Dan još nije poslan” (sljedećeg jutra u 06:30)."
+  },
+  {
+   "q": "Ne mogu naći svoje gradilište. Ili lokacija ne odgovara.",
+   "a": "Dodirni „Odaberi drugo gradilište”, pronađi pravo gradilište i odaberi razlog. Ako aplikacija javi „Nisi na gradilištu”, odaberi kratko obrazloženje i spremi. Tvoje se vrijeme uvijek sprema, a poslovođa vidi samo napomenu."
+  },
+  {
+   "q": "Vidi li firma gdje sam?",
+   "a": "Aplikacija te ne prati. Tvoju lokaciju provjerava samo u trenutku kad dodirneš, na primjer pri početku i kraju rada. Ne sprema ni put ni koordinate. Sprema se odgovara li lokacija gradilištu, približna udaljenost i tvoje obrazloženje. To vide tvoj poslovođa, voditelj gradilišta (Bauleiter) i ured."
+  },
+  {
+   "q": "Nemam mreže. Ili lociranje ne radi.",
+   "a": "Nema mreže (nema interneta): uvijek možeš bilježiti vrijeme. Računa se vrijeme u kojem dodirneš. Aplikacija šalje podatke čim opet bude mreže. Lociranje ne radi (na primjer u podrumu): aplikacija će ti to javiti, a tvoje se vrijeme ipak sprema. Ako mobitel uopće ne radi, reci poslovođi. Točna vremena zatim upiši uz svoj dan kod „Nešto nije pritisnuto?”."
+  },
+  {
+   "q": "Poslovođa mi je promijenio dan. Što mogu učiniti?",
+   "a": "Dobiješ poruku i vidiš što je prije pisalo i što sada piše, uz obrazloženje. Ako se ne slažeš, što prije dodirni „Uloži prigovor” i napiši što ne stoji. Zatim odlučuje voditelj gradilišta (Bauleiter). Ako se ne javiš, dobit ćeš podsjetnik, nakon toga ispravak vrijedi."
+  },
+  {
+   "q": "Kako prijaviti bolovanje? Tko to vidi?",
+   "a": "Dodirni „Bolovanje” u izborniku dolje, odaberi „Ja osobno” ili „Moje dijete”, upiši od kada i do kada i dodirni „Pošalji prijavu bolovanja” (bez dijagnoze). Bolovanje uvijek prijavi odmah. Poslovođa i voditelj gradilišta (Bauleiter) saznaju da si prijavljen kao bolestan i do kada, ali ne i zašto. Kolege vide samo „odsutan”. Potvrdu vidi samo ured. Ako si bolestan dulje od 3 kalendarska dana, potvrdu o bolovanju trebaš najkasnije sljedeći radni dan nakon toga. Ako je dijete bolesno, potvrdu od liječnika trebaš od 1. dana. Ti dani u pravilu nisu plaćeni, zdravstveno osiguranje (Krankenkasse) isplaćuje naknadu za bolesno dijete (Kinderkrankengeld). Za naučnike (Auszubildende) i u posebnim slučajevima vrijedi nešto drugo – pitaj u uredu."
+  },
+  {
+   "q": "Kako zatražiti godišnji odmor? Koliko mi ga je ostalo?",
+   "a": "Dodirni „Godišnji” u izborniku dolje. Gore vidiš svoj godišnji odmor: ostatak iz prošle godine, pravo, iskorišteno i koliko dana je još slobodno. Upiši „Od” i „Do” i dodirni „Pošalji zahtjev”. Prvo provjerava voditelj gradilišta, zatim uprava firme, a ti dobiješ poruku."
+  },
+  {
+   "q": "Što je konto radnih sati (Arbeitszeitkonto)? Kako uzeti slobodno?",
+   "a": "Na kontu radnih sati skupljaju se tvoji sati: ako radiš više od plana, sati se dodaju, ako radiš manje, sati se oduzimaju. Stanje vidiš u „Konto”; za slobodno dodirni tamo „Uzmi slobodno s konta” i podnesi zahtjev. Ljeti (apr–nov) slobodno s konta moguće je tek od 100 h; zimi (dec–mar), dok na kontu ostane 50 h. Sati iznad 150 h isplaćuju se."
+  },
+  {
+   "q": "Ne sjećam se PIN-a. Ili imam novi mobitel.",
+   "a": "Zaboravljen PIN: pri otvaranju dodirni „Zaboravio/la sam PIN”. Dobit ćeš novi kod e-poštom i postaviti novi PIN. Kod vrijedi 15 minuta i samo jednom. Ako nemaš vlastitu adresu e-pošte, e-poruka ide tvom poslovođi ili radniku kojem si dodijeljen/a; on ti kod predaje osobno. Novi ili izgubljeni mobitel: nazovi ured. Ured blokira stari pristup i šalje ti novu pozivnicu e-poštom."
+  },
+  {
+   "q": "Kako promijeniti jezik? Gdje je pomoć?",
+   "a": "Dodirni gore desno globus sa skraćenicom, na primjer HR, i odaberi svoj jezik s popisa. Aplikacija pamti jezik na ovom mobitelu. Pomoć s uputama i pretraživanjem nalaziš gore desno pod upitnikom."
+  }
+ ],
+ "hilfe": [
+  {
+   "id": "anm",
+   "t": "Prijava, PIN, novi mobitel",
+   "p": [
+    "Dobit ćeš pozivnicu e-poštom. Dodirni poveznicu. Vrijedi 7 dana. Nemaš vlastitu adresu e-pošte? Tada pozivnica ide tvom poslovođi (Polier) ili radniku kojem si dodijeljen/a. On ti je pokazuje na svom mobitelu. Skeniraj QR kod svojim mobitelom. Ured može pozivnicu i ispisati. Broj mobitela ti ne treba.",
+    "Upiši svoju adresu e-pošte. Dobit ćeš kod (6 znamenki) e-poštom. Vrijedi 15 minuta i samo jednom; nakon 5 pogrešnih unosa trebaš novi. Zatim postavi PIN od 4 znamenke. Ne koristi jednostavan PIN poput 1234 ili 0000. Nemaš vlastitu adresu e-pošte? Označi „Nemam vlastitu adresu e-pošte”. Tada e-poruka ide tvom poslovođi (Polier) ili radniku kojem si dodijeljen/a. On ti kod predaje osobno.",
+    "Umjesto PIN-a možeš koristiti otisak prsta ili prepoznavanje lica. To ostaje na tvom mobitelu.",
+    "Pročitaj informacije o zaštiti podataka i o osobnom dokumentu. Kod svake označi kvačicu. Zatim dopusti lokaciju s „Dok se aplikacija koristi”.",
+    "Stavi aplikaciju na početni zaslon. Samo tako ti može slati obavijesti. Ako mobitel pita, odaberi „Dopusti”.",
+    "Aplikacija se zaključava nakon 5 minuta bez korištenja. Ne sjećaš se PIN-a? Dodirni „Zaboravio/la sam PIN”. Dobit ćeš novi kod e-poštom i postaviti novi PIN.",
+    "Novi mobitel ili izgubljen mobitel? Nazovi ured. Ured blokira stari pristup i šalje novu pozivnicu e-poštom."
+   ],
+   "k": "prijava lozinka kod qr e-pošta email poslovođa otisak prsta zaključan izgubljen pozivnica registracija"
+  },
+  {
+   "id": "zeit",
+   "t": "Evidencija radnog vremena",
+   "p": [
+    "Otvori „Danas”. Aplikacija predlaže tvoje gradilište.",
+    "Dodirni „Počni rad” kad počinješ.",
+    "Dodirni „Pauza” čim počne tvoja pauza. Dodirni već pri izlasku s gradilišta, a ne tek na mjestu pauze.",
+    "Dodirni „Nastavi rad” kad pauza završi.",
+    "Voziš na drugo gradilište? Dodirni „Promijeni gradilište” pri polasku. Vožnja se već računa za novo gradilište.",
+    "Dodirni „Kraj rada” kad završiš.",
+    "Nema mreže? Uvijek možeš bilježiti vrijeme. Računa se vrijeme u kojem dodirneš. Aplikacija šalje podatke čim opet bude mreže.",
+    "Radiš preko ponoći (noćna smjena)? Cijela smjena računa se u dan u kojem je počela. To vrijedi i zadnjeg dana u mjesecu."
+   ],
+   "k": "početak kraj pauza promjena gradilišta gotovo sati evidencija nema mreže offline noćna smjena ponoć"
+  },
+  {
+   "id": "baust",
+   "t": "Odabir gradilišta · Moj raspored",
+   "p": [
+    "Aplikacija predlaže tvoje gradilište. Koristi tvoju lokaciju ili tvoj raspored.",
+    "Gradilište ne odgovara? Dodirni „Odaberi drugo gradilište”.",
+    "Traži po mjestu troška (Kostenstelle), ulici ili mjestu. Dodirni ispravno gradilište.",
+    "Odaberi razlog i dodirni „Primijeni”. Razlog je obavezan.",
+    "Tvoj poslovođa (Polier) pri odobrenju vidi da je gradilište odabrano ručno. Tvoje se vrijeme uvijek sprema.",
+    "Pod „Moj raspored” vidiš gdje radiš ovaj tjedan. Dodirni „Prikaži cijeli tjedan” da vidiš sve dane.",
+    "Ako se tvoj raspored promijenio, tamo se pojavi napomena. Dodirni „Pročitano”."
+   ],
+   "k": "gradilište traži mjesto troška ručno pogrešno gradilište raspored tjedan planiranje"
+  },
+  {
+   "id": "ort",
+   "t": "Lokacija ne odgovara",
+   "p": [
+    "Aplikacija provjerava tvoju lokaciju samo u trenutku kad dodirneš: pri početku, pauzi, nastavku, promjeni gradilišta i kraju rada.",
+    "Aplikacija javlja „Nisi na gradilištu”? Odaberi kratko obrazloženje. To je obavezno. Možeš dodati bilješku.",
+    "Zatim dodirni gumb za spremanje. Tvoje je vrijeme zabilježeno.",
+    "Postavljeno pogrešno gradilište? Odaberi na „Danas” ispravno gradilište.",
+    "Tvoje se vrijeme uvijek sprema. Tvoj poslovođa vidi napomenu „odstupa”, približnu udaljenost i tvoje obrazloženje.",
+    "Lociranje ne radi (na primjer u podrumu)? Aplikacija će ti to javiti. Tvoje se vrijeme ipak sprema. Nema mreže? Uvijek možeš bilježiti vrijeme. Računa se vrijeme u kojem dodirneš. Aplikacija šalje podatke čim opet bude mreže."
+   ],
+   "k": "lokacija gps udaljenost nema signala nisi na gradilištu obrazloženje nema mreže offline"
+  },
+  {
+   "id": "tag",
+   "t": "Provjeri i pošalji dan",
+   "p": [
+    "Nakon kraja rada dodirneš „Provjeri i pošalji dan”.",
+    "Provjeri gradilišta, vremena i pauze. Aplikacija ti pokazuje ako uoči prazninu ili prekratku pauzu.",
+    "Nešto nisi pritisnuo/la ili neko vrijeme ne stoji? Kod „Nešto nije pritisnuto?” dodirni jedan od tri gumba: „Početak je bio u …”, „Kraj je bio u …” ili „Pauza je bila od … do …”. Odaberi vrijeme. Tvoj poslovođa dobiva gotov prijedlog i može ga prihvatiti. Vrijeme može mijenjati samo tvoj poslovođa ili vodstvo gradilišta.",
+    "Označi kvačicu ako si noćio izvan kuće ili vozio kombi za ekipu.",
+    "Dodirni dolje „Pošalji poslovođama”.",
+    "Slanjem potvrđuješ da početak, kraj i pauze stoje.",
+    "Svaki poslovođa odobrava svoje gradilište. Zatim odobrava voditelj gradilišta (Bauleiter). Do tada je tvoj konto privremen.",
+    "Aplikacija ti šalje dva podsjetnika: „Kraj rada još otvoren” stiže 2 sata nakon uobičajenog kraja rada, najkasnije u 20:00, ako nisi dodirnuo/la kraj rada. „Dan još nije poslan” stiže sljedećeg jutra u 06:30, ako još nisi poslao/la svoj dan."
+   ],
+   "k": "pošalji komentar vrijeme pogrešno zaboravio put noćenje vozač odobrenje nije pritisnuto početak kraj pauza prijedlog podsjetnik"
+  },
+  {
+   "id": "zus",
+   "t": "Dodaci",
+   "p": [
+    "Otvori svoj dan i dodirni „+ Dodaj dodatak”.",
+    "Dodirni što je danas nastalo. Na primjer zaštita dišnih putova ili štemajući čekić.",
+    "Odaberi gradilište i upiši sate, npr. 2,5.",
+    "Više sati nego tvoje radno vrijeme na gradilištu? Aplikacija te upozorava. Molim te, provjeri.",
+    "Dodirni plavi gumb dolje. Dodaci se tada nalaze u tvom danu.",
+    "Ipak ti ne treba dodatak? Dodirni „Natrag bez dodatka”.",
+    "Noćne sate utvrđuje aplikacija. Prekovremene sate, nedjelju i praznike računa obračun plaća."
+   ],
+   "k": "dodatak maska prašina prljavština čekić odijelo vrućina otežani uvjeti"
+  },
+  {
+   "id": "korr",
+   "t": "Ispravak od poslovođe",
+   "p": [
+    "Neko vrijeme ne stoji? Upiši to prije slanja kod „Nešto nije pritisnuto?”. Poslovođe vide tvoj prijedlog pri odobrenju i mogu ga prihvatiti.",
+    "Ako poslovođa promijeni tvoj unos, dobit ćeš poruku.",
+    "Vidiš što je prije pisalo i što sada piše. Uz to i obrazloženje.",
+    "Ne slažeš se? Dodirni „Uloži prigovor” i napiši što ne stoji.",
+    "Zatim odlučuje voditelj gradilišta. Dobit ćeš obavijest.",
+    "Ako se ne javiš, dobit ćeš podsjetnik. Nakon toga ispravak vrijedi. Zato uloži prigovor što prije ako nešto nije točno.",
+    "Ako poslovođa pošalje upit, molim te, odgovori do navedenog dana."
+   ],
+   "k": "promijenjeno prigovor potvrdi upit vraćeno odobrenje ispravak"
+  },
+  {
+   "id": "kal",
+   "t": "Kalendar",
+   "p": [
+    "Dodirni „Kalendar” u izborniku dolje.",
+    "Boje pokazuju: praznik, godišnji odmor, kolektivni godišnji odmor, slobodno prema kolektivnom ugovoru, bolovanje.",
+    "Dodirni dan. Ispod piše što vrijedi tog dana, na primjer tvoje planirane sate.",
+    "Dodirni „Pogledaj dan”. Vidjet ćeš vremena, pauze i dodatke.",
+    "Strelicama mijenjaš mjesec.",
+    "Dolje su sljedeći praznici u Bavarskoj.",
+    "Ako praznik pada na radni dan, dobivaš plaću za praznik. Ne oduzima se dan godišnjeg odmora."
+   ],
+   "k": "praznik mjesec slobodni dani pregled planirano"
+  },
+  {
+   "id": "konto",
+   "t": "Konto radnih sati (Arbeitszeitkonto)",
+   "p": [
+    "Dodirni „Konto” u izborniku dolje.",
+    "Gore vidiš svoje stanje nakon zadnjeg odobrenja. Dani nakon toga su privremeni. Ispod vidiš tijek.",
+    "Radiš više od plana? Sati se dodaju. Radiš manje? Sati se oduzimaju.",
+    "Slobodno s konta: dodirni „Uzmi slobodno s konta”. Tamo podnosiš zahtjev.",
+    "Ljeto (apr–nov): slobodno s konta tek od 100 h.",
+    "Zima (dec–mar): slobodno s konta moguće je dok na kontu ostane 50 h.",
+    "Sati iznad 150 h isplaćuju se."
+   ],
+   "k": "sati prekovremeni stanje plan isplata slobodno konto"
+  },
+  {
+   "id": "url",
+   "t": "Zahtjev za godišnji odmor i slobodno s konta",
+   "p": [
+    "Dodirni „Godišnji” u izborniku dolje.",
+    "Gore vidiš svoj godišnji odmor: ostatak iz prošle godine, pravo, iskorišteno i koliko dana je još slobodno.",
+    "Odaberi „Dani godišnjeg odmora” ili „S konta”.",
+    "Upiši „Od” i „Do”. Vikendi i praznici ne računaju se kao dani godišnjeg odmora.",
+    "Aplikacija pokazuje koliko će nakon toga ostati slobodno. Ako zahtjev nije moguć, kaže ti zašto.",
+    "Dodirni „Pošalji zahtjev”.",
+    "Prvo provjerava voditelj gradilišta, zatim uprava firme. Dobit ćeš poruku."
+   ],
+   "k": "odmor slobodno zahtjev odobrenje preostali godišnji dani konto"
+  },
+  {
+   "id": "bu",
+   "t": "Kolektivni godišnji odmor",
+   "p": [
+    "Ured određuje kolektivni godišnji odmor. Dani godišnjeg odmora već su upisani.",
+    "Praznici tijekom kolektivnog godišnjeg odmora ne troše dan godišnjeg odmora.",
+    "24.12. i 31.12. su slobodni od rada, ali bez plaće. Biraš: „Dan godišnjeg odmora” ili „Neplaćeno slobodno”.",
+    "Ne dostaje ti godišnjeg odmora? Tada možeš pristati da se sati odbiju s konta radnih sati. Bez tvog pristanka ne odbija se ništa.",
+    "Zimi pritom na kontu mora ostati najmanje 50 h.",
+    "Odaberi do datuma koji piše u aplikaciji. Zatim dodirni „Spremi odabir”. Ako ne odabereš ništa, ostaje „Neplaćeno slobodno”."
+   ],
+   "k": "božić badnjak silvestrovo kolektivni godišnji pristanak"
+  },
+  {
+   "id": "krank",
+   "t": "Prijava bolovanja (i bolesno dijete)",
+   "p": [
+    "Dodirni „Bolovanje” u izborniku dolje.",
+    "Odaberi „Ja osobno” ili „Moje dijete”. Upiši od kada i do kada.",
+    "Do 3 kalendarska dana ide bez potvrde o bolovanju. Ako si bolestan dulje od 3 kalendarska dana, potvrdu o bolovanju trebaš najkasnije sljedeći radni dan nakon toga. Bolovanje uvijek prijavi odmah. Firma je u pojedinačnim slučajevima može tražiti i ranije.",
+    "Bio si kod liječnika? Označi kvačicu i upiši podatke potvrde točno onako kako ih je liječnik zapisao.",
+    "Bolesno dijete: od 1. dana trebaš potvrdu od liječnika. Ti dani u pravilu nisu plaćeni, zdravstveno osiguranje (Krankenkasse) isplaćuje naknadu za bolesno dijete (Kinderkrankengeld). Za naučnike (Auszubildende) i u posebnim slučajevima vrijedi nešto drugo – pitaj u uredu.",
+    "Nesreća na radu ili na putu na posao? Označi kvačicu i odmah nazovi poslovođu ili voditelja gradilišta. Idi kod liječnika za nesreće na radu (Durchgangsarzt, D-Arzt) ili u bolnicu.",
+    "Ne piši dijagnozu. Dodirni „Pošalji prijavu bolovanja”. Poslovođa i voditelj gradilišta (Bauleiter) saznaju da si prijavljen kao bolestan i do kada, ali ne i zašto. Kolege vide samo „odsutan”.",
+    "Tvoja prijava bolovanja uskoro završava? Aplikacija pita: „Kada se vraćaš?” Odgovori do navedenog dana."
+   ],
+   "k": "bolest prijava liječnik potvrda bolovanje dijete nesreća nesreća na radu"
+  },
+  {
+   "id": "ab",
+   "t": "Zahtjev za plaćeni dopust",
+   "p": [
+    "Dodirni „Godišnji” u izborniku dolje, zatim „Plaćeni dopust”.",
+    "Odaberi povod. Na primjer vjenčanje, rođenje, smrtni slučaj, selidba, posjet liječniku ili ured.",
+    "Upiši dane ili sate. Dodirni „Pošalji zahtjev”.",
+    "Za svaki povod postoji samo određeni broj dana. Ako je razdoblje predugo, aplikacija ti to kaže. Za preostale dane zatraži godišnji odmor.",
+    "Prvo provjerava voditelj gradilišta, zatim ured. Voditelj gradilišta vidi samo povod i dane. Dokaz vidi samo ured.",
+    "Odobrenje vrijedi najprije uz rezervu. Konačno postaje kad se dokaz provjeri."
+   ],
+   "k": "plaćeni dopust vjenčanje selidba rođenje smrt ured sud liječnik"
+  },
+  {
+   "id": "nach",
+   "t": "Dostavi dokaz naknadno",
+   "p": [
+    "Zahtjev možeš poslati i bez dokaza. Fotografiraj dokaz odmah ili kasnije.",
+    "Rok: 14 dana nakon povoda, zatim još 7 dana dodatnog roka. Aplikacija te podsjeća dok dokaz ne stigne.",
+    "Fotografiraj dokaz. Zatim dodirni „Pošalji dokaz”.",
+    "Podatke koji nisu potrebni za povod smiješ prekriti. Na primjer dijagnozu.",
+    "Ako dokaz nakon toga nedostaje, biraš: dan godišnjeg odmora ili neplaćeno slobodno. Za sate: s konta radnih sati ili neplaćeno. Za to imaš 3 radna dana (od ponedjeljka do subote). Ako ne odabereš, vrijeme privremeno knjižimo kao neplaćeno. Ako dokaz dostaviš naknadno, to će se ispraviti.",
+    "S konta se može samo dok tvoj konto ostaje u plusu. Granice od 100 h i 50 h ovdje ne vrijede."
+   ],
+   "k": "dokaz potvrda isprava fotografija rok dodatni rok slanje podsjetnik"
+  },
+  {
+   "id": "push",
+   "t": "Obavijesti i podsjetnici na pauzu",
+   "p": [
+    "Aplikacija ti šalje kratke poruke na mobitel.",
+    "Na primjer: nedostaje pauza, pauza još traje, kraj rada još otvoren, dan još nije poslan, poslovođa je ispravio, nedostaje dokaz, raspored se promijenio.",
+    "Za to stavi aplikaciju na početni zaslon. Ako mobitel pita za obavijesti, odaberi „Dopusti”.",
+    "Nakon 5:30 h rada bez pauze aplikacija te podsjeća. Ne smiješ raditi dulje od 6 h bez pauze.",
+    "Kod rada duljeg od 6 h trebaš najmanje 30 min pauze, kod rada duljeg od 9 h najmanje 45 min. Računaju se samo pauze od 15 min bez prekida. Svaka se pauza oduzima od radnog vremena.",
+    "Tvoja pauza već traje 60 minuta? Aplikacija pita: „Je li pauza još aktivna?” Dodirni „Nastavi rad” ako već opet radiš.",
+    "Neke podsjetnike potvrđuješ s „Napomena pročitana i shvaćena”. Na primjer o preostalom godišnjem odmoru.",
+    "Na zaključanom zaslonu stoji samo kratak, neutralan tekst: ništa o bolesti, bez imena kolega, bez stanja sati. Pojedinosti vidiš tek u aplikaciji."
+   ],
+   "k": "push obavijest podsjetnik poruka početni zaslon pauza preostali godišnji"
+  },
+  {
+   "id": "ohne",
+   "t": "Bez pametnog telefona",
+   "p": [
+    "Korištenje tvog privatnog mobitela je dobrovoljno.",
+    "Bez pametnog telefona tvoj poslovođa zapisuje tvoje sate i dodatke.",
+    "Sve provjeriš. Zatim potvrđuješ svojim PIN-om na mobitelu poslovođe.",
+    "Početni PIN dobivaš pismom. Prvi put postavljaš vlastiti PIN.",
+    "Nisi bio tu? Tada idući put potvrđuješ svojim PIN-om ili potpisuješ tjedni list u uredu.",
+    "Godišnji odmor i bolovanje prijavljuješ poslovođi ili u uredu.",
+    "Svoje sate i račune dobivaš svaki mjesec kao ispis."
+   ],
+   "k": "bez mobitela privatni nema telefon pin pismo početni pin"
+  },
+  {
+   "id": "helf",
+   "t": "Upiši osobni dokument osobe podizvođača",
+   "p": [
+    "Nova osoba tuđe firme (podizvođač) na gradilištu? Dodirni „Upiši osobni dokument osobe podizvođača”.",
+    "Zamoli da ti pokaže dokument u izvorniku.",
+    "Odaberi osobu. Upiši „Vrsta dokumenta”, „Vrijedi do” i „Državljanstvo”.",
+    "Označi kvačicu da si vidio dokument u izvorniku. Dodirni „Dokument viđen – spremi”.",
+    "Ne fotografiraj dokument, ni svojim mobitelom. Ne sprema se kopija ni broj dokumenta.",
+    "Netko nema dokument sa sobom? Ne upisuj ništa i javi poslovođi ili uredu."
+   ],
+   "k": "osobna iskaznica pomoćni radnik podizvođač tuđa firma putovnica boravišna dozvola"
+  },
+  {
+   "id": "ml",
+   "t": "Potpis za minimalnu plaću (podizvođači)",
+   "p": [
+    "Ova tema vrijedi samo za radnike podizvođača (tuđih firmi). Oni koriste vlastitu aplikaciju.",
+    "Nakon kraja svakog mjeseca potpisuješ svoju osobnu izjavu o minimalnoj plaći za protekli mjesec. To možeš od 1. dana sljedećeg mjeseca. Primjer: izjavu za kolovoz / august 2026 potpisuješ od 01.09.2026. Njome izjavljuješ da od svog poslodavca dobivaš najmanje zakonsku minimalnu plaću.",
+    "U svojoj aplikaciji otvori dio „Minimalna plaća” i pročitaj tekst. Potpiši se prstom u polju. Zatim dodirni „Potpiši i pošalji”.",
+    "Izjava ide kao PDF u ured tvrtke K. Baumann Baugesellschaft, ne tvojoj firmi.",
+    "Ne možeš ili ne želiš potpisati? Javi se poslovođi ili uredu."
+   ],
+   "k": "minimalna plaća potpis potpisati podizvođač tuđa firma izjava plaća"
+  },
+  {
+   "id": "spr",
+   "t": "Promjena jezika",
+   "p": [
+    "Dodirni gore desno globus sa skraćenicom, na primjer HR.",
+    "Odaberi svoj jezik s popisa.",
+    "Aplikacija pamti jezik na ovom mobitelu.",
+    "Nazivi gradilišta i osoba ostaju isti."
+   ],
+   "k": "language język limba jezik dil nyelv lingua langue sprache übersetzung"
+  },
+  {
+   "id": "ds",
+   "t": "Zaštita podataka",
+   "p": [
+    "Tvoja se lokacija uspoređuje samo u trenutku dodira. Aplikacija ne sprema ni put ni koordinate.",
+    "Sprema se odgovara li lokacija gradilištu, približna udaljenost i tvoje obrazloženje. To vide tvoj poslovođa, voditelj gradilišta (Bauleiter) i ured.",
+    "Ako odbiješ lokaciju, gradilište biraš ručno. Možeš je u svakom trenutku isključiti u postavkama mobitela.",
+    "Kod bolesti aplikacija ne traži dijagnozu. Poslovođa i voditelj gradilišta (Bauleiter) saznaju da si prijavljen kao bolestan i do kada, ali ne i zašto. Kolege vide samo „odsutan”. Potvrde i dokaze vidi samo ured.",
+    "Korištenje tvog privatnog mobitela je dobrovoljno. Aplikacija ne čita kontakte ni fotografije.",
+    "Podaci se nalaze na vlastitom serveru u firmi. Radno vrijeme prema sadašnjem stanju čuva se 8 godina (još se provjerava).",
+    "Možeš tražiti informacije o svojim podacima. Sve ostalo piše u informacijama o zaštiti podataka."
+   ],
+   "k": "podaci lokacija nadzor gps spremanje prava zaštita podataka informacije"
+  },
+  {
+   "id": "hilfe",
+   "t": "Pomoć i pitanja",
+   "p": [
+    "Dodirni gore desno upitnik. Tamo ćeš naći ovu pomoć.",
+    "Upiši gore riječ u pretraživanje, na primjer pauza ili PIN. Tada vidiš samo odgovarajuće teme.",
+    "Brze odgovore nalaziš u čestim pitanjima.",
+    "Uvod možeš u svakom trenutku pogledati ponovno.",
+    "Ne ide ti? Pitaj poslovođu ili nazovi ured."
+   ],
+   "k": "faq pitanja uvod upute pomoć podrška telefon"
+  }
+ ],
+ "datenschutz": {
+  "entwurf": "Nacrt · verzija 0.1 · još nije pravno odobreno",
+  "intro": "Ovako postupamo s tvojim podacima u evidenciji sati. Uglate zagrade popunit će se prije početka. Dodirni naslov da otvoriš odjeljak.",
+  "abschnitte": [
+   {
+    "t": "1. Tko je odgovoran?",
+    "p": [
+     {
+      "x": "K. Baumann Baugesellschaft mbH, [adresa], [telefon], [e-pošta]."
+     },
+     {
+      "x": "Kontakt za zaštitu podataka: [ime, kontakt]."
+     }
+    ]
+   },
+   {
+    "t": "2. Koji podaci, čemu služe i na kojoj osnovi?",
+    "p": [
+     {
+      "t": "Početak, kraj, pauze, gradilište, dodaci:",
+      "x": "za obračun plaće i zakonsku evidenciju radnog vremena. Osnova: ugovor o radu i zakonska obveza. Ako nemaš mobitel, tvoj poslovođa (Polier) upisuje te podatke umjesto tebe."
+     },
+     {
+      "t": "Lokacija pri dodiru:",
+      "x": "samo se uspoređuje s gradilištem kako bi se sati ispravno knjižili. Točan položaj ne spremamo; sprema se samo rezultat (vidi odjeljak 3). Osnova: ugovor o radu i legitimni interes za ispravan obračun."
+     },
+     {
+      "t": "Godišnji odmor, oslobođenja od rada, konta radnih sati (Arbeitszeitkonto):",
+      "x": "za vođenje tvojih prava. Osnova: ugovor o radu i kolektivni ugovor."
+     },
+     {
+      "t": "Prijava bolovanja i potvrda, i „bolesno dijete” i nesreća na radu:",
+      "x": "za isplatu plaće tijekom bolovanja i planiranje. Ne pitamo za dijagnozu. Kod „bolesnog djeteta” koristimo samo mjesec i godinu rođenja djeteta, bez imena. To su podaci o zdravlju; osnova: radno i socijalno pravo."
+     },
+     {
+      "t": "Dokazi za plaćeni dopust",
+      "x": "(npr. vjenčani list, potvrda o prebivalištu, potvrda iz ordinacije) i tvoje komentare: radi provjere prava. Osnova: ugovor o radu i kolektivni ugovor."
+     },
+     {
+      "t": "Adresa e-pošte, uređaj, vrijeme prijave:",
+      "x": "za pozivnicu e-poštom i siguran pristup aplikaciji. Sprema se i koristiš li privatni ili službeni mobitel te kada si se zadnji put prijavio/la. Pozivnicu i kod za prijavu šaljemo ti e-poštom. Ako nemaš vlastitu adresu e-pošte, oboje ide tvom poslovođi ili radniku kojem si dodijeljen/a; on ti pokazuje pozivnicu i kod ti predaje osobno. Tvoj broj mobitela za to ne trebamo; on je samo dobrovoljni podatak za kontakt. Osnova: ugovor o radu i legitimni interes za siguran rad. Tvoj PIN spremamo samo šifriran. Otisak prsta ili prepoznavanje lica ostaju na tvom mobitelu; mi ih ne dobivamo."
+     },
+     {
+      "t": "Raspored po gradilištima:",
+      "x": "za organizaciju rada. Osnova: ugovor o radu."
+     },
+     {
+      "t": "Zapisnik tko je što i kada promijenio:",
+      "x": "kao dokaz pri provjerama. Osnova: zakonska obveza."
+     },
+     {
+      "t": "Podaci za godišnji odmor i slobodne dane:",
+      "x": "na primjer teža invalidnost (Schwerbehinderung), dob ispod 18 godina ili samohrani roditelj. Koristimo ih samo da ispravno izračunamo tvoja prava. Vidi ih samo administracija (kadrovska služba). Osnova: ugovor o radu, kolektivni ugovor i zakon; invalidnost je posebno zaštićena (kao podaci o zdravlju)."
+     },
+     {
+      "t": "Komentari, obrazloženja i poruke:",
+      "x": "tekstovi koje sam/a upisuješ u aplikaciju. Čitaju ih tvoj poslovođa, voditelj gradilišta i administracija. Molimo te da tamo ne pišeš ništa o bolesti ni o privatnim stvarima. Osnova: ugovor o radu."
+     },
+     {
+      "t": "Izvještaji:",
+      "x": "iz sati računamo i troškove te usporedbu planiranog i ostvarenog po gradilištu. Osnova: legitimni interes [provjerit će se prije početka]."
+     },
+     {
+      "x": "Pripadajući propisi: čl. 6. st. 1. toč. b, c i f GDPR-a (DSGVO), § 26 BDSG; za podatke o zdravlju čl. 9. st. 2. toč. b GDPR-a (DSGVO) i § 26 st. 3. BDSG. Obveza evidencije: [propisi, npr. § 16 ArbZG, § 17 MiLoG, § 19 AEntG]. Osnovni podaci poput imena, osobnog broja, broja mobitela (dobrovoljni podatak za kontakt), grupe, funkcije i radnog vremena potječu iz tvog osobnog dosjea."
+     }
+    ]
+   },
+   {
+    "t": "3. Lokacija",
+    "p": [
+     {
+      "x": "Aplikacija bilježi tvoju lokaciju samo u trenutku kad dodirneš Početak, Pauza, Promjena ili Kraj. U međuvremenu se ništa ne locira."
+     },
+     {
+      "x": "Aplikacija uspoređuje lokaciju s adresom gradilišta. Točan položaj (koordinate) ne sprema se i ne nastaje profil kretanja. Sprema se: vrijeme, rezultat „odgovara” ili „odstupa”, približna udaljenost od gradilišta te, kod odstupanja, tvoje obrazloženje i tvoja bilješka. To vide tvoj poslovođa, voditelj gradilišta i administracija."
+     },
+     {
+      "x": "Službenici se uopće ne lociraju."
+     },
+     {
+      "x": "Ako odbiješ dopuštenje za lokaciju, gradilište biraš ručno, a tvoj poslovođa vidi napomenu „lokacija nedostaje”. Dopuštenje možeš u svakom trenutku isključiti u postavkama mobitela."
+     }
+    ]
+   },
+   {
+    "t": "4. Privatni mobitel",
+    "p": [
+     {
+      "x": "Korištenje tvog privatnog mobitela je dobrovoljno. Aplikacija koristi kameru samo kad fotografiraš dokaz. Ne čita kontakte ni druge fotografije."
+     },
+     {
+      "x": "Ako ne želiš koristiti svoj mobitel, sate upisuje tvoj poslovođa, a ti ih potvrđuješ svojim PIN-om na poslovođinu mobitelu."
+     },
+     {
+      "x": "Za to dobivaš poštom početni PIN. Pri prvoj potvrdi određuješ vlastiti PIN; početni PIN tada više ne vrijedi."
+     },
+     {
+      "x": "Na tvom mobitelu aplikacija sprema samo ono što joj treba za rad: tvoj jezik, tvoju prijavu i vremena koja još nisu poslana (na primjer kad nema signala). Bez reklama, bez analiza."
+     }
+    ]
+   },
+   {
+    "t": "5. Tko dobiva podatke?",
+    "p": [
+     {
+      "x": "Poslovođa i voditelj gradilišta (Bauleiter) tvog gradilišta: tvoji sati, rezultat lokacije (odjeljak 3) i tvoji komentari"
+     },
+     {
+      "x": "Voditelj gradilišta: uz to tvoje zahtjeve za godišnji odmor i plaćeni dopust. Kod plaćenog dopusta vidi samo povod i dane, ne dokaz."
+     },
+     {
+      "x": "Kod bolesti tvoj poslovođa, voditelj gradilišta i osobe koje planiraju raspored saznaju da si prijavljen/a kao bolestan/na i do kada. Razlog (dijagnozu) ne saznaje nitko. Potvrdu vidi samo administracija (kadrovska služba). Kolege vide samo „odsutan”."
+     },
+     {
+      "x": "Osobe koje planiraju raspored (planiranje): jesi li na bolovanju, godišnjem odmoru ili u strukovnoj školi"
+     },
+     {
+      "x": "Administracija (kadrovska služba): svi podaci. Potvrde, isprave i dokaze vidi samo ona."
+     },
+     {
+      "x": "Uprava firme: zahtjevi za godišnji odmor, sati, računi radnog vremena i izvještaji; bez potvrda i dokaza [opseg će se utvrditi prije početka]"
+     },
+     {
+      "x": "Obračun plaća [točna firma]: obračun plaća"
+     },
+     {
+      "x": "IT dobavljač [firma]: rad servera"
+     },
+     {
+      "x": "Usluga e-pošte [firma]: pozivnica s poveznicom i kodovi za prijavu (bez vlastite adrese e-pošte oboje ide tvom poslovođi ili radniku kojem si dodijeljen/a)"
+     },
+     {
+      "x": "Obavijesti tehnički idu preko usluge tvog mobitela (Apple ili Google), i preko servera u SAD-u. Trebaju sadržavati samo kratke, neutralne napomene, bez podataka o zdravlju. [provjeriti prije početka: sadržaj i osnova prijenosa u SAD]"
+     },
+     {
+      "x": "Tijela vlasti, kada smo zakonski obvezni: carina (Zoll), mirovinsko osiguranje (Rentenversicherung), porezna uprava (Finanzamt), SOKA-BAU, zdravstveno osiguranje (Krankenkasse), Berufsgenossenschaft (osiguranje od nesreća, kod nesreće na radu)"
+     },
+     {
+      "x": "Podaci se nalaze na vlastitom serveru u firmi. Ne šaljemo ih u zemlje izvan EU. Jedina iznimka: obavijesti preko Applea ili Googlea (vidi gore). [sjedište usluge e-pošte provjerit će se prije početka]"
+     }
+    ]
+   },
+   {
+    "t": "6. Koliko dugo čuvamo podatke?",
+    "p": [
+     {
+      "x": "Privremeno: svi rokovi u ovom odjeljku još nisu potvrđeni. Provjerit će se i utvrditi prije početka."
+     },
+     {
+      "x": "Radno vrijeme i podaci o obračunu: 8 godina"
+     },
+     {
+      "x": "Lokacija: točan položaj se ne sprema. Rezultat (odgovara / odstupa, udaljenost, obrazloženje) sprema se uz dan: [trajanje]"
+     },
+     {
+      "x": "Potvrde o bolovanju (potvrda, fotografija): 1 godina, kod duljih izostanaka do 3 godine. Sami dani bolovanja pripadaju podacima o obračunu."
+     },
+     {
+      "x": "Zahtjevi za godišnji odmor: 3 godine nakon završetka godine odmora"
+     },
+     {
+      "x": "Dokazi za plaćeni dopust: [trajanje]"
+     },
+     {
+      "x": "Podaci o prijavi i zapisnik promjena: [trajanje]"
+     },
+     {
+      "x": "Dokumenti, sati i izjave o minimalnoj plaći podizvođača: 10 godina"
+     },
+     {
+      "x": "Nakon toga podaci se brišu."
+     }
+    ]
+   },
+   {
+    "t": "7. Tvoja prava",
+    "p": [
+     {
+      "x": "Možeš tražiti informacije o svojim podacima, tražiti ispravak netočnih podataka te brisanje ili ograničenje obrade, ako ne postoji obveza čuvanja. Svoje podatke možeš dobiti i u uobičajenom formatu datoteke."
+     },
+     {
+      "x": "Možeš uložiti prigovor na obradu, ako se temelji na legitimnom interesu (na primjer kod lokacije)."
+     },
+     {
+      "x": "Kako koristiš svoja prava: javi se na [kontakt] ili reci u administraciji. Dovoljna je jedna rečenica, na primjer: „Želim informaciju o svojim podacima.” ili „Ulažem prigovor.” U pravilu odgovaramo u roku od mjesec dana."
+     },
+     {
+      "x": "Ako iskoristiš ta prava, to ti neće škoditi."
+     },
+     {
+      "x": "Možeš se žaliti i Bayerisches Landesamt für Datenschutzaufsicht (bavarskom uredu za nadzor zaštite podataka), Ansbach."
+     }
+    ]
+   },
+   {
+    "t": "8. Moraš li navesti podatke?",
+    "p": [
+     {
+      "x": "Evidencija radnog vremena zakonski je propisana i potrebna za obračun plaće. Bez nje ne možemo ispravno izračunati tvoju plaću."
+     },
+     {
+      "x": "Dobrovoljni su: korištenje tvog privatnog mobitela, otisak prsta ili prepoznavanje lica i komentari. Dopuštenje za lokaciju možeš isključiti; što tada vrijedi, piše u odjeljku 3. [Smatra li se lokacija pravno dobrovoljnom, provjerit će se prije početka.]"
+     }
+    ]
+   },
+   {
+    "t": "9. Automatske odluke",
+    "p": [
+     {
+      "x": "Nema ih. Aplikacija provjerava vremena i pauze te daje napomene; odlučuju uvijek ljudi."
+     }
+    ]
+   },
+   {
+    "t": "Za osobe kod podizvođača",
+    "p": [
+     {
+      "x": "Tvoj poslodavac je tvoja firma. K. Baumann Baugesellschaft bilježi tvoje sate kao naručitelj radi provjere računa i dokazivanja tko je bio na gradilištu. Tvoja firma nema pristup aplikaciji; za obračun dobiva tvoje sate. S aplikacijom sate šalješ izravno, a poslovođa ih odobrava. Bez aplikacije sate upisuje poslovođa, a voditelj gradilišta supotpisuje. Osnova: naš legitimni interes i naše zakonske obveze kao naručitelja (minimalna plaća, rad na crno)."
+     },
+     {
+      "x": "Tvoje ime, adresu e-pošte (za pozivnicu i kod za prijavu), broj mobitela ako je naveden (dobrovoljni podatak za kontakt), tvoj posao i satnicu koju tvoja firma obračunava za tvoj rad dobili smo [od tvoje firme]."
+     },
+     {
+      "t": "Osobni dokument:",
+      "x": "Pogledamo ga. Ne sprema se ni preslika ni broj. Bilježi se samo: vrsta dokumenta, vrijedi do, državljanstvo te tko ga je i kada vidio. Državljanstvo bilježimo samo kako bi administracija znala koji su dokumenti potrebni."
+     },
+     {
+      "t": "Potvrda A1:",
+      "x": "Ako si upućen/a u Njemačku iz druge zemlje, može biti potrebna potvrda A1. Tada spremamo njezinu fotografiju. Ona pokazuje u kojoj si zemlji socijalno osiguran/a. Vidi je samo administracija."
+     },
+     {
+      "t": "Izjava o minimalnoj plaći:",
+      "x": "Svaki mjesec na mobitelu potpisuješ kratku osobnu izjavu o minimalnoj plaći. Sprema se: tvoje ime, tvoja firma, datum i vrijeme, verzija teksta i tvoj potpis (kao slika i kao PDF). Vidi je samo administracija firme K. Baumann, ne tvoja firma. Čuvamo je jednako dugo kao tvoju evidenciju sati (privremeno 10 godina). Ako potpis nedostaje, podsjetit ćemo te najviše jednom. Administracija i osobe koje planiraju raspored tada vide da potpis još nedostaje. Ako ne možeš ili ne želiš potpisati, razgovaraj s poslovođom ili s administracijom."
+     },
+     {
+      "x": "Za lokaciju vrijedi odjeljak 3. Tvoje podatke čuvamo privremeno 10 godina [potvrdit će se prije početka]. Prava iz odjeljka 7 vrijede i za tebe. Važno: možeš uložiti prigovor na obradu svojih podataka. Obrati se za to na [kontakt]."
+     }
+    ]
+   }
+  ]
+ }
+}

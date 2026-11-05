@@ -68,7 +68,7 @@ const routen: [string, ReactNode, Rolle[]?][] = [
   ['/p/mehr', <PMehr />, P],
 
   ['/b/heute', <BHeute />, B], ['/b/freigabe', <BFreigabe />, B], ['/b/tag/:id', <BTag />, B], ['/b/tag/:id/zurueck', <BZurueck />, B],
-  ['/b/gegenzeichnen', <BGegenzeichnen />, B], ['/b/urlaub', <BUrlaub />, B], ['/b/antrag/:id', <BAntrag />, B],
+  ['/b/gegenzeichnen', <BGegenzeichnen />, B], ['/b/vorschlag', <PVorschlag />, B], ['/b/urlaub', <BUrlaub />, B], ['/b/antrag/:id', <BAntrag />, B],
   ['/b/meine-zeit', <BMeineZeit />, B], ['/b/baustellen', <BBaustellen />, B], ['/b/baustelle/:id', <BBaustelle />, B],
   ['/b/kosten/:id', <PKosten />, B], ['/b/nachtrag/:id', <BNachtrag />, B], ['/b/mehr', <BMehr />, B],
 ];

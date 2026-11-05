@@ -1,9 +1,10 @@
-import { useEffect, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useDaten } from '../domain/store';
 import { tageBeiBauleitung, tageBeimPolier } from '../domain/sel';
 import type { Rolle } from '../domain/types';
 import { Logo } from './Logo';
+import { SPRACHEN, nurDeutsch, sprache, spracheAbgleichen, spracheWaehlen, tx, type Sprache } from '../i18n';
 import { IBalken, IDokument, IFrage, IHaken, IHaus, IKalender, ILeute, IMenue, ISonne, IUhr, IWelt, IZurueck } from './Icons';
 
 export type MenuePunkt =
@@ -54,16 +55,39 @@ export function mehrVon(rolle: Rolle) {
 }
 
 export function Kopf() {
-  const { ich } = useDaten();
+  const { ich, a } = useDaten();
+  const [offen, setOffen] = useState(false);
+  // Gespeicherte Sprache der Person gilt auch auf diesem Gerät
+  useEffect(() => { spracheAbgleichen(ich?.sprache); }, [ich?.sprache]);
+  const aktuell = SPRACHEN.find((x) => x.code === sprache)!;
+  const waehlen = (s: Sprache) => {
+    if (ich) a.spracheSetzen(ich.id, s);
+    spracheWaehlen(s);
+  };
   return (
     <header className="kopf">
-      <Link to={ich ? startVon(ich.rolle) : '/'} aria-label="Startseite" style={{ color: '#fff' }}><Logo /></Link>
+      <Link to={ich ? startVon(ich.rolle) : '/'} aria-label={tx('Startseite')} style={{ color: '#fff' }}><Logo /></Link>
       <div className="kopf-rechts">
-        <button type="button" className="kopf-knopf" aria-label="Sprache: Deutsch (weitere Sprachen folgen)" title="Weitere Sprachen folgen">
-          <IWelt size={20} />DE
-        </button>
-        <Link className="kopf-knopf" to="/hilfe" aria-label="Hilfe"><IFrage size={22} /></Link>
+        {!nurDeutsch() && <button type="button" className="kopf-knopf" aria-label={`${tx('Sprache wählen')}: ${aktuell.name}`} aria-expanded={offen} onClick={() => setOffen(!offen)}>
+          <IWelt size={20} />{sprache.toUpperCase()}
+        </button>}
+        <Link className="kopf-knopf" to="/hilfe" aria-label={tx('Hilfe')}><IFrage size={22} /></Link>
       </div>
+      {offen && !nurDeutsch() && (
+        <div className="sprach-wahl" role="dialog" aria-label={tx('Sprache wählen')}>
+          <span className="fett">{tx('Sprache wählen')}</span>
+          <ul>
+            {SPRACHEN.map((x) => (
+              <li key={x.code}>
+                <button type="button" lang={x.code} aria-pressed={x.code === sprache} onClick={() => (x.code === sprache ? setOffen(false) : waehlen(x.code))}>
+                  <span className="code">{x.code.toUpperCase()}</span>{x.name}{x.code === sprache ? ' ✓' : ''}
+                </button>
+              </li>
+            ))}
+          </ul>
+          <span className="klein">{tx('Maßgeblich ist die deutsche Fassung. Die Seiten für Polier, Bauleitung und Büro bleiben deutsch.')}</span>
+        </div>
+      )}
     </header>
   );
 }
@@ -78,14 +102,14 @@ function Menue({ aktiv }: { aktiv?: MenuePunkt }) {
   const liste = punkte(ich.rolle, offenP, offenB);
   if (ziel && !liste.some((p) => p.key === ziel)) ziel = ziel === 'stempeln' ? 'heute' : 'mehr';
   return (
-    <nav className="menue" aria-label="Hauptmenü">
+    <nav className="menue" aria-label={tx("Hauptmenü")}>
       {liste.map((p) => (
         <NavLink key={p.key} to={p.to} className={p.key === ziel ? 'aktiv' : ''} aria-current={p.key === ziel ? 'page' : undefined}>
           <span className="icon">
             {p.icon}
-            {p.badge ? <span className="badge" aria-label={`${p.badge} offen`}>{p.badge}</span> : null}
+            {p.badge ? <span className="badge" aria-label={tx('{0} offen', p.badge)}>{p.badge}</span> : null}
           </span>
-          <span>{p.text}</span>
+          <span>{tx(p.text)}</span>
         </NavLink>
       ))}
     </nav>

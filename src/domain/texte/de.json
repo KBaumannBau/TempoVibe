@@ -30,7 +30,7 @@
   },
   {
    "q": "Was ist das Arbeitszeitkonto? Wie nehme ich frei?",
-   "a": "Auf dem Arbeitszeitkonto sammeln sich deine Stunden: Arbeitest du mehr als dein Soll, kommen Stunden dazu, arbeitest du weniger, gehen Stunden ab. Deinen Stand siehst du unter „Konto“; zum Frei nehmen tippe dort auf „Frei nehmen vom Konto“ und stelle den Antrag. Im Sommer (Apr–Nov) geht Frei vom Konto erst ab 100\\u00A0h; im Winter (Dez–Mär) geht es, solange 50\\u00A0h auf dem Konto bleiben. Stunden über 150\\u00A0h werden ausbezahlt."
+   "a": "Auf dem Arbeitszeitkonto sammeln sich deine Stunden: Arbeitest du mehr als dein Soll, kommen Stunden dazu, arbeitest du weniger, gehen Stunden ab. Deinen Stand siehst du unter „Konto“; zum Frei nehmen tippe dort auf „Frei nehmen vom Konto“ und stelle den Antrag. Im Sommer (Apr–Nov) geht Frei vom Konto erst ab 100 h; im Winter (Dez–Mär) geht es, solange 50 h auf dem Konto bleiben. Stunden über 150 h werden ausbezahlt."
   },
   {
    "q": "Ich habe meine PIN vergessen. Oder ich habe ein neues Handy.",
@@ -123,7 +123,7 @@
     "Mehr Stunden als deine Arbeitszeit auf der Baustelle? Dann warnt dich die App. Bitte prüfen.",
     "Tippe unten auf den blauen Knopf. Die Zuschläge stehen dann in deinem Tag.",
     "Brauchst du doch keinen Zuschlag? Tippe auf „Ohne Zuschlag zurück“.",
-    "Nachtstunden ermittelt die App. Überstunden, Sonntag und Feiertag rechnet die Lohnabrechnung (Lohnbuchhaltung)."
+    "Nachtstunden ermittelt die App. Überstunden, Sonntag und Feiertag rechnet die Lohnabrechnung."
    ],
    "k": "erschwernis maske staub schmutz hammer zulage schutzanzug hitze"
   },

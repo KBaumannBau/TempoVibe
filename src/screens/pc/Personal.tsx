@@ -291,7 +291,7 @@ export function PcMehrstunden() {
 
 const ART: Record<string, string> = { krank: 'Krank', urlaub: 'Urlaub', konto: 'Frei vom Konto', arbeitsbefreiung: 'Arbeitsbefreiung', betriebsurlaub: 'Betriebsurlaub' };
 const STATUS: Record<Antrag['status'], { t: string; f?: 'gruen' | 'orange' | 'rot' | 'blau' }> = {
-  offen: { t: 'liegt beim Bauleiter', f: 'orange' }, bauleitung_ok: { t: 'Bauleiter ok · liegt bei der GL', f: 'orange' }, genehmigt: { t: 'genehmigt', f: 'gruen' }, abgelehnt: { t: 'abgelehnt', f: 'rot' }, gemeldet: { t: 'gemeldet', f: 'blau' },
+  offen: { t: 'liegt bei der Oberbauleitung', f: 'orange' }, bauleitung_ok: { t: 'Oberbauleitung ok · liegt bei der GL', f: 'orange' }, genehmigt: { t: 'genehmigt', f: 'gruen' }, abgelehnt: { t: 'abgelehnt', f: 'rot' }, gemeldet: { t: 'gemeldet', f: 'blau' },
 };
 
 export function PcAbwesenheiten() {
@@ -315,7 +315,7 @@ export function PcAbwesenheiten() {
     { bez: 'Heute abwesend', wert: heuteWeg.length, sub: heuteWeg.map((x) => person(d, x.personId).nachname).join(', ') || 'niemand' },
     { bez: 'Krank gemeldet', wert: d.antraege.filter((x) => x.art === 'krank' && x.bis >= d.heute).length, sub: 'laufend oder angekündigt' },
     { bez: 'Nachweis fehlt', wert: d.antraege.filter((x) => x.nachweis === 'fehlt').length, sub: 'Krankschreibung oder Bescheinigung' },
-    { bez: 'Anträge offen', wert: d.antraege.filter((x) => x.status === 'offen' || x.status === 'bauleitung_ok').length, sub: 'bei Bauleiter oder GL' },
+    { bez: 'Anträge offen', wert: d.antraege.filter((x) => x.status === 'offen' || x.status === 'bauleitung_ok').length, sub: 'bei Oberbauleitung oder GL' },
   ];
   return (
     <PcSeite titel={`Abwesenheiten`} pfad="Krankmeldungen, Urlaub, Arbeitsbefreiungen und Nachweise" rechts={<div className="pk-reihe"><Link className="pk" to="/pc/betriebsurlaub">Betriebsurlaub festlegen ›</Link><Pk farbe="blau" onClick={() => setHand(true)}>+ Abwesenheit von Hand eintragen</Pk></div>}>

@@ -1,0 +1,573 @@
+{
+ "faq": [
+  {
+   "q": "J'ai oublié de pointer. Que faire ?",
+   "a": "Tu ne peux pas modifier l'heure toi-même. Ouvre « Vérifier et envoyer la journée » et, sous « Oublié d'appuyer ? », appuie sur l'un des trois boutons : « Le début était à … », « La fin était à … » ou « La pause était de … à … ». Choisis l'heure, par exemple « La fin était à 16:00 ». Ton chef de chantier (Polier) reçoit une proposition toute prête et peut l'accepter. L'application te le rappelle aussi : « Fin du travail encore ouverte » (2 heures après la fin habituelle du travail, au plus tard à 20:00) et « Journée pas encore envoyée » (le lendemain matin à 06:30)."
+  },
+  {
+   "q": "Mon chantier est introuvable. Ou la position ne correspond pas.",
+   "a": "Appuie sur « Choisir un autre chantier », trouve le bon chantier et choisis une raison. Si l'application affiche « Tu n'es pas sur le chantier », choisis une courte justification et enregistre. Ton temps est toujours enregistré, et ton chef de chantier voit seulement une information."
+  },
+  {
+   "q": "L'entreprise voit-elle où je suis ?",
+   "a": "L'application ne te suit pas. Elle vérifie ta position seulement au moment où tu appuies, par exemple au début et à la fin du travail. Elle n'enregistre ni trajet ni coordonnées. Sont enregistrés : si la position correspond au chantier, la distance approximative et ta justification. Ton chef de chantier, le conducteur de travaux (Bauleiter) et le bureau le voient."
+  },
+  {
+   "q": "Je n'ai pas de réseau. Ou la localisation ne marche pas.",
+   "a": "Pas de réseau (pas d'internet) : tu peux toujours pointer. C'est l'heure à laquelle tu appuies qui compte. L'application envoie dès que le réseau revient. La localisation ne marche pas (par exemple en sous-sol) : l'application te le dit, et ton horaire est quand même enregistré. Si le téléphone ne marche pas du tout, préviens ton chef de chantier. Indique ensuite les bons horaires dans ta journée, sous « Oublié d'appuyer ? »."
+  },
+  {
+   "q": "Le chef de chantier a modifié ma journée. Que faire ?",
+   "a": "Tu reçois un message et tu vois ce qui était écrit avant et ce qui est écrit maintenant, avec la justification. Si tu n'es pas d'accord, appuie dès que possible sur « Contester » et écris ce qui ne va pas. Ensuite, le conducteur de travaux (Bauleiter) décide. Si tu ne réponds pas, tu reçois un rappel, après quoi la correction s'applique."
+  },
+  {
+   "q": "Comment déclarer une maladie ? Qui le voit ?",
+   "a": "Appuie sur « Maladie » dans le menu en bas, choisis « Moi-même » ou « Mon enfant », indique à partir de quand et jusqu'à quand, et appuie sur « Envoyer la déclaration de maladie » (sans diagnostic). Déclare toujours ta maladie tout de suite. Le chef de chantier et le conducteur de travaux (Bauleiter) apprennent que tu es déclaré malade et jusqu'à quand, mais pas pourquoi. Les collègues voient seulement « absent ». Seul le bureau voit l'attestation. Si tu es malade plus de 3 jours calendaires, il te faut un arrêt de travail du médecin au plus tard le jour ouvré suivant. Si ton enfant est malade, il te faut une attestation du médecin dès le 1er jour. Ces jours ne sont en général pas payés ; la caisse d'assurance maladie (Krankenkasse) verse l'indemnité pour enfant malade (Kinderkrankengeld). Pour les apprentis (Auszubildende) et dans des cas particuliers, d'autres règles s'appliquent – demande au bureau."
+  },
+  {
+   "q": "Comment demander des congés ? Combien de congés me reste-t-il ?",
+   "a": "Appuie sur « Congés » dans le menu en bas. En haut, tu vois tes congés : reliquat de l'an dernier, droit, jours pris et combien de jours restent. Saisis « Du » et « Au » et appuie sur « Envoyer la demande ». Le conducteur de travaux vérifie d'abord, puis la direction, et tu reçois un message."
+  },
+  {
+   "q": "Qu'est-ce que le compte d'heures (Arbeitszeitkonto) ? Comment prendre du temps libre ?",
+   "a": "Tes heures s'accumulent sur le compte d'heures : si tu travailles plus que prévu, des heures s'ajoutent ; si tu travailles moins, des heures sont retirées. Tu vois ton solde sous « Compte » ; pour prendre du temps libre, appuie là sur « Prendre du temps libre sur le compte » et fais la demande. En été (avr.–nov.), c'est possible seulement à partir de 100 h ; en hiver (déc.–mars), tant qu'il reste 50 h sur le compte. Les heures au-delà de 150 h sont payées."
+  },
+  {
+   "q": "J'ai oublié mon PIN. Ou j'ai un nouveau téléphone.",
+   "a": "PIN oublié : à l'ouverture, appuie sur « PIN oublié ». Tu reçois un nouveau code par e-mail et tu choisis un nouveau PIN. Le code est valable 15 minutes et ne peut être utilisé qu'une seule fois. Si tu n'as pas d'adresse e-mail à toi, l'e-mail est envoyé à ton chef de chantier ou au salarié auquel tu es affecté(e) ; il te transmet le code en personne. Nouveau téléphone ou téléphone perdu : appelle le bureau. Le bureau bloque l'ancien accès et t'envoie une nouvelle invitation par e-mail."
+  },
+  {
+   "q": "Comment changer la langue ? Où trouver de l'aide ?",
+   "a": "Appuie en haut à droite sur le globe avec l'abréviation, par exemple FR, et choisis ta langue dans la liste. L'application mémorise la langue sur ce téléphone. Tu trouves l'aide avec les modes d'emploi et la recherche en haut à droite, sous le point d'interrogation."
+  }
+ ],
+ "hilfe": [
+  {
+   "id": "anm",
+   "t": "Connexion, PIN, nouveau téléphone",
+   "p": [
+    "Tu reçois une invitation par e-mail. Touche le lien. Il est valable 7 jours. Pas d'adresse e-mail à toi ? L'invitation est alors envoyée à ton chef de chantier (Polier) ou au salarié auquel tu es affecté(e). Il te la montre sur son téléphone. Scanne le code QR avec ton téléphone. Le bureau peut aussi imprimer l'invitation. Tu n'as pas besoin d'un numéro de téléphone.",
+    "Saisis ton adresse e-mail. Tu reçois un code (6 chiffres) par e-mail. Il est valable 15 minutes et ne peut être utilisé qu'une seule fois ; après 5 saisies incorrectes, il t'en faut un nouveau. Choisis ensuite un PIN à 4 chiffres. Évite un PIN simple comme 1234 ou 0000. Pas d'adresse e-mail à toi ? Coche « Je n'ai pas d'adresse e-mail à moi ». L'e-mail est alors envoyé à ton chef de chantier (Polier) ou au salarié auquel tu es affecté(e). Il te transmet le code en personne.",
+    "À la place du PIN, tu peux utiliser l'empreinte digitale ou la reconnaissance faciale. Cela reste sur ton téléphone.",
+    "Lis les informations sur la protection des données et sur la pièce d'identité. Coche la case pour chacune. Puis autorise la position avec « Lorsque l'app est active ».",
+    "Mets l'application sur ton écran d'accueil. C'est la seule façon pour elle de t'envoyer des notifications. Si ton téléphone te le demande, choisis « Autoriser ».",
+    "L'application se verrouille après 5 minutes sans utilisation. PIN oublié ? Appuie sur « PIN oublié ». Tu reçois un nouveau code par e-mail et tu choisis un nouveau PIN.",
+    "Nouveau téléphone ou téléphone perdu ? Appelle le bureau. Le bureau bloque l'ancien accès et envoie une nouvelle invitation par e-mail."
+   ],
+   "k": "connexion mot de passe code qr e-mail mail chef de chantier empreinte verrouillé perdu invitation inscription"
+  },
+  {
+   "id": "zeit",
+   "t": "Enregistrer le temps de travail",
+   "p": [
+    "Ouvre « Ce jour ». L'application te propose ton chantier.",
+    "Appuie sur « Commencer le travail » quand tu commences.",
+    "Appuie sur « Pause » dès que ta pause commence. Appuie déjà en quittant le chantier, pas seulement à l'endroit de la pause.",
+    "Appuie sur « Reprendre le travail » quand la pause est finie.",
+    "Tu vas sur un autre chantier ? Appuie sur « Changer de chantier » au départ. Le trajet compte déjà pour le nouveau chantier.",
+    "Appuie sur « Fin du travail » quand tu arrêtes.",
+    "Pas de réseau ? Tu peux toujours pointer. C'est l'heure à laquelle tu appuies qui compte. L'application envoie dès que le réseau revient.",
+    "Tu travailles après minuit (poste de nuit) ? Tout le poste compte pour le jour où il a commencé. C'est aussi valable le dernier jour du mois."
+   ],
+   "k": "début fin pause changement chantier journée heures pointage pas de réseau hors ligne poste de nuit minuit"
+  },
+  {
+   "id": "baust",
+   "t": "Choisir le chantier · Mon affectation",
+   "p": [
+    "L'application te propose ton chantier. Elle se base sur ta position ou sur ton affectation.",
+    "Le chantier n'est pas le bon ? Appuie sur « Choisir un autre chantier ».",
+    "Cherche par centre de coût (Kostenstelle), rue ou ville. Touche le bon chantier.",
+    "Choisis une raison et appuie sur « Appliquer ». La raison est obligatoire.",
+    "Ton chef de chantier (Polier) voit lors de la validation que le chantier a été choisi à la main. Ton temps est toujours enregistré.",
+    "Sous « Mon affectation », tu vois où tu es affecté cette semaine. Appuie sur « Afficher toute la semaine » pour voir tous les jours.",
+    "Si ton affectation a changé, une information s'affiche. Appuie sur « J'ai lu »."
+   ],
+   "k": "chantier chercher centre de coût à la main mauvais chantier affectation semaine planification"
+  },
+  {
+   "id": "ort",
+   "t": "La position ne correspond pas",
+   "p": [
+    "L'application vérifie ta position seulement au moment où tu appuies : au début, à la pause, à la reprise, au changement de chantier et à la fin du travail.",
+    "L'application affiche « Tu n'es pas sur le chantier » ? Choisis une courte justification. C'est obligatoire. Tu peux ajouter une note.",
+    "Appuie ensuite sur le bouton d'enregistrement. Ton temps est enregistré.",
+    "Mauvais chantier sélectionné ? Sur « Ce jour », choisis le bon chantier.",
+    "Ton temps est toujours enregistré. Ton chef de chantier voit l'information « ne correspond pas », la distance approximative et ta justification.",
+    "La localisation ne marche pas (par exemple en sous-sol) ? L'application te le dit. Ton horaire est quand même enregistré. Pas de réseau ? Tu peux toujours pointer. C'est l'heure à laquelle tu appuies qui compte. L'application envoie dès que le réseau revient."
+   ],
+   "k": "position gps distance pas de réseau pas sur le chantier justification hors ligne"
+  },
+  {
+   "id": "tag",
+   "t": "Vérifier et envoyer la journée",
+   "p": [
+    "Après la fin du travail, tu appuies sur « Vérifier et envoyer la journée ».",
+    "Vérifie les chantiers, les horaires et les pauses. L'application te signale un trou ou une pause trop courte.",
+    "Tu as oublié d'appuyer ou un horaire n'est pas bon ? Sous « Oublié d'appuyer ? », appuie sur l'un des trois boutons : « Le début était à … », « La fin était à … » ou « La pause était de … à … ». Choisis l'heure. Ton chef de chantier reçoit une proposition toute prête et peut l'accepter. Seul ton chef de chantier ou la conduite de travaux peut modifier l'horaire.",
+    "Coche la case si tu as dormi sur place ou conduit le minibus de l'équipe.",
+    "Appuie en bas sur « Envoyer aux chefs de chantier ».",
+    "En envoyant, tu confirmes que le début, la fin et les pauses sont corrects.",
+    "Chaque chef de chantier valide son chantier. Ensuite, le conducteur de travaux (Bauleiter) valide. D'ici là, ton compte est provisoire.",
+    "L'application t'envoie deux rappels : « Fin du travail encore ouverte » arrive 2 heures après la fin habituelle du travail, au plus tard à 20:00, si tu n'as pas appuyé sur la fin du travail. « Journée pas encore envoyée » arrive le lendemain matin à 06:30 si tu n'as pas encore envoyé ta journée."
+   ],
+   "k": "envoyer commentaire horaire faux oublié trajet hébergement chauffeur validation oublié d'appuyer début fin pause proposition rappel"
+  },
+  {
+   "id": "zus",
+   "t": "Primes",
+   "p": [
+    "Ouvre ta journée et appuie sur « + Ajouter une prime ».",
+    "Touche ce qui s'est présenté aujourd'hui. Par exemple une protection respiratoire ou un marteau piqueur.",
+    "Choisis le chantier et indique les heures, p. ex. 2,5.",
+    "Plus d'heures que ton temps de travail sur le chantier ? L'application te prévient. Merci de vérifier.",
+    "Appuie sur le bouton bleu en bas. Les primes figurent alors dans ta journée.",
+    "Finalement, tu n'as pas besoin de prime ? Appuie sur « Retour sans prime ».",
+    "Les heures de nuit sont déterminées par l'appli. Les heures supplémentaires, le dimanche et les jours fériés sont calculés par la paie."
+   ],
+   "k": "prime masque poussière saleté marteau combinaison chaleur pénibilité"
+  },
+  {
+   "id": "korr",
+   "t": "Correction du chef de chantier",
+   "p": [
+    "Un horaire n'est pas bon ? Indique-le sous « Oublié d'appuyer ? » avant d'envoyer. Les chefs de chantier voient ta proposition lors de la validation et peuvent l'accepter.",
+    "Si le chef de chantier modifie ta saisie, tu reçois un message.",
+    "Tu vois ce qui était écrit avant et ce qui est écrit maintenant. Avec la justification.",
+    "Tu n'es pas d'accord ? Appuie sur « Contester » et écris ce qui ne va pas.",
+    "Ensuite, le conducteur de travaux décide. Tu seras prévenu.",
+    "Si tu ne réponds pas, tu reçois un rappel. Après cela, la correction s'applique. Conteste donc dès que possible si quelque chose ne va pas.",
+    "Si le chef de chantier envoie une question, réponds avant le jour indiqué."
+   ],
+   "k": "modifié contestation confirmer question renvoyé validation correction"
+  },
+  {
+   "id": "kal",
+   "t": "Calendrier",
+   "p": [
+    "Appuie sur « Calendrier » dans le menu en bas.",
+    "Les couleurs indiquent : jour férié, congés, fermeture de l'entreprise, libre selon la convention collective, maladie.",
+    "Touche un jour. En dessous, tu vois ce qui s'applique ce jour-là, par exemple tes heures prévues.",
+    "Appuie sur « Voir la journée ». Tu vois alors les horaires, les pauses et les primes.",
+    "Avec les flèches, tu changes de mois.",
+    "En bas, tu trouves les prochains jours fériés en Bavière.",
+    "Si un jour férié tombe un jour travaillé, tu touches le salaire du jour férié. Aucun jour de congé n'est déduit."
+   ],
+   "k": "jour férié mois jours libres aperçu prévu"
+  },
+  {
+   "id": "konto",
+   "t": "Compte d'heures (Arbeitszeitkonto)",
+   "p": [
+    "Appuie sur « Compte » dans le menu en bas.",
+    "En haut, tu vois ton solde après la dernière validation. Les jours suivants sont provisoires. En dessous, tu vois l'évolution.",
+    "Si tu travailles plus que tes heures prévues, des heures s'ajoutent. Si tu travailles moins, des heures sont retirées.",
+    "Prendre du temps libre sur le compte : appuie sur « Prendre du temps libre sur le compte ». C'est là que tu fais la demande.",
+    "Été (avr.–nov.) : temps libre sur le compte seulement à partir de 100 h.",
+    "Hiver (déc.–mars) : le temps libre sur le compte est possible tant qu'il reste 50 h dessus.",
+    "Les heures au-delà de 150 h sont payées."
+   ],
+   "k": "heures heures supplémentaires solde prévues paiement temps libre compte"
+  },
+  {
+   "id": "url",
+   "t": "Demander des congés et du temps libre sur le compte",
+   "p": [
+    "Appuie sur « Congés » dans le menu en bas.",
+    "En haut, tu vois tes congés : reliquat de l'an dernier, droit, jours pris et combien de jours restent.",
+    "Choisis « Jours de congé » ou « Sur le compte ».",
+    "Saisis « Du » et « Au ». Les week-ends et les jours fériés ne comptent pas comme jours de congé.",
+    "L'application montre ce qui reste ensuite. Si la demande n'est pas possible, elle te dit pourquoi.",
+    "Appuie sur « Envoyer la demande ».",
+    "Le conducteur de travaux vérifie d'abord, puis la direction. Tu recevras un message."
+   ],
+   "k": "vacances congés temps libre demande validation congés restants jours de congé compte"
+  },
+  {
+   "id": "bu",
+   "t": "Fermeture de l'entreprise",
+   "p": [
+    "Le bureau fixe la fermeture de l'entreprise. Les jours de congé sont déjà saisis.",
+    "Les jours fériés pendant la fermeture de l'entreprise ne coûtent pas de jour de congé.",
+    "Le 24.12. et le 31.12. sont chômés, mais sans salaire. Tu choisis : « Jour de congé » ou « Congé sans solde ».",
+    "Tes congés ne suffisent pas ? Alors tu peux accepter que des heures soient retirées du compte d'heures. Sans ton accord, rien n'est déduit.",
+    "L'hiver, au moins 50 h doivent rester sur le compte.",
+    "Choisis avant la date indiquée dans l'application. Puis appuie sur « Enregistrer le choix ». Si tu ne choisis rien, cela reste « Congé sans solde »."
+   ],
+   "k": "noël réveillon nouvel an fermeture entreprise accord"
+  },
+  {
+   "id": "krank",
+   "t": "Déclarer une maladie (aussi enfant malade)",
+   "p": [
+    "Appuie sur « Maladie » dans le menu en bas.",
+    "Choisis « Moi-même » ou « Mon enfant ». Indique à partir de quand et jusqu'à quand.",
+    "Jusqu'à 3 jours calendaires, un arrêt de travail n'est pas nécessaire. Si tu es malade plus de 3 jours calendaires, il te faut un arrêt de travail du médecin au plus tard le jour ouvré suivant. Déclare toujours ta maladie tout de suite. Dans certains cas, l'entreprise peut le demander plus tôt.",
+    "Tu as consulté un médecin ? Coche la case et saisis les données de l'arrêt de travail exactement comme le médecin les a notées.",
+    "Enfant malade : dès le 1er jour, il te faut une attestation du médecin. Ces jours ne sont en général pas payés ; la caisse d'assurance maladie (Krankenkasse) verse l'indemnité pour enfant malade (Kinderkrankengeld). Pour les apprentis (Auszubildende) et dans des cas particuliers, d'autres règles s'appliquent – demande au bureau.",
+    "Accident du travail ou de trajet ? Coche la case et appelle tout de suite ton chef de chantier ou ton conducteur de travaux. Va chez un médecin agréé pour les accidents du travail (Durchgangsarzt, D-Arzt) ou à l'hôpital.",
+    "N'écris pas de diagnostic. Appuie sur « Envoyer la déclaration de maladie ». Le chef de chantier et le conducteur de travaux (Bauleiter) apprennent que tu es déclaré malade et jusqu'à quand, mais pas pourquoi. Les collègues voient seulement « absent ».",
+    "Ta déclaration de maladie se termine bientôt ? L'application te demande : « Quand reviens-tu ? » Réponds avant le jour indiqué."
+   ],
+   "k": "maladie déclaration médecin arrêt de travail enfant accident accident du travail"
+  },
+  {
+   "id": "ab",
+   "t": "Demander un congé exceptionnel",
+   "p": [
+    "Appuie sur « Congés » dans le menu en bas, puis sur « Congé exceptionnel ».",
+    "Choisis le motif. Par exemple mariage, naissance, décès, déménagement, rendez-vous chez le médecin ou administration.",
+    "Indique les jours ou l'heure. Appuie sur « Envoyer la demande ».",
+    "Pour chaque motif, il n'y a qu'un nombre de jours défini. Si la période est trop longue, l'application te le dit. Pour les autres jours, demande des congés.",
+    "D'abord le conducteur de travaux vérifie, puis le bureau. Le conducteur de travaux voit seulement le motif et les jours. Seul le bureau voit le justificatif.",
+    "L'accord est d'abord valable sous réserve. Il devient définitif dès que le justificatif a été vérifié."
+   ],
+   "k": "congé exceptionnel mariage déménagement naissance décès administration tribunal médecin"
+  },
+  {
+   "id": "nach",
+   "t": "Envoyer le justificatif plus tard",
+   "p": [
+    "Tu peux aussi envoyer la demande sans justificatif. Photographie le justificatif tout de suite ou plus tard.",
+    "Délai : 14 jours après le motif, puis encore 7 jours de délai supplémentaire. L'application te le rappelle jusqu'à ce que le justificatif arrive.",
+    "Photographie le justificatif. Puis appuie sur « Envoyer le justificatif ».",
+    "Tu peux cacher les informations qui ne sont pas nécessaires pour le motif. Par exemple un diagnostic.",
+    "Si le justificatif manque ensuite, tu choisis : un jour de congé ou un congé sans solde. Pour des heures : sur le compte d'heures ou sans solde. Tu as 3 jours ouvrables pour cela (du lundi au samedi). Si tu ne choisis pas, nous enregistrons ce temps provisoirement comme non payé. Si tu fournis le justificatif plus tard, ce sera corrigé.",
+    "Prendre sur le compte n'est possible que tant que ton compte reste positif. Les limites de 100 h et 50 h ne s'appliquent pas ici."
+   ],
+   "k": "justificatif attestation document photo délai délai supplémentaire téléverser rappel"
+  },
+  {
+   "id": "push",
+   "t": "Notifications et rappels de pause",
+   "p": [
+    "L'application t'envoie de courts messages sur ton téléphone.",
+    "Par exemple : pause manquante, pause en cours, fin du travail encore ouverte, journée pas encore envoyée, le chef de chantier a corrigé, justificatif manquant, affectation modifiée.",
+    "Pour cela, mets l'application sur ton écran d'accueil. Si ton téléphone demande pour les notifications, choisis « Autoriser ».",
+    "Après 5:30 h de travail sans pause, l'application te le rappelle. Tu n'as pas le droit de travailler plus de 6 h d'affilée sans pause.",
+    "Au-delà de 6 h de travail, il te faut au moins 30 min de pause, au-delà de 9 h au moins 45 min. Seules comptent les pauses d'au moins 15 min d'affilée. Chaque pause est déduite du temps de travail.",
+    "Ta pause dure déjà depuis 60 minutes ? L'application te demande : « La pause est-elle toujours en cours ? » Appuie sur « Reprendre le travail » si tu travailles déjà de nouveau.",
+    "Certaines informations, tu les confirmes avec « Information lue et comprise ». Par exemple sur les congés restants.",
+    "Sur l'écran verrouillé, il n'y a qu'un texte court et neutre : rien sur la maladie, pas de noms de collègues, pas de soldes d'heures. Les détails, tu les vois seulement dans l'appli."
+   ],
+   "k": "push notification rappel message information écran d'accueil pause congés restants"
+  },
+  {
+   "id": "ohne",
+   "t": "Pas de smartphone",
+   "p": [
+    "L'utilisation de ton téléphone personnel est volontaire.",
+    "Sans smartphone, ton chef de chantier note tes heures et tes primes.",
+    "Tu vérifies tout. Ensuite, tu confirmes avec ton propre PIN sur le téléphone du chef de chantier.",
+    "Tu reçois le PIN de départ par courrier. La première fois, tu définis ton propre PIN.",
+    "Tu n'étais pas là ? Alors la prochaine fois, tu confirmes avec ton PIN ou tu signes la feuille hebdomadaire au bureau.",
+    "Tes congés et ta maladie, tu les signales au chef de chantier ou au bureau.",
+    "Tu reçois tes heures et tes comptes chaque mois sous forme d'imprimé."
+   ],
+   "k": "sans téléphone privé pas de téléphone pin courrier pin de départ"
+  },
+  {
+   "id": "helf",
+   "t": "Saisir la pièce d'identité d'une personne d'un sous-traitant",
+   "p": [
+    "Une nouvelle personne d'une autre entreprise (sous-traitant) sur le chantier ? Appuie sur « Saisir la pièce d'identité d'une personne d'un sous-traitant ».",
+    "Demande qu'on te montre la pièce d'identité en original.",
+    "Choisis la personne. Saisis « Type de pièce d'identité », « Valable jusqu'au » et « Nationalité ».",
+    "Coche la case pour dire que tu as vu la pièce d'identité en original. Appuie sur « Pièce d'identité vue – enregistrer ».",
+    "Ne prends pas la pièce d'identité en photo, pas même avec ton téléphone. Aucune copie et aucun numéro de pièce ne sont enregistrés.",
+    "Quelqu'un n'a pas sa pièce d'identité sur lui ? Ne saisis rien et préviens le chef de chantier ou le bureau."
+   ],
+   "k": "pièce d'identité manœuvre sous-traitant autre entreprise carte d'identité passeport titre de séjour"
+  },
+  {
+   "id": "ml",
+   "t": "Signer pour le salaire minimum (sous-traitants)",
+   "p": [
+    "Ce sujet concerne seulement les salariés des sous-traitants (autres entreprises). Ils utilisent leur propre appli.",
+    "Après la fin de chaque mois, tu signes ta déclaration personnelle sur le salaire minimum pour le mois écoulé. C'est possible à partir du 1er du mois suivant. Exemple : tu signes la déclaration d'août 2026 à partir du 01.09.2026. Tu y déclares que ton employeur te paie au moins le salaire minimum légal.",
+    "Dans ton appli, ouvre la partie « Salaire minimum » et lis le texte. Signe avec le doigt dans le champ. Appuie ensuite sur « Signer et envoyer ».",
+    "La déclaration va en PDF au bureau de K. Baumann Baugesellschaft, pas à ton entreprise.",
+    "Tu ne peux pas ou ne veux pas signer ? Adresse-toi à ton chef de chantier ou au bureau."
+   ],
+   "k": "salaire minimum signature signer sous-traitant autre entreprise déclaration paie"
+  },
+  {
+   "id": "spr",
+   "t": "Changer de langue",
+   "p": [
+    "Appuie en haut à droite sur le globe avec l'abréviation, par exemple FR.",
+    "Choisis ta langue dans la liste.",
+    "L'application mémorise la langue sur ce téléphone.",
+    "Les noms des chantiers et des personnes restent identiques."
+   ],
+   "k": "language język limba jezik dil nyelv lingua langue sprache übersetzung"
+  },
+  {
+   "id": "ds",
+   "t": "Protection des données",
+   "p": [
+    "Ta position n'est comparée qu'au moment où tu appuies. L'application n'enregistre ni trajet ni coordonnées.",
+    "Sont enregistrés : si la position correspond au chantier, la distance approximative et ta justification. Ton chef de chantier, le conducteur de travaux (Bauleiter) et le bureau le voient.",
+    "Si tu refuses la position, tu choisis le chantier à la main. Tu peux la désactiver à tout moment dans les réglages de ton téléphone.",
+    "En cas de maladie, l'application ne demande pas de diagnostic. Le chef de chantier et le conducteur de travaux (Bauleiter) apprennent que tu es déclaré malade et jusqu'à quand, mais pas pourquoi. Les collègues voient seulement « absent ». Seul le bureau voit les attestations et justificatifs.",
+    "L'utilisation de ton téléphone personnel est volontaire. L'application ne lit ni les contacts ni les photos.",
+    "Les données se trouvent sur un serveur propre à l'entreprise. En l'état actuel, les temps de travail sont conservés 8 ans (encore en cours de vérification).",
+    "Tu peux demander des informations sur tes données. Tout le reste figure dans les informations sur la protection des données."
+   ],
+   "k": "données position surveillance gps enregistrement droits protection des données informations"
+  },
+  {
+   "id": "hilfe",
+   "t": "Aide et questions",
+   "p": [
+    "Appuie en haut à droite sur le point d'interrogation. Tu y trouves cette aide.",
+    "Saisis un mot dans la recherche en haut, par exemple pause ou PIN. Tu ne vois alors que les sujets correspondants.",
+    "Tu trouves des réponses rapides dans les questions fréquentes.",
+    "Tu peux revoir l'introduction à tout moment.",
+    "Tu es bloqué ? Demande à ton chef de chantier ou appelle le bureau."
+   ],
+   "k": "faq questions introduction mode d'emploi aide assistance téléphone"
+  }
+ ],
+ "datenschutz": {
+  "entwurf": "Version provisoire · version 0.1 · pas encore validée juridiquement",
+  "intro": "Voici comment nous traitons tes données dans la saisie des heures. Les crochets sont complétés avant le lancement. Touche un titre pour ouvrir la section.",
+  "abschnitte": [
+   {
+    "t": "1. Qui est responsable ?",
+    "p": [
+     {
+      "x": "K. Baumann Baugesellschaft mbH, [adresse], [téléphone], [e-mail]."
+     },
+     {
+      "x": "Interlocuteur pour la protection des données : [nom, coordonnées]."
+     }
+    ]
+   },
+   {
+    "t": "2. Quelles données, pourquoi, et sur quelle base ?",
+    "p": [
+     {
+      "t": "Début, fin, pauses, chantier, primes :",
+      "x": "pour la paie et l'enregistrement légal du temps de travail. Base : contrat de travail et obligation légale. Si tu n'as pas de téléphone, ton chef de chantier (Polier) saisit ces données pour toi."
+     },
+     {
+      "t": "Position au moment de toucher :",
+      "x": "est seulement comparée au chantier pour que les heures soient bien comptées. Nous n'enregistrons pas la position exacte ; seul le résultat est enregistré (voir section 3). Base : contrat de travail et intérêt légitime à une paie correcte."
+     },
+     {
+      "t": "Congés, dispenses de travail, comptes d'heures (Arbeitszeitkonto) :",
+      "x": "pour gérer tes droits. Base : contrat de travail et convention collective."
+     },
+     {
+      "t": "Déclaration de maladie et attestation, y compris « enfant malade » et accident du travail :",
+      "x": "pour le maintien du salaire et la planification. Nous ne demandons aucun diagnostic. Pour « enfant malade », nous utilisons seulement le mois et l'année de naissance de l'enfant, sans prénom. Ce sont des données de santé ; base : droit du travail et droit social."
+     },
+     {
+      "t": "Justificatifs de congé exceptionnel",
+      "x": "(p. ex. acte de mariage, attestation de domicile, attestation du cabinet médical) et tes remarques : pour vérifier le droit. Base : contrat de travail et convention collective."
+     },
+     {
+      "t": "Adresse e-mail, appareil, moments de connexion :",
+      "x": "pour l'invitation par e-mail et un accès sécurisé à l'application. Nous enregistrons aussi si tu utilises un téléphone personnel ou professionnel et quand tu t'es connecté(e) pour la dernière fois. Nous t'envoyons l'invitation et le code de connexion par e-mail. Si tu n'as pas d'adresse e-mail à toi, les deux sont envoyés à ton chef de chantier ou au salarié auquel tu es affecté(e) ; il te montre l'invitation et te transmet le code en personne. Nous n'avons pas besoin de ton numéro de téléphone pour cela ; ce n'est qu'une coordonnée facultative. Base : contrat de travail et intérêt légitime à un fonctionnement sûr. Nous ne stockons ton PIN que sous forme chiffrée. L'empreinte digitale ou la reconnaissance faciale restent sur ton téléphone ; nous ne les recevons pas."
+     },
+     {
+      "t": "Affectation aux chantiers :",
+      "x": "pour l'organisation du travail. Base : contrat de travail."
+     },
+     {
+      "t": "Journal de qui a modifié quoi et quand :",
+      "x": "comme preuve lors des contrôles. Base : obligation légale."
+     },
+     {
+      "t": "Informations pour les congés et absences autorisées :",
+      "x": "par exemple handicap grave (Schwerbehinderung), âge de moins de 18 ans ou parent isolé. Nous les utilisons seulement pour calculer correctement tes droits. Seul le bureau (service du personnel) les voit. Base : contrat de travail, convention collective et loi ; le handicap est particulièrement protégé (comme les données de santé)."
+     },
+     {
+      "t": "Remarques, justifications et messages :",
+      "x": "les textes que tu écris toi-même dans l'application. Ton chef de chantier, le conducteur de travaux et le bureau les lisent. Merci de ne rien y écrire sur une maladie ou ta vie privée. Base : contrat de travail."
+     },
+     {
+      "t": "Analyses :",
+      "x": "à partir des heures, nous calculons aussi les coûts et la comparaison prévu/réalisé par chantier. Base : intérêt légitime [à vérifier avant le lancement]."
+     },
+     {
+      "x": "Les dispositions : art. 6, par. 1, let. b, c et f RGPD (DSGVO), § 26 BDSG ; pour les données de santé art. 9, par. 2, let. b RGPD (DSGVO) et § 26, par. 3 BDSG. Obligation d'enregistrement : [dispositions, p. ex. § 16 ArbZG, § 17 MiLoG, § 19 AEntG]. Les données de base comme le nom, le numéro de personnel, le numéro de téléphone (coordonnée facultative), le groupe, la fonction et le temps de travail proviennent de ton dossier du personnel."
+     }
+    ]
+   },
+   {
+    "t": "3. Position",
+    "p": [
+     {
+      "x": "L'application relève ta position uniquement au moment où tu touches Début, Pause, Changement ou Fin. Entre-temps, rien n'est localisé."
+     },
+     {
+      "x": "L'application compare la position avec l'adresse du chantier. La position exacte (coordonnées) n'est pas enregistrée et aucun profil de déplacement n'est créé. Sont enregistrés : le moment, le résultat « correspond » ou « ne correspond pas », la distance approximative jusqu'au chantier et, en cas d'écart, ta justification et ta note. Ton chef de chantier, le conducteur de travaux et le bureau voient cela."
+     },
+     {
+      "x": "Les employés de bureau ne sont pas du tout géolocalisés."
+     },
+     {
+      "x": "Si tu refuses l'accès à la position, tu choisis le chantier à la main, et ton chef de chantier voit la mention « position manquante ». Tu peux désactiver cet accès à tout moment dans les réglages de ton téléphone."
+     }
+    ]
+   },
+   {
+    "t": "4. Téléphone personnel",
+    "p": [
+     {
+      "x": "L'utilisation de ton téléphone personnel est volontaire. L'application utilise l'appareil photo seulement quand tu prends une photo pour un justificatif. Elle ne lit ni les contacts ni les autres photos."
+     },
+     {
+      "x": "Si tu ne veux pas utiliser ton téléphone, ton chef de chantier saisit les heures et tu les confirmes avec ton PIN sur le téléphone du chef de chantier."
+     },
+     {
+      "x": "Pour cela, tu reçois un PIN de départ par courrier. À la première confirmation, tu définis ton propre PIN ; le PIN de départ n'est alors plus valable."
+     },
+     {
+      "x": "Sur ton téléphone, l'application enregistre seulement ce dont elle a besoin pour fonctionner : ta langue, ta connexion et les heures pas encore envoyées (par exemple sans réseau). Pas de publicité, pas d'analyse."
+     }
+    ]
+   },
+   {
+    "t": "5. Qui reçoit les données ?",
+    "p": [
+     {
+      "x": "Chef de chantier et conducteur de travaux (Bauleiter) de ton chantier : tes heures, le résultat de la position (section 3) et tes remarques"
+     },
+     {
+      "x": "Conducteur de travaux : en plus, tes demandes de congés et de congé exceptionnel. Pour le congé exceptionnel, il voit seulement le motif et les jours, pas le justificatif."
+     },
+     {
+      "x": "En cas de maladie, ton chef de chantier, le conducteur de travaux et les personnes qui planifient l'affectation apprennent que tu es déclaré(e) malade et jusqu'à quand. Personne n'apprend la raison (le diagnostic). Seul le bureau (service du personnel) voit l'attestation. Les collègues voient seulement « absent »."
+     },
+     {
+      "x": "Les personnes qui planifient l'affectation (planification) : si tu es malade, en congé ou à l'école professionnelle"
+     },
+     {
+      "x": "Bureau (service du personnel) : toutes les données. Seul le bureau voit les attestations, les actes et les justificatifs."
+     },
+     {
+      "x": "Direction : demandes de congés, heures, comptes de temps et analyses ; pas d'attestations ni de justificatifs [étendue fixée avant le lancement]"
+     },
+     {
+      "x": "Service de paie [entreprise exacte] : paie"
+     },
+     {
+      "x": "Prestataire informatique [entreprise] : exploitation du serveur"
+     },
+     {
+      "x": "Service d'e-mail [entreprise] : invitation avec lien et codes de connexion (sans adresse e-mail à toi, les deux vont à ton chef de chantier ou au salarié auquel tu es affecté(e))"
+     },
+     {
+      "x": "Les notifications passent techniquement par le service de ton téléphone (Apple ou Google), y compris par des serveurs aux États-Unis. Elles ne doivent contenir que de brèves indications neutres, aucune donnée de santé. [à vérifier avant le lancement : contenu et base du transfert vers les États-Unis]"
+     },
+     {
+      "x": "Autorités, lorsque la loi nous y oblige : douane (Zoll), assurance retraite (Rentenversicherung), administration fiscale (Finanzamt), SOKA-BAU, caisse d'assurance maladie (Krankenkasse), Berufsgenossenschaft (assurance accidents, en cas d'accident du travail)"
+     },
+     {
+      "x": "Les données se trouvent sur un serveur propre à l'entreprise. Nous ne les transmettons pas à des pays hors de l'UE. Seule exception : les notifications via Apple ou Google (voir ci-dessus). [siège du service d'e-mail à vérifier avant le lancement]"
+     }
+    ]
+   },
+   {
+    "t": "6. Combien de temps conservons-nous les données ?",
+    "p": [
+     {
+      "x": "Provisoire : toutes les durées de cette section ne sont pas encore confirmées. Elles seront vérifiées et fixées avant le lancement."
+     },
+     {
+      "x": "Temps de travail et données de paie : 8 ans"
+     },
+     {
+      "x": "Position : la position exacte n'est pas enregistrée. Le résultat (correspond / ne correspond pas, distance, justification) est enregistré avec la journée : [durée]"
+     },
+     {
+      "x": "Arrêts maladie (attestation, photo) : 1 an, jusqu'à 3 ans en cas d'absences plus longues. Les jours de maladie eux-mêmes font partie des données de paie."
+     },
+     {
+      "x": "Demandes de congés : 3 ans après la fin de l'année de congés"
+     },
+     {
+      "x": "Justificatifs de congé exceptionnel : [durée]"
+     },
+     {
+      "x": "Données de connexion et journal des modifications : [durée]"
+     },
+     {
+      "x": "Documents, heures et déclarations sur le salaire minimum des sous-traitants : 10 ans"
+     },
+     {
+      "x": "Ensuite, les données sont supprimées."
+     }
+    ]
+   },
+   {
+    "t": "7. Tes droits",
+    "p": [
+     {
+      "x": "Tu peux demander des informations sur tes données, faire rectifier les données inexactes et demander leur suppression ou leur limitation, dans la mesure où aucune obligation de conservation n'existe. Tu peux aussi obtenir tes données dans un format de fichier courant."
+     },
+     {
+      "x": "Tu peux t'opposer au traitement lorsqu'il repose sur un intérêt légitime (par exemple pour la position)."
+     },
+     {
+      "x": "Comment exercer tes droits : adresse-toi à [contact] ou dis-le au bureau. Une phrase suffit, par exemple : « Je souhaite des informations sur mes données. » ou « Je m'oppose. » Nous répondons en général dans un délai d'un mois."
+     },
+     {
+      "x": "Tu ne subis aucun préjudice si tu utilises ces droits."
+     },
+     {
+      "x": "Tu peux aussi déposer une plainte auprès du Bayerisches Landesamt für Datenschutzaufsicht (autorité bavaroise de contrôle de la protection des données), Ansbach."
+     }
+    ]
+   },
+   {
+    "t": "8. Dois-tu fournir les données ?",
+    "p": [
+     {
+      "x": "L'enregistrement du temps de travail est exigé par la loi et nécessaire pour la paie. Sans lui, nous ne pouvons pas calculer correctement ton salaire."
+     },
+     {
+      "x": "Sont facultatifs : l'utilisation de ton téléphone personnel, l'empreinte digitale ou la reconnaissance faciale, et les remarques. Tu peux désactiver l'accès à la position ; la section 3 explique ce qui s'applique alors. [À vérifier avant le lancement : la localisation est-elle juridiquement facultative ?]"
+     }
+    ]
+   },
+   {
+    "t": "9. Décisions automatisées",
+    "p": [
+     {
+      "x": "Il n'y en a pas. L'application vérifie les heures et les pauses et donne des indications ; les décisions sont toujours prises par des personnes."
+     }
+    ]
+   },
+   {
+    "t": "Pour le personnel de sous-traitants",
+    "p": [
+     {
+      "x": "Ton employeur est ton entreprise. K. Baumann Baugesellschaft enregistre tes heures en tant que donneur d'ordre, pour vérifier les factures et prouver qui était sur le chantier. Ton entreprise n'a pas accès à l'application ; pour la facturation, elle reçoit tes heures. Avec l'application, tu envoies toi-même tes heures et le chef de chantier les valide. Sans l'application, le chef de chantier note tes heures et le conducteur de travaux les contresigne. Base : notre intérêt légitime et nos obligations légales en tant que donneur d'ordre (salaire minimum, travail dissimulé)."
+     },
+     {
+      "x": "Nous avons reçu ton nom, ton adresse e-mail (pour l'invitation et le code de connexion), ton numéro de téléphone s'il a été indiqué (coordonnée facultative), ton activité et le tarif horaire que ton entreprise facture pour ton travail [de ton entreprise]."
+     },
+     {
+      "t": "Pièce d'identité :",
+      "x": "Nous la regardons. Aucune copie et aucun numéro ne sont enregistrés. Seuls sont notés : le type de pièce, la date de validité, la nationalité, et qui l'a vue et quand. Nous notons la nationalité seulement pour que le bureau sache quels documents sont nécessaires."
+     },
+     {
+      "t": "Certificat A1 :",
+      "x": "Si tu es détaché(e) en Allemagne depuis un autre pays, un certificat A1 peut être nécessaire. Nous en enregistrons alors une photo. Il indique dans quel pays tu es affilié(e) à la sécurité sociale. Seul le bureau le voit."
+     },
+     {
+      "t": "Déclaration sur le salaire minimum :",
+      "x": "Chaque mois, tu signes sur ton téléphone une courte déclaration personnelle sur le salaire minimum. Sont enregistrés : ton nom, ton entreprise, la date et l'heure, la version du texte et ta signature (en image et en PDF). Seul le bureau de K. Baumann la voit, pas ton entreprise. Nous la conservons aussi longtemps que tes relevés d'heures (provisoirement 10 ans). Si la signature manque, nous te relançons au plus une fois. Le bureau et les personnes qui planifient l'affectation voient alors que la signature manque encore. Si tu ne peux pas ou ne veux pas signer, parle à ton chef de chantier ou au bureau."
+     },
+     {
+      "x": "Pour la position, la section 3 s'applique. Nous conservons tes données provisoirement 10 ans [à confirmer avant le lancement]. Tes droits de la section 7 valent aussi pour toi. Important : tu peux t'opposer au traitement de tes données. Adresse-toi pour cela à [contact]."
+     }
+    ]
+   }
+  ]
+ }
+}

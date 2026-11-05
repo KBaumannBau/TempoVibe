@@ -49,6 +49,8 @@ export interface Person {
   mindestlohn?: Record<string, 'unterschrieben' | 'offen' | 'erinnert'>;
   /** Einführung in der App gesehen */
   introGesehen?: boolean;
+  /** gewählte Sprache der App (Standard Deutsch) */
+  sprache?: 'de' | 'pl' | 'ro' | 'hr' | 'en' | 'fr' | 'it';
 }
 
 export interface Baustelle {
@@ -146,6 +148,8 @@ export interface Korrektur {
   antwortText?: string;
   /** Entscheidung der Bauleitung bei Widerspruch */
   entscheidung?: 'bleibt' | 'original';
+  /** keine Antwort bis zur Frist: Polier hat „ohne Rückmeldung“ entschieden */
+  ohneRueckmeldung?: string;
   /** betroffene Stempelungen: alt → neu */
   altId?: string;
   neuId?: string;
@@ -166,6 +170,13 @@ export interface Tag {
   bestaetigtMitPin?: boolean;
   polierFreigabeVon?: string;
   bauleitungFreigabeVon?: string;
+  /** Baustellenwechsel: jeder zuständige Polier bzw. Bauleiter gibt frei (Personen-IDs) */
+  polierOk?: string[];
+  bauleitungOk?: string[];
+  /** vom Polier nachgetragen (Handy verloren): der Mitarbeiter muss bestätigen */
+  nachgetragenVon?: string;
+  /** nach Übernahme oder Export geändert: Lohnbuchhaltung muss nacharbeiten */
+  geaendertNachUebernahme?: { am: string; was: string };
   /** nur Bauleitung/Angestellte: an Oberbauleitung gesendet */
   anOberbauleitung?: boolean;
   /** Übernahme durch Personal / HR / Lohn (Datum) */
@@ -197,7 +208,10 @@ export interface Antrag {
   stunden?: number;
   wer?: 'ich' | 'kind';
   gestellt: string;
+  /** offen = liegt bei der Oberbauleitung; bauleitung_ok = Oberbauleitung ok, Urlaub liegt bei der Geschäftsleitung */
   status: 'offen' | 'bauleitung_ok' | 'abgelehnt' | 'genehmigt' | 'gemeldet';
+  /** wer die erste Stufe entschieden hat (Oberbauleitung) */
+  oblVon?: string;
   ablehnGrund?: string;
   /** Arbeitsbefreiung: Anlass; Nachweis */
   anlass?: string;
@@ -378,6 +392,8 @@ export interface Daten {
   mittellohn: Record<string, number>;
   /** Vertretung des Lohnbüros durch die Buchhaltung */
   vertretung: { aktiv: boolean; von?: string; bis?: string };
+  /** von der Geschäftsleitung festgelegt: entscheidet alle Anträge und gibt die Tage der Bauleiter frei */
+  oberbauleitungId: string;
   /** technisches Protokoll (Anmeldungen, Rechte) */
   techLog: ProtokollEintrag[];
   /** Mitteilungen an Personen (Push in der App) */

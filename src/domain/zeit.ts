@@ -1,7 +1,8 @@
 import type { Person, Stempelung } from './types';
+import { tx } from '../i18n';
 
-const WOCHENTAG = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
-const WT_KURZ = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+const WOCHENTAG = [tx("Sonntag"), tx("Montag"), tx("Dienstag"), tx("Mittwoch"), tx("Donnerstag"), tx("Freitag"), tx("Samstag")];
+const WT_KURZ = [tx("So"), tx("Mo"), tx("Di"), tx("Mi"), tx("Do"), tx("Fr"), tx("Sa")];
 
 const zwei = (n: number) => String(n).padStart(2, '0');
 
@@ -44,11 +45,11 @@ export function feiertage(jahr: number): Map<string, string> {
   if (c) return c;
   const o = datumKey(ostern(jahr));
   const m = new Map<string, string>([
-    [`${jahr}-01-01`, 'Neujahr'], [`${jahr}-01-06`, 'Heilige Drei Könige'],
-    [plusTage(o, -2), 'Karfreitag'], [plusTage(o, 1), 'Ostermontag'], [`${jahr}-05-01`, 'Tag der Arbeit'],
-    [plusTage(o, 39), 'Christi Himmelfahrt'], [plusTage(o, 50), 'Pfingstmontag'], [plusTage(o, 60), 'Fronleichnam'],
-    [`${jahr}-08-15`, 'Mariä Himmelfahrt'], [`${jahr}-10-03`, 'Tag der Deutschen Einheit'], [`${jahr}-11-01`, 'Allerheiligen'],
-    [`${jahr}-12-25`, '1. Weihnachtstag'], [`${jahr}-12-26`, '2. Weihnachtstag'],
+    [`${jahr}-01-01`, tx("Neujahr")], [`${jahr}-01-06`, tx("Heilige Drei Könige")],
+    [plusTage(o, -2), tx("Karfreitag")], [plusTage(o, 1), tx("Ostermontag")], [`${jahr}-05-01`, tx("Tag der Arbeit")],
+    [plusTage(o, 39), tx("Christi Himmelfahrt")], [plusTage(o, 50), tx("Pfingstmontag")], [plusTage(o, 60), tx("Fronleichnam")],
+    [`${jahr}-08-15`, tx("Mariä Himmelfahrt")], [`${jahr}-10-03`, tx("Tag der Deutschen Einheit")], [`${jahr}-11-01`, tx("Allerheiligen")],
+    [`${jahr}-12-25`, tx("1. Weihnachtstag")], [`${jahr}-12-26`, tx("2. Weihnachtstag")],
   ]);
   feiertagCache.set(jahr, m);
   return m;
@@ -137,14 +138,14 @@ export function vorzeichen(h: number): string {
   return h > 0.04 ? `+${s}` : h < -0.04 ? `−${s}` : s;
 }
 export function euro(n: number): string {
-  const s = Math.abs(Math.round(n)).toLocaleString('de-DE');
+  const s = Math.abs(Math.round(n)).toLocaleString(tx("de-DE"));
   return `${n < 0 ? '−' : ''}${s} €`;
 }
 export function euroAbw(n: number): string {
   return `${n > 0 ? '+' : ''}${euro(n)}`;
 }
 export function minText(min: number): string {
-  return `${Math.round(min)} Min.`;
+  return tx("{0} Min.", Math.round(min));
 }
 export function dauer(min: number): string {
   const h = Math.floor(min / 60);
@@ -260,14 +261,14 @@ export function rechneTag(alle: Stempelung[], jetzt: Date = new Date()): TagRech
   const arbeitH = arbeitMin / 60;
   const noetig = arbeitH > 9 ? 45 : arbeitH > 6 ? 30 : 0;
   const pauseFehlt = zustand === 'fertig' && noetig > 0 && pauseMin + 0.5 < noetig;
-  if (pauseFehlt) hinweise.push(`Über ${arbeitH > 9 ? 9 : 6} h mit nur ${Math.round(pauseMin)} Min. Pause`);
+  if (pauseFehlt) hinweise.push(tx("Über {0} h mit nur {1} Min. Pause", arbeitH > 9 ? 9 : 6, Math.round(pauseMin)));
   for (const s of gueltig) {
-    if (s.standort === 'weicht_ab') hinweise.push(`${artName(s.art)}: Standort ca. ${s.entfernungM ?? '?'} m entfernt`);
-    if (s.vonHandGewaehlt) hinweise.push('Baustelle von Hand gewählt');
-    if (s.art === 'wechsel') hinweise.push('Baustellenwechsel am Tag');
-    if (s.herkunft === 'nachgetragen') hinweise.push('Nachgetragen');
-    if (s.herkunft === 'nachgesendet') hinweise.push('Nachgesendet (kein Netz)');
-    if (Math.abs(ms(s.eingang) - ms(s.zeit)) >= 5 * 60000 && s.herkunft === 'gestempelt') hinweise.push('Handy-Uhr weicht ab');
+    if (s.standort === 'weicht_ab') hinweise.push(tx("{0}: Standort ca. {1} m entfernt", artName(s.art), s.entfernungM ?? '?'));
+    if (s.vonHandGewaehlt) hinweise.push(tx("Baustelle von Hand gewählt"));
+    if (s.art === 'wechsel') hinweise.push(tx("Baustellenwechsel am Tag"));
+    if (s.herkunft === 'nachgetragen') hinweise.push(tx("Nachgetragen"));
+    if (s.herkunft === 'nachgesendet') hinweise.push(tx("Nachgesendet (kein Netz)"));
+    if (Math.abs(ms(s.eingang) - ms(s.zeit)) >= 5 * 60000 && s.herkunft === 'gestempelt') hinweise.push(tx("Handy-Uhr weicht ab"));
   }
   const last = gueltig[gueltig.length - 1];
   return {
@@ -287,10 +288,10 @@ export function rechneTag(alle: Stempelung[], jetzt: Date = new Date()): TagRech
 }
 
 export function artName(a: Stempelung['art']): string {
-  return { beginn: 'Beginn', pause: 'Pause', weiter: 'Weiter', wechsel: 'Wechsel', ende: 'Ende' }[a];
+  return { beginn: tx("Beginn"), pause: tx("Pause"), weiter: tx("Weiter"), wechsel: tx("Wechsel"), ende: tx("Ende") }[a];
 }
 
-export const MONATE = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+export const MONATE = [tx("Januar"), tx("Februar"), tx("März"), tx("April"), tx("Mai"), tx("Juni"), tx("Juli"), tx("August"), tx("September"), tx("Oktober"), tx("November"), tx("Dezember")];
 /** „November 2026“ aus YYYY-MM */
 export function monatName(m: string): string {
   return `${MONATE[Number(m.slice(5, 7)) - 1]} ${m.slice(0, 4)}`;
@@ -313,5 +314,5 @@ export function tmj(key: string): string {
 export const istWinterzeit = (key: string) => { const m = Number(key.slice(5, 7)); return m === 12 || m <= 3; };
 /** Euro mit zwei Nachkommastellen */
 export function euro2(n: number): string {
-  return `${n < 0 ? '−' : ''}${Math.abs(n).toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
+  return `${n < 0 ? '−' : ''}${Math.abs(n).toLocaleString(tx("de-DE"), { minimumFractionDigits: 2, maximumFractionDigits: 2 })} €`;
 }

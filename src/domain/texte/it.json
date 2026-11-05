@@ -1,0 +1,573 @@
+{
+ "faq": [
+  {
+   "q": "Ho dimenticato di timbrare. Cosa faccio ora?",
+   "a": "Non puoi cambiare l'orario da solo/a. Apri «Controlla e invia la giornata» e, in «Dimenticato di premere?», tocca uno dei tre pulsanti: «L'inizio era alle …», «La fine era alle …» o «La pausa era dalle … alle …». Scegli l'ora, per esempio «La fine era alle 16:00». Il tuo capocantiere (Polier) riceve una proposta già pronta e può accettarla. L'app inoltre te lo ricorda: «Fine lavoro ancora aperta» (2 ore dopo la fine abituale del lavoro, al più tardi alle 20:00) e «Giornata non ancora inviata» (la mattina dopo alle 06:30)."
+  },
+  {
+   "q": "Non trovo il mio cantiere. Oppure la posizione non corrisponde.",
+   "a": "Tocca «Scegli un altro cantiere», trova il cantiere giusto e scegli un motivo. Se l'app mostra «Non sei al cantiere», scegli una breve motivazione e salva. Il tuo tempo viene sempre salvato e il tuo capocantiere vede solo un avviso."
+  },
+  {
+   "q": "L'azienda vede dove sono?",
+   "a": "L'app non ti segue. Controlla la tua posizione solo nel momento in cui tocchi, per esempio all'inizio e alla fine del lavoro. Non salva né percorso né coordinate. Viene salvato se la posizione corrisponde al cantiere, la distanza approssimativa e la tua motivazione. Lo vedono il tuo capocantiere, il direttore di cantiere (Bauleiter) e l'ufficio."
+  },
+  {
+   "q": "Non ho rete. Oppure la localizzazione non funziona.",
+   "a": "Niente rete (niente internet): puoi sempre timbrare. Conta l'ora in cui tocchi. L'app invia appena torna la rete. La localizzazione non funziona (per esempio in cantina): l'app te lo dice, e il tuo orario viene salvato comunque. Se il telefono non funziona proprio, dillo al capocantiere. Poi inserisci gli orari giusti nella tua giornata, in «Dimenticato di premere?»."
+  },
+  {
+   "q": "Il capocantiere ha cambiato la mia giornata. Cosa posso fare?",
+   "a": "Ricevi un messaggio e vedi cosa c'era prima e cosa c'è adesso, con la motivazione. Se non sei d'accordo, tocca al più presto «Contesta» e scrivi cosa non va. Poi decide il direttore di cantiere (Bauleiter). Se non rispondi, ricevi un promemoria e dopo la correzione vale."
+  },
+  {
+   "q": "Come segnalo una malattia? Chi lo vede?",
+   "a": "Tocca «Malattia» nel menu in basso, scegli «Io» o «Mio figlio», inserisci da quando e fino a quando e tocca «Invia comunicazione di malattia» (senza diagnosi). Comunica sempre subito la malattia. Il capocantiere e il direttore di cantiere (Bauleiter) vengono a sapere che sei in malattia e fino a quando, ma non perché. I colleghi vedono solo «assente». Il certificato lo vede solo l'ufficio. Se sei malato per più di 3 giorni di calendario, ti serve il certificato medico al più tardi il giorno lavorativo successivo. Se tuo figlio è malato, ti serve un certificato del medico dal 1º giorno. Questi giorni di regola non sono pagati; la cassa malattia (Krankenkasse) paga l'indennità per figlio malato (Kinderkrankengeld). Per gli apprendisti (Auszubildende) e in casi particolari vale altro – chiedi in ufficio."
+  },
+  {
+   "q": "Come chiedo le ferie? Quante ferie mi restano?",
+   "a": "Tocca «Ferie» nel menu in basso. In alto vedi le tue ferie: residuo dell'anno scorso, diritto, giorni presi e quanti giorni restano. Inserisci «Dal» e «Al» e tocca «Invia richiesta». Prima controlla il direttore di cantiere, poi la direzione, e tu ricevi un messaggio."
+  },
+  {
+   "q": "Cos'è il conto ore (Arbeitszeitkonto)? Come prendo un permesso?",
+   "a": "Sul conto ore si accumulano le tue ore: se lavori più del previsto, si aggiungono ore; se lavori meno, si tolgono ore. Vedi il saldo in «Conto»; per prendere un permesso, tocca lì «Prendi permesso dal conto» e fai la richiesta. In estate (apr–nov) è possibile solo da 100 h; in inverno (dic–mar) finché sul conto restano 50 h. Le ore oltre 150 h vengono pagate."
+  },
+  {
+   "q": "Ho dimenticato il PIN. Oppure ho un telefono nuovo.",
+   "a": "PIN dimenticato: all'apertura tocca «PIN dimenticato». Ricevi un nuovo codice via e-mail e imposti un nuovo PIN. Il codice vale 15 minuti e solo una volta. Se non hai un indirizzo e-mail tuo, l'e-mail va al tuo capocantiere o al lavoratore a cui sei assegnato/a; ti dà il codice di persona. Telefono nuovo o perso: chiama l'ufficio. L'ufficio blocca il vecchio accesso e ti invia un nuovo invito via e-mail."
+  },
+  {
+   "q": "Come cambio la lingua? Dove trovo aiuto?",
+   "a": "Tocca in alto a destra il globo con la sigla, per esempio IT, e scegli la tua lingua dall'elenco. L'app ricorda la lingua su questo telefono. Trovi l'aiuto con istruzioni e ricerca in alto a destra, sotto il punto interrogativo."
+  }
+ ],
+ "hilfe": [
+  {
+   "id": "anm",
+   "t": "Accesso, PIN, nuovo telefono",
+   "p": [
+    "Ricevi un invito via e-mail. Tocca il link. È valido 7 giorni. Non hai un indirizzo e-mail tuo? Allora l'invito va al tuo capocantiere (Polier) o al lavoratore a cui sei assegnato/a. Te lo mostra sul suo telefono. Scansiona il codice QR con il tuo telefono. L'ufficio può anche stampare l'invito. Non serve un numero di telefono.",
+    "Inserisci il tuo indirizzo e-mail. Ricevi un codice (6 cifre) via e-mail. Vale 15 minuti e solo una volta; dopo 5 inserimenti errati ne serve uno nuovo. Poi imposta un PIN di 4 cifre. Non usare un PIN semplice come 1234 o 0000. Non hai un indirizzo e-mail tuo? Seleziona «Non ho un indirizzo e-mail mio». Allora l'e-mail va al tuo capocantiere (Polier) o al lavoratore a cui sei assegnato/a. Ti dà il codice di persona.",
+    "Al posto del PIN puoi usare l'impronta digitale o il riconoscimento facciale. Resta sul tuo telefono.",
+    "Leggi gli avvisi su privacy e documento d'identità. Spunta la casella per ciascuno. Poi consenti la posizione con «Mentre usi l'app».",
+    "Metti l'app sulla schermata Home. Solo così può inviarti notifiche. Se il telefono lo chiede, scegli «Consenti».",
+    "L'app si blocca dopo 5 minuti senza uso. Hai dimenticato il PIN? Tocca «PIN dimenticato». Ricevi un nuovo codice via e-mail e imposti un nuovo PIN.",
+    "Telefono nuovo o telefono perso? Chiama l'ufficio. L'ufficio blocca il vecchio accesso e invia un nuovo invito via e-mail."
+   ],
+   "k": "accesso password codice qr e-mail mail capocantiere impronta bloccato perso invito registrazione"
+  },
+  {
+   "id": "zeit",
+   "t": "Registrare l'orario di lavoro",
+   "p": [
+    "Apri «Oggi». L'app ti propone il tuo cantiere.",
+    "Tocca «Inizia il lavoro» quando inizi.",
+    "Tocca «Pausa» appena inizia la tua pausa. Tocca già quando lasci il cantiere, non solo nel luogo della pausa.",
+    "Tocca «Riprendi il lavoro» quando la pausa è finita.",
+    "Vai su un altro cantiere? Tocca «Cambia cantiere» alla partenza. Il viaggio conta già per il nuovo cantiere.",
+    "Tocca «Fine lavoro» quando finisci.",
+    "Niente rete? Puoi sempre timbrare. Conta l'ora in cui tocchi. L'app invia appena torna la rete.",
+    "Lavori oltre la mezzanotte (turno di notte)? Tutto il turno conta per il giorno in cui è iniziato. Vale anche l'ultimo giorno del mese."
+   ],
+   "k": "inizio fine pausa cambio cantiere giornata ore timbratura niente rete offline turno di notte mezzanotte"
+  },
+  {
+   "id": "baust",
+   "t": "Scelta del cantiere · La mia assegnazione",
+   "p": [
+    "L'app ti propone il tuo cantiere. Usa la tua posizione o la tua assegnazione.",
+    "Il cantiere non è quello giusto? Tocca «Scegli un altro cantiere».",
+    "Cerca per centro di costo (Kostenstelle), via o località. Tocca il cantiere giusto.",
+    "Scegli un motivo e tocca «Applica». Il motivo è obbligatorio.",
+    "Il tuo capocantiere (Polier) vede nell'approvazione che il cantiere è stato scelto a mano. Il tuo tempo viene sempre salvato.",
+    "Sotto «La mia assegnazione» vedi dove sei assegnato questa settimana. Tocca «Mostra tutta la settimana» per vedere tutti i giorni.",
+    "Se la tua assegnazione è cambiata, compare un avviso. Tocca «Letto»."
+   ],
+   "k": "cantiere cerca centro di costo a mano cantiere sbagliato assegnazione settimana pianificazione"
+  },
+  {
+   "id": "ort",
+   "t": "La posizione non corrisponde",
+   "p": [
+    "L'app controlla la tua posizione solo nel momento in cui tocchi: all'inizio, alla pausa, alla ripresa, al cambio cantiere e alla fine del lavoro.",
+    "L'app mostra «Non sei al cantiere»? Scegli una breve motivazione. È obbligatorio. Puoi aggiungere una nota.",
+    "Poi tocca il pulsante per salvare. Il tuo tempo è registrato.",
+    "Cantiere sbagliato selezionato? Su «Oggi» scegli il cantiere giusto.",
+    "Il tuo tempo viene sempre salvato. Il tuo capocantiere vede l'avviso «non corrisponde», la distanza approssimativa e la tua motivazione.",
+    "La localizzazione non funziona (per esempio in cantina)? L'app te lo dice. Il tuo orario viene salvato comunque. Niente rete? Puoi sempre timbrare. Conta l'ora in cui tocchi. L'app invia appena torna la rete."
+   ],
+   "k": "posizione gps distanza niente campo non sei al cantiere motivazione niente rete offline"
+  },
+  {
+   "id": "tag",
+   "t": "Controlla e invia la giornata",
+   "p": [
+    "Dopo la fine del lavoro tocchi «Controlla e invia la giornata».",
+    "Controlla cantieri, orari e pause. L'app ti segnala se nota un buco o una pausa troppo breve.",
+    "Hai dimenticato di premere o un orario non è giusto? In «Dimenticato di premere?» tocca uno dei tre pulsanti: «L'inizio era alle …», «La fine era alle …» o «La pausa era dalle … alle …». Scegli l'ora. Il tuo capocantiere riceve una proposta già pronta e può accettarla. Solo il tuo capocantiere o la direzione di cantiere può modificare l'orario.",
+    "Spunta la casella se hai pernottato fuori o hai guidato il pulmino della squadra.",
+    "Tocca in basso «Invia ai capicantiere».",
+    "Inviando, confermi che inizio, fine e pause sono corretti.",
+    "Ogni capocantiere approva il proprio cantiere. Poi approva il direttore di cantiere (Bauleiter). Fino ad allora il tuo conto è provvisorio.",
+    "L'app ti manda due promemoria: «Fine lavoro ancora aperta» arriva 2 ore dopo la fine abituale del lavoro, al più tardi alle 20:00, se non hai toccato la fine lavoro. «Giornata non ancora inviata» arriva la mattina dopo alle 06:30, se non hai ancora inviato la tua giornata."
+   ],
+   "k": "invia commento orario sbagliato dimenticato viaggio pernottamento autista approvazione dimenticato di premere inizio fine pausa proposta promemoria"
+  },
+  {
+   "id": "zus",
+   "t": "Indennità",
+   "p": [
+    "Apri la tua giornata e tocca «+ Aggiungi indennità».",
+    "Tocca ciò che c'è stato oggi. Ad esempio protezione respiratoria o martello demolitore.",
+    "Scegli il cantiere e inserisci le ore, ad es. 2,5.",
+    "Più ore del tuo orario di lavoro sul cantiere? L'app ti avvisa. Controlla.",
+    "Tocca il pulsante blu in basso. Le indennità compaiono poi nella tua giornata.",
+    "Non ti serve nessuna indennità? Tocca «Indietro senza indennità».",
+    "Le ore notturne le determina l'app. Straordinari, domenica e festivi li calcola l'elaborazione paghe."
+   ],
+   "k": "indennità maschera polvere sporco martello tuta caldo disagio"
+  },
+  {
+   "id": "korr",
+   "t": "Correzione del capocantiere",
+   "p": [
+    "Un orario non è giusto? Inseriscilo in «Dimenticato di premere?» prima di inviare. I capicantiere vedono la tua proposta all'approvazione e possono accettarla.",
+    "Se il capocantiere modifica la tua registrazione, ricevi un messaggio.",
+    "Vedi cosa c'era prima e cosa c'è adesso. Più la motivazione.",
+    "Non sei d'accordo? Tocca «Contesta» e scrivi cosa non va.",
+    "Poi decide il direttore di cantiere. Ti avvisiamo.",
+    "Se non rispondi, ricevi un promemoria. Dopo, la correzione vale. Perciò contesta al più presto se qualcosa non va.",
+    "Se il capocantiere invia una richiesta di chiarimento, rispondi entro il giorno indicato."
+   ],
+   "k": "modificato contestazione confermare richiesta rimandato approvazione correzione"
+  },
+  {
+   "id": "kal",
+   "t": "Calendario",
+   "p": [
+    "Tocca «Calendario» nel menu in basso.",
+    "I colori indicano: festivo, ferie, ferie collettive, libero da contratto collettivo, malattia.",
+    "Tocca un giorno. Sotto vedi cosa vale quel giorno, ad esempio le tue ore previste.",
+    "Tocca «Vedi la giornata». Vedi gli orari, le pause e le indennità.",
+    "Con le frecce cambi mese.",
+    "In basso trovi i prossimi festivi in Baviera.",
+    "Se un festivo cade in un giorno di lavoro, c'è la retribuzione festiva. Non viene detratto nessun giorno di ferie."
+   ],
+   "k": "festivo mese giorni liberi panoramica previsto"
+  },
+  {
+   "id": "konto",
+   "t": "Conto ore (Arbeitszeitkonto)",
+   "p": [
+    "Tocca «Conto» nel menu in basso.",
+    "In alto vedi il tuo saldo dopo l'ultima approvazione. I giorni successivi sono provvisori. Sotto vedi l'andamento.",
+    "Se lavori più del previsto, si aggiungono ore. Se lavori meno, si tolgono ore.",
+    "Permesso dal conto: tocca «Prendi permesso dal conto». Lì fai la richiesta.",
+    "Estate (apr–nov): permesso dal conto solo da 100 h.",
+    "Inverno (dic–mar): il permesso dal conto è possibile finché sul conto restano 50 h.",
+    "Le ore oltre 150 h vengono pagate."
+   ],
+   "k": "ore straordinari saldo previste pagamento permesso conto"
+  },
+  {
+   "id": "url",
+   "t": "Richiesta di ferie e di permesso dal conto",
+   "p": [
+    "Tocca «Ferie» nel menu in basso.",
+    "In alto vedi le tue ferie: residuo dell'anno scorso, diritto, giorni presi e quanti giorni restano.",
+    "Scegli «Giorni di ferie» o «Dal conto».",
+    "Inserisci «Dal» e «Al». Weekend e festivi non contano come giorni di ferie.",
+    "L'app mostra quanto resta libero dopo. Se la richiesta non è possibile, ti dice perché.",
+    "Tocca «Invia richiesta».",
+    "Prima controlla il direttore di cantiere, poi la direzione. Riceverai un messaggio."
+   ],
+   "k": "vacanza ferie permesso richiesta approvazione ferie residue giorni di ferie conto"
+  },
+  {
+   "id": "bu",
+   "t": "Ferie collettive",
+   "p": [
+    "L'ufficio stabilisce le ferie collettive. I giorni di ferie sono già inseriti.",
+    "I festivi durante le ferie collettive non costano un giorno di ferie.",
+    "Il 24.12. e il 31.12. sono giorni liberi, ma senza paga. Scegli: «Giorno di ferie» o «Permesso non retribuito».",
+    "Le ferie non bastano? Allora puoi acconsentire che si tolgano ore dal conto ore. Senza il tuo consenso non si toglie niente.",
+    "In inverno sul conto devono restare almeno 50 h.",
+    "Scegli entro la data indicata nell'app. Poi tocca «Salva la scelta». Se non scegli nulla, resta «Permesso non retribuito»."
+   ],
+   "k": "natale vigilia capodanno ferie collettive consenso"
+  },
+  {
+   "id": "krank",
+   "t": "Segnalare malattia (anche figlio malato)",
+   "p": [
+    "Tocca «Malattia» nel menu in basso.",
+    "Scegli «Io» o «Mio figlio». Inserisci da quando e fino a quando.",
+    "Fino a 3 giorni di calendario non serve il certificato medico. Se sei malato per più di 3 giorni di calendario, ti serve il certificato medico al più tardi il giorno lavorativo successivo. Comunica sempre subito la malattia. In singoli casi la ditta può chiederlo prima.",
+    "Sei stato dal medico? Spunta la casella e inserisci i dati del certificato esattamente come li ha scritti il medico.",
+    "Figlio malato: dal 1º giorno ti serve un certificato del medico. Questi giorni di regola non sono pagati; la cassa malattia (Krankenkasse) paga l'indennità per figlio malato (Kinderkrankengeld). Per gli apprendisti (Auszubildende) e in casi particolari vale altro – chiedi in ufficio.",
+    "Infortunio sul lavoro o in itinere? Spunta la casella e chiama subito il capocantiere o il direttore di cantiere. Vai da un medico per gli infortuni sul lavoro (Durchgangsarzt, D-Arzt) o in ospedale.",
+    "Non scrivere la diagnosi. Tocca «Invia comunicazione di malattia». Il capocantiere e il direttore di cantiere (Bauleiter) vengono a sapere che sei in malattia e fino a quando, ma non perché. I colleghi vedono solo «assente».",
+    "La tua segnalazione di malattia sta per finire? L'app chiede: «Quando torni?» Rispondi entro il giorno indicato."
+   ],
+   "k": "malattia segnalazione medico certificato figlio infortunio infortunio sul lavoro"
+  },
+  {
+   "id": "ab",
+   "t": "Richiesta di permesso retribuito",
+   "p": [
+    "Tocca «Ferie» nel menu in basso, poi «Permesso retribuito».",
+    "Scegli il motivo. Per esempio matrimonio, nascita, lutto, trasloco, visita medica o ufficio pubblico.",
+    "Inserisci i giorni o l'orario. Tocca «Invia richiesta».",
+    "Per ogni motivo c'è solo un certo numero di giorni. Se il periodo è troppo lungo, l'app te lo dice. Per gli altri giorni richiedi le ferie.",
+    "Prima controlla il direttore di cantiere, poi l'ufficio. Il direttore di cantiere vede solo il motivo e i giorni. Il giustificativo lo vede solo l'ufficio.",
+    "L'autorizzazione vale inizialmente con riserva. Diventa definitiva non appena il giustificativo è stato controllato."
+   ],
+   "k": "permesso retribuito matrimonio trasloco nascita lutto ufficio tribunale medico"
+  },
+  {
+   "id": "nach",
+   "t": "Invia il giustificativo in un secondo momento",
+   "p": [
+    "Puoi inviare la richiesta anche senza giustificativo. Fotografa il giustificativo subito o più tardi.",
+    "Scadenza: 14 giorni dopo l'evento, poi ancora 7 giorni di proroga. L'app ti ricorda finché il giustificativo non arriva.",
+    "Fotografa il giustificativo. Poi tocca «Invia il giustificativo».",
+    "Puoi coprire i dati che non servono per il motivo. Per esempio una diagnosi.",
+    "Se dopo il giustificativo manca, scegli: un giorno di ferie o permesso non retribuito. Per le ore: dal conto ore oppure non retribuito. Hai 3 giorni lavorativi di tempo (da lunedì a sabato). Se non scegli, registriamo il tempo provvisoriamente come non retribuito. Se consegni il giustificativo più tardi, verrà corretto.",
+    "Dal conto si può solo finché il tuo conto resta in positivo. I limiti di 100 h e 50 h qui non valgono."
+   ],
+   "k": "giustificativo certificato documento foto scadenza proroga caricare promemoria"
+  },
+  {
+   "id": "push",
+   "t": "Notifiche e promemoria della pausa",
+   "p": [
+    "L'app ti invia brevi messaggi sul telefono.",
+    "Per esempio: pausa mancante, pausa ancora in corso, fine lavoro ancora aperta, giornata non ancora inviata, il capocantiere ha corretto, giustificativo mancante, assegnazione cambiata.",
+    "Per questo metti l'app sulla schermata Home. Se il telefono chiede delle notifiche, scegli «Consenti».",
+    "Dopo 5:30 h di lavoro senza pausa l'app te lo ricorda. Non puoi lavorare più di 6 h di fila senza pausa.",
+    "Con più di 6 h di lavoro servono almeno 30 min di pausa, con più di 9 h almeno 45 min. Contano solo le pause di almeno 15 min di fila. Ogni pausa viene sottratta dall'orario di lavoro.",
+    "La tua pausa dura già da 60 minuti? L'app chiede: «La pausa è ancora attiva?» Tocca «Riprendi il lavoro» se stai già lavorando di nuovo.",
+    "Alcuni avvisi li confermi con «Avviso letto e compreso». Per esempio sulle ferie residue.",
+    "Sulla schermata di blocco c'è solo un testo breve e neutro: niente sulla malattia, nessun nome di colleghi, nessun saldo ore. I dettagli li vedi solo nell'app."
+   ],
+   "k": "push notifica promemoria messaggio avviso schermata home pausa ferie residue"
+  },
+  {
+   "id": "ohne",
+   "t": "Senza smartphone",
+   "p": [
+    "L'uso del tuo telefono personale è volontario.",
+    "Senza smartphone il tuo capocantiere annota le tue ore e le tue indennità.",
+    "Controlli tutto. Poi confermi con il tuo PIN sul telefono del capocantiere.",
+    "Il PIN iniziale lo ricevi per lettera. La prima volta imposti il tuo PIN.",
+    "Non c'eri? Allora la prossima volta confermi con il tuo PIN oppure firmi il foglio settimanale in ufficio.",
+    "Ferie e malattia le comunichi al capocantiere o in ufficio.",
+    "Ore e conti li ricevi ogni mese in forma stampata."
+   ],
+   "k": "senza telefono privato nessun telefono pin lettera pin iniziale"
+  },
+  {
+   "id": "helf",
+   "t": "Inserisci il documento d'identità di una persona di un subappaltatore",
+   "p": [
+    "Una nuova persona di un'altra ditta (subappaltatore) in cantiere? Tocca «Inserisci il documento d'identità di una persona di un subappaltatore».",
+    "Fatti mostrare il documento in originale.",
+    "Scegli la persona. Inserisci «Tipo di documento», «Valido fino al» e «Cittadinanza».",
+    "Spunta la casella per dire che hai visto il documento in originale. Tocca «Documento visto – salva».",
+    "Non fotografare il documento, nemmeno con il tuo telefono. Non vengono salvati né copie né numero del documento.",
+    "Qualcuno non ha con sé il documento? Non inserire nulla e avvisa il capocantiere o l'ufficio."
+   ],
+   "k": "documento manovale subappaltatore altra ditta carta d'identità passaporto permesso di soggiorno"
+  },
+  {
+   "id": "ml",
+   "t": "Firmare per il salario minimo (subappaltatori)",
+   "p": [
+    "Questo argomento vale solo per i lavoratori dei subappaltatori (altre ditte). Usano una propria app.",
+    "Dopo la fine di ogni mese firmi la tua dichiarazione personale sul salario minimo per il mese appena concluso. Puoi farlo dal 1º del mese successivo. Esempio: la dichiarazione di agosto 2026 la firmi dal 01.09.2026. Con essa dichiari che il tuo datore di lavoro ti paga almeno il salario minimo legale.",
+    "Nella tua app apri la parte «Salario minimo» e leggi il testo. Firma con il dito nel campo. Poi tocca «Firma e invia».",
+    "La dichiarazione va in PDF all'ufficio di K. Baumann Baugesellschaft, non alla tua ditta.",
+    "Non puoi o non vuoi firmare? Rivolgiti al capocantiere o all'ufficio."
+   ],
+   "k": "salario minimo firma firmare subappaltatore altra ditta dichiarazione paga"
+  },
+  {
+   "id": "spr",
+   "t": "Cambiare lingua",
+   "p": [
+    "Tocca in alto a destra il globo con la sigla, per esempio IT.",
+    "Scegli la tua lingua dall'elenco.",
+    "L'app ricorda la lingua su questo telefono.",
+    "I nomi dei cantieri e delle persone restano uguali."
+   ],
+   "k": "language język limba jezik dil nyelv lingua langue sprache übersetzung"
+  },
+  {
+   "id": "ds",
+   "t": "Privacy",
+   "p": [
+    "La tua posizione viene confrontata solo nel momento in cui tocchi. L'app non salva né percorso né coordinate.",
+    "Viene salvato se la posizione corrisponde al cantiere, la distanza approssimativa e la tua motivazione. Lo vedono il tuo capocantiere, il direttore di cantiere (Bauleiter) e l'ufficio.",
+    "Se rifiuti la posizione, scegli il cantiere a mano. Puoi disattivarla in qualsiasi momento nelle impostazioni del telefono.",
+    "In caso di malattia l'app non chiede la diagnosi. Il capocantiere e il direttore di cantiere (Bauleiter) vengono a sapere che sei in malattia e fino a quando, ma non perché. I colleghi vedono solo «assente». Certificati e giustificativi li vede solo l'ufficio.",
+    "L'uso del tuo telefono personale è volontario. L'app non legge né i contatti né le foto.",
+    "I dati si trovano su un server proprio dell'azienda. Allo stato attuale gli orari di lavoro vengono conservati 8 anni (ancora in verifica).",
+    "Puoi chiedere informazioni sui tuoi dati. Il resto è nell'informativa sulla privacy."
+   ],
+   "k": "dati posizione sorveglianza gps salvataggio diritti privacy informativa"
+  },
+  {
+   "id": "hilfe",
+   "t": "Aiuto e domande",
+   "p": [
+    "Tocca in alto a destra il punto interrogativo. Lì trovi questo aiuto.",
+    "Scrivi in alto una parola nella ricerca, per esempio pausa o PIN. Vedi così solo gli argomenti adatti.",
+    "Risposte rapide le trovi nelle domande frequenti.",
+    "Puoi rivedere l'introduzione in qualsiasi momento.",
+    "Non riesci ad andare avanti? Chiedi al capocantiere o chiama l'ufficio."
+   ],
+   "k": "faq domande introduzione guida aiuto supporto telefono"
+  }
+ ],
+ "datenschutz": {
+  "entwurf": "Bozza · versione 0.1 · non ancora approvata legalmente",
+  "intro": "Ecco come trattiamo i tuoi dati nella registrazione delle ore. Le parentesi quadre vengono compilate prima dell'avvio. Tocca un titolo per aprire la sezione.",
+  "abschnitte": [
+   {
+    "t": "1. Chi è responsabile?",
+    "p": [
+     {
+      "x": "K. Baumann Baugesellschaft mbH, [indirizzo], [telefono], [e-mail]."
+     },
+     {
+      "x": "Referente per la protezione dei dati: [nome, contatto]."
+     }
+    ]
+   },
+   {
+    "t": "2. Quali dati, a che scopo e su quale base?",
+    "p": [
+     {
+      "t": "Inizio, fine, pause, cantiere, indennità:",
+      "x": "per il calcolo della paga e la registrazione legale dell'orario di lavoro. Base: contratto di lavoro e obbligo di legge. Se non hai il telefono, il tuo capocantiere (Polier) inserisce questi dati per te."
+     },
+     {
+      "t": "Posizione quando tocchi:",
+      "x": "viene solo confrontata con il cantiere, perché le ore siano registrate correttamente. Non salviamo la posizione esatta; viene salvato solo il risultato (vedi sezione 3). Base: contratto di lavoro e legittimo interesse a un calcolo corretto."
+     },
+     {
+      "t": "Ferie, esoneri dal lavoro, conti ore (Arbeitszeitkonto):",
+      "x": "per la gestione dei tuoi diritti. Base: contratto di lavoro e contratto collettivo."
+     },
+     {
+      "t": "Malattia e certificato, anche «figlio malato» e infortunio sul lavoro:",
+      "x": "per la continuazione della retribuzione e la pianificazione. Non chiediamo la diagnosi. Per «figlio malato» usiamo solo mese e anno di nascita del figlio, senza il nome. Sono dati sanitari; base: diritto del lavoro e della previdenza sociale."
+     },
+     {
+      "t": "Giustificativi per il permesso retribuito",
+      "x": "(ad es. certificato di matrimonio, attestazione di residenza, certificato dello studio medico) e le tue note: per verificare il diritto. Base: contratto di lavoro e contratto collettivo."
+     },
+     {
+      "t": "Indirizzo e-mail, dispositivo, momenti di accesso:",
+      "x": "per l'invito via e-mail e l'accesso sicuro all'app. Salviamo anche se usi un telefono personale o aziendale e quando hai effettuato l'ultimo accesso. L'invito e il codice di accesso te li inviamo via e-mail. Se non hai un indirizzo e-mail tuo, entrambi vanno al tuo capocantiere o al lavoratore a cui sei assegnato/a; ti mostra l'invito e ti dà il codice di persona. Il tuo numero di telefono non ci serve per questo; è solo un dato di contatto facoltativo. Base: contratto di lavoro e legittimo interesse a un funzionamento sicuro. Il tuo PIN lo salviamo solo in forma cifrata. L'impronta digitale o il riconoscimento facciale restano sul tuo telefono; noi non li riceviamo."
+     },
+     {
+      "t": "Assegnazione ai cantieri:",
+      "x": "per l'organizzazione del lavoro. Base: contratto di lavoro."
+     },
+     {
+      "t": "Registro di chi ha modificato cosa e quando:",
+      "x": "come prova nei controlli. Base: obbligo di legge."
+     },
+     {
+      "t": "Dati per ferie e permessi:",
+      "x": "ad esempio disabilità grave (Schwerbehinderung), età inferiore a 18 anni o genitore solo. Li usiamo solo per calcolare correttamente i tuoi diritti. Li vede solo l'amministrazione (ufficio del personale). Base: contratto di lavoro, contratto collettivo e legge; la disabilità è particolarmente protetta (come i dati sanitari)."
+     },
+     {
+      "t": "Commenti, motivazioni e messaggi:",
+      "x": "testi che scrivi tu nell'app. Li leggono il tuo capocantiere, il direttore di cantiere e l'amministrazione. Per favore non scrivere nulla su malattie o questioni private. Base: contratto di lavoro."
+     },
+     {
+      "t": "Report:",
+      "x": "dalle ore calcoliamo anche i costi e il confronto previsto/effettivo per ogni cantiere. Base: legittimo interesse [da verificare prima dell'avvio]."
+     },
+     {
+      "x": "Le norme: art. 6, par. 1, lett. b), c) ed f) GDPR (DSGVO), § 26 BDSG; per i dati sanitari art. 9, par. 2, lett. b) GDPR (DSGVO) e § 26, par. 3 BDSG. Obbligo di registrazione: [norme, ad es. § 16 ArbZG, § 17 MiLoG, § 19 AEntG]. I dati anagrafici come nome, numero di personale, numero di telefono (dato di contatto facoltativo), gruppo, funzione e orario di lavoro provengono dal tuo fascicolo personale."
+     }
+    ]
+   },
+   {
+    "t": "3. Posizione",
+    "p": [
+     {
+      "x": "L'app rileva la tua posizione solo nel momento in cui tocchi Inizio, Pausa, Cambio o Fine. Nel frattempo non viene localizzato nulla."
+     },
+     {
+      "x": "L'app confronta la posizione con l'indirizzo del cantiere. La posizione esatta (coordinate) non viene salvata e non si crea un profilo degli spostamenti. Vengono salvati: il momento, il risultato «corrisponde» o «non corrisponde», la distanza approssimativa dal cantiere e, in caso di differenza, la tua motivazione e la tua nota. Lo vedono il tuo capocantiere, il direttore di cantiere e l'amministrazione."
+     },
+     {
+      "x": "Gli impiegati non vengono localizzati affatto."
+     },
+     {
+      "x": "Se rifiuti l'accesso alla posizione, scegli il cantiere a mano e il tuo capocantiere vede l'avviso «posizione mancante». Puoi disattivare l'accesso in qualsiasi momento nelle impostazioni del telefono."
+     }
+    ]
+   },
+   {
+    "t": "4. Telefono personale",
+    "p": [
+     {
+      "x": "L'uso del tuo telefono personale è volontario. L'app usa la fotocamera solo quando scatti una foto per un giustificativo. Non legge i contatti né altre foto."
+     },
+     {
+      "x": "Se non vuoi usare il tuo telefono, il tuo capocantiere registra le ore e tu le confermi con il tuo PIN sul telefono del capocantiere."
+     },
+     {
+      "x": "Per questo ricevi per lettera un PIN iniziale. Alla prima conferma stabilisci il tuo PIN; il PIN iniziale non vale più."
+     },
+     {
+      "x": "Sul tuo telefono l'app salva solo ciò che le serve per funzionare: la tua lingua, il tuo accesso e gli orari non ancora inviati (ad esempio senza rete). Niente pubblicità, niente analisi."
+     }
+    ]
+   },
+   {
+    "t": "5. Chi riceve i dati?",
+    "p": [
+     {
+      "x": "Capocantiere e direttore di cantiere (Bauleiter) del tuo cantiere: le tue ore, il risultato della posizione (sezione 3) e i tuoi commenti"
+     },
+     {
+      "x": "Direttore di cantiere: inoltre le tue richieste di ferie e di permesso retribuito. Per il permesso retribuito vede solo il motivo e i giorni, non il giustificativo."
+     },
+     {
+      "x": "In caso di malattia, il tuo capocantiere, il direttore di cantiere e chi pianifica l'assegnazione vengono a sapere che sei in malattia e fino a quando. Il motivo (la diagnosi) non lo viene a sapere nessuno. Il certificato lo vede solo l'amministrazione (ufficio del personale). I colleghi vedono solo «assente»."
+     },
+     {
+      "x": "Chi pianifica l'assegnazione (pianificazione): se sei in malattia, in ferie o alla scuola professionale"
+     },
+     {
+      "x": "Amministrazione (ufficio del personale): tutti i dati. Certificati, atti e giustificativi li vede solo l'amministrazione."
+     },
+     {
+      "x": "Direzione: richieste di ferie, ore, conti ore e report; nessun certificato o giustificativo [l'ambito sarà definito prima dell'avvio]"
+     },
+     {
+      "x": "Ufficio paghe [ditta esatta]: elaborazione delle paghe"
+     },
+     {
+      "x": "Fornitore di servizi IT [ditta]: gestione del server"
+     },
+     {
+      "x": "Servizio e-mail [ditta]: invito con link e codici di accesso (senza un indirizzo e-mail tuo, entrambi vanno al tuo capocantiere o al lavoratore a cui sei assegnato/a)"
+     },
+     {
+      "x": "Le notifiche passano tecnicamente attraverso il servizio del tuo telefono (Apple o Google), anche tramite server negli USA. Devono contenere solo avvisi brevi e neutri, nessun dato sanitario. [da verificare prima dell'avvio: contenuto e base del trasferimento negli USA]"
+     },
+     {
+      "x": "Autorità, quando siamo obbligati per legge: dogana (Zoll), assicurazione pensionistica (Rentenversicherung), fisco (Finanzamt), SOKA-BAU, cassa malattia (Krankenkasse), Berufsgenossenschaft (assicurazione infortuni, in caso di infortunio sul lavoro)"
+     },
+     {
+      "x": "I dati si trovano su un server proprio dell'azienda. Non li trasmettiamo a paesi al di fuori dell'UE. Unica eccezione: le notifiche tramite Apple o Google (vedi sopra). [sede del servizio e-mail da verificare prima dell'avvio]"
+     }
+    ]
+   },
+   {
+    "t": "6. Per quanto tempo conserviamo i dati?",
+    "p": [
+     {
+      "x": "Provvisorio: tutti i termini di questa sezione non sono ancora confermati. Saranno verificati e stabiliti prima dell'avvio."
+     },
+     {
+      "x": "Orari di lavoro e dati contabili: 8 anni"
+     },
+     {
+      "x": "Posizione: la posizione esatta non viene salvata. Il risultato (corrisponde / non corrisponde, distanza, motivazione) viene salvato con la giornata: [durata]"
+     },
+     {
+      "x": "Certificati di malattia (certificato, foto): 1 anno, fino a 3 anni per assenze più lunghe. I giorni di malattia in sé fanno parte dei dati contabili."
+     },
+     {
+      "x": "Richieste di ferie: 3 anni dopo la fine dell'anno di ferie"
+     },
+     {
+      "x": "Giustificativi per il permesso retribuito: [durata]"
+     },
+     {
+      "x": "Dati di accesso e registro delle modifiche: [durata]"
+     },
+     {
+      "x": "Documenti, ore e dichiarazioni sul salario minimo dei subappaltatori: 10 anni"
+     },
+     {
+      "x": "Poi i dati vengono cancellati."
+     }
+    ]
+   },
+   {
+    "t": "7. I tuoi diritti",
+    "p": [
+     {
+      "x": "Puoi chiedere informazioni sui tuoi dati, far correggere i dati errati e chiederne la cancellazione o la limitazione, se non c'è un obbligo di conservazione. Puoi anche ricevere i tuoi dati in un formato di file comune."
+     },
+     {
+      "x": "Puoi opporti al trattamento, se si basa su un legittimo interesse (ad esempio per la posizione)."
+     },
+     {
+      "x": "Come esercitare i tuoi diritti: rivolgiti a [contatto] o dillo in amministrazione. Basta una frase, ad esempio: «Vorrei informazioni sui miei dati.» oppure «Mi oppongo.» Di norma rispondiamo entro un mese."
+     },
+     {
+      "x": "Non subisci alcuno svantaggio se eserciti questi diritti."
+     },
+     {
+      "x": "Puoi inoltre presentare un reclamo al Bayerisches Landesamt für Datenschutzaufsicht (autorità bavarese di controllo della protezione dei dati), Ansbach."
+     }
+    ]
+   },
+   {
+    "t": "8. Devi fornire i dati?",
+    "p": [
+     {
+      "x": "La registrazione dell'orario di lavoro è prescritta dalla legge e necessaria per il calcolo della paga. Senza di essa non possiamo calcolare correttamente la tua paga."
+     },
+     {
+      "x": "Sono volontari: l'uso del tuo telefono personale, l'impronta digitale o il riconoscimento facciale e le note. Puoi disattivare l'accesso alla posizione; la sezione 3 spiega cosa vale in quel caso. [Se la localizzazione sia giuridicamente volontaria sarà verificato prima dell'avvio.]"
+     }
+    ]
+   },
+   {
+    "t": "9. Decisioni automatizzate",
+    "p": [
+     {
+      "x": "Non ce ne sono. L'app controlla orari e pause e dà avvisi; a decidere sono sempre le persone."
+     }
+    ]
+   },
+   {
+    "t": "Per le persone dei subappaltatori",
+    "p": [
+     {
+      "x": "Il tuo datore di lavoro è la tua ditta. K. Baumann Baugesellschaft registra le tue ore come committente, per controllare le fatture e dimostrare chi era in cantiere. La tua ditta non ha accesso all'app; per la fatturazione riceve le tue ore. Con l'app invii direttamente le tue ore e il capocantiere le approva. Senza l'app il capocantiere scrive le tue ore e il direttore di cantiere controfirma. Base: il nostro legittimo interesse e i nostri obblighi di legge come committente (salario minimo, lavoro nero)."
+     },
+     {
+      "x": "Il tuo nome, il tuo indirizzo e-mail (per l'invito e il codice di accesso), il tuo numero di telefono se indicato (dato di contatto facoltativo), la tua attività e la tariffa oraria che la tua ditta fattura per il tuo lavoro li abbiamo ricevuti [dalla tua ditta]."
+     },
+     {
+      "t": "Documento d'identità:",
+      "x": "Lo guardiamo. Non viene salvata nessuna copia e nessun numero. Si annota solo: tipo di documento, valido fino al, cittadinanza e chi lo ha visto e quando. La cittadinanza la annotiamo solo perché l'amministrazione sappia quali documenti servono."
+     },
+     {
+      "t": "Certificato A1:",
+      "x": "Se sei distaccato/a in Germania da un altro paese, può servire un certificato A1. In tal caso ne salviamo una foto. Indica in quale paese hai la previdenza sociale. Lo vede solo l'amministrazione."
+     },
+     {
+      "t": "Dichiarazione sul salario minimo:",
+      "x": "Ogni mese firmi sul telefono una breve dichiarazione personale sul salario minimo. Vengono salvati: il tuo nome, la tua ditta, data e ora, la versione del testo e la tua firma (come immagine e come PDF). La vede solo l'amministrazione di K. Baumann, non la tua ditta. La conserviamo per tutto il tempo dei tuoi registri delle ore (provvisoriamente 10 anni). Se manca la firma, ti ricordiamo al massimo una volta. L'amministrazione e chi pianifica l'assegnazione vedono allora che la firma manca ancora. Se non puoi o non vuoi firmare, parla con il tuo capocantiere o con l'amministrazione."
+     },
+     {
+      "x": "Per la posizione vale la sezione 3. Conserviamo i tuoi dati provvisoriamente per 10 anni [da confermare prima dell'avvio]. I tuoi diritti della sezione 7 valgono anche per te. Importante: puoi opporti al trattamento dei tuoi dati. Rivolgiti a [contatto]."
+     }
+    ]
+   }
+  ]
+ }
+}

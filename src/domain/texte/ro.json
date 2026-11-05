@@ -1,0 +1,573 @@
+{
+ "faq": [
+  {
+   "q": "Am uitat să înregistrez timpul. Ce fac acum?",
+   "a": "Nu poți schimba singur timpul. Deschide „Verifică și trimite ziua” și, la „Ai uitat să apeși?”, atinge unul dintre cele trei butoane: „Începutul a fost la …”, „Sfârșitul a fost la …” sau „Pauza a fost de la … până la …”. Alege ora, de exemplu „Sfârșitul a fost la 16:00”. Maistrul tău (Polier) primește o propunere gata făcută și o poate accepta. Aplicația îți și amintește: „Sfârșitul lucrului încă deschis” (la 2 ore după sfârșitul obișnuit al lucrului, cel târziu la 20:00) și „Ziua încă netrimisă” (a doua zi dimineața la 06:30)."
+  },
+  {
+   "q": "Nu găsesc șantierul meu. Sau locația nu corespunde.",
+   "a": "Atinge „Alege alt șantier”, caută șantierul corect și alege un motiv. Dacă aplicația spune „Nu ești la șantier”, alege o scurtă explicație și salvează. Timpul tău se salvează întotdeauna, iar maistrul vede doar o notă."
+  },
+  {
+   "q": "Vede firma unde sunt?",
+   "a": "Aplicația nu te urmărește. Îți verifică locația doar în momentul în care atingi, de exemplu la începutul și la sfârșitul lucrului. Nu salvează niciun traseu și nicio coordonată. Se salvează dacă locația corespunde cu șantierul, distanța aproximativă și explicația ta. Asta văd maistrul tău, șeful de șantier (Bauleiter) și biroul."
+  },
+  {
+   "q": "Nu am rețea. Sau localizarea nu merge.",
+   "a": "Fără rețea (fără internet): poți înregistra timpul oricând. Contează ora la care atingi. Aplicația trimite datele imediat ce revine rețeaua. Localizarea nu merge (de exemplu în subsol): aplicația îți spune asta, iar ora ta se salvează oricum. Dacă telefonul nu merge deloc, spune-i maistrului. Apoi trece orele corecte în ziua ta, la „Ai uitat să apeși?”."
+  },
+  {
+   "q": "Maistrul mi-a schimbat ziua. Ce pot face?",
+   "a": "Primești un mesaj și vezi ce era înainte și ce scrie acum, cu explicația. Dacă nu ești de acord, atinge cât mai repede „Contestă” și scrie ce nu este corect. Apoi decide șeful de șantier (Bauleiter). Dacă nu răspunzi, primești o reamintire, apoi corectarea se aplică."
+  },
+  {
+   "q": "Cum anunț că sunt bolnav? Cine vede asta?",
+   "a": "Atinge „Medical” în meniul de jos, alege „Eu” sau „Copilul meu”, completează de când și până când și atinge „Trimite anunțul de boală” (fără diagnostic). Anunță întotdeauna imediat că ești bolnav. Maistrul și șeful de șantier (Bauleiter) află că ești anunțat bolnav și până când, dar nu de ce. Colegii văd doar „absent”. Adeverința o vede doar biroul. Dacă ești bolnav mai mult de 3 zile calendaristice, ai nevoie de certificat medical cel târziu în următoarea zi lucrătoare după acestea. Dacă ai copilul bolnav, ai nevoie de adeverință de la medic din prima zi. Aceste zile sunt de regulă neplătite, casa de sănătate (Krankenkasse) plătește indemnizația pentru copil bolnav (Kinderkrankengeld). Pentru ucenici (Auszubildende) și în cazuri speciale se aplică altceva – întreabă la birou."
+  },
+  {
+   "q": "Cum cer concediu? Câte zile de concediu mi-au mai rămas?",
+   "a": "Atinge „Concediu” în meniul de jos. Sus vezi concediul tău: restul din anul trecut, dreptul, zilele luate și câte zile mai sunt libere. Completează „De la” și „Până la” și atinge „Trimite cererea”. Mai întâi verifică șeful de șantier, apoi conducerea firmei, iar tu primești un mesaj."
+  },
+  {
+   "q": "Ce este contul de ore (Arbeitszeitkonto)? Cum iau liber?",
+   "a": "În contul de ore se adună orele tale: dacă lucrezi mai mult decât norma, se adaugă ore, dacă lucrezi mai puțin, se scad ore. Soldul îl vezi la „Cont”; ca să iei liber, atinge acolo „Ia liber din cont” și fă cererea. Vara (apr–nov) zilele libere din cont merg abia de la 100 h; iarna (dec–mar), atâta timp cât în cont rămân 50 h. Orele peste 150 h se plătesc."
+  },
+  {
+   "q": "Am uitat PIN-ul. Sau am un telefon nou.",
+   "a": "PIN uitat: la deschidere atinge „Am uitat PIN-ul”. Primești un cod nou prin e-mail și setezi un PIN nou. Codul este valabil 15 minute și o singură dată. Dacă nu ai o adresă de e-mail proprie, e-mailul ajunge la maistrul tău sau la angajatul la care ești repartizat; el îți dă codul personal. Telefon nou sau pierdut: sună la birou. Biroul blochează vechiul acces și îți trimite o invitație nouă prin e-mail."
+  },
+  {
+   "q": "Cum schimb limba? Unde găsesc ajutor?",
+   "a": "Atinge în dreapta sus globul cu abrevierea, de exemplu RO, și alege limba ta din listă. Aplicația ține minte limba pe acest telefon. Ajutorul, cu instrucțiuni și căutare, îl găsești în dreapta sus, la semnul întrebării."
+  }
+ ],
+ "hilfe": [
+  {
+   "id": "anm",
+   "t": "Conectare, PIN, telefon nou",
+   "p": [
+    "Primești o invitație prin e-mail. Atinge linkul. Este valabil 7 zile. Nu ai o adresă de e-mail proprie? Atunci invitația ajunge la maistrul tău (Polier) sau la angajatul la care ești repartizat. El ți-o arată pe telefonul lui. Scanează codul QR cu telefonul tău. Biroul poate și să tipărească invitația. Nu ai nevoie de un număr de telefon.",
+    "Introdu adresa ta de e-mail. Primești un cod (6 cifre) prin e-mail. Este valabil 15 minute și o singură dată; după 5 introduceri greșite ai nevoie de unul nou. Apoi setează un PIN de 4 cifre. Nu alege un PIN simplu, precum 1234 sau 0000. Nu ai o adresă de e-mail proprie? Bifează „Nu am o adresă de e-mail proprie”. Atunci e-mailul ajunge la maistrul tău (Polier) sau la angajatul la care ești repartizat. El îți dă codul personal.",
+    "În loc de PIN poți folosi amprenta sau recunoașterea facială. Acestea rămân pe telefonul tău.",
+    "Citește informările despre protecția datelor și despre actul de identitate. Bifează căsuța la fiecare. Apoi permite locația cu „În timpul folosirii aplicației”.",
+    "Pune aplicația pe ecranul de start. Doar așa îți poate trimite notificări. Dacă telefonul întreabă, alege „Permite”.",
+    "Aplicația se blochează după 5 minute fără folosire. Ai uitat PIN-ul? Atinge „Am uitat PIN-ul”. Primești un cod nou prin e-mail și setezi un PIN nou.",
+    "Telefon nou sau telefon pierdut? Sună la birou. Biroul blochează vechiul acces și trimite o invitație nouă prin e-mail."
+   ],
+   "k": "conectare parolă cod qr e-mail mail maistru amprentă blocat pierdut invitație înregistrare"
+  },
+  {
+   "id": "zeit",
+   "t": "Înregistrarea timpului de lucru",
+   "p": [
+    "Deschide „Azi”. Aplicația îți propune șantierul.",
+    "Atinge „Începe lucrul” când începi.",
+    "Atinge „Pauză” imediat ce începe pauza ta. Atinge deja când părăsești șantierul, nu abia la locul pauzei.",
+    "Atinge „Continuă lucrul” când se termină pauza.",
+    "Mergi la alt șantier? Atinge „Schimbă șantierul” când pleci. Drumul se socotește deja la noul șantier.",
+    "Atinge „Sfârșitul lucrului” când termini.",
+    "Fără rețea? Poți înregistra timpul oricând. Contează ora la care atingi. Aplicația trimite datele imediat ce revine rețeaua.",
+    "Lucrezi peste miezul nopții (schimb de noapte)? Tot schimbul se socotește la ziua în care a început. Asta e valabil și în ultima zi a lunii."
+   ],
+   "k": "start început sfârșit pauză schimbare șantier gata ore pontaj fără rețea offline schimb de noapte miezul nopții"
+  },
+  {
+   "id": "baust",
+   "t": "Alegerea șantierului · Repartizarea mea",
+   "p": [
+    "Aplicația îți propune șantierul. Se bazează pe locația ta sau pe repartizarea ta.",
+    "Șantierul nu este cel corect? Atinge „Alege alt șantier”.",
+    "Caută după centrul de cost (Kostenstelle), stradă sau localitate. Atinge șantierul corect.",
+    "Alege un motiv și atinge „Aplică”. Motivul este obligatoriu.",
+    "Maistrul tău (Polier) vede la aprobare că șantierul a fost ales manual. Timpul tău se salvează întotdeauna.",
+    "La „Repartizarea mea” vezi unde lucrezi săptămâna aceasta. Atinge „Arată toată săptămâna”, ca să vezi toate zilele.",
+    "Dacă repartizarea ta s-a schimbat, apare acolo o notă. Atinge „Am citit”."
+   ],
+   "k": "șantier caută centru de cost manual șantier greșit repartizare săptămână planificare"
+  },
+  {
+   "id": "ort",
+   "t": "Locația nu corespunde",
+   "p": [
+    "Aplicația verifică locația ta doar în momentul în care atingi: la start, pauză, reluare, schimbarea șantierului și sfârșitul lucrului.",
+    "Aplicația spune „Nu ești la șantier”? Alege o scurtă explicație. Este obligatoriu. Poți adăuga o notiță.",
+    "Apoi atinge butonul de salvare. Timpul tău a fost înregistrat.",
+    "Șantier setat greșit? Alege pe „Azi” șantierul corect.",
+    "Timpul tău se salvează întotdeauna. Maistrul tău vede nota „diferă”, distanța aproximativă și explicația ta.",
+    "Localizarea nu merge (de exemplu în subsol)? Aplicația îți spune asta. Ora ta se salvează oricum. Fără rețea? Poți înregistra timpul oricând. Contează ora la care atingi. Aplicația trimite datele imediat ce revine rețeaua."
+   ],
+   "k": "locație gps distanță fără semnal nu ești la șantier explicație fără rețea offline"
+  },
+  {
+   "id": "tag",
+   "t": "Verifică și trimite ziua",
+   "p": [
+    "După sfârșitul lucrului atingi „Verifică și trimite ziua”.",
+    "Verifică șantierele, orele și pauzele. Aplicația îți arată dacă observă un gol sau o pauză prea scurtă.",
+    "Ai uitat să apeși sau o oră nu este corectă? La „Ai uitat să apeși?” atinge unul dintre cele trei butoane: „Începutul a fost la …”, „Sfârșitul a fost la …” sau „Pauza a fost de la … până la …”. Alege ora. Maistrul tău primește o propunere gata făcută și o poate accepta. Ora o poate schimba doar maistrul tău sau conducerea șantierului.",
+    "Bifează căsuța dacă ai înnoptat în afara casei sau ai condus microbuzul echipei.",
+    "Atinge jos „Trimite maiștrilor”.",
+    "Prin trimitere confirmi că începutul, sfârșitul și pauzele sunt corecte.",
+    "Fiecare maistru aprobă propriul șantier. Apoi aprobă șeful de șantier (Bauleiter). Până atunci contul tău este provizoriu.",
+    "Aplicația îți trimite două reamintiri: „Sfârșitul lucrului încă deschis” vine la 2 ore după sfârșitul obișnuit al lucrului, cel târziu la 20:00, dacă nu ai atins sfârșitul lucrului. „Ziua încă netrimisă” vine a doua zi dimineața la 06:30, dacă nu ți-ai trimis încă ziua."
+   ],
+   "k": "trimite comentariu timp greșit uitat deplasare cazare șofer aprobare uitat să apeși început sfârșit pauză propunere reamintire"
+  },
+  {
+   "id": "zus",
+   "t": "Sporuri",
+   "p": [
+    "Deschide ziua ta și atinge „+ Adaugă spor”.",
+    "Atinge ce a apărut astăzi. De exemplu protecție respiratorie sau ciocan demolator.",
+    "Alege șantierul și scrie orele, de ex. 2,5.",
+    "Mai multe ore decât timpul tău de lucru pe șantier? Aplicația te avertizează. Te rog verifică.",
+    "Atinge butonul albastru de jos. Sporurile apar apoi în ziua ta.",
+    "Nu ai totuși nevoie de spor? Atinge „Înapoi fără spor”.",
+    "Orele de noapte le stabilește aplicația. Orele suplimentare, duminica și sărbătorile se calculează la salarizare."
+   ],
+   "k": "spor mască praf murdărie ciocan combinezon căldură condiții grele"
+  },
+  {
+   "id": "korr",
+   "t": "Corectare de la maistru",
+   "p": [
+    "O oră nu este corectă? Trece asta înainte de trimitere la „Ai uitat să apeși?”. Maiștrii văd propunerea ta la aprobare și o pot accepta.",
+    "Dacă maistrul îți schimbă înregistrarea, primești un mesaj.",
+    "Vezi ce era înainte și ce scrie acum. Plus explicația.",
+    "Nu ești de acord? Atinge „Contestă” și scrie ce nu este corect.",
+    "Apoi decide șeful de șantier. Vei fi anunțat.",
+    "Dacă nu răspunzi, primești o reamintire. După aceea corectarea se aplică. De aceea contestă cât mai repede, dacă ceva nu este corect.",
+    "Dacă maistrul trimite o întrebare, te rog răspunde până la ziua indicată."
+   ],
+   "k": "modificat contestație confirmă întrebare trimis înapoi aprobare corectare"
+  },
+  {
+   "id": "kal",
+   "t": "Calendar",
+   "p": [
+    "Atinge „Calendar” în meniul de jos.",
+    "Culorile arată: sărbătoare legală, concediu, concediu colectiv, liber conform contractului colectiv, boală.",
+    "Atinge o zi. Dedesubt scrie ce se aplică în ziua respectivă, de exemplu orele tale planificate.",
+    "Atinge „Vezi ziua”. Vezi orele, pauzele și sporurile.",
+    "Cu săgețile schimbi luna.",
+    "Jos sunt următoarele sărbători legale din Bavaria.",
+    "Dacă o sărbătoare cade într-o zi de lucru, primești plata pentru sărbătoare. Nu se scade nicio zi de concediu."
+   ],
+   "k": "sărbătoare lună zile libere prezentare planificat"
+  },
+  {
+   "id": "konto",
+   "t": "Cont de ore (Arbeitszeitkonto)",
+   "p": [
+    "Atinge „Cont” în meniul de jos.",
+    "Sus vezi soldul tău după ultima aprobare. Zilele de după sunt provizorii. Dedesubt vezi evoluția.",
+    "Lucrezi mai mult decât norma? Se adaugă ore. Lucrezi mai puțin? Se scad ore.",
+    "Zile libere din cont: atinge „Ia liber din cont”. Acolo faci cererea.",
+    "Vara (apr–nov): zile libere din cont abia de la 100 h.",
+    "Iarna (dec–mar): zile libere din cont sunt posibile atâta timp cât în cont rămân 50 h.",
+    "Orele peste 150 h se plătesc."
+   ],
+   "k": "ore ore suplimentare sold normă plată liber cont"
+  },
+  {
+   "id": "url",
+   "t": "Cerere de concediu și zile libere din cont",
+   "p": [
+    "Atinge „Concediu” în meniul de jos.",
+    "Sus vezi concediul tău: restul din anul trecut, dreptul, zilele luate și câte zile mai sunt libere.",
+    "Alege „Zile de concediu” sau „Din cont”.",
+    "Completează „De la” și „Până la”. Weekendurile și sărbătorile legale nu se numără ca zile de concediu.",
+    "Aplicația arată cât rămâne liber după aceea. Dacă cererea nu merge, îți spune de ce.",
+    "Atinge „Trimite cererea”.",
+    "Mai întâi verifică șeful de șantier, apoi conducerea firmei. Vei primi un mesaj."
+   ],
+   "k": "vacanță liber cerere aprobare concediu rămas zile de concediu cont"
+  },
+  {
+   "id": "bu",
+   "t": "Concediu colectiv",
+   "p": [
+    "Biroul stabilește concediul colectiv. Zilele de concediu sunt deja înregistrate.",
+    "Sărbătorile legale din concediul colectiv nu costă o zi de concediu.",
+    "24.12. și 31.12. sunt zile libere, dar fără salariu. Alegi: „Zi de concediu” sau „Liber neplătit”.",
+    "Nu îți ajunge concediul? Atunci poți fi de acord ca ore să fie scăzute din contul de ore. Fără acordul tău nu se scade nimic.",
+    "Iarna trebuie să rămână în cont cel puțin 50 h.",
+    "Alege până la data din aplicație. Apoi atinge „Salvează alegerea”. Dacă nu alegi nimic, rămâne „Liber neplătit”."
+   ],
+   "k": "crăciun ajun revelion concediu colectiv acord"
+  },
+  {
+   "id": "krank",
+   "t": "Anunț de boală (și copil bolnav)",
+   "p": [
+    "Atinge „Medical” în meniul de jos.",
+    "Alege „Eu” sau „Copilul meu”. Completează de când și până când.",
+    "Până la 3 zile calendaristice merge fără certificat medical. Dacă ești bolnav mai mult de 3 zile calendaristice, ai nevoie de certificat medical cel târziu în următoarea zi lucrătoare după acestea. Anunță întotdeauna imediat că ești bolnav. Firma îl poate cere mai devreme în cazuri individuale.",
+    "Ai fost la medic? Bifează căsuța și introdu datele certificatului exact așa cum le-a notat medicul.",
+    "Copil bolnav: ai nevoie de adeverință de la medic din prima zi. Aceste zile sunt de regulă neplătite, casa de sănătate (Krankenkasse) plătește indemnizația pentru copil bolnav (Kinderkrankengeld). Pentru ucenici (Auszubildende) și în cazuri speciale se aplică altceva – întreabă la birou.",
+    "Accident de muncă sau pe drum spre muncă? Bifează căsuța și sună imediat maistrul sau șeful de șantier. Mergi la un medic de accidente de muncă (Durchgangsarzt, D-Arzt) sau la spital.",
+    "Nu scrie diagnosticul. Atinge „Trimite anunțul de boală”. Maistrul și șeful de șantier (Bauleiter) află că ești anunțat bolnav și până când, dar nu de ce. Colegii văd doar „absent”.",
+    "Anunțul tău de boală se termină curând? Aplicația te întreabă: „Când te întorci?” Răspunde până la ziua indicată."
+   ],
+   "k": "boală anunț medic certificat copil accident accident de muncă"
+  },
+  {
+   "id": "ab",
+   "t": "Cerere de liber plătit pentru evenimente",
+   "p": [
+    "Atinge „Concediu” în meniul de jos, apoi „Liber plătit pentru evenimente”.",
+    "Alege motivul. De exemplu nuntă, naștere, deces, mutare, vizită la medic sau la o autoritate.",
+    "Completează zilele sau ora. Atinge „Trimite cererea”.",
+    "Pentru fiecare motiv există doar un număr stabilit de zile. Dacă perioada este prea lungă, aplicația îți spune. Pentru zilele rămase cere concediu.",
+    "Mai întâi verifică șeful de șantier, apoi biroul. Șeful de șantier vede doar motivul și zilele. Dovada o vede doar biroul.",
+    "Acordul este valabil mai întâi sub rezervă. Devine definitiv când dovada este verificată."
+   ],
+   "k": "liber plătit nuntă mutare naștere deces autoritate instanță medic"
+  },
+  {
+   "id": "nach",
+   "t": "Trimite dovada ulterior",
+   "p": [
+    "Poți trimite cererea și fără dovadă. Fotografiază dovada imediat sau mai târziu.",
+    "Termen: 14 zile după eveniment, apoi încă 7 zile termen suplimentar. Aplicația îți amintește până când dovada ajunge.",
+    "Fotografiază dovada. Apoi atinge „Trimite dovada”.",
+    "Datele care nu sunt necesare pentru motiv le poți acoperi. De exemplu un diagnostic.",
+    "Dacă dovada lipsește după aceea, alegi: zi de concediu sau liber neplătit. Pentru ore: din contul de ore sau neplătit. Ai la dispoziție 3 zile lucrătoare (de luni până sâmbătă). Dacă nu alegi, înregistrăm timpul provizoriu ca neplătit. Dacă aduci dovada mai târziu, se corectează.",
+    "Din cont se poate doar atâta timp cât contul tău rămâne pe plus. Limitele de 100 h și 50 h nu se aplică aici."
+   ],
+   "k": "dovadă adeverință act fotografie termen termen suplimentar încărcare amintire"
+  },
+  {
+   "id": "push",
+   "t": "Notificări și mementouri pentru pauză",
+   "p": [
+    "Aplicația îți trimite mesaje scurte pe telefon.",
+    "De exemplu: lipsește pauza, pauza încă rulează, sfârșitul lucrului încă deschis, ziua încă netrimisă, maistrul a corectat, lipsește dovada, repartizarea s-a schimbat.",
+    "Pune pentru asta aplicația pe ecranul de start. Dacă telefonul întreabă de notificări, alege „Permite”.",
+    "După 5:30 h de lucru fără pauză, aplicația îți amintește. Nu ai voie să lucrezi mai mult de 6 h fără pauză.",
+    "La peste 6 h de lucru ai nevoie de cel puțin 30 min de pauză, la peste 9 h de cel puțin 45 min. Contează doar pauzele de cel puțin 15 min fără întrerupere. Fiecare pauză se scade din timpul de lucru.",
+    "Pauza ta rulează deja de 60 de minute? Aplicația întreabă: „Pauza este încă activă?” Atinge „Continuă lucrul”, dacă lucrezi deja din nou.",
+    "Unele mementouri le confirmi cu „Notă citită și înțeleasă”. De exemplu despre concediul rămas.",
+    "Pe ecranul de blocare apare doar un text scurt și neutru: nimic despre boală, fără nume de colegi, fără solduri de ore. Detaliile le vezi abia în aplicație."
+   ],
+   "k": "push notificare memento mesaj ecran de start pauză concediu rămas"
+  },
+  {
+   "id": "ohne",
+   "t": "Fără smartphone",
+   "p": [
+    "Folosirea telefonului tău personal este voluntară.",
+    "Fără smartphone, maistrul tău notează orele și sporurile tale.",
+    "Verifici totul. Apoi confirmi cu propriul PIN pe telefonul maistrului.",
+    "PIN-ul inițial îl primești prin scrisoare. Prima dată îți stabilești propriul PIN.",
+    "Nu ai fost acolo? Atunci confirmi data viitoare cu PIN-ul tău sau semnezi fișa săptămânală la birou.",
+    "Concediul și boala le anunți maistrului sau la birou.",
+    "Orele și conturile tale le primești în fiecare lună tipărite."
+   ],
+   "k": "fără telefon privat fără telefon pin scrisoare pin inițial"
+  },
+  {
+   "id": "helf",
+   "t": "Introdu actul de identitate al unei persoane de la subcontractant",
+   "p": [
+    "O persoană nouă de la o firmă străină (subcontractant) pe șantier? Atinge „Introdu actul de identitate al unei persoane de la subcontractant”.",
+    "Roagă-l să-ți arate actul în original.",
+    "Alege persoana. Completează „Tipul actului”, „Valabil până la” și „Cetățenie”.",
+    "Bifează căsuța că ai văzut actul în original. Atinge „Act văzut – salvează”.",
+    "Nu face poză actului, nici cu telefonul tău. Nu se salvează nicio copie și niciun număr al actului.",
+    "Cineva nu are actul la el? Nu introduce nimic și spune maistrului sau biroului."
+   ],
+   "k": "act muncitor subcontractor firmă străină carte de identitate pașaport permis de ședere"
+  },
+  {
+   "id": "ml",
+   "t": "Semnătura pentru salariul minim (subcontractanți)",
+   "p": [
+    "Acest subiect este doar pentru angajații subcontractanților (firme străine). Ei folosesc o aplicație proprie.",
+    "După sfârșitul fiecărei luni semnezi declarația ta personală privind salariul minim pentru luna încheiată. Poți semna începând cu data de 1 a lunii următoare. Exemplu: declarația pentru august 2026 o semnezi începând cu 01.09.2026. Prin ea declari că primești de la angajatorul tău cel puțin salariul minim legal.",
+    "Deschide în aplicația ta secțiunea „Salariul minim” și citește textul. Semnează cu degetul în câmp. Apoi atinge „Semnează și trimite”.",
+    "Declarația ajunge ca PDF la biroul K. Baumann Baugesellschaft, nu la firma ta.",
+    "Nu poți sau nu vrei să semnezi? Anunță maistrul sau biroul."
+   ],
+   "k": "salariu minim semnătură semnez subcontractant firmă străină declarație salariu"
+  },
+  {
+   "id": "spr",
+   "t": "Schimbarea limbii",
+   "p": [
+    "Atinge în dreapta sus globul cu abrevierea, de exemplu RO.",
+    "Alege limba ta din listă.",
+    "Aplicația ține minte limba pe acest telefon.",
+    "Numele șantierelor și ale persoanelor rămân neschimbate."
+   ],
+   "k": "language język limba jezik dil nyelv lingua langue sprache übersetzung"
+  },
+  {
+   "id": "ds",
+   "t": "Protecția datelor",
+   "p": [
+    "Locația ta este comparată doar în momentul în care atingi. Aplicația nu salvează niciun traseu și nicio coordonată.",
+    "Se salvează dacă locația corespunde cu șantierul, distanța aproximativă și explicația ta. Asta văd maistrul tău, șeful de șantier (Bauleiter) și biroul.",
+    "Dacă refuzi locația, alegi șantierul manual. O poți dezactiva oricând din setările telefonului.",
+    "La boală aplicația nu cere diagnosticul. Maistrul și șeful de șantier (Bauleiter) află că ești anunțat bolnav și până când, dar nu de ce. Colegii văd doar „absent”. Adeverințele și dovezile le vede doar biroul.",
+    "Folosirea telefonului tău personal este voluntară. Aplicația nu citește contactele și nici fotografiile.",
+    "Datele se află pe un server propriu al firmei. Timpul de lucru se păstrează, după stadiul actual, 8 ani (se mai verifică).",
+    "Poți cere informații despre datele tale. Restul este în informarea privind protecția datelor."
+   ],
+   "k": "date localizare supraveghere gps salvare drepturi protecția datelor informare"
+  },
+  {
+   "id": "hilfe",
+   "t": "Ajutor și întrebări",
+   "p": [
+    "Atinge în dreapta sus semnul întrebării. Acolo găsești acest ajutor.",
+    "Scrie sus un cuvânt în căutare, de exemplu pauză sau PIN. Atunci vezi doar subiectele potrivite.",
+    "Răspunsuri rapide găsești la întrebările frecvente.",
+    "Introducerea o poți vedea din nou oricând.",
+    "Nu te descurci? Întreabă maistrul sau sună la birou."
+   ],
+   "k": "faq întrebări introducere instrucțiuni ajutor suport telefon"
+  }
+ ],
+ "datenschutz": {
+  "entwurf": "Versiune preliminară · versiunea 0.1 · încă neaprobată juridic",
+  "intro": "Așa folosim datele tale la înregistrarea orelor. Parantezele pătrate se completează înainte de lansare. Atinge un titlu pentru a deschide secțiunea.",
+  "abschnitte": [
+   {
+    "t": "1. Cine este responsabil?",
+    "p": [
+     {
+      "x": "K. Baumann Baugesellschaft mbH, [adresa], [telefon], [e-mail]."
+     },
+     {
+      "x": "Persoană de contact pentru protecția datelor: [nume, contact]."
+     }
+    ]
+   },
+   {
+    "t": "2. Ce date, pentru ce și pe ce bază?",
+    "p": [
+     {
+      "t": "Început, sfârșit, pauze, șantier, sporuri:",
+      "x": "pentru calculul salariului și evidența legală a timpului de lucru. Temei: contractul de muncă și obligația legală. Dacă nu ai telefon, maistrul tău (Polier) introduce aceste date pentru tine."
+     },
+     {
+      "t": "Locația la atingere:",
+      "x": "se compară doar cu șantierul, ca orele să fie înregistrate corect. Poziția exactă nu o salvăm; se salvează doar rezultatul (vezi secțiunea 3). Temei: contractul de muncă și interesul legitim pentru o decontare corectă."
+     },
+     {
+      "t": "Concediu, scutiri de la muncă, conturi de ore (Arbeitszeitkonto):",
+      "x": "pentru gestionarea drepturilor tale. Temei: contractul de muncă și contractul colectiv."
+     },
+     {
+      "t": "Anunțarea bolii și adeverința, inclusiv „copil bolnav” și accident de muncă:",
+      "x": "pentru plata salariului în timpul bolii și pentru planificare. Nu întrebăm diagnosticul. La „copil bolnav” folosim doar luna și anul nașterii copilului, fără prenume. Sunt date privind sănătatea; temei: dreptul muncii și dreptul social."
+     },
+     {
+      "t": "Dovezi pentru liber plătit pentru evenimente",
+      "x": "(de ex. certificat de căsătorie, confirmare de domiciliu, adeverință de la cabinet) și observațiile tale: pentru verificarea dreptului. Temei: contractul de muncă și contractul colectiv."
+     },
+     {
+      "t": "Adresa de e-mail, dispozitivul, momentele conectării:",
+      "x": "pentru invitația prin e-mail și accesul sigur la aplicație. Se salvează și dacă folosești un telefon personal sau unul de serviciu și când te-ai conectat ultima dată. Invitația și codul de conectare ți le trimitem prin e-mail. Dacă nu ai o adresă de e-mail proprie, ambele ajung la maistrul tău sau la angajatul la care ești repartizat; el îți arată invitația și îți dă codul personal. Numărul tău de telefon nu ne trebuie pentru aceasta; este doar o dată de contact opțională. Temei: contractul de muncă și interesul legitim pentru o funcționare sigură. PIN-ul tău îl salvăm doar criptat. Amprenta sau recunoașterea facială rămân pe telefonul tău; nu le primim."
+     },
+     {
+      "t": "Repartizarea pe șantiere:",
+      "x": "pentru organizarea muncii. Temei: contractul de muncă."
+     },
+     {
+      "t": "Jurnal: cine ce a modificat și când:",
+      "x": "ca dovadă la controale. Temei: obligația legală."
+     },
+     {
+      "t": "Date pentru concediu și zile libere:",
+      "x": "de exemplu handicap grav (Schwerbehinderung), vârsta sub 18 ani sau părinte singur. Le folosim doar ca să calculăm corect drepturile tale. Le vede doar biroul (resurse umane). Temei: contractul de muncă, contractul colectiv și legea; handicapul este protejat în mod special (ca datele privind sănătatea)."
+     },
+     {
+      "t": "Comentarii, motive și mesaje:",
+      "x": "texte pe care le scrii tu în aplicație. Le citesc maistrul tău, șeful de șantier și biroul. Te rugăm să nu scrii acolo nimic despre boală sau lucruri private. Temei: contractul de muncă."
+     },
+     {
+      "t": "Rapoarte:",
+      "x": "din ore calculăm și costurile și comparația planificat–realizat pentru fiecare șantier. Temei: interesul legitim [se verifică înainte de lansare]."
+     },
+     {
+      "x": "Dispozițiile legale: art. 6 alin. (1) lit. b, c și f GDPR (DSGVO), § 26 BDSG; pentru datele privind sănătatea art. 9 alin. (2) lit. b GDPR (DSGVO) și § 26 alin. (3) BDSG. Obligația de evidență: [dispoziții, de ex. § 16 ArbZG, § 17 MiLoG, § 19 AEntG]. Datele de bază, precum numele, numărul de personal, numărul de telefon (dată de contact opțională), grupa, funcția și timpul de lucru, provin din dosarul tău de personal."
+     }
+    ]
+   },
+   {
+    "t": "3. Locația",
+    "p": [
+     {
+      "x": "Aplicația preia locația ta doar în momentul în care atingi Start, Pauză, Schimbare sau Sfârșit. Între aceste momente nu se localizează nimic."
+     },
+     {
+      "x": "Aplicația compară locația cu adresa șantierului. Poziția exactă (coordonatele) nu se salvează și nu se creează un profil de deplasare. Se salvează: momentul, rezultatul „corespunde” sau „diferă”, distanța aproximativă până la șantier și, dacă diferă, motivul și nota ta. Acestea le văd maistrul tău, șeful de șantier și biroul."
+     },
+     {
+      "x": "Angajații de la birou nu sunt localizați deloc."
+     },
+     {
+      "x": "Dacă refuzi permisiunea de localizare, alegi șantierul manual, iar maistrul tău vede mențiunea „locație lipsă”. Poți dezactiva permisiunea oricând din setările telefonului."
+     }
+    ]
+   },
+   {
+    "t": "4. Telefonul personal",
+    "p": [
+     {
+      "x": "Folosirea telefonului tău personal este voluntară. Aplicația folosește camera doar când faci o fotografie pentru o dovadă. Nu citește contactele și nici alte fotografii."
+     },
+     {
+      "x": "Dacă nu vrei să folosești telefonul tău, maistrul tău introduce orele, iar tu le confirmi cu PIN-ul tău pe telefonul maistrului."
+     },
+     {
+      "x": "Pentru asta primești prin poștă un PIN inițial. La prima confirmare îți stabilești propriul PIN; PIN-ul inițial nu mai este valabil."
+     },
+     {
+      "x": "Pe telefonul tău, aplicația salvează doar ce îi trebuie ca să funcționeze: limba ta, conectarea ta și orele care nu au fost încă trimise (de exemplu, fără semnal). Fără reclame, fără analize."
+     }
+    ]
+   },
+   {
+    "t": "5. Cine primește datele?",
+    "p": [
+     {
+      "x": "Maistrul și șeful de șantier (Bauleiter) de la șantierul tău: orele tale, rezultatul localizării (secțiunea 3) și comentariile tale"
+     },
+     {
+      "x": "Șeful de șantier: în plus, cererile tale de concediu și de liber plătit pentru evenimente. La liberul plătit vede doar motivul și zilele, nu dovada."
+     },
+     {
+      "x": "În caz de boală, maistrul tău, șeful de șantier și cei care planifică repartizarea află că ești anunțat bolnav și până când. Motivul (diagnosticul) nu îl află nimeni. Adeverința o vede doar biroul (resurse umane). Colegii văd doar „absent”."
+     },
+     {
+      "x": "Cei care planifică repartizarea (planificare): dacă ești absent din cauza bolii, în concediu sau la școala profesională"
+     },
+     {
+      "x": "Birou (resurse umane): toate datele. Adeverințele, actele și dovezile le vede doar biroul."
+     },
+     {
+      "x": "Conducerea firmei: cereri de concediu, ore, conturi de timp și rapoarte; fără adeverințe și dovezi [amploarea se stabilește înainte de lansare]"
+     },
+     {
+      "x": "Contabilitatea salariilor [firma exactă]: calculul salariilor"
+     },
+     {
+      "x": "Furnizor de servicii IT [firmă]: funcționarea serverului"
+     },
+     {
+      "x": "Serviciu de e-mail [firmă]: invitația cu link și coduri de conectare (fără adresă de e-mail proprie, ambele ajung la maistrul tău sau la angajatul la care ești repartizat)"
+     },
+     {
+      "x": "Notificările trec tehnic prin serviciul telefonului tău (Apple sau Google), inclusiv prin servere din SUA. Ele trebuie să conțină doar indicații scurte și neutre, fără date privind sănătatea. [de verificat înainte de lansare: conținutul și temeiul transferului în SUA]"
+     },
+     {
+      "x": "Autorități, când avem obligație legală: vama (Zoll), asigurarea de pensie (Rentenversicherung), fiscul (Finanzamt), SOKA-BAU, casa de sănătate (Krankenkasse), Berufsgenossenschaft (asigurarea de accidente, în caz de accident de muncă)"
+     },
+     {
+      "x": "Datele se află pe un server propriu al firmei. Nu le transmitem în țări din afara UE. Singura excepție: notificările prin Apple sau Google (vezi mai sus). [sediul serviciului de e-mail se verifică înainte de lansare]"
+     }
+    ]
+   },
+   {
+    "t": "6. Cât timp păstrăm datele?",
+    "p": [
+     {
+      "x": "Provizoriu: toate termenele din această secțiune nu sunt încă confirmate. Ele se verifică și se stabilesc înainte de lansare."
+     },
+     {
+      "x": "Timpul de lucru și datele de decontare: 8 ani"
+     },
+     {
+      "x": "Locația: poziția exactă nu se salvează. Rezultatul (corespunde / diferă, distanța, motivul) se salvează împreună cu ziua: [durată]"
+     },
+     {
+      "x": "Concedii medicale (adeverință, fotografie): 1 an, la absențe mai lungi până la 3 ani. Zilele de boală în sine fac parte din datele de decontare."
+     },
+     {
+      "x": "Cereri de concediu: 3 ani de la sfârșitul anului de concediu"
+     },
+     {
+      "x": "Dovezi pentru liber plătit pentru evenimente: [durată]"
+     },
+     {
+      "x": "Datele de conectare și jurnalul de modificări: [durată]"
+     },
+     {
+      "x": "Documentele, orele și declarațiile privind salariul minim ale subcontractanților: 10 ani"
+     },
+     {
+      "x": "După aceea datele se șterg."
+     }
+    ]
+   },
+   {
+    "t": "7. Drepturile tale",
+    "p": [
+     {
+      "x": "Poți cere informații despre datele tale, poți cere rectificarea datelor greșite și poți cere ștergerea sau restricționarea lor, în măsura în care nu există obligația de păstrare. Poți primi datele și într-un format de fișier uzual."
+     },
+     {
+      "x": "Te poți opune prelucrării, în măsura în care se bazează pe un interes legitim (de exemplu, la locație)."
+     },
+     {
+      "x": "Cum îți folosești drepturile: adresează-te la [contact] sau spune la birou. Ajunge o propoziție, de exemplu: „Vreau informații despre datele mele.” sau „Mă opun.” De regulă răspundem în termen de o lună."
+     },
+     {
+      "x": "Nu ai niciun dezavantaj dacă îți exerciți aceste drepturi."
+     },
+     {
+      "x": "De asemenea, poți depune o plângere la Bayerisches Landesamt für Datenschutzaufsicht (autoritatea bavareză de supraveghere a protecției datelor), Ansbach."
+     }
+    ]
+   },
+   {
+    "t": "8. Trebuie să furnizezi datele?",
+    "p": [
+     {
+      "x": "Evidența timpului de lucru este obligatorie prin lege și necesară pentru calculul salariului. Fără ea nu îți putem calcula corect salariul."
+     },
+     {
+      "x": "Sunt voluntare: folosirea telefonului tău personal, amprenta sau recunoașterea facială și observațiile. Permisiunea de localizare o poți dezactiva; ce se aplică atunci găsești în secțiunea 3. [Dacă localizarea este considerată juridic voluntară se verifică înainte de lansare.]"
+     }
+    ]
+   },
+   {
+    "t": "9. Decizii automate",
+    "p": [
+     {
+      "x": "Nu există. Aplicația verifică orele și pauzele și oferă indicații; decid întotdeauna oamenii."
+     }
+    ]
+   },
+   {
+    "t": "Pentru persoanele de la subcontractanți",
+    "p": [
+     {
+      "x": "Angajatorul tău este firma ta. K. Baumann Baugesellschaft îți înregistrează orele în calitate de beneficiar al lucrării, pentru a verifica facturile și a dovedi cine a fost pe șantier. Firma ta nu are acces la aplicație; pentru decontare primește orele tale. Cu aplicația îți trimiți orele direct, iar maistrul le aprobă. Fără aplicație, maistrul îți scrie orele, iar șeful de șantier le contrasemnează. Temei: interesul nostru legitim și obligațiile noastre legale în calitate de beneficiar (salariu minim, muncă la negru)."
+     },
+     {
+      "x": "Numele tău, adresa de e-mail (pentru invitație și codul de conectare), numărul de telefon, dacă a fost indicat (dată de contact opțională), activitatea ta și tariful orar pe care firma ta îl facturează pentru munca ta le-am primit [de la firma ta]."
+     },
+     {
+      "t": "Act de identitate:",
+      "x": "Ne uităm la el. Nu se salvează nicio copie și niciun număr. Se notează doar: tipul actului, valabil până la, cetățenia și cine l-a văzut și când. Cetățenia o notăm doar ca biroul să știe ce documente sunt necesare."
+     },
+     {
+      "t": "Certificatul A1:",
+      "x": "Dacă ești detașat în Germania din altă țară, poate fi necesar un certificat A1. Atunci salvăm o fotografie a lui. El arată în ce țară ești asigurat social. Îl vede doar biroul."
+     },
+     {
+      "t": "Declarația privind salariul minim:",
+      "x": "În fiecare lună semnezi pe telefon o scurtă declarație personală privind salariul minim. Se salvează: numele tău, firma ta, data și ora, versiunea textului și semnătura ta (ca imagine și ca PDF). O vede doar biroul K. Baumann, nu firma ta. O păstrăm la fel de mult ca documentele tale cu orele (provizoriu 10 ani). Dacă lipsește semnătura, te reamintim cel mult o dată. Biroul și cei care planifică repartizarea văd atunci că semnătura încă lipsește. Dacă nu poți sau nu vrei să semnezi, vorbește cu maistrul sau cu biroul."
+     },
+     {
+      "x": "Pentru locație se aplică secțiunea 3. Datele tale le păstrăm provizoriu 10 ani [se confirmă înainte de lansare]. Drepturile din secțiunea 7 se aplică și ție. Important: te poți opune prelucrării datelor tale. Pentru asta, adresează-te la [contact]."
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { PcSeite, Pill, Pk, h1, rollenText, useToast } from '../../components/Pc';
 import { useDaten } from '../../domain/store';
 import {
-  baustelle, baustelleVonTag, bsLang, bsName, helferStunden, hinweiseTag, kontoStand, nameKomma, person, rechnung, stundenIstBaustelle, tageBeiBauleitung, tageBeimPolier, urlaubRest, voll,
+  antraegeFuerBauleitung, vorschlaegeFuerBauleitung, vorschlaegeFuerPolier, baustelle, baustelleVonTag, bsLang, bsName, einteilungAm, fristRueckmeldung, helferStunden, hinweiseTag, kontoStand, nameKomma, offeneKorrekturen, offeneWidersprueche, person, rechnung, stundenIstBaustelle, tageBeiBauleitung, tageBeimPolier, urlaubRest, voll,
 } from '../../domain/sel';
 import { artName, monatName, monatVon, plusTage, tm, tmj, uhr, wtKurz } from '../../domain/zeit';
 import { lohnPersonen, lohnZeile } from '../../domain/lohn';
@@ -43,7 +43,10 @@ export function PcGl() {
   const [vt, setVt] = useState({ von: d.vertretung.von ?? d.heute, bis: d.vertretung.bis ?? plusTage(d.heute, 14) });
   const zweite = d.antraege.filter((x) => x.status === 'bauleitung_ok');
   const erledigt = d.antraege.filter((x) => x.glVon);
-  const beimBl = d.antraege.filter((x) => x.status === 'offen' && x.art !== 'krank');
+  const beimBl = d.antraege.filter((x) => x.status === 'offen' && x.art !== 'krank' && x.art !== 'betriebsurlaub');
+  const obl = person(d, d.oberbauleitungId);
+  const oblWahl = d.personen.filter((p) => p.gruppe === 'angestellt' && (p.rolle === 'bauleitung' || p.rolle === 'oberbauleitung')).sort((x, y) => nameKomma(x).localeCompare(nameKomma(y)));
+  const [oblNeu, setOblNeu] = useState(d.oberbauleitungId);
   const ueber100 = d.personen.filter((p) => p.gruppe === 'angestellt' && ['polier', 'bauleitung', 'buero', 'oberbauleitung', 'einkauf'].includes(p.rolle) && mehrStand(d, p.id) >= 100);
   const m = monatVon(d.heute);
   const vm = `${Number(m.slice(5)) === 1 ? Number(m.slice(0, 4)) - 1 : m.slice(0, 4)}-${String(Number(m.slice(5)) === 1 ? 12 : Number(m.slice(5)) - 1).padStart(2, '0')}`;
@@ -59,13 +62,13 @@ export function PcGl() {
     { bez: 'Nachunternehmer mit Warnung', wert: nuWarn.length, sub: nuWarn.map((p) => p.nachname).join(', ') || 'keine', to: '/pc/nu' },
     { bez: 'Betriebsurlaub', wert: d.betriebsurlaub.festgelegt ? 'festgelegt' : 'offen', sub: `${tm(d.betriebsurlaub.von)}–${tmj(d.betriebsurlaub.bis)}`, to: '/pc/betriebsurlaub' },
   ];
-  const art = (x: Antrag) => (x.art === 'konto' ? `Frei vom Konto, ${h1(x.stunden ?? 0)}` : 'Urlaub');
+  const art = (x: Antrag) => (x.art === 'konto' ? `Frei vom Konto, ${h1(x.stunden ?? 0)}` : x.art === 'arbeitsbefreiung' ? 'Arbeitsbefreiung' : 'Urlaub');
   return (
     <PcSeite titel="Übersicht Geschäftsleitung" pfad={`Stand ${wtKurz(d.heute)}, ${tmj(d.heute)} · ${monatName(m)} läuft noch`}>
       {toast}
       <section className="pc-karte">
         <h2>Zu erledigen: Urlaubsanträge zur Genehmigung</h2>
-        <span className="klein">Zweite Stufe: Der Bauleiter hat schon genehmigt und weitergegeben. Weg: Mitarbeiter → Bauleiter → Geschäftsleitung. Erst mit der Entscheidung hier ist der Urlaub genehmigt.</span>
+        <span className="klein">Zweite Stufe: Die Oberbauleitung hat schon genehmigt und weitergegeben. Weg: Mitarbeiter → Oberbauleitung → Geschäftsleitung. Erst mit der Entscheidung hier ist der Urlaub genehmigt. Anträge der Oberbauleitung selbst kommen direkt hierher.</span>
         <div className="pk-reihe"><Pill farbe="orange">{zweite.length} offen</Pill><Pill farbe="gruen">{erledigt.filter((x) => x.status === 'genehmigt').length} genehmigt</Pill><Pill farbe="rot">{erledigt.filter((x) => x.status === 'abgelehnt').length} abgelehnt</Pill></div>
         <div className="tab-wrap"><table className="tabelle"><thead><tr><th>Mitarbeiter</th><th>Zeitraum</th><th className="r">Tage</th><th className="r">Rest danach</th><th>Entscheidung</th></tr></thead><tbody>
           {[...zweite, ...erledigt.filter((x) => !zweite.includes(x))].map((x) => {
@@ -78,7 +81,7 @@ export function PcGl() {
                 <td className="r">{x.tage}</td>
                 <td className="r">{x.art === 'urlaub' ? `${urlaubRest(d, p.id).rest} Tage` : h1(kontoStand(d, p.id) - (x.stunden ?? 0))}</td>
                 <td>{x.status === 'bauleitung_ok' ? (ablehnen === x.id
-                  ? <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}><label className="pc-feld"><span>Grund der Ablehnung (Pflicht)</span><input value={grund} onChange={(e) => setGrund(e.target.value)} /></label><span className="klein">Der Grund geht an den Mitarbeiter und an den Bauleiter.</span><div className="pk-reihe"><Pk klein onClick={() => setAblehnen(undefined)}>Abbrechen</Pk><Pk klein farbe="rot" gesperrt={grund.trim().length < 3} onClick={() => { a.glAntragEntscheiden(x.id, false, grund.trim()); setAblehnen(undefined); setGrund(''); zeige('Abgelehnt. Mitarbeiter und Bauleiter sind informiert.', 'orange'); }}>Ablehnung senden</Pk></div></div>
+                  ? <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}><label className="pc-feld"><span>Grund der Ablehnung (Pflicht)</span><input value={grund} onChange={(e) => setGrund(e.target.value)} /></label><span className="klein">Der Grund geht an den Mitarbeiter und an die Oberbauleitung.</span><div className="pk-reihe"><Pk klein onClick={() => setAblehnen(undefined)}>Abbrechen</Pk><Pk klein farbe="rot" gesperrt={grund.trim().length < 3} onClick={() => { a.glAntragEntscheiden(x.id, false, grund.trim()); setAblehnen(undefined); setGrund(''); zeige('Abgelehnt. Mitarbeiter und Oberbauleitung sind informiert.', 'orange'); }}>Ablehnung senden</Pk></div></div>
                   : <div className="pk-reihe"><Pk klein farbe="rot" onClick={() => setAblehnen(x.id)}>Ablehnen</Pk><Pk klein farbe="gruen" onClick={() => { a.glAntragEntscheiden(x.id, true); zeige(`${voll(p)}: genehmigt. Geht an die Verwaltung.`); }}>Genehmigen</Pk></div>)
                   : <><Pill farbe={x.status === 'genehmigt' ? 'gruen' : 'rot'}>{x.status === 'genehmigt' ? '✓ genehmigt' : 'abgelehnt'}</Pill>{x.ablehnGrund && <><br /><span className="klein">Grund: {x.ablehnGrund}</span></>}</>}</td>
               </tr>
@@ -86,7 +89,7 @@ export function PcGl() {
           })}
           {!zweite.length && !erledigt.length && <tr><td colSpan={5} className="klein">Zurzeit liegt kein Antrag bei der Geschäftsleitung.</td></tr>}
         </tbody></table></div>
-        {beimBl.length > 0 && <span className="klein">Noch beim Bauleiter (kommen erst nach seiner Entscheidung hierher): {beimBl.map((x) => `${voll(person(d, x.personId))} ${tm(x.von)}–${tm(x.bis)}`).join(' · ')}</span>}
+        {beimBl.length > 0 && <span className="klein">Noch bei der Oberbauleitung (kommen erst nach ihrer Entscheidung hierher): {beimBl.map((x) => `${voll(person(d, x.personId))} ${tm(x.von)}–${tm(x.bis)}`).join(' · ')}</span>}
         {ueber100.map((p) => <div key={p.id} className="meldung orange"><strong>Mehrstunden über 100 h:</strong> {voll(p)} ({rollenText(p.rolle)}): {h1(mehrStand(d, p.id))}. Weitere Überstunden nur mit Genehmigung der Geschäftsleitung. <Link className="link" to="/pc/mehrstunden">Mehrstunden Angestellte ›</Link></div>)}
       </section>
       <div className="pc-raster">{kacheln.map((k) => <Link key={k.bez} to={k.to} className="kpi"><span className="bez">{k.bez}</span><span className="wert">{k.wert}</span><span className="klein">{k.sub}</span></Link>)}</div>
@@ -94,6 +97,17 @@ export function PcGl() {
         <div className="pk-reihe" style={{ justifyContent: 'space-between' }}><h2>Baustellen: Soll-Ist und Tendenz</h2><div className="pk-reihe"><Link className="link" to="/pc/projektkosten">Kosten je Baustelle ›</Link><Link className="link" to="/pc/auswertung/baustelle">Auswertung je Baustelle ›</Link></div></div>
         <span className="klein">Lohnstunden seit Baubeginn, ohne Angestellte (umgelegt). Disponiert = laut Einteilung der nächsten 10 Tage geplant. Die Ampel richtet sich nur nach dem Ist.</span>
         <BaustellenTabelle d={d} liste={d.baustellen.filter((b) => !b.archiviert)} />
+      </section>
+      <section className="pc-karte">
+        <h2>Oberbauleitung festlegen</h2>
+        <span className="klein">Die Oberbauleitung entscheidet alle Anträge (Urlaub, Frei vom Konto, Arbeitsbefreiung). Der eingeteilte Bauleiter sieht sie nur. Urlaub kommt danach zur Geschäftsleitung. Außerdem gibt die Oberbauleitung die eigenen Tage der Bauleiter frei.</span>
+        <div className="pk-reihe">
+          <label className="pc-feld"><span>Oberbauleiter</span><select value={oblNeu} onChange={(e) => setOblNeu(e.target.value)}>{oblWahl.map((p) => <option key={p.id} value={p.id}>{nameKomma(p)} ({rollenText(p.rolle)})</option>)}</select></label>
+          <Pk farbe="blau" gesperrt={oblNeu === d.oberbauleitungId} onClick={() => { a.oberbauleitungSetzen(oblNeu); zeige(`Oberbauleitung: ${voll(person(d, oblNeu))}. Offene Anträge liegen jetzt dort.`); }}>Festlegen</Pk>
+          <span className="klein">Jetzt: <strong>{voll(obl)}</strong></span>
+        </div>
+        {oblNeu !== d.oberbauleitungId && d.baustellen.some((b) => b.bauleitungId === oblNeu) && <div className="meldung orange">{voll(person(d, oblNeu))} ist Bauleiter von {d.baustellen.filter((b) => b.bauleitungId === oblNeu).map((b) => b.kst).join(', ')}. Als Oberbauleiter sieht er die Bauleiter-Seiten nicht mehr. Bitte die Baustellen danach neu zuordnen.</div>}
+        {oblNeu !== d.oberbauleitungId && obl.rolle === 'oberbauleitung' && <span className="klein">{voll(obl)} wird danach als Bauleiter geführt.</span>}
       </section>
       <section className="pc-karte">
         <h2>Vertretung des Lohnbüros durch die Buchhaltung</h2>
@@ -203,8 +217,14 @@ function TagZeile({ d, t, kind }: { d: Daten; t: Tag; kind: 'polier' | 'bauleitu
   const r = rechnung(d, t.personId, t.datum);
   const hw = hinweiseTag(d, t);
   const zus = t.zuschlaege;
+  const wartet = offeneKorrekturen(t);
+  const frist = wartet.length ? wartet.map(fristRueckmeldung).sort().pop()! : '';
+  const ws = offeneWidersprueche(t);
+  const gesperrt = kind === 'polier' ? wartet.length > 0 : kind === 'bauleitung' ? ws.length > 0 : false;
+  const sperrGrund = kind === 'polier' && wartet.length ? `Wartet auf ${p.vorname} (Korrektur)` : ws.length ? 'Erst den Widerspruch entscheiden' : undefined;
   const freigeben = () => {
     if (kind === 'polier') { if (r.pauseFehlt && !t.pauseBegruendung) return setModus('pause'); a.polierFreigeben([t.id]); }
+    else if (kind === 'obl') a.oblFreigeben([t.id]);
     else a.bauleitungFreigeben([t.id]);
   };
   return (
@@ -216,7 +236,9 @@ function TagZeile({ d, t, kind }: { d: Daten; t: Tag; kind: 'polier' | 'bauleitu
         <td>{zus.length ? zus.map((z) => <div key={z.id} className="pk-reihe" style={{ gap: 4 }}><span className="klein">{z.art} {h1(z.stunden)}</span>{kind === 'polier' && <><button type="button" className="link klein" aria-pressed={z.entscheidung === 'ok'} onClick={() => a.zuschlagEntscheiden(t.id, z.id, 'ok')}>{z.entscheidung === 'ok' ? '✓ ok' : 'ok'}</button><button type="button" className="link klein" onClick={() => a.zuschlagEntscheiden(t.id, z.id, 'weg')}>{z.entscheidung === 'weg' ? 'gestrichen' : 'streichen'}</button></>}</div>) : <span className="klein">keine</span>}</td>
         <td>{hw.length ? hw.map((h) => <div key={h}><Pill farbe="orange">{h}</Pill></div>) : <span className="klein">kein Hinweis</span>}</td>
         <td><div className="pk-reihe">
-          <Pk klein farbe="gruen" onClick={freigeben}>Freigeben</Pk>
+          <Pk klein farbe="gruen" gesperrt={gesperrt} titel={sperrGrund} onClick={freigeben}>Freigeben</Pk>
+          {kind === 'polier' && wartet.length > 0 && d.heute >= frist && <Pk klein onClick={() => a.ohneRueckmeldungEntschieden(t.id)}>Ohne Rückmeldung entscheiden</Pk>}
+          {kind === 'bauleitung' && ws.length > 0 && <Link className="link klein" to="/pc/bl/widersprueche">Widerspruch entscheiden ›</Link>}
           {kind === 'polier' && <Pk klein onClick={() => { setModus(modus === 'korr' ? '' : 'korr'); setBeginn(r.beginn ? uhr(r.beginn.zeit) : ''); setEnde(r.ende ? uhr(r.ende.zeit) : ''); }}>Korrigieren</Pk>}
           {kind === 'bauleitung' && t.polierFreigabeVon && <Pk klein farbe="rot" onClick={() => setModus(modus === 'zurueck' ? '' : 'zurueck')}>Zurück an Polier</Pk>}
         </div></td>
@@ -231,9 +253,9 @@ function TagZeile({ d, t, kind }: { d: Daten; t: Tag; kind: 'polier' | 'bauleitu
             <Pk klein farbe="blau" gesperrt={grund.trim().length < 3} onClick={() => {
               if (r.beginn && beginn && beginn !== uhr(r.beginn.zeit)) a.zeitKorrigieren(t.id, r.beginn.id, beginn, grund.trim());
               if (r.ende && ende && ende !== uhr(r.ende.zeit)) a.zeitKorrigieren(t.id, r.ende.id, ende, grund.trim());
-              a.polierFreigeben([t.id]); setModus(''); setGrund('');
-            }}>Korrektur speichern und freigeben</Pk>
-            <span className="klein">Jede Korrektur wird mit altem Wert, neuem Wert und Begründung gespeichert. {p.vorname} wird informiert und kann widersprechen. Stempelungen: {r.gueltig.map((s) => `${artName(s.art)} ${uhr(s.zeit)}`).join(', ')}</span>
+              setModus(''); setGrund('');
+            }}>Korrektur speichern</Pk>
+            <span className="klein">Jede Korrektur wird mit altem Wert, neuem Wert und Begründung gespeichert. {p.vorname} wird informiert und kann widersprechen. Freigeben kannst du nach seiner Antwort. Stempelungen: {r.gueltig.map((s) => `${artName(s.art)} ${uhr(s.zeit)}`).join(', ')}</span>
           </div>}
           {modus === 'pause' && <div className="pk-reihe"><span className="text">Über 6 Stunden ohne ausreichende Pause ist nicht erlaubt (Arbeitszeitgesetz). Der Fall wird dem Bauleiter gemeldet.</span><label className="pc-feld" style={{ flexGrow: 1 }}><span>Warum ohne Pause freigeben? (Pflicht, sieht der Bauleiter)</span><input value={grund} onChange={(e) => setGrund(e.target.value)} /></label><Pk klein onClick={() => setModus('')}>Abbrechen</Pk><Pk klein farbe="blau" gesperrt={grund.trim().length < 3} onClick={() => { a.polierFreigeben([t.id], grund.trim()); setModus(''); }}>Ohne Pause freigeben</Pk></div>}
           {modus === 'zurueck' && <div className="pk-reihe"><label className="pc-feld" style={{ flexGrow: 1 }}><span>Grund für {voll(person(d, t.polierFreigabeVon!))} (Pflicht)</span><input value={grund} onChange={(e) => setGrund(e.target.value)} /></label><Pk klein onClick={() => setModus('')}>Abbrechen</Pk><Pk klein farbe="rot" gesperrt={grund.trim().length < 3} onClick={() => { a.zurueckAnPolier(t.id, grund.trim()); setModus(''); }}>Zurückgeben</Pk><span className="klein">Der Polier hat 2 Werktage Zeit, danach entscheidest du selbst.</span></div>}
@@ -249,7 +271,7 @@ function TagTabelle({ d, gruppen, kind, leer }: { d: Daten; gruppen: { titel: st
   const ohne = alle.filter((t) => !hinweiseTag(d, t).length && !(kind === 'polier' && rechnung(d, t.personId, t.datum).pauseFehlt) && !(kind === 'bauleitung' && person(d, t.personId).nutztApp === false));
   return (
     <>
-      <div className="pk-reihe"><Pk farbe="blau" gesperrt={!ohne.length} onClick={() => (kind === 'polier' ? a.polierFreigeben(ohne.map((t) => t.id)) : a.bauleitungFreigeben(ohne.map((t) => t.id)))}>Alle ohne Hinweis freigeben ({ohne.length})</Pk><span className="klein">Tage mit Hinweis{kind === 'bauleitung' ? ' und vom Polier erfasste Tage' : ''} gibst du einzeln frei.</span></div>
+      <div className="pk-reihe"><Pk farbe="blau" gesperrt={!ohne.length} onClick={() => (kind === 'polier' ? a.polierFreigeben(ohne.map((t) => t.id)) : kind === 'obl' ? a.oblFreigeben(ohne.map((t) => t.id)) : a.bauleitungFreigeben(ohne.map((t) => t.id)))}>Alle ohne Hinweis freigeben ({ohne.length})</Pk><span className="klein">Tage mit Hinweis{kind === 'bauleitung' ? ' und vom Polier erfasste Tage' : ''} gibst du einzeln frei.</span></div>
       {gruppen.filter((g) => g.tage.length).map((g) => (
         <section key={g.titel} className="pc-karte">
           <h2>{g.titel} · {g.tage.length} Tage</h2>
@@ -270,7 +292,7 @@ export function PcPolier() {
   const offen = tageBeimPolier(d, ich!.id).reduce((s, g) => s + g.tage.length, 0);
   const kolonne = d.einteilung.filter((e) => e.datum === d.heute && bs.some((b) => b.id === e.baustelleId));
   const rueck = d.tage.filter((t) => t.korrekturen.some((k) => k.antwort === 'widerspruch' && !k.entscheidung) && bs.some((b) => baustelleVonTag(d, t.personId, t.datum)?.id === b.id));
-  const vergessen = d.vergessen.filter((v) => v.status === 'offen');
+  const vergessen = vorschlaegeFuerPolier(d, ich!.id);
   const todo = [
     { n: offen, was: 'Tage zur Freigabe', to: '/pc/polier/freigabe' },
     { n: vergessen.length, was: 'Meldungen „Stempeln vergessen“', to: '/p/vorschlag' },
@@ -360,14 +382,15 @@ export function PcBl() {
   const frei = tageBeiBauleitung(d, ich!.id).reduce((s, g) => s + g.tage.length, 0);
   const gz = d.helfer.filter((h) => !h.gegengezeichnet && bs.some((b) => b.id === h.baustelleId)).length;
   const ws = d.tage.reduce((s, t) => s + t.korrekturen.filter((k) => k.antwort === 'widerspruch' && !k.entscheidung).length, 0);
-  const an = d.antraege.filter((x) => x.status === 'offen' && x.art !== 'krank').length;
+  const an = antraegeFuerBauleitung(d, ich!.id).filter((x) => x.status === 'offen').length;
   const eigen = d.tage.find((t) => t.personId === ich!.id && t.datum === d.heute);
   const r = rechnung(d, ich!.id, d.heute);
   const todo = [
     { n: frei, was: 'Tage freigeben', sub: 'vom Polier geprüft', to: '/pc/bl/freigabe' },
     { n: gz, was: 'Helfer-Stunden gegenzeichnen', sub: 'Vier-Augen', to: '/pc/bl/gegenzeichnen' },
+    { n: vorschlaegeFuerBauleitung(d, ich!.id).length, was: 'Meldungen „Stempeln vergessen“ der Poliere', sub: 'auf dem Handy übernehmen oder ablehnen', to: '/b/vorschlag' },
     { n: ws, was: 'Widersprüche entscheiden', sub: 'Mitarbeiter widerspricht einer Korrektur', to: '/pc/bl/widersprueche' },
-    { n: an, was: 'Anträge entscheiden', sub: 'Urlaub, Konto, Arbeitsbefreiung', to: '/pc/bl/antraege' },
+    { n: an, was: 'Anträge deiner Leute (zur Info)', sub: 'entscheidet die Oberbauleitung', to: '/pc/bl/antraege' },
   ];
   return (
     <PcSeite titel="Übersicht" pfad={`Bauleiter › Übersicht · Stand ${tmj(d.heute)} · ${bs.length} Baustellen`}>
@@ -378,13 +401,13 @@ export function PcBl() {
       <section className="pc-karte"><h2>Meine Baustellen</h2><span className="klein">Stunden seit Baubeginn. Ampel nur nach dem Ist.</span><BaustellenTabelle d={d} liste={bs} /></section>
       <section className="pc-karte">
         <h2>So läuft die Freigabe</h2>
-        <span className="text">1 · Mitarbeiter sendet den Tag → 2 · Polier prüft und gibt frei → 3 · Bauleiter gibt frei (du) → 4 · Personal / HR / Lohn übernimmt. Wer erfasst, gibt nicht frei: Tage, die der Polier für Leute ohne Handy erfasst hat, gibst du frei.</span>
+        <span className="text">1 · Mitarbeiter sendet den Tag → 2 · Polier prüft und gibt frei (bei Baustellenwechsel jeder Polier für seine Baustelle) → 3 · Bauleiter gibt frei (du) → 4 · Personal / HR / Lohn übernimmt. Wer erfasst, gibt nicht frei: Tage, die der Polier für Leute ohne Handy erfasst oder nachgetragen hat, und die eigenen Tage der Poliere gibst du frei.</span>
       </section>
       <section className="pc-karte">
         <h2>Mein eigener Tag: {wtKurz(d.heute)}, {tmj(d.heute)}</h2>
         <span className="klein">Deine eigenen Stunden sendest du an die Oberbauleitung. Du gibst sie nicht selbst frei.</span>
         <span className="text">{r.beginn ? `Beginn ${uhr(r.beginn.zeit)}` : 'Noch nicht gestempelt'}{r.ende ? ` · Ende ${uhr(r.ende.zeit)} · Pause ${r.pauseMin} Min. · ${h1(r.arbeitMin / 60)}` : ''}</span>
-        {eigen?.anOberbauleitung ? <div className="meldung gruen">Gesendet an die Oberbauleitung ({voll(person(d, 'sgruber'))}).</div> : <div className="pk-reihe"><Pk farbe="blau" gesperrt={!r.ende} titel={!r.ende ? 'Erst nach dem Ende' : undefined} onClick={() => a.eigenenTagSenden(d.heute)}>Tag an die Oberbauleitung senden</Pk><Link className="link" to="/b/meine-zeit">Auf dem Handy stempeln ›</Link></div>}
+        {eigen?.anOberbauleitung ? <div className="meldung gruen">Gesendet an die Oberbauleitung ({voll(person(d, d.oberbauleitungId))}).</div> : <div className="pk-reihe"><Pk farbe="blau" gesperrt={!r.ende} titel={!r.ende ? 'Erst nach dem Ende' : undefined} onClick={() => a.eigenenTagSenden(d.heute)}>Tag an die Oberbauleitung senden</Pk><Link className="link" to="/b/meine-zeit">Auf dem Handy stempeln ›</Link></div>}
       </section>
     </PcSeite>
   );
@@ -437,24 +460,38 @@ export function PcBlWidersprueche() {
 
 const ANTRAG: Record<string, string> = { urlaub: 'Urlaub', konto: 'Frei vom Konto', arbeitsbefreiung: 'Arbeitsbefreiung', betriebsurlaub: 'Betriebsurlaub', krank: 'Krank' };
 
-export function PcBlAntraege() {
+/** Anträge: Die Oberbauleitung entscheidet, der Bauleiter sieht sie nur */
+function AntragTabelle({ liste, entscheiden }: { liste: Antrag[]; entscheiden: boolean }) {
   const { d, a } = useDaten();
   const [ab, setAb] = useState<string>();
   const [grund, setGrund] = useState('');
   const [toast, zeige] = useToast();
-  const liste = d.antraege.filter((x) => x.art !== 'krank' && person(d, x.personId)?.rolle !== 'nu').sort((x, y) => (x.status === 'offen' ? -1 : 1) - (y.status === 'offen' ? -1 : 1) || x.von.localeCompare(y.von));
+  const sortiert = [...liste].sort((x, y) => (x.status === 'offen' ? -1 : 1) - (y.status === 'offen' ? -1 : 1) || x.von.localeCompare(y.von));
+  const statusText = (x: Antrag) => (x.status === 'offen' ? 'liegt bei der Oberbauleitung' : x.status === 'bauleitung_ok' ? 'Oberbauleitung ok, liegt bei der GL' : x.status);
   return (
-    <PcSeite titel="Urlaub und Anträge" pfad="Bauleiter › Anträge · Urlaub und Konto gehen danach an die Geschäftsleitung">
+    <>
       {toast}
-      <div className="tab-wrap"><table className="tabelle"><thead><tr><th>Mitarbeiter</th><th>Art</th><th>Zeitraum</th><th className="r">Tage</th><th>Status</th><th>Entscheidung</th></tr></thead><tbody>
-        {liste.map((x) => { const p = person(d, x.personId); return (
-          <tr key={x.id}><td><strong>{nameKomma(p)}</strong></td><td>{ANTRAG[x.art]}{x.anlass ? <><br /><span className="klein">{x.anlass}</span></> : null}{x.stunden ? <><br /><span className="klein">{h1(x.stunden)}</span></> : null}</td><td>{tm(x.von)}–{tmj(x.bis)}</td><td className="r">{x.tage}</td>
-            <td><Pill farbe={x.status === 'offen' ? 'orange' : x.status === 'abgelehnt' ? 'rot' : 'gruen'}>{x.status === 'offen' ? 'offen' : x.status === 'bauleitung_ok' ? 'an die GL weitergegeben' : x.status}</Pill></td>
-            <td>{x.status === 'offen' && (ab === x.id
-              ? <div className="pk-reihe"><input className="pc-in" aria-label="Grund" placeholder="Grund (Pflicht)" value={grund} onChange={(e) => setGrund(e.target.value)} /><Pk klein onClick={() => setAb(undefined)}>Abbrechen</Pk><Pk klein farbe="rot" gesperrt={grund.trim().length < 3} onClick={() => { a.antragEntscheiden(x.id, false, grund.trim()); setAb(undefined); setGrund(''); zeige('Abgelehnt.', 'orange'); }}>Ablehnen</Pk></div>
-              : <div className="pk-reihe"><Pk klein farbe="rot" onClick={() => setAb(x.id)}>Ablehnen</Pk><Pk klein farbe="gruen" onClick={() => { a.antragEntscheiden(x.id, true); zeige(x.art === 'arbeitsbefreiung' ? 'Genehmigt unter Vorbehalt. Das Büro prüft den Nachweis.' : 'Genehmigt und an die Geschäftsleitung weitergegeben.'); }}>{x.art === 'arbeitsbefreiung' ? 'Genehmigen (Vorbehalt)' : 'Genehmigen'}</Pk></div>)}</td></tr>
+      <div className="tab-wrap"><table className="tabelle"><thead><tr><th>Mitarbeiter</th><th>Art</th><th>Zeitraum</th><th className="r">Tage</th><th>Status</th>{entscheiden && <th>Entscheidung</th>}</tr></thead><tbody>
+        {sortiert.map((x) => { const p = person(d, x.personId); const bs = einteilungAm(d, p.id, d.heute); return (
+          <tr key={x.id}><td><strong>{nameKomma(p)}</strong>{bs && <><br /><span className="klein">{bsName(bs)} · Bauleiter {voll(person(d, bs.bauleitungId))}</span></>}</td><td>{ANTRAG[x.art]}{x.anlass ? <><br /><span className="klein">{x.anlass}</span></> : null}{x.stunden ? <><br /><span className="klein">{h1(x.stunden)}</span></> : null}</td><td>{tm(x.von)}–{tmj(x.bis)}</td><td className="r">{x.tage}</td>
+            <td><Pill farbe={x.status === 'offen' || x.status === 'bauleitung_ok' ? 'orange' : x.status === 'abgelehnt' ? 'rot' : 'gruen'}>{statusText(x)}</Pill>{x.ablehnGrund && <><br /><span className="klein">Grund: {x.ablehnGrund}</span></>}</td>
+            {entscheiden && <td>{x.status === 'offen' && x.personId !== d.oberbauleitungId && (ab === x.id
+              ? <div className="pk-reihe"><input className="pc-in" aria-label="Grund" placeholder="Grund (Pflicht)" value={grund} onChange={(e) => setGrund(e.target.value)} /><Pk klein onClick={() => setAb(undefined)}>Abbrechen</Pk><Pk klein farbe="rot" gesperrt={grund.trim().length < 3} onClick={() => { a.antragEntscheiden(x.id, false, grund.trim()); setAb(undefined); setGrund(''); zeige('Abgelehnt. Der Mitarbeiter ist informiert.', 'orange'); }}>Ablehnen</Pk></div>
+              : <div className="pk-reihe"><Pk klein farbe="rot" onClick={() => setAb(x.id)}>Ablehnen</Pk><Pk klein farbe="gruen" onClick={() => { a.antragEntscheiden(x.id, true); zeige(x.art === 'arbeitsbefreiung' ? 'Genehmigt unter Vorbehalt. Das Büro prüft den Nachweis.' : x.art === 'urlaub' ? 'Genehmigt und an die Geschäftsleitung weitergegeben.' : 'Genehmigt.'); }}>{x.art === 'arbeitsbefreiung' ? 'Genehmigen (Vorbehalt)' : 'Genehmigen'}</Pk></div>)}</td>}
+          </tr>
         ); })}
+        {!sortiert.length && <tr><td colSpan={6} className="klein">Keine Anträge.</td></tr>}
       </tbody></table></div>
+    </>
+  );
+}
+
+export function PcBlAntraege() {
+  const { d, ich } = useDaten();
+  return (
+    <PcSeite titel="Urlaub und Anträge" pfad={`Bauleiter › Anträge · zur Info, es entscheidet die Oberbauleitung (${voll(person(d, d.oberbauleitungId))})`}>
+      <span className="klein">Du siehst die Anträge der Leute, die auf deinen Baustellen eingeteilt sind. Einwände klärst du direkt mit der Oberbauleitung.</span>
+      <AntragTabelle liste={antraegeFuerBauleitung(d, ich!.id)} entscheiden={false} />
     </PcSeite>
   );
 }
@@ -469,6 +506,11 @@ export function PcObl() {
     <PcSeite titel="Tage der Bauleiter" pfad="Oberbauleitung › Freigabe der Tage von Bauleitern und Angestellten">
       <span className="klein">Bauleiter geben ihre eigenen Stunden nicht selbst frei. Sie senden sie an die Oberbauleitung. Nach deiner Freigabe übernimmt Personal / HR / Lohn.</span>
       <TagTabelle d={d} kind="obl" gruppen={gruppen} leer="Zurzeit liegt kein Tag bei der Oberbauleitung." />
+      <section className="pc-karte">
+        <h2>Anträge entscheiden</h2>
+        <span className="klein">Alle Anträge kommen zu dir. Der eingeteilte Bauleiter sieht sie nur. Urlaub geht nach deiner Genehmigung an die Geschäftsleitung. Frei vom Konto entscheidest du endgültig. Arbeitsbefreiung genehmigst du unter Vorbehalt, das Büro prüft den Nachweis. Deine eigenen Anträge entscheidet die Geschäftsleitung.</span>
+        <AntragTabelle liste={d.antraege.filter((x) => x.art !== 'krank' && x.art !== 'betriebsurlaub' && person(d, x.personId)?.rolle !== 'nu' && (x.status === 'offen' || !!x.oblVon))} entscheiden />
+      </section>
       <section className="pc-karte"><h2>Alle Baustellen</h2><BaustellenTabelle d={d} liste={d.baustellen.filter((b) => !b.archiviert)} /></section>
     </PcSeite>
   );

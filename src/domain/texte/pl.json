@@ -1,0 +1,573 @@
+{
+ "faq": [
+  {
+   "q": "Co zrobić, jeśli zapomnę zarejestrować czas pracy?",
+   "a": "Nie możesz sam(a) zmienić czasu. Otwórz „Sprawdź i wyślij dzień” i w części „Zapomniane kliknięcie?” stuknij jeden z trzech przycisków: „Początek był o …”, „Koniec był o …” albo „Przerwa była od … do …”. Wybierz godzinę, na przykład „Koniec był o 16:00”. Twój majster (Polier) dostanie gotową propozycję i może ją przyjąć. Aplikacja także ci przypomina: „Koniec pracy jeszcze otwarty” (2 godziny po zwykłym końcu pracy, najpóźniej o 20:00) i „Dzień jeszcze nie wysłany” (następnego dnia rano o 06:30)."
+  },
+  {
+   "q": "Nie mogę znaleźć swojej budowy. Albo lokalizacja się nie zgadza.",
+   "a": "Stuknij w „Wybierz inną budowę”, znajdź właściwą budowę i wybierz powód. Jeśli aplikacja pokaże „Nie jesteś na budowie”, wybierz krótkie uzasadnienie i zapisz. Twój czas jest zawsze zapisywany, majster widzi tylko wskazówkę."
+  },
+  {
+   "q": "Czy firma widzi, gdzie jestem?",
+   "a": "Aplikacja cię nie śledzi. Sprawdza twoją lokalizację tylko w chwili, gdy stukasz, na przykład przy rozpoczęciu i zakończeniu pracy. Nie zapisuje trasy ani współrzędnych. Zapisywane jest, czy lokalizacja zgadza się z budową, przybliżona odległość i twoje uzasadnienie. Widzą to twój majster, kierownik budowy (Bauleiter) i biuro."
+  },
+  {
+   "q": "Nie mam sieci. Albo lokalizacja nie działa.",
+   "a": "Brak sieci (brak internetu): zawsze możesz rejestrować czas. Liczy się godzina, o której stukasz. Aplikacja wysyła dane, gdy tylko wróci sieć. Lokalizacja nie działa (na przykład w piwnicy): aplikacja powie ci o tym, a twój czas i tak zostanie zapisany. Jeśli telefon w ogóle nie działa, powiedz majstrowi. Potem wpisz właściwe czasy w swoim dniu w części „Zapomniane kliknięcie?”."
+  },
+  {
+   "q": "Majster zmienił mój dzień. Co mogę zrobić?",
+   "a": "Dostajesz wiadomość i widzisz, co było wcześniej i co jest teraz, razem z uzasadnieniem. Jeśli się nie zgadzasz, stuknij jak najszybciej w „Zgłoś sprzeciw” i napisz, co się nie zgadza. Wtedy decyduje kierownik budowy (Bauleiter). Jeśli się nie odezwiesz, dostaniesz przypomnienie, potem korekta obowiązuje."
+  },
+  {
+   "q": "Jak zgłosić chorobę? Kto to widzi?",
+   "a": "Stuknij w „Choroba” w menu na dole, wybierz „Ja sam” albo „Moje dziecko”, wpisz, od kiedy i do kiedy, i stuknij w „Wyślij zgłoszenie choroby” (bez diagnozy). Chorobę zgłaszaj zawsze od razu. Majster i kierownik budowy (Bauleiter) dowiadują się, że jesteś zgłoszony jako chory i do kiedy, ale nie dlaczego. Koledzy widzą tylko „nieobecny”. Zaświadczenie widzi tylko biuro. Jeśli chorujesz dłużej niż 3 dni kalendarzowe, potrzebujesz zwolnienia lekarskiego najpóźniej w następnym dniu roboczym po nich. Jeśli chore jest dziecko, potrzebujesz zaświadczenia od lekarza już od 1. dnia. Te dni są z reguły bezpłatne, kasa chorych (Krankenkasse) wypłaca zasiłek na chore dziecko (Kinderkrankengeld). Dla uczniów zawodu (Auszubildende) i w szczególnych przypadkach obowiązuje coś innego – zapytaj w biurze."
+  },
+  {
+   "q": "Jak złożyć wniosek o urlop? Ile urlopu mi zostało?",
+   "a": "Stuknij w „Urlop” w menu na dole. Na górze widzisz swój urlop: pozostałość z poprzedniego roku, wymiar, wykorzystane i ile dni jeszcze zostało. Wpisz „Od” i „Do” i stuknij w „Wyślij wniosek”. Najpierw sprawdza kierownik budowy, potem kierownictwo firmy, a ty dostajesz wiadomość."
+  },
+  {
+   "q": "Co to jest konto czasu pracy (Arbeitszeitkonto)? Jak wziąć wolne?",
+   "a": "Na koncie czasu pracy zbierają się twoje godziny: jeśli pracujesz więcej niż plan, godziny się dodają, jeśli mniej, godziny się odejmują. Stan widzisz w „Konto”; żeby wziąć wolne, stuknij tam w „Weź wolne z konta” i złóż wniosek. Latem (kwi–lis) wolne z konta jest możliwe dopiero od 100 h; zimą (gru–mar), dopóki na koncie zostaje 50 h. Godziny powyżej 150 h są wypłacane."
+  },
+  {
+   "q": "Nie pamiętam PIN-u. Albo mam nowy telefon.",
+   "a": "Nie pamiętasz PIN-u: przy otwieraniu stuknij w „Nie pamiętam PIN-u”. Dostaniesz nowy kod e-mailem i ustawisz nowy PIN. Kod jest ważny 15 minut i tylko raz. Jeśli nie masz własnego adresu e-mail, e-mail trafia do twojego majstra albo do pracownika, do którego jesteś przydzielony(-a); przekaże ci kod osobiście. Nowy albo zgubiony telefon: zadzwoń do biura. Biuro zablokuje stary dostęp i wyśle ci nowe zaproszenie e-mailem."
+  },
+  {
+   "q": "Jak zmienić język? Gdzie znajdę pomoc?",
+   "a": "Stuknij w prawym górnym rogu w kulę ziemską ze skrótem, na przykład PL, i wybierz swój język z listy. Aplikacja zapamiętuje język na tym telefonie. Pomoc z instrukcjami i wyszukiwarką znajdziesz w prawym górnym rogu pod znakiem zapytania."
+  }
+ ],
+ "hilfe": [
+  {
+   "id": "anm",
+   "t": "Logowanie, PIN, nowy telefon",
+   "p": [
+    "Dostaniesz zaproszenie e-mailem. Stuknij w link. Jest ważny 7 dni. Nie masz własnego adresu e-mail? Wtedy zaproszenie trafia do twojego majstra (Polier) albo do pracownika, do którego jesteś przydzielony(-a). Pokaże ci je na swoim telefonie. Zeskanuj kod QR swoim telefonem. Biuro może też wydrukować zaproszenie. Numer telefonu nie jest potrzebny.",
+    "Wpisz swój adres e-mail. Dostaniesz kod (6 cyfr) e-mailem. Jest ważny 15 minut i tylko raz; po 5 błędnych próbach potrzebujesz nowego. Potem ustaw PIN z 4 cyfr. Nie używaj prostego PIN-u, np. 1234 lub 0000. Nie masz własnego adresu e-mail? Zaznacz „Nie mam własnego adresu e-mail”. Wtedy e-mail trafi do twojego majstra (Polier) albo do pracownika, do którego jesteś przydzielony(-a). Przekaże ci kod osobiście.",
+    "Zamiast PIN-u możesz używać odcisku palca lub rozpoznawania twarzy. To zostaje na twoim telefonie.",
+    "Przeczytaj informacje o ochronie danych i o dowodzie tożsamości. Przy każdej zaznacz pole. Potem zezwól na lokalizację opcją „Podczas używania aplikacji”.",
+    "Dodaj aplikację do ekranu głównego. Tylko tak może wysyłać ci powiadomienia. Jeśli telefon zapyta, wybierz „Zezwól”.",
+    "Aplikacja blokuje się po 5 minutach bez używania. Nie pamiętasz PIN-u? Stuknij w „Nie pamiętam PIN-u”. Dostaniesz nowy kod e-mailem i ustawisz nowy PIN.",
+    "Nowy telefon albo zgubiony telefon? Zadzwoń do biura. Biuro zablokuje stary dostęp i wyśle nowe zaproszenie e-mailem."
+   ],
+   "k": "logowanie hasło kod qr e-mail mail majster odcisk palca zablokowany zgubiony zaproszenie rejestracja"
+  },
+  {
+   "id": "zeit",
+   "t": "Rejestrowanie czasu pracy",
+   "p": [
+    "Otwórz „Dziś”. Aplikacja zaproponuje twoją budowę.",
+    "Stuknij w „Rozpocznij pracę”, gdy zaczynasz.",
+    "Stuknij w „Przerwa”, gdy zaczyna się twoja przerwa. Stuknij już przy wychodzeniu z budowy, a nie dopiero w miejscu przerwy.",
+    "Stuknij w „Pracuj dalej”, gdy przerwa się skończy.",
+    "Jedziesz na inną budowę? Stuknij w „Zmień budowę” przy wyjeździe. Dojazd liczy się już na nową budowę.",
+    "Stuknij w „Koniec pracy”, gdy kończysz.",
+    "Brak sieci? Zawsze możesz rejestrować czas. Liczy się godzina, o której stukasz. Aplikacja wysyła dane, gdy tylko wróci sieć.",
+    "Pracujesz po północy (zmiana nocna)? Cała zmiana liczy się do dnia, w którym się zaczęła. Dotyczy to także ostatniego dnia miesiąca."
+   ],
+   "k": "start początek koniec przerwa zmiana budowy koniec dnia godziny rejestracja brak sieci offline zmiana nocna północ"
+  },
+  {
+   "id": "baust",
+   "t": "Wybór budowy · Mój przydział",
+   "p": [
+    "Aplikacja proponuje twoją budowę. Bierze pod uwagę twoją lokalizację lub twój przydział.",
+    "Budowa się nie zgadza? Stuknij w „Wybierz inną budowę”.",
+    "Szukaj po miejscu kosztów (Kostenstelle), ulicy lub miejscowości. Stuknij właściwą budowę.",
+    "Wybierz powód i stuknij w „Zastosuj”. Powód jest obowiązkowy.",
+    "Twój majster (Polier) widzi przy zatwierdzaniu, że budowa została wybrana ręcznie. Twój czas jest zawsze zapisywany.",
+    "W sekcji „Mój przydział” widzisz, gdzie pracujesz w tym tygodniu. Stuknij w „Pokaż cały tydzień”, aby zobaczyć wszystkie dni.",
+    "Jeśli twój przydział się zmienił, pojawia się tam wskazówka. Stuknij w „Przeczytane”."
+   ],
+   "k": "budowa szukaj miejsce kosztów ręcznie zła budowa przydział tydzień planowanie"
+  },
+  {
+   "id": "ort",
+   "t": "Lokalizacja się nie zgadza",
+   "p": [
+    "Aplikacja sprawdza twoją lokalizację tylko w chwili, gdy stukasz: przy starcie, przerwie, powrocie do pracy, zmianie budowy i końcu pracy.",
+    "Aplikacja pokazuje „Nie jesteś na budowie”? Wybierz krótkie uzasadnienie. To obowiązkowe. Możesz dopisać notatkę.",
+    "Potem stuknij przycisk zapisu. Twój czas został zapisany.",
+    "Ustawiono złą budowę? Wybierz na ekranie „Dziś” właściwą budowę.",
+    "Twój czas jest zawsze zapisywany. Twój majster widzi wskazówkę „nie zgadza się”, przybliżoną odległość i twoje uzasadnienie.",
+    "Lokalizacja nie działa (na przykład w piwnicy)? Aplikacja powie ci o tym. Twój czas i tak zostanie zapisany. Brak sieci? Zawsze możesz rejestrować czas. Liczy się godzina, o której stukasz. Aplikacja wysyła dane, gdy tylko wróci sieć."
+   ],
+   "k": "lokalizacja gps odległość brak zasięgu nie jesteś na budowie uzasadnienie brak sieci offline"
+  },
+  {
+   "id": "tag",
+   "t": "Sprawdź i wyślij dzień",
+   "p": [
+    "Po zakończeniu pracy stukasz w „Sprawdź i wyślij dzień”.",
+    "Sprawdź budowy, godziny i przerwy. Aplikacja pokaże ci, jeśli zauważy lukę albo zbyt krótką przerwę.",
+    "Zapomniałeś(-aś) kliknąć albo jakaś godzina się nie zgadza? W części „Zapomniane kliknięcie?” stuknij jeden z trzech przycisków: „Początek był o …”, „Koniec był o …” albo „Przerwa była od … do …”. Wybierz godzinę. Twój majster dostanie gotową propozycję i może ją przyjąć. Zmienić godzinę może tylko twój majster albo kierownictwo budowy.",
+    "Zaznacz pole, jeśli nocowałeś poza domem albo prowadziłeś bus ekipy.",
+    "Stuknij na dole w „Wyślij do majstrów”.",
+    "Wysyłając, potwierdzasz, że początek, koniec i przerwy się zgadzają.",
+    "Każdy majster zatwierdza swoją budowę. Potem zatwierdza kierownik budowy (Bauleiter). Do tego czasu twoje konto jest tymczasowe.",
+    "Aplikacja wysyła ci dwa przypomnienia: „Koniec pracy jeszcze otwarty” przychodzi 2 godziny po zwykłym końcu pracy, najpóźniej o 20:00, gdy nie stuknąłeś(-aś) końca pracy. „Dzień jeszcze nie wysłany” przychodzi następnego dnia rano o 06:30, gdy nie wysłałeś(-aś) jeszcze swojego dnia."
+   ],
+   "k": "wyślij komentarz czas źle zapomniałem dojazd nocleg kierowca zatwierdzenie zapomniane kliknięcie początek koniec przerwa propozycja przypomnienie"
+  },
+  {
+   "id": "zus",
+   "t": "Dodatki",
+   "p": [
+    "Otwórz swój dzień i stuknij w „+ Dodaj dodatek”.",
+    "Zaznacz, co dziś wystąpiło. Na przykład ochrona dróg oddechowych albo młot wyburzeniowy.",
+    "Wybierz budowę i wpisz godziny, np. 2,5.",
+    "Więcej godzin niż twój czas pracy na budowie? Aplikacja cię ostrzeże. Sprawdź to.",
+    "Stuknij niebieski przycisk na dole. Dodatki pojawią się wtedy w twoim dniu.",
+    "Jednak nie potrzebujesz dodatku? Stuknij w „Wróć bez dodatku”.",
+    "Godziny nocne ustala aplikacja. Nadgodziny, niedziele i święta są liczone przy rozliczeniu płac."
+   ],
+   "k": "dodatek maska pył brud młot kombinezon upał trudne warunki"
+  },
+  {
+   "id": "korr",
+   "t": "Korekta od majstra",
+   "p": [
+    "Godzina się nie zgadza? Wpisz to przed wysłaniem w części „Zapomniane kliknięcie?”. Majstrowie widzą twoją propozycję przy zatwierdzaniu i mogą ją przyjąć.",
+    "Jeśli majster zmieni twój wpis, dostaniesz wiadomość.",
+    "Widzisz, co było wcześniej i co jest teraz. Do tego uzasadnienie.",
+    "Nie zgadzasz się? Stuknij w „Zgłoś sprzeciw” i napisz, co się nie zgadza.",
+    "Wtedy decyduje kierownik budowy. Dostaniesz informację.",
+    "Jeśli się nie odezwiesz, dostaniesz przypomnienie. Potem korekta obowiązuje. Dlatego zgłoś sprzeciw jak najszybciej, jeśli coś się nie zgadza.",
+    "Jeśli majster przyśle zapytanie, odpowiedz do podanego dnia."
+   ],
+   "k": "zmieniono sprzeciw zatwierdzić zapytanie odesłano zatwierdzenie poprawa"
+  },
+  {
+   "id": "kal",
+   "t": "Kalendarz",
+   "p": [
+    "Stuknij w „Kalendarz” w menu na dole.",
+    "Kolory pokazują: święto, urlop, urlop zakładowy, wolne wg układu zbiorowego, choroba.",
+    "Stuknij w dzień. Poniżej widać, co obowiązuje tego dnia, na przykład twój plan w godzinach.",
+    "Stuknij w „Zobacz dzień”. Zobaczysz godziny, przerwy i dodatki.",
+    "Strzałkami zmieniasz miesiąc.",
+    "Na dole znajdziesz najbliższe święta w Bawarii.",
+    "Jeśli święto wypada w dzień pracy, dostajesz wynagrodzenie za święto. Nie odlicza się dnia urlopu."
+   ],
+   "k": "święto miesiąc dni wolne przegląd plan"
+  },
+  {
+   "id": "konto",
+   "t": "Konto czasu pracy (Arbeitszeitkonto)",
+   "p": [
+    "Stuknij w „Konto” w menu na dole.",
+    "Na górze widzisz swój stan po ostatnim zatwierdzeniu. Dni po nim są tymczasowe. Poniżej widzisz przebieg.",
+    "Pracujesz więcej niż plan? Godziny się dodają. Pracujesz mniej? Godziny się odejmują.",
+    "Wolne z konta: stuknij w „Weź wolne z konta”. Tam składasz wniosek.",
+    "Lato (kwi–lis): wolne z konta dopiero od 100 h.",
+    "Zima (gru–mar): wolne z konta jest możliwe, dopóki na koncie zostaje 50 h.",
+    "Godziny powyżej 150 h są wypłacane."
+   ],
+   "k": "godziny nadgodziny stan plan wypłata wolne konto"
+  },
+  {
+   "id": "url",
+   "t": "Wniosek o urlop i wolne z konta",
+   "p": [
+    "Stuknij w „Urlop” w menu na dole.",
+    "Na górze widzisz swój urlop: pozostałość z poprzedniego roku, wymiar, wykorzystane i ile dni jeszcze zostało.",
+    "Wybierz „Dni urlopu” albo „Z konta”.",
+    "Wpisz „Od” i „Do”. Weekendy i święta nie liczą się jako dni urlopu.",
+    "Aplikacja pokazuje, ile zostanie potem wolnego. Jeśli wniosku nie da się złożyć, mówi ci dlaczego.",
+    "Stuknij w „Wyślij wniosek”.",
+    "Najpierw sprawdza kierownik budowy, potem kierownictwo firmy. Dostaniesz wiadomość."
+   ],
+   "k": "wakacje wolne wniosek zatwierdzenie pozostały urlop dni urlopu konto"
+  },
+  {
+   "id": "bu",
+   "t": "Urlop zakładowy",
+   "p": [
+    "Biuro ustala urlop zakładowy. Dni urlopu są już wpisane.",
+    "Święta w czasie urlopu zakładowego nie kosztują dnia urlopu.",
+    "24.12. i 31.12. są dniami wolnymi od pracy, ale bez wynagrodzenia. Wybierasz: „Dzień urlopu” albo „Wolne bezpłatne”.",
+    "Nie wystarczy ci urlopu? Możesz wtedy zgodzić się, żeby godziny zostały odliczone z konta czasu pracy. Bez twojej zgody nic się nie odlicza.",
+    "Zimą na koncie musi przy tym zostać co najmniej 50 h.",
+    "Wybierz do daty podanej w aplikacji. Potem stuknij w „Zapisz wybór”. Jeśli nic nie wybierzesz, zostaje „Wolne bezpłatne”."
+   ],
+   "k": "boże narodzenie wigilia sylwester urlop zakładowy zgoda"
+  },
+  {
+   "id": "krank",
+   "t": "Zgłoszenie choroby (także chore dziecko)",
+   "p": [
+    "Stuknij w „Choroba” w menu na dole.",
+    "Wybierz „Ja sam” albo „Moje dziecko”. Wpisz, od kiedy i do kiedy.",
+    "Do 3 dni kalendarzowych można bez zwolnienia lekarskiego. Jeśli chorujesz dłużej niż 3 dni kalendarzowe, potrzebujesz zwolnienia lekarskiego najpóźniej w następnym dniu roboczym po nich. Chorobę zgłaszaj zawsze od razu. Firma może w pojedynczych przypadkach zażądać go wcześniej.",
+    "Byłeś u lekarza? Zaznacz pole i wpisz dane zwolnienia dokładnie tak, jak zapisał je lekarz.",
+    "Chore dziecko: od 1. dnia potrzebujesz zaświadczenia od lekarza. Te dni są z reguły bezpłatne, kasa chorych (Krankenkasse) wypłaca zasiłek na chore dziecko (Kinderkrankengeld). Dla uczniów zawodu (Auszubildende) i w szczególnych przypadkach obowiązuje coś innego – zapytaj w biurze.",
+    "Wypadek przy pracy albo w drodze do pracy? Zaznacz pole i od razu zadzwoń do majstra lub kierownika budowy. Idź do lekarza urazowego (Durchgangsarzt, D-Arzt) albo do szpitala.",
+    "Nie wpisuj diagnozy. Stuknij w „Wyślij zgłoszenie choroby”. Majster i kierownik budowy (Bauleiter) dowiadują się, że jesteś zgłoszony jako chory i do kiedy, ale nie dlaczego. Koledzy widzą tylko „nieobecny”.",
+    "Twoje zgłoszenie choroby wkrótce się kończy? Aplikacja pyta: „Kiedy wracasz?” Odpowiedz do podanego dnia."
+   ],
+   "k": "choroba zgłoszenie lekarz zwolnienie dziecko wypadek wypadek przy pracy"
+  },
+  {
+   "id": "ab",
+   "t": "Wniosek o urlop okolicznościowy",
+   "p": [
+    "Stuknij w „Urlop” w menu na dole, potem w „Urlop okolicznościowy”.",
+    "Wybierz powód. Na przykład ślub, narodziny, śmierć w rodzinie, przeprowadzka, wizyta u lekarza albo urząd.",
+    "Wpisz dni albo godziny. Stuknij w „Wyślij wniosek”.",
+    "Dla każdego powodu przysługuje tylko określona liczba dni. Jeśli okres jest za długi, aplikacja ci to powie. Za pozostałe dni złóż wniosek o urlop.",
+    "Najpierw sprawdza kierownik budowy, potem biuro. Kierownik budowy widzi tylko powód i dni. Potwierdzenie widzi tylko biuro.",
+    "Zgoda obowiązuje najpierw z zastrzeżeniem. Staje się ostateczna, gdy potwierdzenie zostanie sprawdzone."
+   ],
+   "k": "urlop okolicznościowy ślub przeprowadzka narodziny śmierć urząd sąd lekarz zwolnienie"
+  },
+  {
+   "id": "nach",
+   "t": "Doślij potwierdzenie",
+   "p": [
+    "Wniosek możesz wysłać także bez potwierdzenia. Zrób zdjęcie potwierdzenia od razu albo później.",
+    "Termin: 14 dni po zdarzeniu, potem jeszcze 7 dni terminu dodatkowego. Aplikacja ci przypomina, dopóki potwierdzenie nie dotrze.",
+    "Zrób zdjęcie potwierdzenia. Potem stuknij w „Wyślij potwierdzenie”.",
+    "Dane, które nie są potrzebne do powodu, możesz zasłonić. Na przykład diagnozę.",
+    "Jeśli potwierdzenia potem brakuje, wybierasz: dzień urlopu albo wolne bezpłatne. W przypadku godzin: z konta czasu pracy albo bezpłatnie. Masz na to 3 dni robocze (od poniedziałku do soboty). Jeśli nie wybierzesz, zaksięgujemy ten czas tymczasowo jako bezpłatny. Jeśli doślesz potwierdzenie, zostanie to poprawione.",
+    "Z konta można wziąć tylko wtedy, gdy twoje konto zostaje na plusie. Limity 100 h i 50 h tu nie obowiązują."
+   ],
+   "k": "potwierdzenie zaświadczenie dokument zdjęcie termin termin dodatkowy przesłać przypomnienie"
+  },
+  {
+   "id": "push",
+   "t": "Powiadomienia i wskazówki o przerwie",
+   "p": [
+    "Aplikacja wysyła ci krótkie wiadomości na telefon.",
+    "Na przykład: brakuje przerwy, przerwa jeszcze trwa, koniec pracy jeszcze otwarty, dzień jeszcze nie wysłany, majster poprawił, brakuje potwierdzenia, zmienił się przydział.",
+    "Dodaj w tym celu aplikację do ekranu głównego. Jeśli telefon zapyta o powiadomienia, wybierz „Zezwól”.",
+    "Po 5:30 h pracy bez przerwy aplikacja ci przypomni. Nie wolno ci pracować dłużej niż 6 h bez przerwy.",
+    "Przy pracy powyżej 6 h potrzebujesz co najmniej 30 min przerwy, przy pracy powyżej 9 h co najmniej 45 min. Liczą się tylko przerwy od 15 min ciągiem. Każda przerwa jest odejmowana od czasu pracy.",
+    "Twoja przerwa trwa już 60 minut? Aplikacja pyta: „Przerwa nadal trwa?” Stuknij w „Pracuj dalej”, jeśli już pracujesz.",
+    "Niektóre wskazówki potwierdzasz przyciskiem „Wskazówka przeczytana i zrozumiana”. Na przykład o pozostałym urlopie.",
+    "Na ekranie blokady widać tylko krótki, neutralny tekst: nic o chorobie, żadnych nazwisk kolegów, żadnych stanów godzin. Szczegóły zobaczysz dopiero w aplikacji."
+   ],
+   "k": "push powiadomienie przypomnienie wiadomość wskazówka ekran główny przerwa pozostały urlop"
+  },
+  {
+   "id": "ohne",
+   "t": "Brak smartfona",
+   "p": [
+    "Korzystanie z prywatnego telefonu jest dobrowolne.",
+    "Bez smartfona twój majster zapisuje twoje godziny i dodatki.",
+    "Sprawdzasz wszystko. Potem potwierdzasz własnym PIN-em na telefonie majstra.",
+    "PIN startowy dostajesz listem. Za pierwszym razem ustalasz własny PIN.",
+    "Nie było cię? Wtedy następnym razem potwierdzasz swoim PIN-em albo podpisujesz tygodniową kartę w biurze.",
+    "Urlop i chorobę zgłaszasz majstrowi albo w biurze.",
+    "Swoje godziny i konta dostajesz co miesiąc w formie wydruku."
+   ],
+   "k": "bez telefonu prywatny brak telefon pin list pin startowy"
+  },
+  {
+   "id": "helf",
+   "t": "Wpisz dowód osoby z firmy podwykonawczej",
+   "p": [
+    "Nowa osoba z obcej firmy (podwykonawca) na budowie? Stuknij w „Wpisz dowód osoby z firmy podwykonawczej”.",
+    "Poproś o pokazanie dowodu w oryginale.",
+    "Wybierz osobę. Wpisz „Rodzaj dokumentu”, „Ważny do” i „Obywatelstwo”.",
+    "Zaznacz pole, że widziałeś dowód w oryginale. Stuknij w „Dokument sprawdzony – zapisz”.",
+    "Nie rób zdjęcia dowodu, także swoim telefonem. Nie zapisuje się kopii ani numeru dowodu.",
+    "Ktoś nie ma dowodu przy sobie? Nic nie wpisuj i powiedz majstrowi albo w biurze."
+   ],
+   "k": "dowód pomocnik podwykonawca obca firma dowód osobisty paszport pozwolenie na pobyt"
+  },
+  {
+   "id": "ml",
+   "t": "Podpis pod płacą minimalną (podwykonawcy)",
+   "p": [
+    "Ten temat dotyczy tylko pracowników podwykonawców (obcych firm). Korzystają oni z własnej aplikacji.",
+    "Po zakończeniu każdego miesiąca podpisujesz swoje osobiste oświadczenie o płacy minimalnej za miniony miesiąc. Możesz to zrobić od 1. dnia następnego miesiąca. Przykład: oświadczenie za sierpień 2026 podpisujesz od 01.09.2026. Oświadczasz w nim, że dostajesz od swojego pracodawcy co najmniej ustawową płacę minimalną.",
+    "Otwórz w swojej aplikacji część „Płaca minimalna” i przeczytaj tekst. Podpisz się palcem w polu. Potem stuknij w „Podpisz i wyślij”.",
+    "Oświadczenie trafia jako PDF do biura K. Baumann Baugesellschaft, nie do twojej firmy.",
+    "Nie możesz albo nie chcesz się podpisać? Zgłoś się do majstra albo do biura."
+   ],
+   "k": "płaca minimalna podpis podpisać podwykonawca obca firma oświadczenie wynagrodzenie"
+  },
+  {
+   "id": "spr",
+   "t": "Zmiana języka",
+   "p": [
+    "Stuknij w prawym górnym rogu w kulę ziemską ze skrótem, na przykład PL.",
+    "Wybierz swój język z listy.",
+    "Aplikacja zapamiętuje język na tym telefonie.",
+    "Nazwy budów i osób pozostają bez zmian."
+   ],
+   "k": "language język limba jezik dil nyelv lingua langue sprache übersetzung"
+  },
+  {
+   "id": "ds",
+   "t": "Ochrona danych",
+   "p": [
+    "Twoja lokalizacja jest porównywana tylko w chwili stukania. Aplikacja nie zapisuje trasy ani współrzędnych.",
+    "Zapisywane jest, czy lokalizacja zgadza się z budową, przybliżona odległość i twoje uzasadnienie. Widzą to twój majster, kierownik budowy (Bauleiter) i biuro.",
+    "Jeśli odmówisz zgody na lokalizację, wybierasz budowę ręcznie. Możesz ją w każdej chwili wyłączyć w ustawieniach telefonu.",
+    "Przy chorobie aplikacja nie pyta o diagnozę. Majster i kierownik budowy (Bauleiter) dowiadują się, że jesteś zgłoszony jako chory i do kiedy, ale nie dlaczego. Koledzy widzą tylko „nieobecny”. Zaświadczenia i potwierdzenia widzi tylko biuro.",
+    "Korzystanie z prywatnego telefonu jest dobrowolne. Aplikacja nie czyta kontaktów ani zdjęć.",
+    "Dane znajdują się na własnym serwerze w firmie. Czas pracy jest według obecnego stanu przechowywany 8 lat (jest to jeszcze sprawdzane).",
+    "Możesz żądać informacji o swoich danych. Resztę znajdziesz w informacji o ochronie danych."
+   ],
+   "k": "dane lokalizacja nadzór gps zapis prawa ochrona danych informacja"
+  },
+  {
+   "id": "hilfe",
+   "t": "Pomoc i pytania",
+   "p": [
+    "Stuknij w prawym górnym rogu w znak zapytania. Tam znajdziesz tę pomoc.",
+    "Wpisz u góry słowo w wyszukiwarce, na przykład przerwa albo PIN. Wtedy zobaczysz tylko pasujące tematy.",
+    "Szybkie odpowiedzi znajdziesz w często zadawanych pytaniach.",
+    "Wprowadzenie możesz w każdej chwili obejrzeć jeszcze raz.",
+    "Nie możesz sobie poradzić? Zapytaj majstra albo zadzwoń do biura."
+   ],
+   "k": "faq pytania wprowadzenie instrukcja pomoc wsparcie telefon"
+  }
+ ],
+ "datenschutz": {
+  "entwurf": "Wersja robocza · wersja 0.1 · jeszcze niezatwierdzona prawnie",
+  "intro": "Tak postępujemy z twoimi danymi w ewidencji godzin. Nawiasy kwadratowe zostaną uzupełnione przed startem. Stuknij nagłówek, aby otworzyć sekcję.",
+  "abschnitte": [
+   {
+    "t": "1. Kto odpowiada za dane?",
+    "p": [
+     {
+      "x": "K. Baumann Baugesellschaft mbH, [adres], [telefon], [e-mail]."
+     },
+     {
+      "x": "Osoba kontaktowa ds. ochrony danych: [imię i nazwisko, kontakt]."
+     }
+    ]
+   },
+   {
+    "t": "2. Jakie dane, po co i na jakiej podstawie?",
+    "p": [
+     {
+      "t": "Początek, koniec, przerwy, budowa, dodatki:",
+      "x": "do rozliczenia wynagrodzenia i ustawowej ewidencji czasu pracy. Podstawa: umowa o pracę i obowiązek ustawowy. Jeśli nie masz telefonu, twój majster (Polier) wpisuje te dane za ciebie."
+     },
+     {
+      "t": "Lokalizacja przy stuknięciu:",
+      "x": "jest tylko porównywana z budową, aby godziny zostały zaksięgowane prawidłowo. Dokładnej pozycji nie zapisujemy; zapisywany jest tylko wynik (patrz sekcja 3). Podstawa: umowa o pracę i uzasadniony interes w prawidłowym rozliczeniu."
+     },
+     {
+      "t": "Urlop, zwolnienia od pracy, konta czasu pracy (Arbeitszeitkonto):",
+      "x": "do zarządzania twoimi uprawnieniami. Podstawa: umowa o pracę i układ zbiorowy."
+     },
+     {
+      "t": "Zgłoszenie choroby i zaświadczenie, także „chore dziecko” i wypadek przy pracy:",
+      "x": "do wypłaty wynagrodzenia za czas choroby i planowania. Nie pytamy o diagnozę. Przy „chorym dziecku” używamy tylko miesiąca i roku urodzenia dziecka, bez imienia. To dane o zdrowiu; podstawa: prawo pracy i prawo socjalne."
+     },
+     {
+      "t": "Potwierdzenia urlopu okolicznościowego",
+      "x": "(np. akt małżeństwa, zaświadczenie o zameldowaniu, zaświadczenie z przychodni) i twoje uwagi: do sprawdzenia uprawnienia. Podstawa: umowa o pracę i układ zbiorowy."
+     },
+     {
+      "t": "Adres e-mail, urządzenie, czasy logowania:",
+      "x": "do zaproszenia e-mailem i bezpiecznego dostępu do aplikacji. Zapisujemy też, czy korzystasz z telefonu prywatnego czy firmowego i kiedy ostatnio się logowałeś(-aś). Zaproszenie i kod logowania wysyłamy ci e-mailem. Jeśli nie masz własnego adresu e-mail, oba trafiają do twojego majstra albo do pracownika, do którego jesteś przydzielony(-a); pokaże ci zaproszenie i przekaże ci kod osobiście. Twojego numeru telefonu do tego nie potrzebujemy; to tylko dobrowolna dana kontaktowa. Podstawa: umowa o pracę i uzasadniony interes w bezpiecznym działaniu. Twój PIN zapisujemy tylko w postaci zaszyfrowanej. Odcisk palca lub rozpoznawanie twarzy zostają na twoim telefonie; nie otrzymujemy ich."
+     },
+     {
+      "t": "Przydział do budów:",
+      "x": "do organizacji pracy. Podstawa: umowa o pracę."
+     },
+     {
+      "t": "Dziennik zmian – kto, kiedy i co zmienił:",
+      "x": "jako dowód przy kontrolach. Podstawa: obowiązek ustawowy."
+     },
+     {
+      "t": "Dane do urlopu i zwolnień od pracy:",
+      "x": "na przykład znaczny stopień niepełnosprawności (Schwerbehinderung), wiek poniżej 18 lat lub samotne wychowywanie dziecka. Używamy ich tylko po to, aby prawidłowo obliczyć twoje uprawnienia. Widzi je tylko biuro (dział kadr). Podstawa: umowa o pracę, układ zbiorowy i ustawa; niepełnosprawność jest szczególnie chroniona (jak dane o zdrowiu)."
+     },
+     {
+      "t": "Komentarze, uzasadnienia i wiadomości:",
+      "x": "teksty, które sam(a) wpisujesz w aplikacji. Czytają je twój majster, kierownik budowy i biuro. Nie pisz tam nic o chorobie ani o sprawach prywatnych. Podstawa: umowa o pracę."
+     },
+     {
+      "t": "Zestawienia:",
+      "x": "z godzin obliczamy także koszty i porównanie planu z wykonaniem dla każdej budowy. Podstawa: uzasadniony interes [zostanie sprawdzone przed startem]."
+     },
+     {
+      "x": "Przepisy: art. 6 ust. 1 lit. b, c i f RODO (DSGVO), § 26 BDSG; dla danych o zdrowiu art. 9 ust. 2 lit. b RODO (DSGVO) i § 26 ust. 3 BDSG. Obowiązek ewidencji: [przepisy, np. § 16 ArbZG, § 17 MiLoG, § 19 AEntG]. Dane podstawowe, takie jak imię i nazwisko, numer pracownika, numer telefonu (dobrowolna dana kontaktowa), grupa, funkcja i czas pracy, pochodzą z twoich akt osobowych."
+     }
+    ]
+   },
+   {
+    "t": "3. Lokalizacja",
+    "p": [
+     {
+      "x": "Aplikacja pobiera twoją lokalizację tylko w chwili, gdy stukniesz Start, Przerwa, Zmiana lub Koniec. W międzyczasie nic nie jest lokalizowane."
+     },
+     {
+      "x": "Aplikacja porównuje lokalizację z adresem budowy. Dokładna pozycja (współrzędne) nie jest zapisywana i nie powstaje profil przemieszczania się. Zapisywane są: czas, wynik „zgadza się” lub „nie zgadza się”, przybliżona odległość od budowy, a przy niezgodności twoje uzasadnienie i twoja notatka. Widzą to twój majster, kierownik budowy i biuro."
+     },
+     {
+      "x": "Pracownicy biurowi nie są w ogóle lokalizowani."
+     },
+     {
+      "x": "Jeśli odmówisz zgody na lokalizację, wybierasz budowę ręcznie, a twój majster widzi informację „brak lokalizacji”. Zgodę możesz w każdej chwili wyłączyć w ustawieniach telefonu."
+     }
+    ]
+   },
+   {
+    "t": "4. Prywatny telefon",
+    "p": [
+     {
+      "x": "Korzystanie z prywatnego telefonu jest dobrowolne. Aplikacja używa aparatu tylko wtedy, gdy robisz zdjęcie dokumentu. Nie czyta kontaktów ani innych zdjęć."
+     },
+     {
+      "x": "Jeśli nie chcesz używać swojego telefonu, godziny wpisuje twój majster, a ty potwierdzasz je swoim PIN-em na telefonie majstra."
+     },
+     {
+      "x": "W tym celu dostaniesz listem PIN startowy. Przy pierwszym potwierdzeniu ustalasz własny PIN; PIN startowy przestaje wtedy obowiązywać."
+     },
+     {
+      "x": "Na twoim telefonie aplikacja zapisuje tylko to, czego potrzebuje do działania: twój język, twoje logowanie i czasy, które nie zostały jeszcze wysłane (na przykład przy braku zasięgu). Bez reklam, bez analiz."
+     }
+    ]
+   },
+   {
+    "t": "5. Kto dostaje dane?",
+    "p": [
+     {
+      "x": "Majster i kierownik budowy (Bauleiter) twojej budowy: twoje godziny, wynik lokalizacji (sekcja 3) i twoje komentarze"
+     },
+     {
+      "x": "Kierownik budowy: dodatkowo twoje wnioski o urlop i urlop okolicznościowy. Przy urlopie okolicznościowym widzi tylko powód i dni, nie potwierdzenie."
+     },
+     {
+      "x": "Przy chorobie twój majster, kierownik budowy i osoby planujące przydział dowiadują się, że zgłosiłeś(-aś) chorobę i do kiedy. Przyczyny (diagnozy) nie poznaje nikt. Zaświadczenie widzi tylko biuro (dział kadr). Koledzy widzą tylko „nieobecny”."
+     },
+     {
+      "x": "Osoby planujące przydział (planowanie): czy masz zwolnienie, urlop czy zajęcia w szkole zawodowej"
+     },
+     {
+      "x": "Biuro (dział kadr): wszystkie dane. Zaświadczenia, dokumenty urzędowe i potwierdzenia widzi tylko ono."
+     },
+     {
+      "x": "Kierownictwo firmy: wnioski urlopowe, godziny, konta czasu i zestawienia; bez zaświadczeń i potwierdzeń [zakres zostanie ustalony przed startem]"
+     },
+     {
+      "x": "Biuro płac [dokładna firma]: rozliczenie wynagrodzeń"
+     },
+     {
+      "x": "Dostawca usług IT [firma]: obsługa serwera"
+     },
+     {
+      "x": "Usługa e-mail [firma]: zaproszenie z linkiem i kody logowania (bez własnego adresu e-mail oba trafiają do twojego majstra albo do pracownika, do którego jesteś przydzielony(-a))"
+     },
+     {
+      "x": "Powiadomienia technicznie przechodzą przez usługę twojego telefonu (Apple lub Google), także przez serwery w USA. Mają zawierać tylko krótkie, neutralne wskazówki, bez danych o zdrowiu. [sprawdzić przed startem: treść i podstawa przekazywania do USA]"
+     },
+     {
+      "x": "Urzędy, gdy mamy ustawowy obowiązek: urząd celny (Zoll), ubezpieczenie emerytalne (Rentenversicherung), urząd skarbowy (Finanzamt), SOKA-BAU, kasa chorych (Krankenkasse), Berufsgenossenschaft (ubezpieczyciel wypadkowy, przy wypadku przy pracy)"
+     },
+     {
+      "x": "Dane znajdują się na własnym serwerze w firmie. Nie przekazujemy ich do krajów spoza UE. Jedyny wyjątek: powiadomienia przez Apple lub Google (patrz wyżej). [siedziba usługi e-mail zostanie sprawdzona przed startem]"
+     }
+    ]
+   },
+   {
+    "t": "6. Jak długo przechowujemy dane?",
+    "p": [
+     {
+      "x": "Wstępnie: wszystkie okresy w tej sekcji nie są jeszcze potwierdzone. Zostaną sprawdzone i ustalone przed startem."
+     },
+     {
+      "x": "Czas pracy i dane rozliczeniowe: 8 lat"
+     },
+     {
+      "x": "Lokalizacja: dokładna pozycja nie jest zapisywana. Wynik (zgadza się / nie zgadza się, odległość, uzasadnienie) jest zapisywany razem z dniem: [okres]"
+     },
+     {
+      "x": "Zwolnienia lekarskie (zaświadczenie, zdjęcie): 1 rok, przy dłuższych nieobecnościach do 3 lat. Same dni choroby należą do danych rozliczeniowych."
+     },
+     {
+      "x": "Wnioski urlopowe: 3 lata po zakończeniu roku urlopowego"
+     },
+     {
+      "x": "Potwierdzenia urlopu okolicznościowego: [okres]"
+     },
+     {
+      "x": "Dane logowania i dziennik zmian: [okres]"
+     },
+     {
+      "x": "Dokumenty, godziny i oświadczenia o płacy minimalnej podwykonawców: 10 lat"
+     },
+     {
+      "x": "Potem dane są usuwane."
+     }
+    ]
+   },
+   {
+    "t": "7. Twoje prawa",
+    "p": [
+     {
+      "x": "Możesz żądać informacji o swoich danych, kazać poprawić nieprawidłowe dane oraz żądać ich usunięcia lub ograniczenia przetwarzania, o ile nie ma obowiązku przechowywania. Możesz też otrzymać swoje dane w powszechnie używanym formacie pliku."
+     },
+     {
+      "x": "Możesz sprzeciwić się przetwarzaniu, o ile opiera się ono na uzasadnionym interesie (na przykład przy lokalizacji)."
+     },
+     {
+      "x": "Jak skorzystać ze swoich praw: zgłoś się do [kontakt] albo powiedz o tym w biurze. Wystarczy jedno zdanie, na przykład: „Chcę informacji o moich danych.” albo „Wnoszę sprzeciw.” Odpowiadamy z reguły w ciągu miesiąca."
+     },
+     {
+      "x": "Nie spotka cię żadna niekorzyść, jeśli skorzystasz z tych praw."
+     },
+     {
+      "x": "Możesz ponadto złożyć skargę do Bayerisches Landesamt für Datenschutzaufsicht (bawarskiego urzędu nadzoru nad ochroną danych) w Ansbach."
+     }
+    ]
+   },
+   {
+    "t": "8. Czy musisz podać dane?",
+    "p": [
+     {
+      "x": "Ewidencja czasu pracy jest wymagana prawem i potrzebna do rozliczenia wynagrodzenia. Bez niej nie możemy prawidłowo obliczyć twojego wynagrodzenia."
+     },
+     {
+      "x": "Dobrowolne są: korzystanie z prywatnego telefonu, odcisk palca lub rozpoznawanie twarzy oraz uwagi. Zgodę na lokalizację możesz wyłączyć; co wtedy obowiązuje, opisuje sekcja 3. [Czy lokalizacja jest prawnie dobrowolna, zostanie sprawdzone przed startem.]"
+     }
+    ]
+   },
+   {
+    "t": "9. Zautomatyzowane decyzje",
+    "p": [
+     {
+      "x": "Nie ma takich. Aplikacja sprawdza czasy i przerwy oraz podaje wskazówki; decyzje zawsze podejmują ludzie."
+     }
+    ]
+   },
+   {
+    "t": "Dla osób z firm podwykonawczych",
+    "p": [
+     {
+      "x": "Twoim pracodawcą jest twoja firma. K. Baumann Baugesellschaft rejestruje twoje godziny jako zleceniodawca, aby sprawdzać faktury i wykazać, kto był na budowie. Twoja firma nie ma dostępu do aplikacji; do rozliczenia otrzymuje twoje godziny. Z aplikacją wysyłasz swoje godziny bezpośrednio, a majster je zatwierdza. Bez aplikacji godziny wpisuje majster, a kierownik budowy kontrasygnuje. Podstawa: nasz uzasadniony interes i nasze ustawowe obowiązki jako zleceniodawcy (płaca minimalna, praca na czarno)."
+     },
+     {
+      "x": "Twoje imię i nazwisko, adres e-mail (do zaproszenia i kodu logowania), numer telefonu, jeśli został podany (dobrowolna dana kontaktowa), rodzaj pracy oraz stawkę godzinową, którą twoja firma nalicza za twoją pracę, dostaliśmy [od twojej firmy]."
+     },
+     {
+      "t": "Dowód tożsamości:",
+      "x": "Oglądamy go. Nie zapisujemy kopii ani numeru. Notujemy tylko: rodzaj dokumentu, ważny do, obywatelstwo oraz kto i kiedy go widział. Obywatelstwo notujemy tylko po to, aby biuro wiedziało, jakie dokumenty są potrzebne."
+     },
+     {
+      "t": "Zaświadczenie A1:",
+      "x": "Jeśli jesteś delegowany(-a) do Niemiec z innego kraju, może być potrzebne zaświadczenie A1. Wtedy zapisujemy jego zdjęcie. Pokazuje ono, w którym kraju jesteś ubezpieczony(-a). Widzi je tylko biuro."
+     },
+     {
+      "t": "Oświadczenie o płacy minimalnej:",
+      "x": "Co miesiąc podpisujesz na telefonie krótkie osobiste oświadczenie o płacy minimalnej. Zapisywane są: twoje imię i nazwisko, twoja firma, data i godzina, wersja tekstu i twój podpis (jako obraz i jako PDF). Widzi je tylko biuro K. Baumann, nie twoja firma. Przechowujemy je tak długo jak twoje dokumenty godzinowe (wstępnie 10 lat). Jeśli podpisu brakuje, przypomnimy najwyżej raz. Biuro i osoby planujące przydział widzą wtedy, że podpisu jeszcze brakuje. Jeśli nie możesz lub nie chcesz się podpisać, porozmawiaj z majstrem lub z biurem."
+     },
+     {
+      "x": "Dla lokalizacji obowiązuje sekcja 3. Twoje dane przechowujemy wstępnie 10 lat [zostanie potwierdzone przed startem]. Prawa z sekcji 7 przysługują także tobie. Ważne: możesz sprzeciwić się przetwarzaniu swoich danych. Zgłoś się w tej sprawie do [kontakt]."
+     }
+    ]
+   }
+  ]
+ }
+}

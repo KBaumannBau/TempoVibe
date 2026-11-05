@@ -5,7 +5,7 @@
 import type { Daten, Person, Stempelung, StempelArt, Standort, Tag, ZuschlagEintrag } from './types';
 import { datumKey, istWerktag, isoAus, monatPlus, monatVon, montagDerWoche, plusTage, werktag } from './zeit';
 
-export const DATEN_VERSION = 5;
+export const DATEN_VERSION = 6;
 
 let nr = 1000;
 const person = (p: Partial<Person> & Pick<Person, 'id' | 'vorname' | 'nachname' | 'rolle'>): Person => ({
@@ -189,8 +189,8 @@ export function erzeugeDemo(heuteDate = new Date()): Daten {
   st('stefan', vg, 'ende', '16:10', 'b25050');
   st('stefan', vg, 'pause', '12:00', 'b25050', { herkunft: 'korrektur', erfasstVon: 'keller' });
   st('stefan', vg, 'weiter', '12:30', 'b25050', { herkunft: 'korrektur', erfasstVon: 'keller' });
-  tag('stefan', vg, 'bei_bauleitung', {
-    polierFreigabeVon: 'keller',
+  // Der Tag bleibt beim Polier, bis Stefan antwortet (oder die Frist abläuft)
+  tag('stefan', vg, 'beim_polier', {
     korrekturen: [{ id: 'k-vg', von: 'keller', zeit: isoAus(vg, '18:05'), was: 'Pause 12:00–12:30 ergänzt', grund: 'Mit Stefan besprochen' }],
   });
   for (const p of ['kern', 'nowak', 'maric', 'huber', 'wimmer']) {
@@ -215,7 +215,8 @@ export function erzeugeDemo(heuteDate = new Date()): Daten {
   normalerTag('huber', g, 'b25050', '07:00', '17:00');
   tag('huber', g, 'beim_polier');
   normalerTag('keller', g, 'b25050', '06:50', '16:20');
-  tag('keller', g, 'beim_polier');
+  // Der Polier gibt seinen eigenen Tag nicht frei: er geht direkt an die Bauleitung
+  tag('keller', g, 'bei_bauleitung');
   // Nowak: Ende vergessen, Meldung liegt beim Polier
   st('nowak', g, 'beginn', '06:55', 'b25050');
   st('nowak', g, 'pause', '12:00', 'b25050');
@@ -279,6 +280,7 @@ export function erzeugeDemo(heuteDate = new Date()): Daten {
   return {
     version: DATEN_VERSION,
     heute,
+    oberbauleitungId: 'sgruber',
     personen,
     baustellen,
     einteilung,

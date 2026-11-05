@@ -6,16 +6,14 @@ import { Fueller, Seite, Zurueck } from '../../components/Rahmen';
 import { Auswahl, BaustelleWahl, Erledigt, Knopf, Weiter, ZuschlagInfo } from '../../components/Teile';
 import { useIch } from '../../domain/store';
 import {
-  baustellenVonPolier, bsName, hinweiseTag, person, rechnung, stundenTag, tageBeimPolier, voll,
+  baustellenVonPolier, bsName, vorschlaegeFuerBauleitung, vorschlaegeFuerPolier, fristRueckmeldung, hinweiseTag, offeneKorrekturen, person, rechnung, stundenJeBaustelle, stundenTag, tageBeimPolier, voll, wartetAufPolier,
 } from '../../domain/sel';
 import type { Daten, Tag } from '../../domain/types';
 import { artName, stunden, tagLang, tm, uhr } from '../../domain/zeit';
 import { geltendeStunden, zuschlagArt } from '../../domain/zuschlaege';
 
-const offeneVorschlaege = (d: Daten, polierId: string) => {
-  const meine = baustellenVonPolier(d, polierId).map((b) => b.id);
-  return d.vergessen.filter((v) => v.status === 'offen' && d.einteilung.some((e) => e.personId === v.personId && e.datum === v.datum && meine.includes(e.baustelleId)));
-};
+// Die eigene Meldung bearbeitet nie der Polier selbst, sondern die Bauleitung
+const offeneVorschlaege = (d: Daten, polierId: string) => vorschlaegeFuerPolier(d, polierId);
 
 /** Kurze Zeile für einen Tag in einer Liste */
 function TagZeile({ d, t, ziel }: { d: Daten; t: Tag; ziel: string }) {
@@ -137,7 +135,7 @@ const PAUSE_GRUENDE = ['Betonage am Stück', 'Witterung, Arbeit musste fertig we
 /** P3: einen Tag prüfen */
 export function PTag() {
   const { id = '' } = useParams();
-  const { d, a } = useIch();
+  const { d, a, ich } = useIch();
   const nav = useNavigate();
   const t = d.tage.find((x) => x.id === id);
   const [kurz, setKurz] = useState<Record<string, string>>({});
@@ -147,8 +145,12 @@ export function PTag() {
   const p = person(d, t.personId);
   const r = rechnung(d, t.personId, t.datum);
   const h = hinweiseTag(d, t);
-  const offen = t.status === 'beim_polier' || t.status === 'zurueck_polier';
+  const offen = wartetAufPolier(d, t, ich.id);
+  const wartet = offeneKorrekturen(t);
+  const frist = wartet.length ? wartet.map(fristRueckmeldung).sort().pop()! : '';
+  const jeBs = stundenJeBaustelle(d, t.personId, t.datum);
   const freigeben = () => {
+    if (wartet.length) return setFehler(`Erst freigeben, wenn ${p.vorname} auf die Korrektur geantwortet hat.`);
     if (r.zustand !== 'fertig') return setFehler('Der Tag hat kein Arbeitsende. Bitte zuerst die Zeit ergänzen.');
     if (r.pauseFehlt && !pauseGrund.trim()) return setFehler('Bitte begründe, warum die Pause zu kurz war.');
     a.polierFreigeben([t.id], r.pauseFehlt ? pauseGrund.trim() : undefined);
@@ -179,6 +181,13 @@ export function PTag() {
         <div className="kopfzeilen"><span className="klein">Pause</span><span className="zahl" style={{ fontSize: 20 }}>{Math.round(r.pauseMin)} Min.</span></div>
         <div className="kopfzeilen"><span className="klein">Wegezeit</span><span className="zahl" style={{ fontSize: 20 }}>{t.wegezeitMin} Min.</span></div>
       </section>
+      {jeBs.length > 1 && (
+        <section aria-label="Stunden je Baustelle" className="karte pad">
+          <span className="fett klein">Baustellenwechsel: jeder Polier gibt seine Stunden frei</span>
+          {jeBs.map((x) => <span key={x.baustelle?.id ?? '-'} className={x.baustelle?.polierId === ich.id ? 'fett' : 'klein'}>{bsName(x.baustelle)}: {stunden(x.stunden)}{x.baustelle?.polierId === ich.id ? ' (deine Baustelle)' : x.baustelle?.polierId ? ` · Polier ${voll(person(d, x.baustelle.polierId))}` : ''}</span>)}
+          {(t.polierOk ?? []).length > 0 && <span className="klein">Schon freigegeben von: {(t.polierOk ?? []).map((id) => voll(person(d, id))).join(', ')}</span>}
+        </section>
+      )}
       {offen && <Link to={`/p/tag/${t.id}/korrektur`} className="link">Zeit korrigieren</Link>}
 
       {t.zuschlaege.length > 0 && (
@@ -225,7 +234,15 @@ export function PTag() {
       )}
       {fehler && <div role="alert" className="hinweis rot">{fehler}</div>}
       <Fueller />
-      {offen ? <Knopf farbe="gruen" onClick={freigeben}>Tag freigeben</Knopf> : <div className="hinweis blau">Dieser Tag ist schon weitergegeben.</div>}
+      {offen && wartet.length > 0 && (
+        <div className="hinweis orange">
+          <strong>Wartet auf {p.vorname}.</strong> Er soll die Korrektur bestätigen oder widersprechen. Die App erinnert ihn.
+          {d.heute >= frist ? ' Die Frist ist abgelaufen: Du kannst jetzt ohne Rückmeldung entscheiden.' : ` Ohne Antwort entscheidest du ab ${tm(frist)}.`}
+        </div>
+      )}
+      {offen && wartet.length > 0 && d.heute >= frist && <Knopf farbe="rahmen" onClick={() => a.ohneRueckmeldungEntschieden(t.id)}>Ohne Rückmeldung entscheiden</Knopf>}
+      {offen ? <Knopf farbe="gruen" gesperrt={wartet.length > 0} onClick={freigeben}>Tag freigeben</Knopf>
+        : <div className="hinweis blau">{t.personId === ich.id ? 'Deinen eigenen Tag gibt die Bauleitung frei.' : (t.polierOk ?? []).includes(ich.id) ? 'Du hast diesen Tag schon freigegeben.' : 'Dieser Tag ist schon weitergegeben.'}</div>}
     </Seite>
   );
 }
@@ -235,9 +252,11 @@ const KORR_GRUENDE = ['Mit Mitarbeiter besprochen', 'Falsch gestempelt', 'Laut B
 /** P4: Zeit korrigieren – Grund ist Pflicht, das Original bleibt erhalten */
 export function PKorrektur() {
   const { id = '' } = useParams();
-  const { d, a } = useIch();
+  const { d, a, ich } = useIch();
   const nav = useNavigate();
-  const t = d.tage.find((x) => x.id === id);
+  const t0 = d.tage.find((x) => x.id === id);
+  // Korrigieren nur, solange der Tag bei diesem Polier liegt (nie der eigene Tag)
+  const t = t0 && wartetAufPolier(d, t0, ich.id) ? t0 : undefined;
   const r = t ? rechnung(d, t.personId, t.datum) : undefined;
   const [sid, setSid] = useState(r?.ende?.id ?? r?.gueltig[0]?.id ?? '');
   const alt = r?.gueltig.find((s) => s.id === sid);
@@ -266,7 +285,7 @@ export function PKorrektur() {
         </div>
         <textarea className="eingabe" rows={2} value={grund} onChange={(e) => setGrund(e.target.value)} aria-label="Grund" />
       </div>
-      <p className="text">Die alte Zeit bleibt gespeichert. {voll(person(d, t.personId))} sieht die Änderung und kann widersprechen.</p>
+      <p className="text">Die alte Zeit bleibt gespeichert. {voll(person(d, t.personId))} sieht die Änderung und kann widersprechen. Freigeben kannst du erst nach der Antwort.</p>
       {fehler && <div role="alert" className="hinweis rot">{fehler}</div>}
       <Fueller />
       <Knopf onClick={() => {
@@ -280,13 +299,15 @@ export function PKorrektur() {
   );
 }
 
-/** P5: Meldungen „Stempeln vergessen“ */
+/** P5: Meldungen „Stempeln vergessen“ (Polier; Bauleitung für die Meldungen der Poliere) */
 export function PVorschlag() {
   const { d, ich, a } = useIch();
-  const liste = offeneVorschlaege(d, ich.id);
+  const bl = ich.rolle === 'bauleitung';
+  const liste = bl ? vorschlaegeFuerBauleitung(d, ich.id) : offeneVorschlaege(d, ich.id);
   return (
     <Seite titel="Stempeln vergessen" menue="heute">
-      <Zurueck to="/p/heute">Heute</Zurueck>
+      <Zurueck to={bl ? '/b/heute' : '/p/heute'}>Heute</Zurueck>
+      {bl && <p className="text">Hier landen die Meldungen der Poliere selbst und von Baustellen ohne Polier (z. B. Lager).</p>}
       <h1 className="h1">Stempeln vergessen</h1>
       {liste.length === 0 && <div className="hinweis gruen"><strong>Keine offenen Meldungen.</strong></div>}
       {liste.map((v) => {
@@ -304,7 +325,7 @@ export function PVorschlag() {
           </section>
         );
       })}
-      <p className="text">Übernommene Zeiten stehen danach in der Freigabe und sind als Korrektur gekennzeichnet.</p>
+      <p className="text">Übernommene Zeiten sind als Korrektur gekennzeichnet. Ist der Tag noch nicht gesendet, prüft und sendet ihn der Mitarbeiter selbst.</p>
     </Seite>
   );
 }
@@ -313,7 +334,7 @@ export function PVorschlag() {
 export function PFreigegeben() {
   const { d, ich } = useIch();
   const liste = d.tage
-    .filter((t) => t.polierFreigabeVon === ich.id && (t.status === 'bei_bauleitung' || t.status === 'freigegeben'))
+    .filter((t) => ((t.polierOk ?? []).includes(ich.id) || t.polierFreigabeVon === ich.id) && t.personId !== ich.id && t.status !== 'offen')
     .sort((x, y) => (x.datum < y.datum ? 1 : -1))
     .slice(0, 30);
   return (
@@ -324,7 +345,7 @@ export function PFreigegeben() {
         {liste.map((t) => (
           <li key={t.id} className="zeile">
             <span className="wachs"><span className="fett">{voll(person(d, t.personId))}</span><span className="klein">{tm(t.datum)} · {stunden(stundenTag(d, t.personId, t.datum))}</span></span>
-            <span className={t.status === 'freigegeben' ? 'ok' : 'klein'} style={{ fontSize: 14 }}>{t.status === 'freigegeben' ? 'an Lohnbuchhaltung' : 'bei Bauleitung'}</span>
+            <span className={t.status === 'freigegeben' ? 'ok' : 'klein'} style={{ fontSize: 14 }}>{t.status === 'freigegeben' ? 'an Lohnbuchhaltung' : t.status === 'bei_bauleitung' ? 'bei Bauleitung' : 'beim anderen Polier'}</span>
           </li>
         ))}
       </ul>

@@ -4,7 +4,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { DATEN_VERSION, erzeugeDemo } from './seed';
-import { person, rechnung, voll } from './sel';
+import { noetigeBauleitung, noetigePoliere, person, rechnung, voll } from './sel';
 import type { Antrag, Baustelle, Daten, HelferEintrag, Kosten4, KostenMonat, MehrBuchung, Nachtrag, Person, Rechnung, StempelArt, Stempelung, Tag, ZuschlagEintrag } from './types';
 import { artName, datumKey, isoAus, isoMitZone, plusTage, tm, uhr } from './zeit';
 
@@ -59,6 +59,30 @@ function erzeugeAktionen(aendern: (fn: (d: Daten) => void) => void, ich: () => P
     return neu;
   };
 
+  const mitteilung = (d: Daten, personId: string, titel: string, text: string, link?: string) =>
+    d.mitteilungen.push({ id: neueId('mt'), personId, zeit: isoMitZone(new Date()), titel, text, link });
+
+  /** Nach der Polier-Stufe: liegt der Tag noch bei einem Polier oder geht er an die Bauleitung? */
+  const nachPolierStufe = (d: Daten, t: Tag) => {
+    const fehlen = noetigePoliere(d, t).filter((id) => !(t.polierOk ?? []).includes(id));
+    if (fehlen.length) return;
+    t.status = 'bei_bauleitung';
+    t.bauleitungOk = [];
+  };
+  /** Nach der Bauleitungs-Stufe: erst wenn alle zuständigen Bauleiter freigegeben haben */
+  const nachBauleitungsStufe = (d: Daten, t: Tag) => {
+    const fehlen = noetigeBauleitung(d, t).filter((id) => !(t.bauleitungOk ?? []).includes(id));
+    if (!fehlen.length) t.status = 'freigegeben';
+  };
+  /** Ein schon weitergegebener Tag ändert sich: zurück zum Polier, bei Übernahme/Export Hinweis an die Lohnbuchhaltung */
+  const geaendert = (d: Daten, t: Tag, was: string) => {
+    if (t.uebernommen || t.exportId) {
+      t.geaendertNachUebernahme = { am: isoMitZone(new Date()), was };
+      t.uebernommen = undefined;
+      log(d, `Tag ${tm(t.datum)} von ${voll(person(d, t.personId))} nach der Übernahme geändert, Lohnbuchhaltung muss nacharbeiten`, was);
+    }
+  };
+
   return {
     // ---------- Mitarbeiter ----------
     stempeln(art: StempelArt, o: StempelOptionen = {}) {
@@ -105,7 +129,11 @@ function erzeugeAktionen(aendern: (fn: (d: Daten) => void) => void, ich: () => P
       aendern((d) => {
         const t = tagHolen(d, ich()!.id, datum);
         t.status = 'beim_polier';
-        log(d, `Tag ${tm(datum)} an den Polier gesendet`);
+        t.polierOk = [];
+        // Nachgetragen: wer erfasst hat, gibt nicht selbst frei
+        if (t.nachgetragenVon) t.polierOk.push(t.nachgetragenVon);
+        nachPolierStufe(d, t);
+        log(d, t.status === 'beim_polier' ? `Tag ${tm(datum)} an den Polier gesendet` : `Tag ${tm(datum)} an die Bauleitung gesendet (kein anderer Polier zuständig)`);
       });
     },
     korrekturAntworten(tagId: string, korrekturId: string, antwort: 'bestaetigt' | 'widerspruch', text?: string) {
@@ -118,7 +146,9 @@ function erzeugeAktionen(aendern: (fn: (d: Daten) => void) => void, ich: () => P
     },
     antragStellen(a: Omit<Antrag, 'id' | 'personId' | 'gestellt' | 'status'>) {
       aendern((d) => {
-        d.antraege.push({ ...a, id: neueId('a'), personId: ich()!.id, gestellt: isoMitZone(new Date()), status: a.art === 'krank' ? 'gemeldet' : 'offen' });
+        // Anträge gehen an die Oberbauleitung; stellt sie selbst einen, entscheidet die Geschäftsleitung
+        const selbstObl = ich()!.id === d.oberbauleitungId && a.art !== 'krank';
+        d.antraege.push({ ...a, id: neueId('a'), personId: ich()!.id, gestellt: isoMitZone(new Date()), status: a.art === 'krank' ? 'gemeldet' : selbstObl ? 'bauleitung_ok' : 'offen' });
         log(d, a.art === 'krank' ? 'Krankmeldung gesendet' : 'Antrag gestellt');
       });
     },
@@ -160,11 +190,15 @@ function erzeugeAktionen(aendern: (fn: (d: Daten) => void) => void, ich: () => P
       aendern((d) => {
         for (const id of tagIds) {
           const t = tagNachId(d, id);
-          t.status = 'bei_bauleitung';
+          // Vier Augen: nie der eigene Tag, nie mit unbeantworteter Korrektur
+          if (t.personId === ich()!.id) continue;
+          if (t.korrekturen.some((k) => !k.antwort && !k.ohneRueckmeldung)) continue;
+          t.polierOk = [...new Set([...(t.polierOk ?? []), ich()!.id])];
           t.polierFreigabeVon = ich()!.id;
           t.zurueckGrund = undefined;
           if (pauseBegruendung) t.pauseBegruendung = pauseBegruendung;
           for (const z of t.zuschlaege) if (z.entscheidung === 'offen') z.entscheidung = 'ok';
+          nachPolierStufe(d, t);
           log(d, `Tag ${tm(t.datum)} von ${voll(person(d, t.personId))} freigegeben (Polier)`, pauseBegruendung);
         }
       });
@@ -172,6 +206,8 @@ function erzeugeAktionen(aendern: (fn: (d: Daten) => void) => void, ich: () => P
     vorschlagEntscheiden(id: string, ok: boolean) {
       aendern((d) => {
         const v = d.vergessen.find((x) => x.id === id)!;
+        // die eigene Meldung bearbeitet nie man selbst
+        if (v.personId === ich()!.id) return;
         v.status = ok ? 'uebernommen' : 'abgelehnt';
         if (ok) {
           const base = { personId: v.personId, datum: v.datum, baustelleId: rechnung(d, v.personId, v.datum).gueltig[0]?.baustelleId, standort: 'ohne' as const, herkunft: 'korrektur' as const, erfasstVon: ich()!.id };
@@ -180,8 +216,18 @@ function erzeugeAktionen(aendern: (fn: (d: Daten) => void) => void, ich: () => P
             stempel(d, { ...base, art: 'weiter', zeit: isoAus(v.datum, v.bis!) });
           } else stempel(d, { ...base, art: v.art, zeit: isoAus(v.datum, v.von) });
           const t = tagHolen(d, v.personId, v.datum);
-          t.korrekturen.push({ id: neueId('k'), von: ich()!.id, zeit: isoMitZone(new Date()), was: `${artName(v.art)} ${v.von}${v.bis ? `–${v.bis}` : ''} aus Meldung übernommen`, grund: 'Meldung des Mitarbeiters', antwort: 'bestaetigt' });
-          if (t.status === 'offen') t.status = 'beim_polier';
+          const was = `${artName(v.art)} ${v.von}${v.bis ? `–${v.bis}` : ''} aus Meldung übernommen`;
+          t.korrekturen.push({ id: neueId('k'), von: ich()!.id, zeit: isoMitZone(new Date()), was, grund: 'Meldung des Mitarbeiters', antwort: 'bestaetigt' });
+          if (t.status === 'offen') {
+            // Der Mitarbeiter prüft und sendet seinen Tag selbst (Zuschläge, Fahrt)
+            mitteilung(d, v.personId, 'Meldung übernommen', 'Dein Polier hat deine Meldung übernommen. Prüfe den Tag und sende ihn.', `/ma/tag/${v.datum}`);
+          } else if (t.status !== 'beim_polier' && t.status !== 'zurueck_polier') {
+            // schon weitergegeben: zurück zum Polier, alle Freigaben neu
+            geaendert(d, t, was);
+            t.status = 'beim_polier';
+            t.polierOk = [];
+            t.bauleitungOk = [];
+          }
         }
         log(d, `Meldung vergessenes Stempeln ${ok ? 'übernommen' : 'abgelehnt'} (${voll(person(d, v.personId))})`);
       });
@@ -200,7 +246,11 @@ function erzeugeAktionen(aendern: (fn: (d: Daten) => void) => void, ich: () => P
         stempel(d, { ...base, art: 'ende', zeit: isoAus(datum, bis) });
         const t = tagHolen(d, personId, datum);
         t.zuschlaege = zuschlaege;
-        if (art === 'nachgetragen') t.status = 'beim_polier';
+        if (art === 'nachgetragen') {
+          // Der Mitarbeiter muss bestätigen: in seiner App (prüfen und senden) oder mit PIN am Handy des Poliers
+          t.nachgetragenVon = ich()!.id;
+          mitteilung(d, personId, 'Zeiten nachgetragen', 'Dein Polier hat Zeiten für einen Tag nachgetragen. Bitte prüfe sie und sende den Tag.', `/ma/tag/${datum}`);
+        }
         log(d, `${art === 'nachgetragen' ? 'Zeiten nachgetragen' : 'Stunden ohne Handy erfasst'} für ${voll(person(d, personId))} (${tm(datum)})`, grund);
       });
     },
@@ -208,8 +258,11 @@ function erzeugeAktionen(aendern: (fn: (d: Daten) => void) => void, ich: () => P
       aendern((d) => {
         const t = tagHolen(d, personId, datum);
         t.bestaetigtMitPin = true;
-        t.status = 'bei_bauleitung';
+        // Der Polier hat erfasst, die Person bestätigt: Freigabe des erfassenden Poliers ist damit erledigt
+        t.status = 'beim_polier';
+        t.polierOk = [ich()!.id];
         t.polierFreigabeVon = ich()!.id;
+        nachPolierStufe(d, t);
         log(d, `${voll(person(d, personId))} hat Tag ${tm(datum)} mit PIN bestätigt`);
       });
     },
@@ -235,9 +288,25 @@ function erzeugeAktionen(aendern: (fn: (d: Daten) => void) => void, ich: () => P
       aendern((d) => {
         for (const id of tagIds) {
           const t = tagNachId(d, id);
+          if (t.personId === ich()!.id || t.status !== 'bei_bauleitung') continue;
+          // Widerspruch zuerst entscheiden
+          if (t.korrekturen.some((k) => k.antwort === 'widerspruch' && !k.entscheidung)) continue;
+          t.bauleitungOk = [...new Set([...(t.bauleitungOk ?? []), ich()!.id])];
+          t.bauleitungFreigabeVon = ich()!.id;
+          nachBauleitungsStufe(d, t);
+          log(d, `Tag ${tm(t.datum)} von ${voll(person(d, t.personId))} freigegeben (Bauleitung)${(t.status as Tag['status']) === 'freigegeben' ? ', an die Lohnbuchhaltung' : ''}`);
+        }
+      });
+    },
+    /** Oberbauleitung: eigene Tage der Bauleiter freigeben */
+    oblFreigeben(tagIds: string[]) {
+      aendern((d) => {
+        for (const id of tagIds) {
+          const t = tagNachId(d, id);
+          if (t.personId === ich()!.id || !t.anOberbauleitung || t.status !== 'bei_bauleitung') continue;
           t.status = 'freigegeben';
           t.bauleitungFreigabeVon = ich()!.id;
-          log(d, `Tag ${tm(t.datum)} von ${voll(person(d, t.personId))} freigegeben (Bauleitung), an die Lohnbuchhaltung`);
+          log(d, `Tag ${tm(t.datum)} von ${voll(person(d, t.personId))} freigegeben (Oberbauleitung), an die Lohnbuchhaltung`);
         }
       });
     },
@@ -246,6 +315,8 @@ function erzeugeAktionen(aendern: (fn: (d: Daten) => void) => void, ich: () => P
         const t = tagNachId(d, tagId);
         t.status = 'zurueck_polier';
         t.zurueckGrund = grund;
+        t.polierOk = [];
+        t.bauleitungOk = [];
         log(d, `Tag ${tm(t.datum)} von ${voll(person(d, t.personId))} zurück an den Polier`, grund);
       });
     },
@@ -258,10 +329,16 @@ function erzeugeAktionen(aendern: (fn: (d: Daten) => void) => void, ich: () => P
     antragEntscheiden(id: string, ok: boolean, grund?: string) {
       aendern((d) => {
         const a = d.antraege.find((x) => x.id === id)!;
-        // Arbeitsbefreiung: Bauleiter genehmigt unter Vorbehalt, das Büro prüft den Nachweis
-        a.status = ok ? (a.art === 'arbeitsbefreiung' ? 'genehmigt' : 'bauleitung_ok') : 'abgelehnt';
+        if (a.personId === ich()!.id) return;
+        // Oberbauleitung entscheidet. Urlaub geht danach an die Geschäftsleitung.
+        // Frei vom Konto entscheidet die Oberbauleitung endgültig.
+        // Arbeitsbefreiung: genehmigt unter Vorbehalt, das Büro prüft den Nachweis.
+        a.status = ok ? (a.art === 'urlaub' ? 'bauleitung_ok' : 'genehmigt') : 'abgelehnt';
+        a.oblVon = ich()!.id;
         a.ablehnGrund = grund;
-        log(d, `Antrag von ${voll(person(d, a.personId))} ${ok ? 'genehmigt (1. Stufe)' : 'abgelehnt'}`, grund);
+        if (!ok) mitteilung(d, a.personId, 'Antrag abgelehnt', `Dein Antrag wurde abgelehnt: ${grund}`, '/ma/antraege');
+        else if (a.status === 'genehmigt') mitteilung(d, a.personId, 'Antrag genehmigt', 'Dein Antrag ist genehmigt.', '/ma/antraege');
+        log(d, `Antrag von ${voll(person(d, a.personId))} ${ok ? (a.status === 'genehmigt' ? 'genehmigt (Oberbauleitung)' : 'genehmigt (Oberbauleitung, weiter an die Geschäftsleitung)') : 'abgelehnt (Oberbauleitung)'}`, grund);
       });
     },
     eigenenTagSenden(datum: string) {
@@ -354,7 +431,7 @@ function erzeugeAktionen(aendern: (fn: (d: Daten) => void) => void, ich: () => P
       aendern((d) => {
         for (const id of tagIds) {
           const t = tagNachId(d, id);
-          if (t.status === 'freigegeben') t.uebernommen = d.heute;
+          if (t.status === 'freigegeben') { t.uebernommen = d.heute; t.geaendertNachUebernahme = undefined; }
         }
         log(d, `${tagIds.length} Tage übernommen`);
       });
@@ -402,6 +479,13 @@ function erzeugeAktionen(aendern: (fn: (d: Daten) => void) => void, ich: () => P
         const p = d.personen.find((x) => x.id === id)!;
         Object.assign(p, patch);
         log(d, `Stammdaten von ${voll(p)} geändert${ab ? `, gültig ab ${ab}` : ''}`, Object.keys(patch).join(', '));
+      });
+    },
+    spracheSetzen(id: string, sprache: NonNullable<Person['sprache']>) {
+      aendern((d) => {
+        const p = d.personen.find((x) => x.id === id)!;
+        p.sprache = sprache;
+        d.techLog.push({ zeit: isoMitZone(new Date()), wer: wer(), was: `Sprache ${sprache.toUpperCase()} gewählt: ${voll(p)}` });
       });
     },
     zugangSetzen(id: string, zugang: Person['zugang'], was: string) {
@@ -581,6 +665,18 @@ function erzeugeAktionen(aendern: (fn: (d: Daten) => void) => void, ich: () => P
         log(d, `Antrag von ${voll(person(d, a.personId))} ${ok ? 'genehmigt (Geschäftsleitung)' : 'abgelehnt (Geschäftsleitung)'}`, grund);
       });
     },
+    /** Geschäftsleitung legt die Oberbauleitung fest */
+    oberbauleitungSetzen(personId: string) {
+      aendern((d) => {
+        const alt = d.personen.find((p) => p.id === d.oberbauleitungId);
+        const neu = d.personen.find((p) => p.id === personId)!;
+        if (alt && alt.id !== neu.id && alt.rolle === 'oberbauleitung') alt.rolle = 'bauleitung';
+        neu.rolle = 'oberbauleitung';
+        d.oberbauleitungId = personId;
+        log(d, `Oberbauleitung festgelegt: ${voll(neu)}`);
+        d.techLog.push({ zeit: isoMitZone(new Date()), wer: wer(), was: `Rolle Oberbauleitung an ${voll(neu)} vergeben (Geschäftsleitung)` });
+      });
+    },
     vertretungSetzen(v: Daten['vertretung']) {
       aendern((d) => {
         d.vertretung = v;
@@ -592,6 +688,7 @@ function erzeugeAktionen(aendern: (fn: (d: Daten) => void) => void, ich: () => P
         const t = tagNachId(d, tagId);
         const k = t.korrekturen.find((x) => x.id === korrId)!;
         k.entscheidung = e;
+        if (e === 'original') geaendert(d, t, `Widerspruch: ursprüngliche Zeit gilt (${k.was})`);
         if (e === 'original' && k.altId && k.neuId) {
           const alt = d.stempelungen.find((s) => s.id === k.altId)!;
           const neuS = d.stempelungen.find((s) => s.id === k.neuId)!;
@@ -623,7 +720,9 @@ function erzeugeAktionen(aendern: (fn: (d: Daten) => void) => void, ich: () => P
     },
     ohneRueckmeldungEntschieden(tagId: string) {
       aendern((d) => {
-        log(d, `Ohne Rückmeldung entschieden (${tagId})`);
+        const t = tagNachId(d, tagId);
+        for (const k of t.korrekturen) if (!k.antwort && !k.ohneRueckmeldung) k.ohneRueckmeldung = isoMitZone(new Date());
+        log(d, `Korrektur bei ${voll(person(d, t.personId))} (${tm(t.datum)}) ohne Rückmeldung entschieden`);
       });
     },
     nachtragAnlegen(n: Omit<Nachtrag, 'id'>) {

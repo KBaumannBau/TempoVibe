@@ -1,0 +1,573 @@
+{
+ "faq": [
+  {
+   "q": "I forgot to clock in. What now?",
+   "a": "You cannot change the time yourself. Open \"Check and submit day\" and, under \"Forgot to tap?\", tap one of the three buttons: \"Start was at …\", \"End was at …\" or \"Break was from … to …\". Choose the time, for example \"End was at 16:00\". Your site foreman (Polier) gets a ready-made proposal and can accept it. The app also reminds you: \"End of work still open\" (2 hours after the usual end of work, at 20:00 at the latest) and \"Day not yet sent\" (the next morning at 06:30)."
+  },
+  {
+   "q": "My site is not found. Or the location is wrong.",
+   "a": "Tap \"Choose another site\", find the right site and choose a reason. If the app says \"You are not at the site\", choose a short reason and save. Your time is always saved, and your site foreman only sees a note."
+  },
+  {
+   "q": "Can the company see where I am?",
+   "a": "The app does not track you. It checks your location only at the moment you tap, for example at the start and end of work. It does not save a route or coordinates. What is saved: whether the location matches the site, the approximate distance and your reason. Your site foreman, the site manager (Bauleiter) and the office can see this."
+  },
+  {
+   "q": "I have no network. Or location does not work.",
+   "a": "No network (no internet): you can always clock in and out. What counts is the time at which you tap. The app sends as soon as the network is back. Location does not work (for example in a basement): the app tells you so, and your time is still saved. If the phone does not work at all, tell your site foreman. Then enter the correct times on your day under \"Forgot to tap?\"."
+  },
+  {
+   "q": "The site foreman changed my day. What can I do?",
+   "a": "You get a message and see what it said before and what it says now, with the reason. If you do not agree, tap \"Object\" as soon as possible and write what is wrong. Then the site manager (Bauleiter) decides. If you do not respond, you get a reminder and after that the correction applies."
+  },
+  {
+   "q": "How do I report sick? Who sees it?",
+   "a": "Tap \"Sick\" in the menu at the bottom, choose \"Myself\" or \"My child\", enter from when and until when, and tap \"Send sick report\" (no diagnosis). Always report sick straight away. The site foreman and the site manager (Bauleiter) learn that you are reported sick and until when, but not why. Colleagues only see \"absent\". Only the office sees the certificate. If you are sick for more than 3 calendar days, you need a sick note from the doctor by the next working day after that at the latest. If your child is sick, you need a certificate from the doctor from day 1. These days are usually unpaid; the health insurer (Krankenkasse) pays child sick pay (Kinderkrankengeld). For apprentices (Auszubildende) and in special cases other rules apply – ask the office."
+  },
+  {
+   "q": "How do I request leave? How much leave do I have left?",
+   "a": "Tap \"Leave\" in the menu at the bottom. At the top you see your leave: remainder from last year, entitlement, taken and how many days are still free. Enter \"From\" and \"To\" and tap \"Send request\". The site manager checks first, then the management, and you get a message."
+  },
+  {
+   "q": "What is the working-time account (Arbeitszeitkonto)? How do I take time off?",
+   "a": "Your hours collect on the working-time account: if you work more than your target, hours are added; if you work less, hours are taken off. You see your balance under \"Account\"; to take time off, tap \"Take time off from account\" there and make the request. In summer (Apr–Nov) this is only possible from 100 h; in winter (Dec–Mar) as long as 50 h stay on the account. Hours above 150 h are paid out."
+  },
+  {
+   "q": "I forgot my PIN. Or I have a new phone.",
+   "a": "Forgot PIN: tap \"Forgot PIN\" when you open the app. You get a new code by email and set a new PIN. The code is valid for 15 minutes and can be used only once. If you do not have your own email address, the email goes to your site foreman or to the employee you are assigned to; he gives you the code in person. New or lost phone: call the office. The office blocks the old access and sends you a new invitation by email."
+  },
+  {
+   "q": "How do I change the language? Where do I find help?",
+   "a": "Tap the globe with the abbreviation at the top right, for example EN, and choose your language from the list. The app remembers the language on this phone. You find the help with guides and search at the top right, under the question mark."
+  }
+ ],
+ "hilfe": [
+  {
+   "id": "anm",
+   "t": "Sign-in, PIN, new phone",
+   "p": [
+    "You will get an invitation by email. Tap the link. It is valid for 7 days. No email address of your own? Then the invitation goes to your site foreman (Polier) or to the employee you are assigned to. He shows it to you on his phone. Scan the QR code with your phone. The office can also print the invitation. You do not need a phone number.",
+    "Enter your email address. You get a code (6 digits) by email. It is valid for 15 minutes and can be used only once; after 5 wrong entries you need a new one. Then set a PIN with 4 digits. Do not use a simple PIN like 1234 or 0000. No email address of your own? Tick \"I do not have my own email address\". Then the email goes to your site foreman (Polier) or to the employee you are assigned to. He gives you the code in person.",
+    "Instead of the PIN you can use your fingerprint or face recognition. This stays on your phone.",
+    "Read the notes on privacy and ID. Tick the box for each one. Then allow location with \"While Using the App\".",
+    "Put the app on your home screen. This is the only way it can send you notifications. If your phone asks, choose \"Allow\".",
+    "The app locks after 5 minutes without use. Forgot your PIN? Tap \"Forgot PIN\". You get a new code by email and set a new PIN.",
+    "New phone or lost phone? Call the office. The office blocks the old access and sends a new invitation by email."
+   ],
+   "k": "login password code qr email mail foreman fingerprint locked lost invitation registration"
+  },
+  {
+   "id": "zeit",
+   "t": "Recording working time",
+   "p": [
+    "Open \"Today\". The app suggests your site.",
+    "Tap \"Start work\" when you begin.",
+    "Tap \"Break\" as soon as your break starts. Tap as you leave the site, not only when you reach the place of the break.",
+    "Tap \"Resume work\" when the break is over.",
+    "Going to another site? Tap \"Change site\" when you leave. The drive already counts for the new site.",
+    "Tap \"End of work\" when you stop.",
+    "No network? You can always clock in and out. What counts is the time at which you tap. The app sends as soon as the network is back.",
+    "Working past midnight (night shift)? The whole shift counts towards the day on which it started. This also applies on the last day of the month."
+   ],
+   "k": "start end break change site finish hours clock in no network offline night shift midnight"
+  },
+  {
+   "id": "baust",
+   "t": "Choosing a site · My assignment",
+   "p": [
+    "The app suggests your site. It uses your location or your assignment.",
+    "Is the site wrong? Tap \"Choose another site\".",
+    "Search by cost centre (Kostenstelle), street or town. Tap the right site.",
+    "Choose a reason and tap \"Apply\". The reason is required.",
+    "Your site foreman (Polier) sees at approval that the site was chosen by hand. Your time is always saved.",
+    "Under \"My assignment\" you see where you are assigned this week. Tap \"Show whole week\" to see all days.",
+    "If your assignment has changed, a note appears there. Tap \"Mark as read\"."
+   ],
+   "k": "site search cost centre by hand wrong site assignment week scheduling"
+  },
+  {
+   "id": "ort",
+   "t": "Location does not match",
+   "p": [
+    "The app checks your location only at the moment you tap: at start, break, resume, site change and end of work.",
+    "Does the app say \"You are not at the site\"? Choose a short reason. This is required. You can add a note.",
+    "Then tap the save button. Your time is recorded.",
+    "Wrong site selected? On \"Today\", choose the right site.",
+    "Your time is always saved. Your site foreman sees the note \"differs\", the approximate distance and your reason.",
+    "Location does not work (for example in a basement)? The app tells you so. Your time is still saved. No network? You can always clock in and out. What counts is the time at which you tap. The app sends as soon as the network is back."
+   ],
+   "k": "location gps distance no signal not at the site reason no network offline"
+  },
+  {
+   "id": "tag",
+   "t": "Check and submit day",
+   "p": [
+    "After the end of work you tap \"Check and submit day\".",
+    "Check sites, times and breaks. The app shows you if it spots a gap or a break that is too short.",
+    "Forgot to tap, or a time is wrong? Under \"Forgot to tap?\" tap one of the three buttons: \"Start was at …\", \"End was at …\" or \"Break was from … to …\". Choose the time. Your site foreman gets a ready-made proposal and can accept it. Only your site foreman or site management can change the time.",
+    "Tick the box if you stayed overnight or drove the crew bus.",
+    "Tap \"Send to site foremen\" at the bottom.",
+    "By sending, you confirm that start, end and breaks are correct.",
+    "Each site foreman approves their own site. Then the site manager (Bauleiter) approves. Until then your account is provisional.",
+    "The app sends you two reminders: \"End of work still open\" comes 2 hours after the usual end of work, at 20:00 at the latest, if you have not tapped end of work. \"Day not yet sent\" comes the next morning at 06:30 if you have not sent your day yet."
+   ],
+   "k": "send comment time wrong forgot travel overnight driver approval forgot to tap start end break proposal reminder"
+  },
+  {
+   "id": "zus",
+   "t": "Supplements",
+   "p": [
+    "Open your day and tap \"+ Add supplement\".",
+    "Tap what applied today. For example respiratory protection or a demolition hammer.",
+    "Choose the site and enter the hours, e.g. 2,5.",
+    "More hours than your working time on the site? The app warns you. Please check.",
+    "Tap the blue button at the bottom. The supplements are then in your day.",
+    "Do you not need a supplement after all? Tap \"Back without supplement\".",
+    "Night hours are worked out by the app. Overtime, Sunday and public holidays are calculated by payroll."
+   ],
+   "k": "supplement mask dust dirt hammer suit heat hardship"
+  },
+  {
+   "id": "korr",
+   "t": "Correction from the site foreman",
+   "p": [
+    "A time is wrong? Enter it under \"Forgot to tap?\" before you send. The site foremen see your proposal at approval and can accept it.",
+    "If the site foreman changes your entry, you get a message.",
+    "You see what it said before and what it says now. Plus the reason.",
+    "Do you not agree? Tap \"Object\" and write what is wrong.",
+    "Then the site manager decides. You will be told.",
+    "If you do not respond, you get a reminder. After that the correction applies. So please object as soon as possible if something is wrong.",
+    "If the site foreman sends a query, please answer by the day given."
+   ],
+   "k": "changed objection confirm query sent back approval correction"
+  },
+  {
+   "id": "kal",
+   "t": "Calendar",
+   "p": [
+    "Tap \"Calendar\" in the menu at the bottom.",
+    "The colours show: public holiday, leave, company shutdown, free under collective agreement, sick.",
+    "Tap a day. Below it you see what applies on that day, for example your target in hours.",
+    "Tap \"View day\". Then you see times, breaks and supplements.",
+    "Use the arrows to change the month.",
+    "At the bottom you find the next public holidays in Bavaria.",
+    "If a public holiday falls on a working day, you get holiday pay. No day of leave is deducted."
+   ],
+   "k": "holiday month days off overview target"
+  },
+  {
+   "id": "konto",
+   "t": "Working-time account (Arbeitszeitkonto)",
+   "p": [
+    "Tap \"Account\" in the menu at the bottom.",
+    "At the top you see your balance after the last approval. The days after that are provisional. Below it you see the trend.",
+    "If you work more than your target, hours are added. If you work less, hours are taken off.",
+    "Time off from the account: tap \"Take time off from account\". That is where you make the request.",
+    "Summer (Apr–Nov): time off from the account only from 100 h.",
+    "Winter (Dec–Mar): time off from the account is possible as long as 50 h stay on it.",
+    "Hours above 150 h are paid out."
+   ],
+   "k": "hours overtime balance target payout time off account"
+  },
+  {
+   "id": "url",
+   "t": "Requesting leave and time off from the account",
+   "p": [
+    "Tap \"Leave\" in the menu at the bottom.",
+    "At the top you see your leave: remainder from last year, entitlement, taken and how many days are still free.",
+    "Choose \"Days of leave\" or \"From the account\".",
+    "Enter \"From\" and \"To\". Weekends and public holidays do not count as days of leave.",
+    "The app shows how much is still free afterwards. If the request is not possible, it tells you why.",
+    "Tap \"Send request\".",
+    "The site manager checks first, then the management. You will get a message."
+   ],
+   "k": "holiday time off request approval remaining leave days of leave account"
+  },
+  {
+   "id": "bu",
+   "t": "Company shutdown",
+   "p": [
+    "The office sets the company shutdown. The days of leave are already entered.",
+    "Public holidays during the company shutdown do not use up a day of leave.",
+    "24.12. and 31.12. are days off, but without pay. You choose: \"Day of leave\" or \"Unpaid time off\".",
+    "Not enough leave? Then you can agree that hours are taken from the working-time account. Without your agreement nothing is deducted.",
+    "In winter at least 50 h must stay on the account.",
+    "Choose by the date shown in the app. Then tap \"Save selection\". If you choose nothing, it stays \"Unpaid time off\"."
+   ],
+   "k": "christmas christmas eve new year's eve company shutdown agree"
+  },
+  {
+   "id": "krank",
+   "t": "Reporting sick (also child sick)",
+   "p": [
+    "Tap \"Sick\" in the menu at the bottom.",
+    "Choose \"Myself\" or \"My child\". Enter from when and until when.",
+    "Up to 3 calendar days it works without a sick note. If you are sick for more than 3 calendar days, you need a sick note from the doctor by the next working day after that at the latest. Always report sick straight away. In individual cases the company can ask for it earlier.",
+    "Did you see a doctor? Tick the box and enter the details of the sick note exactly as the doctor wrote them.",
+    "Child sick: from day 1 you need a certificate from the doctor. These days are usually unpaid; the health insurer (Krankenkasse) pays child sick pay (Kinderkrankengeld). For apprentices (Auszubildende) and in special cases other rules apply – ask the office.",
+    "Accident at work or on the way to or from work? Tick the box and call your site foreman or site manager right away. Go to a specialist accident doctor (Durchgangsarzt, D-Arzt) or to the hospital.",
+    "Do not write a diagnosis. Tap \"Send sick report\". The site foreman and the site manager (Bauleiter) learn that you are reported sick and until when, but not why. Colleagues only see \"absent\".",
+    "Does your sick report end soon? The app asks: \"When are you coming back?\" Answer by the day shown."
+   ],
+   "k": "sick report doctor sick note child accident accident at work"
+  },
+  {
+   "id": "ab",
+   "t": "Requesting paid special leave",
+   "p": [
+    "Tap \"Leave\" in the menu at the bottom, then \"Paid special leave\".",
+    "Choose the occasion. For example wedding, birth, bereavement, moving house, doctor's appointment or authority.",
+    "Enter the days or the time. Tap \"Send request\".",
+    "Each occasion has only a set number of days. If the period is too long, the app tells you. For the remaining days, request leave.",
+    "First the site manager checks, then the office. The site manager only sees the occasion and the days. Only the office sees the proof.",
+    "The permission is valid provisionally at first. It becomes final as soon as the proof has been checked."
+   ],
+   "k": "paid special leave wedding moving birth bereavement authority court doctor"
+  },
+  {
+   "id": "nach",
+   "t": "Submit proof later",
+   "p": [
+    "You can also send the request without proof. Take a photo of the proof right away or later.",
+    "Deadline: 14 days after the occasion, then another 7 days of extended deadline. The app reminds you until the proof arrives.",
+    "Take a photo of the proof. Then tap \"Send proof\".",
+    "You may cover details that are not needed for the occasion. For example a diagnosis.",
+    "If the proof is still missing after that, you choose: a day of leave or unpaid time off. For hours: from the working-time account or unpaid. You have 3 working days for this (Monday to Saturday). If you do not choose, we book the time as unpaid for now. If you hand in the proof later, this will be corrected.",
+    "Taking it from the account only works as long as your account stays in credit. The limits of 100 h and 50 h do not apply here."
+   ],
+   "k": "proof certificate document photo deadline extended deadline upload reminder"
+  },
+  {
+   "id": "push",
+   "t": "Notifications and break reminders",
+   "p": [
+    "The app sends short messages to your phone.",
+    "For example: break missing, break still running, end of work still open, day not yet sent, foreman has corrected, proof missing, assignment changed.",
+    "For this, put the app on your home screen. If your phone asks about notifications, choose \"Allow\".",
+    "After 5:30 h of work without a break, the app reminds you. You must not work more than 6 h in a row without a break.",
+    "For more than 6 h of work you need at least 30 min of break, for more than 9 h at least 45 min. Only breaks of at least 15 min in one go count. Every break is deducted from working time.",
+    "Has your break been running for 60 minutes? The app asks: \"Is your break still on?\" Tap \"Resume work\" if you are already working again.",
+    "Some notes you confirm with \"Note read and understood\". For example about remaining leave.",
+    "On the lock screen there is only a short, neutral text: nothing about illness, no names of colleagues, no hour balances. You only see the details in the app."
+   ],
+   "k": "push notification reminder message note home screen break remaining leave"
+  },
+  {
+   "id": "ohne",
+   "t": "No smartphone",
+   "p": [
+    "Using your private phone is voluntary.",
+    "Without a smartphone, your foreman writes down your hours and supplements.",
+    "You check everything. Then you confirm with your own PIN on the foreman's phone.",
+    "You get the start PIN by letter. The first time, you set your own PIN.",
+    "Were you not there? Then next time you confirm with your PIN or sign the weekly timesheet in the office.",
+    "You report leave and sickness to your foreman or in the office.",
+    "You get your hours and accounts as a printout every month."
+   ],
+   "k": "no phone private no telephone pin letter start pin"
+  },
+  {
+   "id": "helf",
+   "t": "Enter a subcontractor worker's ID document",
+   "p": [
+    "A new worker from another company (subcontractor) on site? Tap \"Enter a subcontractor worker's ID document\".",
+    "Ask to be shown the original ID document.",
+    "Choose the person. Enter \"Type of ID document\", \"Valid until\" and \"Nationality\".",
+    "Tick the box to say you saw the original ID document. Tap \"ID document seen – save\".",
+    "Do not take a photo of the ID document, not even with your own phone. No copy and no ID number is saved.",
+    "Does someone not have their ID document with them? Enter nothing and tell the foreman or the office."
+   ],
+   "k": "id labourer subcontractor other company id card passport residence permit"
+  },
+  {
+   "id": "ml",
+   "t": "Signing the minimum wage declaration (subcontractors)",
+   "p": [
+    "This topic is only for employees of subcontractors (other companies). They use their own app.",
+    "After the end of each month you sign your personal minimum wage declaration for the month that has just ended. You can do this from the 1st of the following month. Example: you sign the declaration for August 2026 from 01.09.2026. With it you declare that your employer pays you at least the statutory minimum wage.",
+    "In your app, open the \"Minimum wage\" section and read the text. Sign with your finger in the field. Then tap \"Sign and send\".",
+    "The declaration goes as a PDF to the office of K. Baumann Baugesellschaft, not to your company.",
+    "You cannot or do not want to sign? Contact your foreman or the office."
+   ],
+   "k": "minimum wage signature sign subcontractor other company declaration pay"
+  },
+  {
+   "id": "spr",
+   "t": "Changing the language",
+   "p": [
+    "Tap the globe with the abbreviation at the top right, for example EN.",
+    "Choose your language from the list.",
+    "The app remembers the language on this phone.",
+    "Names of sites and people stay the same."
+   ],
+   "k": "language język limba jezik dil nyelv lingua langue sprache übersetzung"
+  },
+  {
+   "id": "ds",
+   "t": "Privacy",
+   "p": [
+    "Your location is compared only at the moment you tap. The app does not save a route or coordinates.",
+    "What is saved: whether the location matches the site, the approximate distance and your reason. Your site foreman, the site manager (Bauleiter) and the office can see this.",
+    "If you decline location access, you choose the site by hand. You can switch it off at any time in your phone settings.",
+    "If you are sick, the app does not ask for a diagnosis. The site foreman and the site manager (Bauleiter) learn that you are reported sick and until when, but not why. Colleagues only see \"absent\". Only the office sees certificates and proofs.",
+    "Using your private phone is voluntary. The app does not read contacts or photos.",
+    "The data is on our own server within the company. As things stand, working hours are kept for 8 years (still being checked).",
+    "You can request information about your data. Everything else is in the privacy notice."
+   ],
+   "k": "data location monitoring gps saving rights privacy notice"
+  },
+  {
+   "id": "hilfe",
+   "t": "Help and questions",
+   "p": [
+    "Tap the question mark at the top right. That is where you find this help.",
+    "Type a word in the search at the top, for example break or PIN. Then you only see matching topics.",
+    "You find quick answers in the common questions.",
+    "You can watch the introduction again at any time.",
+    "Stuck? Ask your foreman or call the office."
+   ],
+   "k": "faq questions introduction guide help support phone"
+  }
+ ],
+ "datenschutz": {
+  "entwurf": "Draft · version 0.1 · not yet legally approved",
+  "intro": "This is how we handle your data in time tracking. Square brackets are filled in before launch. Tap a heading to open the section.",
+  "abschnitte": [
+   {
+    "t": "1. Who is responsible?",
+    "p": [
+     {
+      "x": "K. Baumann Baugesellschaft mbH, [address], [phone], [email]."
+     },
+     {
+      "x": "Data protection contact: [name, contact details]."
+     }
+    ]
+   },
+   {
+    "t": "2. Which data, for what, and on what basis?",
+    "p": [
+     {
+      "t": "Start, end, breaks, site, supplements:",
+      "x": "for payroll and the legally required recording of working time. Basis: employment contract and legal obligation. If you have no phone, your site foreman (Polier) enters this data for you."
+     },
+     {
+      "t": "Location when you tap:",
+      "x": "is only compared with the site so the hours are booked correctly. We do not save the exact position; only the result is saved (see section 3). Basis: employment contract and legitimate interest in correct payroll."
+     },
+     {
+      "t": "Leave, time off, working-time accounts (Arbeitszeitkonto):",
+      "x": "to manage your entitlements. Basis: employment contract and collective agreement."
+     },
+     {
+      "t": "Sick report and certificate, including \"child sick\" and accident at work:",
+      "x": "for continued pay and planning. We do not ask for a diagnosis. For \"child sick\" we use only the child's birth month and year, no first name. This is health data; basis: employment and social law."
+     },
+     {
+      "t": "Proof for paid special leave",
+      "x": "(e.g. marriage certificate, residence registration, certificate from the doctor's office) and your comments: to check the entitlement. Basis: employment contract and collective agreement."
+     },
+     {
+      "t": "Email address, device, sign-in times:",
+      "x": "for the invitation by email and secure access to the app. We also save whether you use a private or a company phone and when you last signed in. We send you the invitation and the sign-in code by email. If you do not have your own email address, both go to your site foreman or to the employee you are assigned to; he shows you the invitation and gives you the code in person. We do not need your phone number for this; it is only a voluntary contact detail. Basis: employment contract and legitimate interest in secure operation. We store your PIN only in encrypted form. Fingerprint or face recognition stay on your phone; we do not receive them."
+     },
+     {
+      "t": "Assignment to sites:",
+      "x": "for work organisation. Basis: employment contract."
+     },
+     {
+      "t": "Log of who changed what and when:",
+      "x": "as proof during inspections. Basis: legal obligation."
+     },
+     {
+      "t": "Details for leave and time off:",
+      "x": "for example severe disability (Schwerbehinderung), age under 18 or single parent. We use them only to calculate your entitlements correctly. Only the office (HR department) sees them. Basis: employment contract, collective agreement and law; disability is specially protected (like health data)."
+     },
+     {
+      "t": "Comments, reasons and messages:",
+      "x": "texts you write in the app yourself. Your site foreman, the site manager and the office read them. Please do not write anything about illness or private matters there. Basis: employment contract."
+     },
+     {
+      "t": "Reports:",
+      "x": "from the hours we also calculate the costs and the planned-versus-actual comparison for each site. Basis: legitimate interest [to be checked before launch]."
+     },
+     {
+      "x": "The legal provisions: Art. 6(1)(b), (c) and (f) GDPR (DSGVO), § 26 BDSG; for health data Art. 9(2)(b) GDPR (DSGVO) and § 26(3) BDSG. Duty to keep records: [provisions, e.g. § 16 ArbZG, § 17 MiLoG, § 19 AEntG]. Master data such as name, personnel number, phone number (voluntary contact detail), group, role and working hours come from your personnel file."
+     }
+    ]
+   },
+   {
+    "t": "3. Location",
+    "p": [
+     {
+      "x": "The app captures your location only at the moment you tap Start, Break, Change or End. Nothing is tracked in between."
+     },
+     {
+      "x": "The app compares the location with the site address. The exact position (coordinates) is not saved, and no movement profile is created. Saved: the time, the result \"matches\" or \"differs\", the approximate distance to the site and, if it differs, your reason and your note. Your site foreman, the site manager and the office see this."
+     },
+     {
+      "x": "Salaried staff are not located at all."
+     },
+     {
+      "x": "If you decline location access, you choose the site by hand, and your site foreman sees the note \"location missing\". You can switch the access off at any time in your phone settings."
+     }
+    ]
+   },
+   {
+    "t": "4. Private phone",
+    "p": [
+     {
+      "x": "Using your private phone is voluntary. The app uses the camera only when you take a photo as proof. It does not read contacts or other photos."
+     },
+     {
+      "x": "If you do not want to use your phone, your site foreman records the hours and you confirm them with your PIN on the foreman's phone."
+     },
+     {
+      "x": "For this you receive a start PIN by letter. When you confirm for the first time you set your own PIN; the start PIN is then no longer valid."
+     },
+     {
+      "x": "On your phone the app only stores what it needs to work: your language, your sign-in and times that have not been sent yet (for example when there is no signal). No advertising, no analysis."
+     }
+    ]
+   },
+   {
+    "t": "5. Who receives the data?",
+    "p": [
+     {
+      "x": "Site foreman and site manager (Bauleiter) of your site: your hours, the location result (section 3) and your comments"
+     },
+     {
+      "x": "Site manager: also your requests for leave and paid special leave. For paid special leave, only the occasion and the days are visible to the site manager, not the proof."
+     },
+     {
+      "x": "In case of illness, your site foreman, the site manager and whoever plans assignments learn that you have reported sick and until when. Nobody learns the reason (the diagnosis). Only the office (HR department) sees the certificate. Colleagues see only \"absent\"."
+     },
+     {
+      "x": "Whoever plans assignments (scheduling): whether you are sick, on leave or at vocational school"
+     },
+     {
+      "x": "Office (HR department): all data. Only the office sees certificates, documents and proof."
+     },
+     {
+      "x": "Management: leave requests, hours, time accounts and reports; no certificates or proof [scope will be defined before launch]"
+     },
+     {
+      "x": "Payroll office [exact company]: payroll"
+     },
+     {
+      "x": "IT service provider [company]: operation of the server"
+     },
+     {
+      "x": "Email service [company]: invitation with link and sign-in codes (without your own email address, both go to your site foreman or to the employee you are assigned to)"
+     },
+     {
+      "x": "Notifications technically run through your phone's service (Apple or Google), including servers in the USA. They are meant to contain only short, neutral notes, no health data. [check before launch: content and legal basis of the transfer to the USA]"
+     },
+     {
+      "x": "Authorities, where we are legally required to: customs (Zoll), pension insurance (Rentenversicherung), tax office (Finanzamt), SOKA-BAU, health insurer (Krankenkasse), Berufsgenossenschaft (accident insurance, for an accident at work)"
+     },
+     {
+      "x": "The data is on our own server within the company. We do not pass it on to countries outside the EU. The only exception: notifications via Apple or Google (see above). [location of the email service will be checked before launch]"
+     }
+    ]
+   },
+   {
+    "t": "6. How long do we store the data?",
+    "p": [
+     {
+      "x": "Provisional: all periods in this section are not yet confirmed. They will be checked and set before launch."
+     },
+     {
+      "x": "Working hours and payroll data: 8 years"
+     },
+     {
+      "x": "Location: the exact position is not saved. The result (matches / differs, distance, reason) is saved with the day: [duration]"
+     },
+     {
+      "x": "Sick notes (certificate, photo): 1 year, up to 3 years for longer absences. The sick days themselves count as payroll data."
+     },
+     {
+      "x": "Leave requests: 3 years after the end of the leave year"
+     },
+     {
+      "x": "Proof for paid special leave: [duration]"
+     },
+     {
+      "x": "Sign-in data and change log: [duration]"
+     },
+     {
+      "x": "Documents, hours and minimum wage declarations of subcontractors: 10 years"
+     },
+     {
+      "x": "After that the data is deleted."
+     }
+    ]
+   },
+   {
+    "t": "7. Your rights",
+    "p": [
+     {
+      "x": "You can request information about your data, have incorrect data corrected, and request deletion or restriction, as long as there is no retention obligation. You can also receive your data in a common file format."
+     },
+     {
+      "x": "You can object to the processing where it is based on a legitimate interest (for example, location)."
+     },
+     {
+      "x": "How to use your rights: contact [contact] or tell the office. One sentence is enough, for example: \"I would like information about my data.\" or \"I object.\" We usually reply within one month."
+     },
+     {
+      "x": "You suffer no disadvantage if you use these rights."
+     },
+     {
+      "x": "You can also lodge a complaint with the Bayerisches Landesamt für Datenschutzaufsicht (Bavarian data protection supervisory authority), Ansbach."
+     }
+    ]
+   },
+   {
+    "t": "8. Do you have to provide the data?",
+    "p": [
+     {
+      "x": "Recording working time is required by law and necessary for payroll. Without it we cannot calculate your pay correctly."
+     },
+     {
+      "x": "Voluntary are: using your private phone, fingerprint or face recognition, and comments. You can switch location access off; section 3 explains what applies then. [Whether location checking legally counts as voluntary will be checked before launch.]"
+     }
+    ]
+   },
+   {
+    "t": "9. Automated decisions",
+    "p": [
+     {
+      "x": "There are none. The app checks times and breaks and gives hints; decisions are always made by people."
+     }
+    ]
+   },
+   {
+    "t": "For subcontractor staff",
+    "p": [
+     {
+      "x": "Your employer is your company. K. Baumann Baugesellschaft records your hours as the client, to check invoices and to prove who was on the site. Your company has no access to the app; it receives your hours for billing. With the app you send your hours yourself and the site foreman approves them. Without the app the site foreman writes your hours and the site manager countersigns. Basis: our legitimate interest and our legal obligations as client (minimum wage, undeclared work)."
+     },
+     {
+      "x": "We received your name, email address (for the invitation and the sign-in code), your phone number if given (voluntary contact detail), your job and the hourly rate your company charges for your work [from your company]."
+     },
+     {
+      "t": "ID document:",
+      "x": "We look at it. No copy and no number is saved. Only this is noted: type of document, valid until, nationality, and who saw it and when. We note the nationality only so the office knows which documents are needed."
+     },
+     {
+      "t": "A1 certificate:",
+      "x": "If you are posted to Germany from another country, an A1 certificate may be needed. We then save a photo of it. It shows in which country you have social insurance. Only the office sees it."
+     },
+     {
+      "t": "Minimum wage declaration:",
+      "x": "Every month you sign a short personal minimum wage declaration on your phone. Saved: your name, your company, date and time, the text version and your signature (as an image and as a PDF). Only the office of K. Baumann sees it, not your company. We keep it as long as your hours records (provisionally 10 years). If the signature is missing, we remind you at most once. The office and whoever plans assignments then see that the signature is still missing. If you can't or don't want to sign, talk to your site foreman or the office."
+     },
+     {
+      "x": "Section 3 applies to location. We keep your data provisionally for 10 years [to be confirmed before launch]. Your rights under section 7 also apply to you. Important: you can object to the processing of your data. Contact [contact] for this."
+     }
+    ]
+   }
+  ]
+ }
+}

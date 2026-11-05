@@ -136,13 +136,16 @@ export function PNachtragen() {
   const [fehler, setFehler] = useState('');
   const [fertig, setFertig] = useState(false);
   const schonDa = pid ? rechnung(d, pid, datum).gueltig.length > 0 : false;
+  const eingeteilt = pid ? einteilungAm(d, pid, datum) : undefined;
+  const fremd = eingeteilt && !meine.includes(eingeteilt.id) ? eingeteilt : undefined;
   if (fertig) {
     return (
       <Seite titel="Nachgetragen" menue="heute">
         <Fueller />
-        <Erledigt titel="Nachgetragen"><p className="text" style={{ textAlign: 'center' }}>Der Tag steht jetzt in deiner Freigabe und ist als „nachgetragen“ markiert.</p></Erledigt>
+        <Erledigt titel="Nachgetragen"><p className="text" style={{ textAlign: 'center' }}>{person(d, pid).vorname} muss die Zeiten bestätigen. Er bekommt eine Mitteilung in seiner App, prüft den Tag und sendet ihn. Danach gibt die Bauleitung frei, nicht du: Wer nachträgt, gibt nicht frei.</p></Erledigt>
         <Fueller />
-        <Link to="/p/freigabe" className="knopf blau">Zur Freigabe</Link>
+        <Link to={`/p/ohne-handy/pin/${pid}/${datum}`} className="knopf blau">{person(d, pid).vorname} bestätigt jetzt mit PIN</Link>
+        <Link to="/p/heute" className="knopf rahmen">Er bestätigt später in seiner App</Link>
       </Seite>
     );
   }
@@ -159,7 +162,8 @@ export function PNachtragen() {
         </select>
       </div>
       <Auswahl label="Tag" spalten={5} klein wert={datum} setWert={setDatum} optionen={tage.map((t) => ({ wert: t, text: `${wtKurz(t)} ${tm(t)}` }))} />
-      {schonDa ? <div className="hinweis blau">Für diesen Tag gibt es schon Zeiten. Ändern geht über „Zeit korrigieren“ in der Freigabe.</div> : (
+      {fremd ? <div className="hinweis blau">An diesem Tag war {person(d, pid).vorname} auf {bsName(fremd)} eingeteilt{fremd.polierId ? ` (Polier ${voll(person(d, fremd.polierId))})` : ''}. Nachtragen macht der Polier dieser Baustelle.</div>
+        : schonDa ? <div className="hinweis blau">Für diesen Tag gibt es schon Zeiten. Ändern geht über „Zeit korrigieren“ in der Freigabe.</div> : (
         <>
           <Zeiten {...z} set={(v) => setZ({ ...z, ...v })} />
           <div className="feld"><label htmlFor="grund">Grund (Pflicht)</label><input id="grund" className="eingabe" value={grund} onChange={(e) => setGrund(e.target.value)} placeholder="z. B. Handy verloren" /></div>

@@ -7,8 +7,8 @@ import { Fueller, Seite, Zurueck } from '../../components/Rahmen';
 import { Auswahl, BaustelleWahl, Erledigt, Haken, Knopf, Weiter, ZuschlagInfo } from '../../components/Teile';
 import { useDaten, useIch } from '../../domain/store';
 import {
-  baustelle, baustellenVonBauleitung, bsLang, bsName, einteilungAm, helferStunden, hinweiseTag, nachtragSumme, person, rechnung,
-  stundenTag, tageBeiBauleitung, tagVon, urlaubRest, voll,
+  antraegeFuerBauleitung, baustelle, baustellenVonBauleitung, bsLang, bsName, einteilungAm, helferStunden, hinweiseTag, nachtragSumme, offeneWidersprueche, person, rechnung,
+  stundenJeBaustelle, stundenTag, tageBeiBauleitung, tagVon, urlaubRest, voll, vorschlaegeFuerBauleitung, wartetAufBauleitung,
 } from '../../domain/sel';
 import type { Antrag, Daten, Nachtrag, Tag } from '../../domain/types';
 import { artName, euro, euroAbw, stunden, tagLang, tm, uhr, werktag, wtKurz } from '../../domain/zeit';
@@ -16,10 +16,8 @@ import { geltendeStunden, zuschlagArt } from '../../domain/zuschlaege';
 import { Demo, MehrListe } from '../ma/Rest';
 import { StundenKarte } from '../polier/Kolonne';
 
-const offeneAntraege = (d: Daten, blId: string) => {
-  const meine = baustellenVonBauleitung(d, blId).map((b) => b.id);
-  return d.antraege.filter((a) => a.status === 'offen' && a.art !== 'krank' && meine.includes(einteilungAm(d, a.personId, d.heute)?.id ?? ''));
-};
+/** Anträge der eigenen Leute, die noch entschieden werden (nur zur Info, es entscheidet die Oberbauleitung) */
+const offeneAntraege = (d: Daten, blId: string) => antraegeFuerBauleitung(d, blId).filter((a) => a.status === 'offen' || a.status === 'bauleitung_ok');
 const offeneHelfer = (d: Daten, blId: string) => {
   const meine = baustellenVonBauleitung(d, blId).map((b) => b.id);
   return d.helfer.filter((h) => !h.gegengezeichnet && meine.includes(h.baustelleId));
@@ -31,12 +29,14 @@ export function BHeute() {
   const freigabe = tageBeiBauleitung(d, ich.id).reduce((s, g) => s + g.tage.length, 0);
   const antraege = offeneAntraege(d, ich.id);
   const helfer = offeneHelfer(d, ich.id);
+  const meldungen = vorschlaegeFuerBauleitung(d, ich.id);
   const gestern = werktag(d.heute, -1);
   const eigenOffen = tagVon(d, ich.id, gestern)?.status === 'offen';
   const aufgaben = [
     freigabe && { text: `${freigabe} ${freigabe === 1 ? 'Tag' : 'Tage'} freigeben`, unter: 'vom Polier freigegeben', to: '/b/freigabe' },
+    meldungen.length && { text: `${meldungen.length} ${meldungen.length === 1 ? 'Meldung' : 'Meldungen'} „Stempeln vergessen“`, unter: `von Polieren: ${meldungen.map((v) => voll(person(d, v.personId))).join(', ')}`, to: '/b/vorschlag' },
     helfer.length && { text: `${helfer.length} Helfer- und NU-Einträge gegenzeichnen`, unter: [...new Set(helfer.map((h) => bsName(baustelle(d, h.baustelleId))))].join(', '), to: '/b/gegenzeichnen' },
-    antraege.length && { text: `${antraege.length} ${antraege.length === 1 ? 'Antrag' : 'Anträge'} entscheiden`, unter: antraege.map((a) => voll(person(d, a.personId))).join(', '), to: '/b/urlaub' },
+    antraege.length && { text: `${antraege.length} ${antraege.length === 1 ? 'Antrag' : 'Anträge'} deiner Leute (zur Info)`, unter: `entscheidet die Oberbauleitung: ${antraege.map((a) => voll(person(d, a.personId))).join(', ')}`, to: '/b/urlaub' },
     eigenOffen && { text: `Eigenen Tag ${tm(gestern)} senden`, unter: 'an die Oberbauleitung', to: '/b/meine-zeit' },
   ].filter(Boolean) as { text: string; unter: string; to: string }[];
   return (
@@ -123,12 +123,14 @@ export function BFreigabe() {
 /** B3: einen Tag ansehen */
 export function BTag() {
   const { id = '' } = useParams();
-  const { d, a } = useIch();
+  const { d, a, ich } = useIch();
   const nav = useNavigate();
   const t = d.tage.find((x) => x.id === id);
   if (!t) return <Navigate to="/b/freigabe" replace />;
   const r = rechnung(d, t.personId, t.datum);
-  const offen = t.status === 'bei_bauleitung';
+  const offen = wartetAufBauleitung(d, t, ich.id);
+  const ws = offeneWidersprueche(t);
+  const jeBs = stundenJeBaustelle(d, t.personId, t.datum);
   return (
     <Seite titel="Tag" menue="freigabe">
       <Zurueck to="/b/freigabe">Freigabe</Zurueck>
@@ -147,9 +149,22 @@ export function BTag() {
         <div key={k.id} className="karte pad">
           <span className="fett">Korrektur: {k.was}</span>
           <span className="unter">{voll(person(d, k.von))}: „{k.grund}“</span>
-          <span className="klein">{k.antwort === 'bestaetigt' ? 'Vom Mitarbeiter bestätigt' : k.antwort === 'widerspruch' ? `Widerspruch: „${k.antwortText ?? ''}“` : 'Mitarbeiter hat noch nicht geantwortet'}</span>
+          <span className="klein">{k.antwort === 'bestaetigt' ? 'Vom Mitarbeiter bestätigt' : k.antwort === 'widerspruch' ? `Widerspruch: „${k.antwortText ?? ''}“` : k.ohneRueckmeldung ? 'Ohne Rückmeldung des Mitarbeiters entschieden' : 'Mitarbeiter hat noch nicht geantwortet'}</span>
+          {k.entscheidung && <span className="ok" style={{ fontSize: 14 }}>Entschieden: {k.entscheidung === 'bleibt' ? 'Korrektur bleibt' : 'ursprüngliche Zeit gilt'}</span>}
+          {offen && k.antwort === 'widerspruch' && !k.entscheidung && (
+            <div className="zwei">
+              <Knopf farbe="rahmen" klasse="mittel" onClick={() => a.widerspruchEntscheiden(t.id, k.id, 'original')}>Ursprüngliche Zeit gilt</Knopf>
+              <Knopf farbe="rahmen" klasse="mittel" onClick={() => a.widerspruchEntscheiden(t.id, k.id, 'bleibt')}>Korrektur bleibt</Knopf>
+            </div>
+          )}
         </div>
       ))}
+      {jeBs.length > 1 && (
+        <section aria-label="Stunden je Baustelle" className="karte pad">
+          <span className="fett klein">Baustellenwechsel</span>
+          {jeBs.map((x) => <span key={x.baustelle?.id ?? '-'} className="klein">{bsName(x.baustelle)}: {stunden(x.stunden)}{x.baustelle?.polierId ? ` · Polier ${voll(person(d, x.baustelle.polierId))}` : ''}</span>)}
+        </section>
+      )}
       <span className="fett">Gearbeitet {stunden(r.arbeitMin / 60)} · Pause {Math.round(r.pauseMin)} Min.</span>
       {t.zuschlaege.length > 0 && (
         <section aria-label="Zuschläge" style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
@@ -165,12 +180,13 @@ export function BTag() {
         </section>
       )}
       <Fueller />
+      {offen && ws.length > 0 && <div className="hinweis orange">Erst den Widerspruch entscheiden, dann freigeben.</div>}
       {offen ? (
         <div className="zwei">
-          <Link to={`/b/tag/${t.id}/zurueck`} className="knopf rahmen-rot mittel">Zurück an Polier</Link>
-          <Knopf farbe="gruen" klasse="mittel" onClick={() => { a.bauleitungFreigeben([t.id]); nav('/b/freigabe'); }}>Freigeben</Knopf>
+          {t.polierFreigabeVon ? <Link to={`/b/tag/${t.id}/zurueck`} className="knopf rahmen-rot mittel">Zurück an Polier</Link> : <span />}
+          <Knopf farbe="gruen" klasse="mittel" gesperrt={ws.length > 0} onClick={() => { a.bauleitungFreigeben([t.id]); nav('/b/freigabe'); }}>Freigeben</Knopf>
         </div>
-      ) : <div className="hinweis blau">Status: {t.status === 'freigegeben' ? 'an die Lohnbuchhaltung' : 'beim Polier'}</div>}
+      ) : <div className="hinweis blau">Status: {t.status === 'freigegeben' ? 'an die Lohnbuchhaltung' : t.status === 'bei_bauleitung' ? (t.personId === ich.id ? 'bei der Oberbauleitung' : 'beim anderen Bauleiter') : 'beim Polier'}</div>}
     </Seite>
   );
 }
@@ -244,24 +260,24 @@ export function BGegenzeichnen() {
 }
 
 const ANTRAG_TEXT: Record<Antrag['art'], string> = { urlaub: 'Urlaub', konto: 'Frei vom Konto', krank: 'Krank', arbeitsbefreiung: 'Arbeitsbefreiung', betriebsurlaub: 'Betriebsurlaub' };
-const STATUS_TEXT: Record<Antrag['status'], string> = { offen: 'offen', bauleitung_ok: 'genehmigt, wartet auf Lohnbuchhaltung', abgelehnt: 'abgelehnt', genehmigt: 'genehmigt', gemeldet: 'gemeldet' };
+const STATUS_TEXT: Record<Antrag['status'], string> = { offen: 'bei der Oberbauleitung', bauleitung_ok: 'Oberbauleitung ok, liegt bei der Geschäftsleitung', abgelehnt: 'abgelehnt', genehmigt: 'genehmigt', gemeldet: 'gemeldet' };
 
 /** B6: Urlaub und Anträge */
 export function BUrlaub() {
   const { d, ich } = useIch();
   const offen = offeneAntraege(d, ich.id);
-  const meine = baustellenVonBauleitung(d, ich.id).map((b) => b.id);
-  const rest = d.antraege.filter((a) => !offen.includes(a) && a.art !== 'krank' && meine.includes(einteilungAm(d, a.personId, d.heute)?.id ?? ''));
+  const rest = antraegeFuerBauleitung(d, ich.id).filter((a) => !offen.includes(a));
   return (
     <Seite titel="Urlaub" menue="urlaub">
       <h1 className="h1 gross">Urlaub und Anträge</h1>
-      <h2 className="h2">Zu entscheiden ({offen.length})</h2>
+      <div className="hinweis blau">Anträge entscheidet die Oberbauleitung ({voll(person(d, d.oberbauleitungId))}). Du siehst die Anträge deiner Leute zur Info.</div>
+      <h2 className="h2">Noch nicht entschieden ({offen.length})</h2>
       {offen.length === 0 ? <div className="hinweis gruen"><strong>Nichts offen.</strong></div> : (
         <ul className="liste">
           {offen.map((a) => (
             <li key={a.id}>
               <Link to={`/b/antrag/${a.id}`} className="zeile" style={{ minHeight: 60 }}>
-                <span className="wachs"><span className="name">{voll(person(d, a.personId))}</span><span className="klein">{ANTRAG_TEXT[a.art]} · {tm(a.von)}–{tm(a.bis)} · {a.art === 'konto' ? stunden(a.stunden ?? 0) : `${a.tage} Tage`}</span></span>
+                <span className="wachs"><span className="name">{voll(person(d, a.personId))}</span><span className="klein">{ANTRAG_TEXT[a.art]} · {tm(a.von)}–{tm(a.bis)} · {a.art === 'konto' ? stunden(a.stunden ?? 0) : `${a.tage} Tage`} · {STATUS_TEXT[a.status]}</span></span>
                 <Weiter />
               </Link>
             </li>
@@ -285,11 +301,7 @@ export function BUrlaub() {
 /** B7: einen Antrag entscheiden – Überschneidung in der Kolonne zeigen */
 export function BAntrag() {
   const { id = '' } = useParams();
-  const { d, a } = useIch();
-  const nav = useNavigate();
-  const [ablehnen, setAblehnen] = useState(false);
-  const [grund, setGrund] = useState('');
-  const [fehler, setFehler] = useState('');
+  const { d } = useIch();
   const x = d.antraege.find((y) => y.id === id);
   if (!x) return <Navigate to="/b/urlaub" replace />;
   const p = person(d, x.personId);
@@ -309,26 +321,9 @@ export function BAntrag() {
       {gleichzeitig.length > 0 ? (
         <div className="hinweis orange"><strong>Gleichzeitig frei in der Kolonne:</strong> {gleichzeitig.map((y) => `${voll(person(d, y.personId))} (${tm(y.von)}–${tm(y.bis)})`).join(', ')}</div>
       ) : <div className="hinweis gruen">Niemand aus der Kolonne ist in dieser Zeit frei.</div>}
-      {ablehnen && (
-        <div className="feld">
-          <label htmlFor="grund">Grund der Ablehnung (Pflicht)</label>
-          <textarea id="grund" className="eingabe" rows={3} value={grund} onChange={(e) => setGrund(e.target.value)} />
-        </div>
-      )}
-      {fehler && <div role="alert" className="hinweis rot">{fehler}</div>}
+      <div className="hinweis blau">Status: <strong>{STATUS_TEXT[x.status]}</strong>{x.ablehnGrund ? ` · Grund: ${x.ablehnGrund}` : ''}</div>
       <Fueller />
-      {ablehnen ? (
-        <div className="zwei">
-          <Knopf farbe="rahmen" klasse="mittel" onClick={() => setAblehnen(false)}>Abbrechen</Knopf>
-          <Knopf farbe="rot" klasse="mittel" onClick={() => { if (!grund.trim()) return setFehler('Bitte einen Grund angeben.'); a.antragEntscheiden(x.id, false, grund.trim()); nav('/b/urlaub'); }}>Ablehnen</Knopf>
-        </div>
-      ) : (
-        <div className="zwei">
-          <Knopf farbe="rahmen-rot" klasse="mittel" onClick={() => setAblehnen(true)}>Ablehnen</Knopf>
-          <Knopf farbe="gruen" klasse="mittel" onClick={() => { a.antragEntscheiden(x.id, true); nav('/b/urlaub'); }}>Genehmigen</Knopf>
-        </div>
-      )}
-      <span className="klein">Danach prüft die Lohnbuchhaltung und bestätigt endgültig.</span>
+      <span className="klein">Entscheiden muss die Oberbauleitung ({voll(person(d, d.oberbauleitungId))}). Passt der Zeitraum nicht zur Baustelle, sag ihr Bescheid.</span>
     </Seite>
   );
 }
