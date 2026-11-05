@@ -1,0 +1,23 @@
+# IDE
+.idea/
+
+# Umgebungsvariablen / Geheimnisse
+.env
+.env.*
+!.env.example
+
+# Abhängigkeiten
+/vendor/
+node_modules/
+
+# Build-Artefakte
+/dist/
+/build/
+
+# Logs & Cache
+*.log
+.cache/
+
+# Betriebssystem
+.DS_Store
+Thumbs.db
