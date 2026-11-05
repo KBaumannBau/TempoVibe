@@ -21,3 +21,28 @@ node_modules/
 # Betriebssystem
 .DS_Store
 Thumbs.db
+
+# Vite / Node (Demo-App)
+.vite/
+dist-ssr/
+*.local
+*.tsbuildinfo
+coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Tests
+playwright-report/
+test-results/
+
+# Exporte und Pakete (z. B. ZEITERF.DAT aus der Demo, Zip-Pakete)
+*.zip
+ZEITERF*.DAT
+
+# Editor (gemeinsame VS-Code-Einstellungen bleiben erlaubt)
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp

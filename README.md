@@ -58,7 +58,18 @@ _Wird beim Aufsetzen festgelegt und hier ergänzt._
 
 ## Projektstruktur
 
-_Folgt mit dem ersten Code._
+Aktueller Stand: klickbare Demo-App (Vite + React + TypeScript, ohne Server, Daten im Browser). Sie zeigt Handy-App (Mitarbeiter, Polier, Bauleitung, Nachunternehmer) und alle PC-Seiten. Details, Logins und Start: [docs/demo-app.md](docs/demo-app.md).
+
+```
+index.html, package.json, vite.config.ts, tsconfig.json
+public/            Favicon
+src/domain/        Datenmodell, Demo-Daten, Zeit- und Lohnlogik, ZEITERF.DAT-Export
+src/components/    Rahmen, Bausteine, Icons
+src/screens/       Seiten (ma, polier, bau, nu, pc)
+docs/demo-app.md   Beschreibung der Demo-App
+```
+
+Start: `npm install`, dann `npm run dev` (Entwicklung) oder `npm run build` (fertiger Stand in `dist/`).
 
 ## Lokale Entwicklung
 

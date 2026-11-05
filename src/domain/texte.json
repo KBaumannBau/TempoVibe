@@ -1,0 +1,573 @@
+{
+ "faq": [
+  {
+   "q": "Ich habe vergessen zu stempeln. Was jetzt?",
+   "a": "Du kannst die Zeit nicht selbst ändern. Öffne „Tag prüfen und absenden“ und tippe bei „Stempeln vergessen?“ auf einen der drei Knöpfe: „Beginn war um …“, „Ende war um …“ oder „Pause war von … bis …“. Wähle die Uhrzeit, zum Beispiel „Ende war um 16:00“. Dein Polier bekommt daraus einen fertigen Vorschlag und kann ihn übernehmen. Die App erinnert dich außerdem: „Arbeitsende noch offen“ (2 Stunden nach dem üblichen Arbeitsende, spätestens um 20:00 Uhr) und „Tag noch nicht gesendet“ (am nächsten Morgen um 06:30 Uhr)."
+  },
+  {
+   "q": "Meine Baustelle wird nicht gefunden. Oder der Standort stimmt nicht.",
+   "a": "Tippe auf „Andere Baustelle wählen“, such die richtige Baustelle und wähle einen Grund. Meldet die App „Du bist nicht an der Baustelle“, wähle eine kurze Begründung und speichere. Deine Zeit wird immer gespeichert, dein Polier sieht nur einen Hinweis."
+  },
+  {
+   "q": "Sieht die Firma, wo ich bin?",
+   "a": "Die App verfolgt dich nicht. Sie prüft deinen Standort nur in dem Moment, in dem du tippst, zum Beispiel bei Arbeitsbeginn und Arbeitsende. Sie speichert keinen Weg und keine Koordinate. Gespeichert wird, ob der Standort zur Baustelle passt, die ungefähre Entfernung und deine Begründung. Das sehen dein Polier, der Bauleiter und das Büro."
+  },
+  {
+   "q": "Ich habe kein Netz. Oder die Ortung klappt nicht.",
+   "a": "Kein Netz (kein Internet): Du kannst immer stempeln. Es zählt die Uhrzeit, zu der du tippst. Die App sendet, sobald wieder Netz da ist. Ortung klappt nicht (zum Beispiel im Keller): Die App sagt dir das, und deine Zeit wird trotzdem gespeichert. Geht das Handy gar nicht, sag es deinem Polier. Trag die richtigen Zeiten später an deinem Tag bei „Stempeln vergessen?“ ein."
+  },
+  {
+   "q": "Der Polier hat meinen Tag geändert. Was kann ich tun?",
+   "a": "Du bekommst eine Nachricht und siehst, was vorher stand und was jetzt steht, mit Begründung. Bist du nicht einverstanden, tippe möglichst bald auf „Widerspruch einlegen“ und schreib, was nicht stimmt. Dann entscheidet der Bauleiter. Meldest du dich nicht, bekommst du eine Erinnerung, danach gilt die Korrektur."
+  },
+  {
+   "q": "Wie melde ich mich krank? Wer sieht das?",
+   "a": "Tippe im Menü unten auf „Krank“, wähle „Ich selbst“ oder „Mein Kind“, trag ein, ab wann und bis wann, und tippe auf „Krankmeldung senden“ (ohne Diagnose). Melde dich immer sofort krank. Polier und Bauleiter erfahren, dass du krank gemeldet bist und bis wann, aber nicht warum. Kollegen sehen nur „abwesend“. Die Bescheinigung sieht nur das Büro. Bist du länger als 3 Kalendertage krank, brauchst du spätestens am nächsten Arbeitstag danach eine Krankschreibung vom Arzt. Ist dein Kind krank, brauchst du schon ab dem 1. Tag eine Bescheinigung vom Arzt. Diese Tage sind in der Regel unbezahlt, die Krankenkasse zahlt Kinderkrankengeld. Für Auszubildende und in Sonderfällen gilt etwas anderes – frag im Büro."
+  },
+  {
+   "q": "Wie beantrage ich Urlaub? Wie viel Resturlaub habe ich?",
+   "a": "Tippe im Menü unten auf „Urlaub“. Oben siehst du deinen Urlaub: Rest aus dem Vorjahr, Anspruch, genommen und wie viele Tage noch frei sind. Trag „Von“ und „Bis“ ein und tippe auf „Antrag senden“. Erst prüft der Bauleiter, dann die Geschäftsleitung oder die kaufmännische Leitung, und du bekommst eine Nachricht."
+  },
+  {
+   "q": "Was ist das Arbeitszeitkonto? Wie nehme ich frei?",
+   "a": "Auf dem Arbeitszeitkonto sammeln sich deine Stunden: Arbeitest du mehr als dein Soll, kommen Stunden dazu, arbeitest du weniger, gehen Stunden ab. Deinen Stand siehst du unter „Konto“; zum Frei nehmen tippe dort auf „Frei nehmen vom Konto“ und stelle den Antrag. Im Sommer (Apr–Nov) geht Frei vom Konto erst ab 100\\u00A0h; im Winter (Dez–Mär) geht es, solange 50\\u00A0h auf dem Konto bleiben. Stunden über 150\\u00A0h werden ausbezahlt."
+  },
+  {
+   "q": "Ich habe meine PIN vergessen. Oder ich habe ein neues Handy.",
+   "a": "PIN vergessen: Tippe beim Öffnen auf „PIN vergessen“. Du bekommst einen neuen Code per E-Mail und legst eine neue PIN fest. Der Code gilt 15 Minuten und nur einmal. Hast du keine eigene E-Mail-Adresse, geht die E-Mail an deinen Polier oder an den Mitarbeiter, bei dem du eingeteilt bist; er gibt dir den Code persönlich weiter. Neues Handy oder Handy verloren: Ruf im Büro an. Das Büro sperrt den alten Zugang und schickt dir eine neue Einladung per E-Mail."
+  },
+  {
+   "q": "Wie ändere ich die Sprache? Wo finde ich Hilfe?",
+   "a": "Tippe oben rechts auf die Weltkugel mit dem Kürzel, zum Beispiel DE, und wähle deine Sprache aus der Liste. Die App merkt sich die Sprache auf diesem Handy. Die Hilfe mit Anleitungen und Suche findest du oben rechts unter dem Fragezeichen."
+  }
+ ],
+ "hilfe": [
+  {
+   "id": "anm",
+   "t": "Anmeldung, PIN, neues Handy",
+   "p": [
+    "Du bekommst eine Einladung per E-Mail. Tippe auf den Link. Er gilt 7 Tage. Hast du keine eigene E-Mail-Adresse? Dann geht die Einladung an deinen Polier oder an den Mitarbeiter, bei dem du eingeteilt bist. Er zeigt sie dir auf seinem Handy. Scanne den QR-Code mit deinem Handy. Das Büro kann die Einladung auch ausdrucken. Eine Handynummer brauchst du nicht.",
+    "Gib deine E-Mail-Adresse ein. Du bekommst einen Code per E-Mail (6 Ziffern). Er gilt 15 Minuten und nur einmal; nach 5 falschen Eingaben brauchst du einen neuen. Lege dann eine PIN mit 4 Ziffern fest. Nimm keine einfache PIN wie 1234 oder 0000. Hast du keine eigene E-Mail-Adresse? Setze den Haken bei „Ich habe keine eigene E-Mail-Adresse“. Dann geht die E-Mail an deinen Polier oder an den Mitarbeiter, bei dem du eingeteilt bist. Er gibt dir den Code persönlich weiter.",
+    "Statt der PIN kannst du auch Fingerabdruck oder Gesichtserkennung nutzen. Das bleibt auf deinem Handy.",
+    "Lies die Hinweise zu Datenschutz und Ausweis. Setze bei jedem den Haken. Erlaube dann den Standort mit „Beim Verwenden der App“.",
+    "Lege die App auf den Startbildschirm. Nur so kann sie dir Benachrichtigungen schicken. Fragt dein Handy danach, wähle „Erlauben“.",
+    "Die App sperrt sich nach 5 Minuten ohne Benutzung. PIN vergessen? Tippe auf „PIN vergessen“. Du bekommst einen neuen Code per E-Mail und legst eine neue PIN fest.",
+    "Neues Handy oder Handy verloren? Ruf im Büro an. Das Büro sperrt den alten Zugang und schickt eine neue Einladung per E-Mail."
+   ],
+   "k": "login passwort code qr email e-mail polier fingerabdruck gesperrt verloren einladung registrierung anmelden"
+  },
+  {
+   "id": "zeit",
+   "t": "Arbeitszeit erfassen",
+   "p": [
+    "Öffne „Heute“. Die App schlägt deine Baustelle vor.",
+    "Tippe auf „Arbeitsbeginn starten“, wenn du anfängst.",
+    "Tippe auf „Pause“, sobald deine Pause beginnt. Tippe schon beim Verlassen der Baustelle, nicht erst am Pausenort.",
+    "Tippe auf „Weiter arbeiten“, wenn die Pause vorbei ist.",
+    "Fährst du zu einer anderen Baustelle? Tippe bei der Abfahrt auf „Baustelle wechseln“. Die Fahrt zählt schon für die neue Baustelle.",
+    "Tippe auf „Arbeitsende“, wenn du aufhörst.",
+    "Kein Netz? Du kannst immer stempeln. Es zählt die Uhrzeit, zu der du tippst. Die App sendet, sobald wieder Netz da ist.",
+    "Arbeitest du über Mitternacht (Nachtschicht)? Die ganze Schicht zählt zu dem Tag, an dem sie begonnen hat. Das gilt auch am letzten Tag des Monats."
+   ],
+   "k": "stempeln start beginn ende pause wechsel feierabend stunden kein netz offline funkloch nachtschicht mitternacht"
+  },
+  {
+   "id": "baust",
+   "t": "Baustelle wählen · Meine Einteilung",
+   "p": [
+    "Die App schlägt deine Baustelle vor. Sie nimmt deinen Standort oder deine Einteilung.",
+    "Stimmt die Baustelle nicht? Tippe auf „Andere Baustelle wählen“.",
+    "Suche nach Kostenstelle, Straße oder Ort. Tippe die richtige Baustelle an.",
+    "Wähle einen Grund und tippe auf „Übernehmen“. Der Grund ist Pflicht.",
+    "Dein Polier sieht in der Freigabe, dass du die Baustelle von Hand gewählt hast. Deine Zeit wird immer gespeichert.",
+    "Unter „Meine Einteilung“ siehst du, wo du diese Woche eingeteilt bist. Tippe auf „Ganze Woche anzeigen“, um alle Tage zu sehen.",
+    "Hat sich deine Einteilung geändert, steht dort ein Hinweis. Tippe auf „Gelesen“."
+   ],
+   "k": "baustelle suchen kostenstelle von hand falsche baustelle einteilung woche disposition"
+  },
+  {
+   "id": "ort",
+   "t": "Standort passt nicht",
+   "p": [
+    "Die App prüft deinen Standort nur in dem Moment, in dem du tippst: bei Start, Pause, Weiter, Baustellenwechsel und Arbeitsende.",
+    "Meldet die App „Du bist nicht an der Baustelle“? Wähle eine kurze Begründung. Das ist Pflicht. Du kannst eine Notiz dazuschreiben.",
+    "Tippe dann auf den Knopf zum Speichern. Deine Zeit ist erfasst.",
+    "Falsche Baustelle eingestellt? Wähle auf „Heute“ die richtige Baustelle.",
+    "Deine Zeit wird immer gespeichert. Dein Polier sieht den Hinweis „weicht ab“, die ungefähre Entfernung und deine Begründung.",
+    "Klappt die Ortung nicht (zum Beispiel im Keller)? Dann sagt dir die App das. Deine Zeit wird trotzdem gespeichert. Kein Netz? Du kannst immer stempeln. Es zählt die Uhrzeit, zu der du tippst. Die App sendet, sobald wieder Netz da ist."
+   ],
+   "k": "ortung gps weicht ab kein empfang entfernung nicht an der baustelle begründung kein netz offline"
+  },
+  {
+   "id": "tag",
+   "t": "Tag prüfen und absenden",
+   "p": [
+    "Nach dem Arbeitsende tippst du auf „Tag prüfen und absenden“.",
+    "Prüfe Baustellen, Zeiten und Pausen. Die App zeigt dir, wenn eine Lücke oder eine zu kurze Pause auffällt.",
+    "Stempeln vergessen oder eine Zeit stimmt nicht? Tippe bei „Stempeln vergessen?“ auf einen der drei Knöpfe: „Beginn war um …“, „Ende war um …“ oder „Pause war von … bis …“. Wähle die Uhrzeit. Dein Polier bekommt daraus einen fertigen Vorschlag und kann ihn übernehmen. Ändern kann die Zeit nur dein Polier oder die Bauleitung.",
+    "Setz einen Haken, wenn du übernachtet hast oder den Mannschaftsbus gefahren bist.",
+    "Tippe unten auf „An Poliere senden“.",
+    "Mit dem Senden bestätigst du, dass Beginn, Ende und Pausen stimmen.",
+    "Jeder Polier gibt seine Baustelle frei. Danach gibt der Bauleiter frei. Bis dahin ist dein Konto vorläufig.",
+    "Die App schickt dir zwei Erinnerungen: „Arbeitsende noch offen“ kommt 2 Stunden nach dem üblichen Arbeitsende, spätestens um 20:00 Uhr, wenn du kein Arbeitsende getippt hast. „Tag noch nicht gesendet“ kommt am nächsten Morgen um 06:30 Uhr, wenn du deinen Tag noch nicht gesendet hast."
+   ],
+   "k": "senden abschicken kommentar zeit falsch vergessen wegezeit übernachtung fahrer freigabe stempeln vergessen beginn ende pause vorschlag erinnerung"
+  },
+  {
+   "id": "zus",
+   "t": "Zuschläge",
+   "p": [
+    "Öffne deinen Tag und tippe auf „+ Zuschlag hinzufügen“.",
+    "Tippe an, was heute angefallen ist. Zum Beispiel Atemschutz oder Abbruchhammer.",
+    "Wähle die Baustelle und trag die Stunden ein, z. B. 2,5.",
+    "Mehr Stunden als deine Arbeitszeit auf der Baustelle? Dann warnt dich die App. Bitte prüfen.",
+    "Tippe unten auf den blauen Knopf. Die Zuschläge stehen dann in deinem Tag.",
+    "Brauchst du doch keinen Zuschlag? Tippe auf „Ohne Zuschlag zurück“.",
+    "Nachtstunden ermittelt die App. Überstunden, Sonntag und Feiertag rechnet die Lohnabrechnung (Lohnbuchhaltung)."
+   ],
+   "k": "erschwernis maske staub schmutz hammer zulage schutzanzug hitze"
+  },
+  {
+   "id": "korr",
+   "t": "Korrektur vom Polier",
+   "p": [
+    "Stimmt eine Zeit nicht? Trag es vor dem Senden bei „Stempeln vergessen?“ ein. Die Poliere sehen deinen Vorschlag bei der Freigabe und können ihn übernehmen.",
+    "Ändert der Polier deinen Eintrag, bekommst du eine Nachricht.",
+    "Du siehst, was vorher stand und was jetzt steht. Dazu die Begründung.",
+    "Bist du nicht einverstanden? Tippe auf „Widerspruch einlegen“ und schreib, was nicht stimmt.",
+    "Dann entscheidet der Bauleiter. Du bekommst Bescheid.",
+    "Meldest du dich nicht, bekommst du eine Erinnerung. Danach gilt die Korrektur. Widersprich deshalb bitte möglichst bald, wenn etwas nicht stimmt.",
+    "Schickt der Polier eine Rückfrage, antworte bitte bis zum genannten Tag."
+   ],
+   "k": "geändert widerspruch widersprechen bestätigen rückfrage zurückgeschickt freigabe korrigieren"
+  },
+  {
+   "id": "kal",
+   "t": "Kalender",
+   "p": [
+    "Tippe im Menü unten auf „Kalender“.",
+    "Die Farben zeigen: Feiertag, Urlaub, Betriebsurlaub, tariflich frei, krank.",
+    "Tippe auf einen Tag. Darunter steht, was an diesem Tag gilt, zum Beispiel dein Soll in Stunden.",
+    "Tippe auf „Tag ansehen“. Dann siehst du Zeiten, Pausen und Zuschläge.",
+    "Mit den Pfeilen wechselst du den Monat.",
+    "Unten stehen die nächsten Feiertage in Bayern.",
+    "Fällt ein Feiertag auf einen Arbeitstag, gibt es Feiertagslohn. Es wird kein Urlaubstag abgezogen."
+   ],
+   "k": "feiertag monat tage frei übersicht soll"
+  },
+  {
+   "id": "konto",
+   "t": "Arbeitszeitkonto",
+   "p": [
+    "Tippe im Menü unten auf „Konto“.",
+    "Oben steht dein Stand nach der letzten Freigabe. Die Tage danach sind vorläufig. Darunter siehst du den Verlauf.",
+    "Arbeitest du mehr als das Soll, kommen Stunden dazu. Arbeitest du weniger, gehen Stunden ab.",
+    "Frei nehmen: Tippe auf „Frei nehmen vom Konto“. Dort stellst du den Antrag.",
+    "Sommer (Apr–Nov): Frei vom Konto geht erst ab 100 h.",
+    "Winter (Dez–Mär): Frei vom Konto geht, solange 50 h auf dem Konto bleiben.",
+    "Stunden über 150 h werden ausbezahlt."
+   ],
+   "k": "stunden sikoflex überstunden stand soll auszahlung frei nehmen"
+  },
+  {
+   "id": "url",
+   "t": "Urlaub und Frei vom Konto beantragen",
+   "p": [
+    "Tippe im Menü unten auf „Urlaub“.",
+    "Oben siehst du deinen Urlaub: Rest aus dem Vorjahr, Anspruch, genommen und wie viele Tage noch frei sind.",
+    "Wähle „Urlaubstage“ oder „Vom Konto“.",
+    "Trag „Von“ und „Bis“ ein. Wochenenden und Feiertage zählen nicht als Urlaubstag.",
+    "Die App zeigt, wie viel danach noch frei ist. Geht der Antrag nicht, sagt sie dir warum.",
+    "Tippe auf „Antrag senden“.",
+    "Erst prüft der Bauleiter, dann die Geschäftsleitung oder die kaufmännische Leitung. Du bekommst eine Nachricht."
+   ],
+   "k": "ferien frei nehmen antrag genehmigung resturlaub urlaubstage konto"
+  },
+  {
+   "id": "bu",
+   "t": "Betriebsurlaub",
+   "p": [
+    "Das Büro legt den Betriebsurlaub fest. Die Urlaubstage sind schon eingetragen.",
+    "Feiertage im Betriebsurlaub kosten keinen Urlaubstag.",
+    "24.12. und 31.12. sind arbeitsfrei, aber ohne Lohn. Du wählst: „Urlaubstag“ oder „Unbezahlt frei“.",
+    "Reicht dein Urlaub nicht? Dann kannst du zustimmen, dass Stunden vom Arbeitszeitkonto genommen werden. Ohne deine Zustimmung wird nichts abgezogen.",
+    "Im Winter müssen dabei mindestens 50 h auf dem Konto bleiben.",
+    "Wähle bis zu dem Datum, das in der App steht. Tippe dann auf „Auswahl speichern“. Wählst du nichts, bleibt es bei „Unbezahlt frei“."
+   ],
+   "k": "weihnachten heiligabend silvester betriebsferien zustimmen"
+  },
+  {
+   "id": "krank",
+   "t": "Krank melden (auch Kind krank)",
+   "p": [
+    "Tippe im Menü unten auf „Krank“.",
+    "Wähle „Ich selbst“ oder „Mein Kind“. Trag ein, ab wann und bis wann.",
+    "Bis 3 Kalendertage geht es ohne Krankschreibung. Bist du länger als 3 Kalendertage krank, brauchst du spätestens am nächsten Arbeitstag danach eine Krankschreibung vom Arzt. Melde dich immer sofort krank. Die Firma kann sie im Einzelfall früher verlangen.",
+    "Warst du beim Arzt? Setz den Haken und trag die Daten der Krankschreibung genau so ein, wie sie der Arzt notiert hat.",
+    "Kind krank: Du brauchst ab dem 1. Tag eine Bescheinigung vom Arzt. Diese Tage sind in der Regel unbezahlt, die Krankenkasse zahlt Kinderkrankengeld. Für Auszubildende und in Sonderfällen gilt etwas anderes – frag im Büro.",
+    "Arbeitsunfall oder Wegeunfall? Setz den Haken und ruf gleich deinen Polier oder Bauleiter an. Geh zu einem Durchgangsarzt (D-Arzt) oder ins Krankenhaus.",
+    "Schreib keine Diagnose. Tippe auf „Krankmeldung senden“. Polier und Bauleiter erfahren, dass du krank gemeldet bist und bis wann, aber nicht warum. Kollegen sehen nur „abwesend“.",
+    "Endet deine Krankmeldung bald, fragt dich die App: „Wann kommst du wieder?“ Antworte bis zum genannten Tag."
+   ],
+   "k": "krankmeldung arzt krankschreibung kinderkrankentage unfall arbeitsunfall"
+  },
+  {
+   "id": "ab",
+   "t": "Arbeitsbefreiung beantragen",
+   "p": [
+    "Tippe im Menü unten auf „Urlaub“ und dann auf „Arbeitsbefreiung“.",
+    "Wähle den Anlass. Zum Beispiel Hochzeit, Geburt, Todesfall, Umzug, Arztbesuch oder Behörde.",
+    "Trag die Tage oder die Uhrzeit ein. Tippe auf „Antrag senden“.",
+    "Für jeden Anlass gibt es nur eine bestimmte Zahl von Tagen. Ist der Zeitraum zu lang, sagt dir das die App. Für die übrigen Tage beantragst du Urlaub.",
+    "Zuerst prüft der Bauleiter, dann das Büro. Der Bauleiter sieht nur Anlass und Tage. Den Nachweis sieht nur das Büro.",
+    "Die Genehmigung gilt zunächst unter Vorbehalt. Endgültig wird sie, sobald der Nachweis geprüft ist."
+   ],
+   "k": "sozialtag hochzeit umzug geburt todesfall behörde gericht arzt befreiung"
+  },
+  {
+   "id": "nach",
+   "t": "Nachweis nachreichen",
+   "p": [
+    "Du kannst den Antrag auch ohne Nachweis senden. Fotografiere den Nachweis gleich oder später.",
+    "Frist: 14 Tage nach dem Anlass, danach noch 7 Tage Nachfrist. Die App erinnert dich, bis der Nachweis da ist.",
+    "Fotografiere den Nachweis. Tippe dann auf „Nachweis senden“.",
+    "Angaben, die für den Anlass nicht nötig sind, darfst du abdecken. Zum Beispiel eine Diagnose.",
+    "Fehlt der Nachweis danach, wählst du: Urlaubstag oder unbezahlt frei. Bei Stunden: vom Arbeitszeitkonto oder unbezahlt. Dafür hast du 3 Werktage Zeit (Montag bis Samstag). Wählst du nicht, buchen wir die Zeit vorläufig als unbezahlt. Reichst du den Nachweis nach, wird das korrigiert.",
+    "Vom Konto geht nur, solange dein Konto im Plus bleibt. Die Grenzen 100 h und 50 h gelten hier nicht."
+   ],
+   "k": "nachweis bescheinigung urkunde foto frist nachfrist hochladen erinnerung"
+  },
+  {
+   "id": "push",
+   "t": "Benachrichtigungen und Pausenhinweise",
+   "p": [
+    "Die App schickt dir kurze Hinweise auf dein Handy.",
+    "Zum Beispiel: Pause fehlt, Pause läuft noch, Arbeitsende noch offen, Tag noch nicht gesendet, Polier hat korrigiert, Nachweis fehlt, Einteilung geändert.",
+    "Lege die App dafür auf den Startbildschirm. Fragt dein Handy nach Mitteilungen, wähle „Erlauben“.",
+    "Nach 5:30 h Arbeit ohne Pause erinnert dich die App. Länger als 6 h am Stück darfst du nicht ohne Pause arbeiten.",
+    "Bei mehr als 6 h Arbeit brauchst du mindestens 30 Min. Pause, bei mehr als 9 h mindestens 45 Min. Es zählen nur Pausen ab 15 Min. am Stück. Jede Pause geht von der Arbeitszeit ab.",
+    "Läuft deine Pause schon 60 Minuten, fragt die App: „Pause noch aktiv?“ Tippe auf „Weiter arbeiten“, falls du schon wieder arbeitest.",
+    "Manche Hinweise bestätigst du mit „Hinweis gelesen und verstanden“. Zum Beispiel zum Resturlaub.",
+    "Auf dem Sperrbildschirm steht nur ein kurzer, neutraler Text: nichts zu Krankheit, keine Namen von Kollegen, keine Stundenstände. Die Einzelheiten siehst du erst in der App."
+   ],
+   "k": "push mitteilung erinnerung nachricht hinweis startbildschirm pause resturlaub"
+  },
+  {
+   "id": "ohne",
+   "t": "Kein Smartphone",
+   "p": [
+    "Die Nutzung deines privaten Handys ist freiwillig.",
+    "Ohne Smartphone schreibt dein Polier deine Stunden und Zuschläge auf.",
+    "Du prüfst alles. Dann bestätigst du mit deiner eigenen PIN auf dem Handy des Poliers.",
+    "Die Start-PIN bekommst du per Brief. Beim ersten Mal legst du deine eigene PIN fest.",
+    "Warst du nicht da? Dann bestätigst du beim nächsten Mal mit deiner PIN oder unterschreibst den Wochenzettel im Büro.",
+    "Urlaub und Krankheit meldest du beim Polier oder im Büro.",
+    "Deine Stunden und Konten bekommst du jeden Monat als Ausdruck."
+   ],
+   "k": "ohne handy privat kein telefon pin-brief start-pin"
+  },
+  {
+   "id": "helf",
+   "t": "Ausweis einer Nachunternehmer-Person eintragen",
+   "p": [
+    "Neue Person einer Fremdfirma (Nachunternehmer) auf der Baustelle? Tippe auf „Ausweis einer Nachunternehmer-Person eintragen“.",
+    "Lass dir den Ausweis im Original zeigen.",
+    "Wähle die Person. Trag „Art des Ausweises“, „Gültig bis“ und „Staatsangehörigkeit“ ein.",
+    "Setz den Haken, dass du den Ausweis im Original gesehen hast. Tippe auf „Ausweis gesehen – speichern“.",
+    "Mach kein Foto vom Ausweis, auch nicht mit deinem Handy. Es wird keine Kopie und keine Ausweisnummer gespeichert.",
+    "Hat jemand keinen Ausweis dabei? Dann trag nichts ein und sag dem Polier oder dem Büro Bescheid."
+   ],
+   "k": "ausweis helfer nachunternehmer fremdfirma personalausweis pass aufenthaltstitel"
+  },
+  {
+   "id": "ml",
+   "t": "Mindestlohn unterschreiben (Nachunternehmer)",
+   "p": [
+    "Dieses Thema gilt nur für Mitarbeiter von Nachunternehmern (Fremdfirmen). Sie nutzen eine eigene App.",
+    "Nach jedem Monatsende unterschreibst du deine persönliche Mindestlohnerklärung für den abgelaufenen Monat. Das geht ab dem 1. des Folgemonats. Beispiel: Die Erklärung für August 2026 unterschreibst du ab dem 01.09.2026. Damit erklärst du, dass du von deinem Arbeitgeber mindestens den gesetzlichen Mindestlohn bekommst.",
+    "Öffne in deiner App den Bereich „Mindestlohn“ und lies den Text. Unterschreibe mit dem Finger im Feld. Tippe dann auf „Unterschreiben und senden“.",
+    "Die Erklärung geht als PDF an das Büro der K. Baumann Baugesellschaft, nicht an deine Firma.",
+    "Du kannst oder willst nicht unterschreiben? Melde dich bei deinem Polier oder im Büro."
+   ],
+   "k": "mindestlohn unterschrift unterschreiben nachunternehmer fremdfirma subunternehmer erklärung lohn"
+  },
+  {
+   "id": "spr",
+   "t": "Sprache ändern",
+   "p": [
+    "Tippe oben rechts auf die Weltkugel mit dem Kürzel, zum Beispiel DE.",
+    "Wähle deine Sprache aus der Liste.",
+    "Die App merkt sich die Sprache auf diesem Handy.",
+    "Namen von Baustellen und Personen bleiben gleich."
+   ],
+   "k": "language język limba jezik dil nyelv lingua langue sprache übersetzung"
+  },
+  {
+   "id": "ds",
+   "t": "Datenschutz",
+   "p": [
+    "Dein Standort wird nur beim Tippen verglichen. Die App speichert keinen Weg und keine Koordinate.",
+    "Gespeichert wird, ob der Standort zur Baustelle passt, die ungefähre Entfernung und deine Begründung. Das sehen dein Polier, der Bauleiter und das Büro.",
+    "Lehnst du den Standort ab, wählst du die Baustelle von Hand. Du kannst ihn jederzeit in den Einstellungen deines Handys ausschalten.",
+    "Bei Krankheit fragt die App keine Diagnose ab. Polier und Bauleiter erfahren, dass du krank gemeldet bist und bis wann, aber nicht warum. Kollegen sehen nur „abwesend“. Bescheinigungen und Nachweise sieht nur das Büro.",
+    "Die Nutzung deines privaten Handys ist freiwillig. Die App liest keine Kontakte und keine Fotos.",
+    "Die Daten liegen auf einem eigenen Server im Betrieb. Arbeitszeiten werden nach heutigem Stand 8 Jahre aufbewahrt (wird noch geprüft).",
+    "Du kannst Auskunft über deine Daten verlangen. Alles Weitere steht in den Datenschutzhinweisen."
+   ],
+   "k": "daten ortung überwachung gps speichern rechte standort datenschutzhinweise"
+  },
+  {
+   "id": "hilfe",
+   "t": "Hilfe und Fragen",
+   "p": [
+    "Tippe oben rechts auf das Fragezeichen. Dort findest du diese Hilfe.",
+    "Gib oben ein Wort in die Suche ein, zum Beispiel Pause oder PIN. Dann siehst du nur passende Themen.",
+    "Schnelle Antworten findest du bei den häufigen Fragen.",
+    "Die Einführung kannst du dir jederzeit noch einmal ansehen.",
+    "Kommst du nicht weiter? Frag deinen Polier oder ruf im Büro an."
+   ],
+   "k": "faq fragen einführung anleitung hilfe support telefon"
+  }
+ ],
+ "datenschutz": {
+  "entwurf": "Entwurf · Fassung 0.1 · noch nicht rechtlich freigegeben",
+  "intro": "So gehen wir mit deinen Daten in der Stundenerfassung um. Eckige Klammern werden vor dem Start ausgefüllt. Tippe auf eine Überschrift, um den Abschnitt zu öffnen.",
+  "abschnitte": [
+   {
+    "t": "1. Wer ist verantwortlich?",
+    "p": [
+     {
+      "x": "K. Baumann Baugesellschaft mbH, [Anschrift], [Telefon], [E-Mail]."
+     },
+     {
+      "x": "Ansprechpartner für Datenschutz: [Name, Kontakt]."
+     }
+    ]
+   },
+   {
+    "t": "2. Welche Daten, wozu, auf welcher Grundlage?",
+    "p": [
+     {
+      "t": "Beginn, Ende, Pausen, Baustelle, Zuschläge:",
+      "x": "für die Lohnabrechnung und die gesetzliche Aufzeichnung der Arbeitszeit. Grundlage: Arbeitsvertrag und gesetzliche Pflicht. Hast du kein Handy, trägt dein Polier diese Daten für dich ein."
+     },
+     {
+      "t": "Standort beim Tippen:",
+      "x": "wird nur mit der Baustelle verglichen, damit die Stunden richtig gebucht werden. Die genaue Position speichern wir nicht; gespeichert wird nur das Ergebnis (siehe Abschnitt 3). Grundlage: Arbeitsvertrag und berechtigtes Interesse an richtiger Abrechnung."
+     },
+     {
+      "t": "Urlaub, Freistellung, Zeitkonten:",
+      "x": "zur Verwaltung deiner Ansprüche. Grundlage: Arbeitsvertrag und Tarifvertrag."
+     },
+     {
+      "t": "Krankmeldung und Bescheinigung, auch „Kind krank“ und Arbeitsunfall:",
+      "x": "für Entgeltfortzahlung und Planung. Wir fragen keine Diagnose ab. Bei „Kind krank“ nutzen wir nur Geburtsmonat und Geburtsjahr des Kindes, keinen Vornamen. Das sind Gesundheitsdaten; Grundlage: Arbeits- und Sozialrecht."
+     },
+     {
+      "t": "Nachweise für Arbeitsbefreiung",
+      "x": "(z. B. Heiratsurkunde, Meldebestätigung, Bescheinigung der Praxis) und deine Bemerkungen: um den Anspruch zu prüfen. Grundlage: Arbeitsvertrag und Tarifvertrag."
+     },
+     {
+      "t": "E-Mail-Adresse, Gerät, Zeitpunkte der Anmeldung:",
+      "x": "für die Einladung per E-Mail und den sicheren Zugang zur App. Gespeichert wird auch, ob du ein privates Handy oder ein Firmenhandy nutzt und wann du zuletzt angemeldet warst. Die Einladung und den Anmelde-Code schicken wir dir per E-Mail. Hast du keine eigene E-Mail-Adresse, gehen beide an deinen Polier oder an den Mitarbeiter, bei dem du eingeteilt bist; er zeigt dir die Einladung und gibt dir den Code persönlich weiter. Deine Handynummer brauchen wir dafür nicht; sie ist nur eine freiwillige Kontaktangabe. Grundlage: Arbeitsvertrag und berechtigtes Interesse an einem sicheren Betrieb. Deine PIN speichern wir nur verschlüsselt. Fingerabdruck oder Gesichtserkennung bleiben auf deinem Handy; wir bekommen sie nicht."
+     },
+     {
+      "t": "Einteilung auf Baustellen:",
+      "x": "für die Arbeitsorganisation. Grundlage: Arbeitsvertrag."
+     },
+     {
+      "t": "Protokoll, wer wann was geändert hat:",
+      "x": "als Nachweis bei Prüfungen. Grundlage: gesetzliche Pflicht."
+     },
+     {
+      "t": "Angaben für Urlaub und Freistellung:",
+      "x": "zum Beispiel Schwerbehinderung, Alter unter 18 Jahren oder alleinerziehend. Wir nutzen sie nur, um deine Ansprüche richtig zu berechnen. Nur die Verwaltung (Personal) sieht sie. Grundlage: Arbeitsvertrag, Tarifvertrag und Gesetz; die Schwerbehinderung ist besonders geschützt (wie Gesundheitsdaten)."
+     },
+     {
+      "t": "Kommentare, Begründungen und Nachrichten:",
+      "x": "Texte, die du selbst in die App schreibst. Dein Polier, der Bauleiter und die Verwaltung lesen sie. Bitte schreibe dort nichts zu Krankheit oder Privatem. Grundlage: Arbeitsvertrag."
+     },
+     {
+      "t": "Auswertungen:",
+      "x": "Aus den Stunden berechnen wir auch die Kosten und den Soll-Ist-Vergleich je Baustelle. Grundlage: berechtigtes Interesse [wird vor dem Start geprüft]."
+     },
+     {
+      "x": "Die Paragrafen dazu: Art. 6 Abs. 1 Buchst. b, c und f DSGVO, § 26 BDSG; für Gesundheitsdaten Art. 9 Abs. 2 Buchst. b DSGVO und § 26 Abs. 3 BDSG. Pflicht zur Aufzeichnung: [Vorschriften, z. B. § 16 ArbZG, § 17 MiLoG, § 19 AEntG]. Stammdaten wie Name, Personalnummer, Handynummer (freiwillige Kontaktangabe), Gruppe, Funktion und Arbeitszeit kommen aus deiner Personalakte."
+     }
+    ]
+   },
+   {
+    "t": "3. Standort",
+    "p": [
+     {
+      "x": "Die App erfasst deinen Standort nur in dem Moment, in dem du auf Start, Pause, Wechsel oder Ende tippst. Dazwischen wird nichts geortet."
+     },
+     {
+      "x": "Die App vergleicht den Standort mit der Adresse der Baustelle. Die genaue Position (Koordinate) wird nicht gespeichert, und es entsteht kein Bewegungsprofil. Gespeichert wird: der Zeitpunkt, das Ergebnis „passt“ oder „weicht ab“, die ungefähre Entfernung zur Baustelle und bei einer Abweichung deine Begründung und deine Notiz. Das sehen dein Polier, der Bauleiter und die Verwaltung."
+     },
+     {
+      "x": "Angestellte werden gar nicht geortet."
+     },
+     {
+      "x": "Lehnst du die Standortfreigabe ab, wählst du die Baustelle von Hand, und dein Polier sieht den Hinweis „Standort fehlt“. Du kannst die Freigabe jederzeit in den Einstellungen deines Handys ausschalten."
+     }
+    ]
+   },
+   {
+    "t": "4. Privates Handy",
+    "p": [
+     {
+      "x": "Die Nutzung deines privaten Handys ist freiwillig. Die App nutzt die Kamera nur, wenn du ein Foto für einen Nachweis machst. Sie liest keine Kontakte und keine anderen Fotos."
+     },
+     {
+      "x": "Möchtest du dein Handy nicht nutzen, erfasst dein Polier die Stunden, und du bestätigst sie mit deiner PIN auf dem Handy des Poliers."
+     },
+     {
+      "x": "Dafür bekommst du per Brief eine Start-PIN. Beim ersten Bestätigen legst du deine eigene PIN fest; die Start-PIN gilt dann nicht mehr."
+     },
+     {
+      "x": "Auf deinem Handy speichert die App nur, was sie zum Arbeiten braucht: deine Sprache, deine Anmeldung und Zeiten, die noch nicht gesendet sind (zum Beispiel im Funkloch). Keine Werbung, keine Auswertung."
+     }
+    ]
+   },
+   {
+    "t": "5. Wer bekommt die Daten?",
+    "p": [
+     {
+      "x": "Polier und Bauleiter deiner Baustelle: deine Stunden, das Standort-Ergebnis (Abschnitt 3) und deine Kommentare"
+     },
+     {
+      "x": "Bauleiter: außerdem deine Anträge auf Urlaub und Arbeitsbefreiung. Bei Arbeitsbefreiung sieht er nur Anlass und Tage, nicht den Nachweis."
+     },
+     {
+      "x": "Bei Krankheit erfahren dein Polier, der Bauleiter und wer die Einteilung plant, dass du krank gemeldet bist und bis wann. Den Grund (die Diagnose) erfährt niemand. Die Bescheinigung sieht nur die Verwaltung (Personal). Kollegen sehen nur „abwesend“."
+     },
+     {
+      "x": "Wer die Einteilung plant (Disposition): ob du krank, im Urlaub oder in der Berufsschule bist"
+     },
+     {
+      "x": "Verwaltung (Personal): alle Daten. Bescheinigungen, Urkunden und Nachweise sieht nur sie."
+     },
+     {
+      "x": "Geschäftsleitung: Urlaubsanträge, Stunden, Zeitkonten und Auswertungen; keine Bescheinigungen und Nachweise [Umfang wird vor dem Start festgelegt]"
+     },
+     {
+      "x": "Lohnbuchhaltung [genaue Firma]: Lohnabrechnung"
+     },
+     {
+      "x": "IT-Dienstleister [Firma]: Betrieb des Servers"
+     },
+     {
+      "x": "E-Mail-Dienst [Firma]: Einladung mit Link und Anmelde-Codes (ohne eigene E-Mail-Adresse gehen beide an deinen Polier oder an den Mitarbeiter, bei dem du eingeteilt bist)"
+     },
+     {
+      "x": "Benachrichtigungen laufen technisch über den Dienst deines Handys (Apple oder Google), auch über Server in den USA. Sie sollen nur kurze, neutrale Hinweise enthalten, keine Gesundheitsdaten. [vor dem Start prüfen: Inhalt und Grundlage der Übermittlung in die USA]"
+     },
+     {
+      "x": "Behörden, wenn wir gesetzlich verpflichtet sind: Zoll, Rentenversicherung, Finanzamt, SOKA-BAU, Krankenkasse, Berufsgenossenschaft (bei einem Arbeitsunfall)"
+     },
+     {
+      "x": "Die Daten liegen auf einem eigenen Server im Betrieb. Wir geben sie nicht in Länder außerhalb der EU. Einzige Ausnahme: die Benachrichtigungen über Apple oder Google (siehe oben). [Sitz des E-Mail-Dienstes wird vor dem Start geprüft]"
+     }
+    ]
+   },
+   {
+    "t": "6. Wie lange speichern wir?",
+    "p": [
+     {
+      "x": "Vorläufig: Alle Fristen in diesem Abschnitt sind noch nicht bestätigt. Sie werden vor dem Start geprüft und festgelegt."
+     },
+     {
+      "x": "Arbeitszeiten und Abrechnungsdaten: 8 Jahre"
+     },
+     {
+      "x": "Standort: Die genaue Position wird nicht gespeichert. Das Ergebnis (passt / weicht ab, Entfernung, Begründung) wird mit dem Tag gespeichert: [Dauer]"
+     },
+     {
+      "x": "Krankschreibungen (Bescheinigung, Foto): 1 Jahr, bei längeren Ausfällen bis 3 Jahre. Die Krank-Tage selbst gehören zu den Abrechnungsdaten."
+     },
+     {
+      "x": "Urlaubsanträge: 3 Jahre nach Ende des Urlaubsjahres"
+     },
+     {
+      "x": "Nachweise für Arbeitsbefreiung: [Dauer]"
+     },
+     {
+      "x": "Anmeldedaten und Änderungsprotokoll: [Dauer]"
+     },
+     {
+      "x": "Unterlagen, Stunden und Mindestlohnerklärungen von Nachunternehmern: 10 Jahre"
+     },
+     {
+      "x": "Danach werden die Daten gelöscht."
+     }
+    ]
+   },
+   {
+    "t": "7. Deine Rechte",
+    "p": [
+     {
+      "x": "Du kannst Auskunft über deine Daten verlangen, falsche Daten berichtigen lassen und die Löschung oder Einschränkung verlangen, soweit keine Aufbewahrungspflicht besteht. Du kannst deine Daten auch in einem gängigen Dateiformat bekommen."
+     },
+     {
+      "x": "Du kannst der Verarbeitung widersprechen, soweit sie auf einem berechtigten Interesse beruht (zum Beispiel beim Standort)."
+     },
+     {
+      "x": "So nutzt du deine Rechte: Melde dich bei [Kontakt] oder sag es im Büro. Ein Satz reicht, zum Beispiel: „Ich möchte Auskunft über meine Daten.“ oder „Ich widerspreche.“ Wir antworten in der Regel innerhalb eines Monats."
+     },
+     {
+      "x": "Dir entsteht kein Nachteil, wenn du diese Rechte nutzt."
+     },
+     {
+      "x": "Du kannst dich außerdem beschweren beim Bayerischen Landesamt für Datenschutzaufsicht, Ansbach."
+     }
+    ]
+   },
+   {
+    "t": "8. Musst du die Daten angeben?",
+    "p": [
+     {
+      "x": "Die Aufzeichnung der Arbeitszeit ist gesetzlich vorgeschrieben und für die Lohnabrechnung nötig. Ohne sie können wir deinen Lohn nicht richtig berechnen."
+     },
+     {
+      "x": "Freiwillig sind: die Nutzung deines privaten Handys, Fingerabdruck oder Gesichtserkennung und Bemerkungen. Die Standortfreigabe kannst du ausschalten; was dann gilt, steht in Abschnitt 3. [Ob die Ortung rechtlich als freiwillig gilt, wird vor dem Start geprüft.]"
+     }
+    ]
+   },
+   {
+    "t": "9. Automatische Entscheidungen",
+    "p": [
+     {
+      "x": "Es gibt keine. Die App prüft Zeiten und Pausen und gibt Hinweise; entschieden wird immer von Menschen."
+     }
+    ]
+   },
+   {
+    "t": "Für Nachunternehmer-Personen",
+    "p": [
+     {
+      "x": "Dein Arbeitgeber ist deine Firma. Die K. Baumann Baugesellschaft erfasst deine Stunden als Auftraggeber, um Rechnungen zu prüfen und nachzuweisen, wer auf der Baustelle war. Deine Firma hat keinen Zugriff auf die App; für die Abrechnung erhält sie deine Stunden. Mit App sendest du deine Stunden selbst und der Polier gibt sie frei. Ohne App schreibt der Polier deine Stunden und der Bauleiter zeichnet gegen. Grundlage: unser berechtigtes Interesse und unsere gesetzlichen Pflichten als Auftraggeber (Mindestlohn, Schwarzarbeit)."
+     },
+     {
+      "x": "Deinen Namen, deine E-Mail-Adresse (für Einladung und Anmelde-Code), falls angegeben deine Handynummer (freiwillige Kontaktangabe), deine Tätigkeit und den Stundensatz, den deine Firma für deine Arbeit berechnet, haben wir [von deiner Firma] bekommen."
+     },
+     {
+      "t": "Ausweis:",
+      "x": "Wir sehen ihn uns an. Es wird keine Kopie und keine Nummer gespeichert. Notiert wird nur: Art des Ausweises, gültig bis, Staatsangehörigkeit und wer ihn wann gesehen hat. Die Staatsangehörigkeit notieren wir nur, damit die Verwaltung weiß, welche Unterlagen nötig sind."
+     },
+     {
+      "t": "A1-Bescheinigung:",
+      "x": "Bist du aus einem anderen Land nach Deutschland entsandt, kann eine A1-Bescheinigung nötig sein. Dann speichern wir ein Foto davon. Sie zeigt, in welchem Land du sozialversichert bist. Nur die Verwaltung sieht sie."
+     },
+     {
+      "t": "Mindestlohnerklärung:",
+      "x": "Jeden Monat unterschreibst du auf dem Handy eine kurze persönliche Mindestlohnerklärung. Gespeichert werden: dein Name, deine Firma, Datum und Uhrzeit, die Textversion und deine Unterschrift (als Bild und als PDF). Nur die Verwaltung von K. Baumann sieht sie, nicht deine Firma. Wir bewahren sie so lange auf wie deine Stundenunterlagen (vorläufig 10 Jahre). Fehlt die Unterschrift, erinnern wir höchstens einmal. Die Verwaltung und wer die Einteilung plant sehen dann, dass sie noch fehlt. Wenn du nicht unterschreiben kannst oder willst, sprich mit deinem Polier oder mit dem Büro."
+     },
+     {
+      "x": "Für den Standort gilt Abschnitt 3. Deine Daten bewahren wir vorläufig 10 Jahre auf [wird vor dem Start bestätigt]. Deine Rechte aus Abschnitt 7 gelten auch für dich. Wichtig: Du kannst der Verarbeitung deiner Daten widersprechen. Melde dich dafür bei [Kontakt]."
+     }
+    ]
+   }
+  ]
+ }
+}
