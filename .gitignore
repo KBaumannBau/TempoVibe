@@ -46,3 +46,4 @@ ZEITERF*.DAT
 !.vscode/extensions.json
 !.vscode/settings.json
 *.swp
+/_tmp/

@@ -1,0 +1,58 @@
+# ============================================================
+# Deploy TempoVibe nach Mittwald (Vite-Build, rsync über SSH)
+# ============================================================
+name: Deploy to Mittwald
+
+on:
+  push:
+    branches:
+      - main
+  # Manuell (Redeploy): Actions → "Deploy to Mittwald" → Run workflow
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-tempo-vibe
+  cancel-in-progress: false
+
+env:
+  TARGET: /home/p-yt27xz/html/tempo-vibe/
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Repository checkout
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2. Node einrichten (Vite 7 verlangt Node >= 20.19)
+      - name: Node einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      # 3. Abhängigkeiten exakt nach package-lock.json
+      - name: npm ci
+        run: npm ci
+
+      # 4. Typecheck (tsc -b) + Vite-Build → dist/
+      #    Ein TypeScript-Fehler bricht hier ab, bevor etwas ausgeliefert wird.
+      - name: Build
+        run: npm run build
+
+      # 5. Deployment via rsync über SSH — nur der Inhalt von dist/ ins Zielverzeichnis.
+      #    --delete entfernt auf dem Server, was nicht im Build ist (alte Hash-Assets).
+      #    Ausgeschlossene Pfade (z. B. ACME-Challenges) sind davor geschützt.
+      - name: Deploy via rsync over SSH
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.TEMPO_SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.TEMPO_SSH_HOST }}
+          REMOTE_USER: ${{ secrets.TEMPO_SSH_USER }}
+          REMOTE_PORT: ${{ secrets.TEMPO_SSH_PORT }}
+          SOURCE: dist/
+          TARGET: ${{ env.TARGET }}
+          ARGS: "-rlptgoDzv --delete"
+          SSH_CMD_ARGS: "-o StrictHostKeyChecking=no,-o IdentitiesOnly=yes"
+          EXCLUDE: "/.well-known/,/.htaccess"
