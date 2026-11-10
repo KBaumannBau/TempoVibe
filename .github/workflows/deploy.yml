@@ -16,6 +16,9 @@ concurrency:
 
 env:
   TARGET: /home/p-yt27xz/html/tempo-vibe/
+  # Instanz nicht öffentlich: Basic-Auth. Bewusst kein Secret, die Daten sind nicht schützenswert.
+  BASIC_AUTH_USER: kbaumann
+  BASIC_AUTH_PASSWORD: kbaumann
 
 jobs:
   deploy:
@@ -41,9 +44,36 @@ jobs:
       - name: Build
         run: npm run build
 
+      # 4b. HTTP-Basic-Auth. Wird im Build erzeugt und mit dem rsync ausgeliefert —
+      #     kein Zeitfenster ohne Schutz, keine Nachbearbeitung auf dem Server.
+      #     dist/ ist der DocumentRoot, daher liegt .htpasswd darin und wird per
+      #     <Files> zusätzlich explizit gesperrt. Hash: APR1-MD5 (openssl, von Apache unterstützt).
+      #     ACME-Challenges bleiben offen, sonst scheitert die Zertifikatsverlängerung still.
+      - name: Basic-Auth einrichten
+        run: |
+          set -euo pipefail
+          printf '%s:%s\n' "$BASIC_AUTH_USER" "$(openssl passwd -apr1 "$BASIC_AUTH_PASSWORD")" > dist/.htpasswd
+          cat > dist/.htaccess <<HTACCESS
+          # --- Basic-Auth, beim Deploy erzeugt (.github/workflows/deploy.yml) ---
+          AuthType Basic
+          AuthName "TempoVibe"
+          AuthUserFile ${TARGET}.htpasswd
+          <RequireAny>
+              Require expr "%{REQUEST_URI} =~ m#^/\.well-known/acme-challenge/#"
+              Require valid-user
+          </RequireAny>
+
+          <Files ".htpasswd">
+              Require all denied
+          </Files>
+          # --- Ende Basic-Auth ---
+          HTACCESS
+          cat dist/.htaccess
+
       # 5. Deployment via rsync über SSH — nur der Inhalt von dist/ ins Zielverzeichnis.
       #    --delete entfernt auf dem Server, was nicht im Build ist (alte Hash-Assets).
-      #    Ausgeschlossene Pfade (z. B. ACME-Challenges) sind davor geschützt.
+      #    Ausgeschlossene Pfade (ACME-Challenges) sind davor geschützt.
+      #    .htaccess und .htpasswd kommen aus dem Build und werden bei jedem Deploy überschrieben.
       - name: Deploy via rsync over SSH
         uses: easingthemes/ssh-deploy@main
         with:
@@ -55,4 +85,4 @@ jobs:
           TARGET: ${{ env.TARGET }}
           ARGS: "-rlptgoDzv --delete"
           SSH_CMD_ARGS: "-o StrictHostKeyChecking=no,-o IdentitiesOnly=yes"
-          EXCLUDE: "/.well-known/,/.htaccess"
+          EXCLUDE: "/.well-known/"
