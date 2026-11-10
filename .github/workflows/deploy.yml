@@ -26,11 +26,11 @@ jobs:
     steps:
       # 1. Repository checkout
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # 2. Node einrichten (Vite 7 verlangt Node >= 20.19)
       - name: Node einrichten
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '22'
           cache: npm
