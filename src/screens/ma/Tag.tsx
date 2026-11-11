@@ -8,7 +8,7 @@ import { useIch } from '../../domain/store';
 import { baustelleVonTag, bsName, hatZuschlaege, kontoStand, person, rechnung, tagVon, voll } from '../../domain/sel';
 import type { ZuschlagEintrag } from '../../domain/types';
 import { artName, sollFuer, stunden, tagLang, uhr, vorzeichen } from '../../domain/zeit';
-import { ZUSCHLAEGE } from '../../domain/zuschlaege';
+import { ZUSCHLAEGE, konflikte, zuschlagArt } from '../../domain/zuschlaege';
 import { tx } from '../../i18n';
 
 function Schritte({ n, von }: { n: number; von: number }) {
@@ -81,7 +81,7 @@ export function Zuschlaege() {
   const n = Object.keys(wahl).length;
   const zahl = (s: string) => Number(s.replace(',', '.')) || 0;
   const zuViel = Object.values(wahl).some((w) => zahl(w.h) > istH + 0.01);
-  const konflikt = Object.keys(wahl).flatMap((id) => ZUSCHLAEGE.find((z) => z.id === id)!.nichtMit.filter((x) => wahl[x]).map((x) => [id, x]));
+  const konflikt = konflikte(wahl);
 
   const weiter = () => {
     const eintraege: ZuschlagEintrag[] = Object.entries(wahl).map(([art, w], i) => ({ id: `z${i}${art}`, art, typ: w.typ, stunden: zahl(w.h), entscheidung: 'offen' }));
@@ -133,7 +133,7 @@ export function Zuschlaege() {
       })}
       {!alle && <button type="button" className="link" onClick={() => setAlle(true)}>{tx("Weitere Zuschläge anzeigen ({0})", weitere)}</button>}
       {zuViel && <div className="hinweis orange">{tx("Ein Zuschlag hat mehr Stunden als dein Arbeitstag ({0}).", stunden(istH))}</div>}
-      {konflikt.length > 0 && <div className="hinweis orange">{tx("Einige Zuschläge gibt es nicht zusammen für dieselbe Zeit. Lies dazu „Wann gibt es das?“. Der Polier prüft das.")}</div>}
+      {konflikt.map(([x, y]) => <div key={x + y} className="hinweis orange">{tx("„{0}“ und „{1}“ gibt es nicht zusammen für dieselbe Zeit. Lies dazu „Wann gibt es das?“. Der Polier prüft das.", tx(zuschlagArt(x).name), tx(zuschlagArt(y).name))}</div>)}
       <p className="text" style={{ fontSize: 14 }}>{tx("Zuschläge gibt es nur für die Stunden, in denen du die Arbeit wirklich machst, und nur mit der vorgeschriebenen Schutzausrüstung. Grundlage: § 6 Rahmentarifvertrag Bau.")}</p>
       <Fueller />
       <p className="klein" style={{ margin: 0 }}>{tx("Der Polier prüft deine Zuschläge.")}</p>

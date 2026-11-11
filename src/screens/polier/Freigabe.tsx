@@ -10,7 +10,7 @@ import {
 } from '../../domain/sel';
 import type { Daten, Tag } from '../../domain/types';
 import { artName, stunden, tagLang, tm, uhr } from '../../domain/zeit';
-import { geltendeStunden, zuschlagArt } from '../../domain/zuschlaege';
+import { geltendeStunden, konflikte, zuschlagArt } from '../../domain/zuschlaege';
 
 // Die eigene Meldung bearbeitet nie der Polier selbst, sondern die Bauleitung
 const offeneVorschlaege = (d: Daten, polierId: string) => vorschlaegeFuerPolier(d, polierId);
@@ -193,6 +193,9 @@ export function PTag() {
       {t.zuschlaege.length > 0 && (
         <section aria-label="Zuschläge" style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           <h2 className="h2">Zuschläge</h2>
+          {konflikte(Object.fromEntries(t.zuschlaege.filter((z) => z.entscheidung !== 'weg').map((z) => [z.art, { typ: z.typ }]))).map(([x, y]) => (
+            <div key={x + y} className="hinweis orange">{zuschlagArt(x).name} und {zuschlagArt(y).name} gibt es nach § 6 Nr. 2 BRTV nicht für dieselbe Zeit. Bitte einen kürzen oder streichen, wenn die Stunden sich überschneiden.</div>
+          ))}
           {t.zuschlaege.map((z) => {
             const art = zuschlagArt(z.art);
             return (
