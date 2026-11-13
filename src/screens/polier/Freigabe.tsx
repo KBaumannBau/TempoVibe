@@ -179,7 +179,7 @@ export function PTag() {
       <section aria-label="Summe" className="karte drei" style={{ padding: '14px 16px' }}>
         <div className="kopfzeilen"><span className="klein">Arbeit</span><span className="zahl" style={{ fontSize: 20 }}>{stunden(r.arbeitMin / 60)}</span></div>
         <div className="kopfzeilen"><span className="klein">Pause</span><span className="zahl" style={{ fontSize: 20 }}>{Math.round(r.pauseMin)} Min.</span></div>
-        <div className="kopfzeilen"><span className="klein">Wegezeit</span><span className="zahl" style={{ fontSize: 20 }}>{t.wegezeitMin} Min.</span></div>
+        <div className="kopfzeilen"><span className="klein">Zuschläge</span><span className="zahl" style={{ fontSize: 20 }}>{t.zuschlaege.length}</span></div>
       </section>
       {jeBs.length > 1 && (
         <section aria-label="Stunden je Baustelle" className="karte pad">

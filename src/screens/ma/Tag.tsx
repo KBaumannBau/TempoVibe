@@ -1,4 +1,5 @@
-// Mitarbeiter: Tag prüfen in drei Schritten, Gesendet, Korrektur vom Polier (T1–T5)
+// Mitarbeiter: Tagesabschluss nach dem Arbeitsende: 1. Zuschläge, 2. Tag prüfen und senden; Gesendet, Korrektur vom Polier.
+// Fahrtkosten, Verpflegung und Wegezeit ermittelt das Backoffice aus Stempelzeiten und Entfernungen.
 
 import { useState } from 'react';
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
@@ -19,10 +20,30 @@ function Schritte({ n, von }: { n: number; von: number }) {
   );
 }
 
-/** T1: Zeiten des Tages */
+/** Einstieg Tagesabschluss: mit Zuschlägen zuerst die Zuschläge, sonst gleich prüfen */
+export function TagAbschluss() {
+  const { datum = '' } = useParams();
+  const { ich } = useIch();
+  return hatZuschlaege(ich) ? <Zuschlaege /> : <Navigate to={`/ma/tag/${datum}/pruefen`} replace />;
+}
+
+/** Hinweis, solange das Arbeitsende fehlt */
+function NichtBeendet() {
+  return <>
+    <div className="hinweis orange"><strong>{tx("Der Tag ist noch nicht beendet.")}</strong> {' '}{tx("Stempel zuerst das Arbeitsende oder melde es als vergessen.")}</div>
+    <Link to="/ma/vergessen" className="link">{tx("Eine Zeit fehlt oder ist falsch")}</Link>
+    <Fueller />
+    <Link to="/ma/heute" className="knopf rahmen">{tx("Zum Stempeln")}</Link>
+  </>;
+}
+
+/** Letzter Schritt: Zeiten und Zuschläge prüfen, dann an den Polier senden */
 export function TagPruefen() {
   const { datum = '' } = useParams();
-  const { d, ich } = useIch();
+  const { d, ich, a } = useIch();
+  const nav = useNavigate();
+  const bs = baustelleVonTag(d, ich.id, datum);
+  const polier = bs?.polierId ? person(d, bs.polierId) : undefined;
   const r = rechnung(d, ich.id, datum);
   const tag = tagVon(d, ich.id, datum);
   const mitZ = hatZuschlaege(ich);
@@ -32,9 +53,10 @@ export function TagPruefen() {
   const unfertig = r.zustand !== 'fertig';
   return (
     <Seite titel={tx("Tag prüfen")} menue="stempeln">
+      {mitZ && <Zurueck to={`/ma/tag/${datum}`}>{tx("Zuschläge")}</Zurueck>}
       <div className="kopfzeilen" style={{ gap: 6 }}>
-        <span className="fett klein">{tx("Schritt 1 von {0} · Zeiten", mitZ ? 3 : 2)}</span>
-        <Schritte n={1} von={mitZ ? 3 : 2} />
+        {mitZ && <span className="fett klein">{tx("Schritt 2 von 2 · Tag prüfen")}</span>}
+        {mitZ && <Schritte n={2} von={2} />}
         <h1 className="h1" style={{ marginTop: 4 }}>{tagLang(datum)}</h1>
       </div>
       {tag?.nachgetragenVon && <div className="hinweis blau">{tx("Dein Polier {0} hat diese Zeiten nachgetragen. Prüfe sie und sende den Tag.", voll(person(d, tag.nachgetragenVon)))}</div>}
@@ -55,12 +77,25 @@ export function TagPruefen() {
         <div className="kopfzeilen"><span className="klein">{tx("Konto")}</span><span className="zahl" style={{ fontSize: 22 }}>{vorzeichen(ist - soll)}</span></div>
       </section>
       {r.pauseFehlt && <div className="hinweis orange"><strong>{tx("Zu wenig Pause.")}</strong> {' '}{tx("Ab 6 h sind 30 Min., ab 9 h 45 Min. Pause Pflicht. Der Polier bekommt einen Hinweis.")}</div>}
-      {unfertig && <div className="hinweis orange"><strong>{tx("Der Tag ist noch nicht beendet.")}</strong> {' '}{tx("Stempel zuerst das Arbeitsende oder melde es als vergessen.")}</div>}
-      <Link to="/ma/vergessen" className="link">{tx("Eine Zeit fehlt oder ist falsch")}</Link>
-      <Fueller />
-      {unfertig ? <Link to="/ma/heute" className="knopf rahmen">{tx("Zum Stempeln")}</Link> : (
-        <Link to={mitZ ? `/ma/tag/${datum}/zuschlaege` : `/ma/tag/${datum}/fahrt`} className="knopf blau">{tx("Weiter:")}{' '}{mitZ ? tx("Zuschläge") : tx("Fahrt")}</Link>
-      )}
+      {unfertig ? <NichtBeendet /> : <>
+        {mitZ && (
+          <section aria-label={tx("Zuschläge")} className="karte pad">
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <span className="fett">{tx("Zuschläge")}</span>
+              <Link to={`/ma/tag/${datum}`} className="link">{tx("ändern")}</Link>
+            </div>
+            {(tag?.zuschlaege ?? []).length === 0
+              ? <span className="unter">{tx("keine")}</span>
+              : (tag?.zuschlaege ?? []).map((z) => <span key={z.id}>{tx(zuschlagArt(z.art).name)}{z.typ ? ` · ${tx(z.typ)}` : ''} · {stunden(z.stunden)}</span>)}
+          </section>
+        )}
+        <Link to="/ma/vergessen" className="link">{tx("Eine Zeit fehlt oder ist falsch")}</Link>
+        <p className="text" style={{ fontSize: 14 }}>{tx("Fahrtkosten, Verpflegung und Wegezeit trägst du nicht ein. Das ermittelt die Lohnbuchhaltung aus deinen Zeiten und der Baustelle.")}</p>
+        <Fueller />
+        <p className="klein" style={{ margin: 0 }}>{tx("Mit dem Senden bestätigst du, dass Beginn, Ende, Pausen und Zuschläge stimmen.")}</p>
+        <Knopf onClick={() => { a.tagSenden(datum); nav(`/ma/gesendet/${datum}`, { replace: true }); }}>
+          {tx("Tag an {0} senden", polier ? tx("Polier {0}", polier.vorname) : tx("den Polier"))}</Knopf>
+      </>}
     </Seite>
   );
 }
@@ -86,14 +121,21 @@ export function Zuschlaege() {
   const weiter = () => {
     const eintraege: ZuschlagEintrag[] = Object.entries(wahl).map(([art, w], i) => ({ id: `z${i}${art}`, art, typ: w.typ, stunden: zahl(w.h), entscheidung: 'offen' }));
     a.zuschlaegeSetzen(datum, eintraege);
-    nav(`/ma/tag/${datum}/fahrt`);
+    nav(`/ma/tag/${datum}/pruefen`);
   };
+  if (tag && tag.status !== 'offen') return <Navigate to={`/ma/gesendet/${datum}`} replace />;
+  if (rechnung(d, ich.id, datum).zustand !== 'fertig') return (
+    <Seite titel={tx("Zuschläge")} menue="stempeln">
+      <h1 className="h1">{tagLang(datum)}</h1>
+      <NichtBeendet />
+    </Seite>
+  );
 
   return (
     <Seite titel={tx("Zuschläge")} menue="stempeln">
       <div className="kopfzeilen" style={{ gap: 6 }}>
-        <span className="fett klein">{tx("Schritt 2 von 3 · Zuschläge")}</span>
-        <Schritte n={2} von={3} />
+        <span className="fett klein">{tx("Schritt 1 von 2 · Zuschläge")}</span>
+        <Schritte n={1} von={2} />
         <h1 className="h1" style={{ marginTop: 4 }}>{tx("Was ist heute angefallen?")}</h1>
         <span className="unter">{tx("Die häufigsten auf deiner Baustelle")}</span>
       </div>
@@ -142,44 +184,10 @@ export function Zuschlaege() {
   );
 }
 
-/** T3: Wegezeit, Verpflegung, Übernachtung – rechnet die Lohnbuchhaltung, die App erfasst sie zur Kontrolle */
-export function Fahrt() {
+/** alte Links auf den früheren Schritt „Fahrt“ führen zum Prüfen */
+export function AlteFahrt() {
   const { datum = '' } = useParams();
-  const { d, ich, a } = useIch();
-  const nav = useNavigate();
-  const tag = tagVon(d, ich.id, datum);
-  const mitZ = hatZuschlaege(ich);
-  const [weg, setWeg] = useState(tag?.wegezeitMin ?? 0);
-  const [verpf, setVerpf] = useState(tag?.verpflegung ?? false);
-  const [ueber, setUeber] = useState(tag?.uebernachtung ?? false);
-  const bs = baustelleVonTag(d, ich.id, datum);
-  const polier = bs?.polierId ? person(d, bs.polierId) : undefined;
-  return (
-    <Seite titel={tx("Fahrt und Verpflegung")} menue="stempeln">
-      <Zurueck to={mitZ ? `/ma/tag/${datum}/zuschlaege` : `/ma/tag/${datum}`}>{mitZ ? tx("Zuschläge") : tx("Zeiten")}</Zurueck>
-      <div className="kopfzeilen" style={{ gap: 6 }}>
-        <span className="fett klein">{tx("Schritt {0} von {1} · Fahrt", mitZ ? 3 : 2, mitZ ? 3 : 2)}</span>
-        <Schritte n={mitZ ? 3 : 2} von={mitZ ? 3 : 2} />
-        <h1 className="h1" style={{ marginTop: 4 }}>{tx("Fahrt und Verpflegung")}</h1>
-      </div>
-      <div className="feld">
-        <label htmlFor="weg">{tx("Wegezeit (Hin- und Rückfahrt)")}</label>
-        <select id="weg" className="eingabe" value={weg} onChange={(e) => setWeg(Number(e.target.value))}>
-          {[0, 15, 30, 45, 60, 75, 90, 120].map((m) => <option key={m} value={m}>{m === 0 ? tx('keine') : tx("{0} Min.", m)}</option>)}
-        </select>
-      </div>
-      {[[tx("Verpflegungszuschuss"), verpf, setVerpf], [tx("Übernachtung auswärts"), ueber, setUeber]].map(([text, an, set]) => (
-        <button key={text as string} type="button" className="karte" aria-pressed={an as boolean} onClick={() => (set as (b: boolean) => void)(!(an as boolean))}
-          style={{ minHeight: 56, padding: '0 16px', display: 'flex', alignItems: 'center', gap: 12, fontSize: 17, fontWeight: 700, textAlign: 'left', cursor: 'pointer', border: an ? '2px solid var(--blau)' : undefined }}>
-          <Haken an={an as boolean} />{text as string}
-        </button>
-      ))}
-      <p className="text">{tx("Ob und wie viel es gibt, rechnet die Lohnbuchhaltung. Die App erfasst es nur zur Kontrolle.")}</p>
-      <Fueller />
-      <Knopf onClick={() => { a.fahrtSetzen(datum, { wegezeitMin: weg, verpflegung: verpf, uebernachtung: ueber }); a.tagSenden(datum); nav(`/ma/gesendet/${datum}`, { replace: true }); }}>
-        {tx("Tag an {0} senden", polier ? tx("Polier {0}", polier.vorname) : tx("den Polier"))}</Knopf>
-    </Seite>
-  );
+  return <Navigate to={`/ma/tag/${datum}/pruefen`} replace />;
 }
 
 /** T4: Tag gesendet – Status in der Freigabe-Kette */

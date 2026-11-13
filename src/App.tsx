@@ -7,7 +7,7 @@ import type { Rolle } from './domain/types';
 import { Anmeldung } from './screens/Anmeldung';
 import { Registrierung, Sperre } from './screens/Zugang';
 import { BaustelleWaehlen, Heute, Standort, Vergessen } from './screens/ma/Stempeln';
-import { Fahrt, Gesendet, Korrektur, TagPruefen, Zuschlaege } from './screens/ma/Tag';
+import { AlteFahrt, Gesendet, Korrektur, TagAbschluss, TagPruefen } from './screens/ma/Tag';
 import { Abgemeldet, Antraege, Einteilung, Geraete, Konto, Krank, Mehr, Pin, Urlaub, Woche } from './screens/ma/Rest';
 import { Arbeitsbefreiung, AusweisSichtung, BetriebsurlaubWahl, Datenschutz, Faq, Hilfe, Intro, KrankRueckmeldung, Mitteilungen, NachweisNachreichen } from './screens/ma/Extra';
 import { NuHeute, NuMehr, NuNachweise, NuStunden } from './screens/nu/Nu';
@@ -52,7 +52,7 @@ const NU: Rolle[] = ['nu'];
 
 const routen: [string, ReactNode, Rolle[]?][] = [
   ['/ma/heute', <Heute />], ['/ma/standort', <Standort />], ['/ma/baustelle', <BaustelleWaehlen />], ['/ma/vergessen', <Vergessen />],
-  ['/ma/tag/:datum', <TagPruefen />], ['/ma/tag/:datum/zuschlaege', <Zuschlaege />], ['/ma/tag/:datum/fahrt', <Fahrt />],
+  ['/ma/tag/:datum', <TagAbschluss />], ['/ma/tag/:datum/zuschlaege', <TagAbschluss />], ['/ma/tag/:datum/pruefen', <TagPruefen />], ['/ma/tag/:datum/fahrt', <AlteFahrt />],
   ['/ma/gesendet/:datum', <Gesendet />], ['/ma/korrektur/:tagId', <Korrektur />],
   ['/ma/einteilung', <Einteilung />], ['/ma/woche', <Woche />], ['/ma/konto', <Konto />], ['/ma/antraege', <Antraege />],
   ['/ma/urlaub', <Urlaub />], ['/ma/krank', <Krank />], ['/ma/mehr', <Mehr />], ['/ma/pin', <Pin />], ['/ma/geraete', <Geraete />],
