@@ -12,6 +12,8 @@ const plusEinTag = (k: string) => plusTage(k, 1);
 
 const SPEICHER = 'stundenerfassung-demo';
 const SITZUNG = 'stundenerfassung-sitzung';
+/** Handy merkt sich die Person: echt ein Geräte-Token, das bis zum Abmelden oder Sperren gilt */
+const HANDY = 'stundenerfassung-handy';
 
 function laden(): Daten {
   try {
@@ -150,6 +152,28 @@ function erzeugeAktionen(aendern: (fn: (d: Daten) => void) => void, ich: () => P
         const selbstObl = ich()!.id === d.oberbauleitungId && a.art !== 'krank';
         d.antraege.push({ ...a, id: neueId('a'), personId: ich()!.id, gestellt: isoMitZone(new Date()), status: a.art === 'krank' ? 'gemeldet' : selbstObl ? 'bauleitung_ok' : 'offen' });
         log(d, a.art === 'krank' ? 'Krankmeldung gesendet' : 'Antrag gestellt');
+      });
+    },
+    /** Registrierungsbrief mit neuem Einmal-Passwort; ein älterer Brief wird damit ungültig */
+    briefErstellen(personId: string, passwort: string, erstellt: string, gueltigBis: string) {
+      aendern((d) => {
+        const p = d.personen.find((x) => x.id === personId)!;
+        p.brief = { passwort, erstellt, gueltigBis };
+        // Passwort zurücksetzen: das bisherige gilt nicht mehr
+        if (p.zugang === 'aktiv') p.passwort = '';
+        else p.zugang = 'eingeladen';
+        d.techLog.push({ zeit: isoMitZone(new Date()), wer: wer(), was: `Registrierungsbrief erstellt: ${voll(p)}` });
+        log(d, `Registrierungsbrief für ${voll(p)} erstellt, gültig bis ${tm(gueltigBis)}`);
+      });
+    },
+    /** eigenes Passwort festlegen (nach dem Brief Pflicht) oder ändern */
+    passwortSetzen(personId: string, neu: string, was: string) {
+      aendern((d) => {
+        const p = d.personen.find((x) => x.id === personId)!;
+        p.passwort = neu;
+        p.brief = undefined;
+        p.zugang = 'aktiv';
+        log(d, `${was}: ${voll(p)}`);
       });
     },
     pinAendern(personId: string, neu: string) {
@@ -467,7 +491,7 @@ function erzeugeAktionen(aendern: (fn: (d: Daten) => void) => void, ich: () => P
         const nr = String(Math.max(...d.personen.map((x) => Number(x.persNr) || 0)) + 1).padStart(4, '0');
         const angestellt = p.gruppe === 'angestellt';
         d.personen.push({
-          id, ...p, rolle: angestellt ? 'buero' : 'facharbeiter', nutztApp: true, persNr: nr, zugang: p.email ? 'eingeladen' : 'ohne', kinder: [],
+          id, ...p, rolle: angestellt ? 'buero' : 'facharbeiter', nutztApp: true, persNr: nr, zugang: 'ohne', kinder: [],
           sollMoDo: angestellt ? 8 : 8.5, sollFr: angestellt ? 6 : 7, pin: '1234', urlaubAnspruch: 30, urlaubGenommen: 0, kontoStart: 0,
         });
         log(d, `Mitarbeiter ${p.vorname} ${p.nachname} angelegt`);
@@ -739,7 +763,10 @@ export type Aktionen = ReturnType<typeof erzeugeAktionen>;
 interface Kontext {
   d: Daten;
   ich?: Person;
-  anmelden: (id: string) => void;
+  /** merken = auf diesem Handy angemeldet bleiben (nach Registrierung oder Anmeldung mit Passwort) */
+  anmelden: (id: string, merken?: boolean) => void;
+  /** true, wenn dieses Handy die Person gemerkt hat */
+  gemerkt: boolean;
   abmelden: () => void;
   zuruecksetzen: () => void;
   a: Aktionen;
@@ -753,9 +780,16 @@ export function DatenProvider({ children }: { children: ReactNode }) {
   const [d, setD] = useState<Daten>(laden);
   const [ichId, setIchId] = useState<string | undefined>(() => {
     try {
-      return sessionStorage.getItem(SITZUNG) ?? undefined;
+      return sessionStorage.getItem(SITZUNG) ?? localStorage.getItem(HANDY) ?? undefined;
     } catch {
       return undefined;
+    }
+  });
+  const [gemerkt, setGemerkt] = useState(() => {
+    try {
+      return !!localStorage.getItem(HANDY);
+    } catch {
+      return false;
     }
   });
   const [jetzt, setJetzt] = useState(() => new Date());
@@ -792,18 +826,24 @@ export function DatenProvider({ children }: { children: ReactNode }) {
     ich,
     a,
     jetzt,
-    anmelden: (id) => {
+    gemerkt,
+    anmelden: (id, merken = false) => {
       setIchId(id);
+      setGemerkt(merken);
       try {
         sessionStorage.setItem(SITZUNG, id);
+        if (merken) localStorage.setItem(HANDY, id);
+        else localStorage.removeItem(HANDY);
       } catch {
         /* egal */
       }
     },
     abmelden: () => {
       setIchId(undefined);
+      setGemerkt(false);
       try {
         sessionStorage.removeItem(SITZUNG);
+        localStorage.removeItem(HANDY);
       } catch {
         /* egal */
       }

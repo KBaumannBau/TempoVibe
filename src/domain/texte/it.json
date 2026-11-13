@@ -33,8 +33,8 @@
    "a": "Sul conto ore si accumulano le tue ore: se lavori più del previsto, si aggiungono ore; se lavori meno, si tolgono ore. Vedi il saldo in «Conto»; per prendere un permesso, tocca lì «Prendi permesso dal conto» e fai la richiesta. In estate (apr–nov) è possibile solo da 100 h; in inverno (dic–mar) finché sul conto restano 50 h. Le ore oltre 150 h vengono pagate."
   },
   {
-   "q": "Ho dimenticato il PIN. Oppure ho un telefono nuovo.",
-   "a": "PIN dimenticato: all'apertura tocca «PIN dimenticato». Ricevi un nuovo codice via e-mail e imposti un nuovo PIN. Il codice vale 15 minuti e solo una volta. Se non hai un indirizzo e-mail tuo, l'e-mail va al tuo capocantiere o al lavoratore a cui sei assegnato/a; ti dà il codice di persona. Telefono nuovo o perso: chiama l'ufficio. L'ufficio blocca il vecchio accesso e ti invia un nuovo invito via e-mail."
+   "q": "Ho dimenticato la password. Oppure ho un nuovo telefono.",
+   "a": "Il tuo telefono resta connesso. La password ti serve solo su un nuovo telefono o dopo esserti disconnesso. Password dimenticata: rivolgiti all’ufficio paghe o avvisa il capocantiere. Riceverai per posta una nuova lettera con una password monouso e con quella imposterai una nuova password. Nuovo telefono: accedi lì con nome utente e password. Telefono perso: chiama subito l’ufficio. L’ufficio disconnette il vecchio telefono."
   },
   {
    "q": "Come cambio la lingua? Dove trovo aiuto?",
@@ -44,17 +44,17 @@
  "hilfe": [
   {
    "id": "anm",
-   "t": "Accesso, PIN, nuovo telefono",
+   "t": "Accesso, password, nuovo telefono",
    "p": [
-    "Ricevi un invito via e-mail. Tocca il link. È valido 7 giorni. Non hai un indirizzo e-mail tuo? Allora l'invito va al tuo capocantiere (Polier) o al lavoratore a cui sei assegnato/a. Te lo mostra sul suo telefono. Scansiona il codice QR con il tuo telefono. L'ufficio può anche stampare l'invito. Non serve un numero di telefono.",
-    "Inserisci il tuo indirizzo e-mail. Ricevi un codice (6 cifre) via e-mail. Vale 15 minuti e solo una volta; dopo 5 inserimenti errati ne serve uno nuovo. Poi imposta un PIN di 4 cifre. Non usare un PIN semplice come 1234 o 0000. Non hai un indirizzo e-mail tuo? Seleziona «Non ho un indirizzo e-mail mio». Allora l'e-mail va al tuo capocantiere (Polier) o al lavoratore a cui sei assegnato/a. Ti dà il codice di persona.",
-    "Al posto del PIN puoi usare l'impronta digitale o il riconoscimento facciale. Resta sul tuo telefono.",
+    "Ricevi una lettera per posta. Contiene il tuo nome utente (il tuo numero di matricola) e una password monouso. Vale 14 giorni e solo per il primo accesso.",
+    "Apri l’app e tocca «Primo accesso con lettera». Inserisci nome utente e password monouso. Dopo 5 inserimenti errati l’accesso è bloccato per 15 minuti.",
+    "Imposta subito una password tua: almeno 8 caratteri, con almeno una lettera e una cifra. Non darla a nessuno, nemmeno al capocantiere. Poi distruggi la lettera.",
     "Leggi gli avvisi su privacy e documento d'identità. Spunta la casella per ciascuno. Poi consenti la posizione con «Mentre usi l'app».",
     "Metti l'app sulla schermata Home. Solo così può inviarti notifiche. Se il telefono lo chiede, scegli «Consenti».",
-    "L'app si blocca dopo 5 minuti senza uso. Hai dimenticato il PIN? Tocca «PIN dimenticato». Ricevi un nuovo codice via e-mail e imposti un nuovo PIN.",
-    "Telefono nuovo o telefono perso? Chiama l'ufficio. L'ufficio blocca il vecchio accesso e invia un nuovo invito via e-mail."
+    "Dopo il tuo telefono resta connesso. Non devi accedere di nuovo ogni volta che apri l’app. In «Altro» puoi cambiare la password e disconnetterti da questo telefono.",
+    "Password dimenticata? L’ufficio paghe ti manda una nuova lettera. Nuovo telefono? Accedi lì con nome utente e password. Telefono perso? Chiama subito l’ufficio. L’ufficio disconnette il vecchio telefono."
    ],
-   "k": "accesso password codice qr e-mail mail capocantiere impronta bloccato perso invito registrazione"
+   "k": "accesso password codice qr e-mail mail capocantiere impronta bloccato perso invito registrazione lettera password monouso nome utente matricola disconnettere"
   },
   {
    "id": "zeit",

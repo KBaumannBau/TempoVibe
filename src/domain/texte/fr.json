@@ -33,8 +33,8 @@
    "a": "Tes heures s'accumulent sur le compte d'heures : si tu travailles plus que prévu, des heures s'ajoutent ; si tu travailles moins, des heures sont retirées. Tu vois ton solde sous « Compte » ; pour prendre du temps libre, appuie là sur « Prendre du temps libre sur le compte » et fais la demande. En été (avr.–nov.), c'est possible seulement à partir de 100 h ; en hiver (déc.–mars), tant qu'il reste 50 h sur le compte. Les heures au-delà de 150 h sont payées."
   },
   {
-   "q": "J'ai oublié mon PIN. Ou j'ai un nouveau téléphone.",
-   "a": "PIN oublié : à l'ouverture, appuie sur « PIN oublié ». Tu reçois un nouveau code par e-mail et tu choisis un nouveau PIN. Le code est valable 15 minutes et ne peut être utilisé qu'une seule fois. Si tu n'as pas d'adresse e-mail à toi, l'e-mail est envoyé à ton chef de chantier ou au salarié auquel tu es affecté(e) ; il te transmet le code en personne. Nouveau téléphone ou téléphone perdu : appelle le bureau. Le bureau bloque l'ancien accès et t'envoie une nouvelle invitation par e-mail."
+   "q": "J’ai oublié mon mot de passe. Ou j’ai un nouveau téléphone.",
+   "a": "Ton téléphone reste connecté. Tu n’as besoin du mot de passe que sur un nouveau téléphone ou après t’être déconnecté. Mot de passe oublié : adresse-toi au service de paie ou préviens ton chef de chantier. Tu reçois par la poste une nouvelle lettre avec un mot de passe à usage unique et tu définis un nouveau mot de passe. Nouveau téléphone : connecte-toi avec ton identifiant et ton mot de passe. Téléphone perdu : appelle tout de suite le bureau. Le bureau déconnecte l’ancien téléphone."
   },
   {
    "q": "Comment changer la langue ? Où trouver de l'aide ?",
@@ -44,17 +44,17 @@
  "hilfe": [
   {
    "id": "anm",
-   "t": "Connexion, PIN, nouveau téléphone",
+   "t": "Connexion, mot de passe, nouveau téléphone",
    "p": [
-    "Tu reçois une invitation par e-mail. Touche le lien. Il est valable 7 jours. Pas d'adresse e-mail à toi ? L'invitation est alors envoyée à ton chef de chantier (Polier) ou au salarié auquel tu es affecté(e). Il te la montre sur son téléphone. Scanne le code QR avec ton téléphone. Le bureau peut aussi imprimer l'invitation. Tu n'as pas besoin d'un numéro de téléphone.",
-    "Saisis ton adresse e-mail. Tu reçois un code (6 chiffres) par e-mail. Il est valable 15 minutes et ne peut être utilisé qu'une seule fois ; après 5 saisies incorrectes, il t'en faut un nouveau. Choisis ensuite un PIN à 4 chiffres. Évite un PIN simple comme 1234 ou 0000. Pas d'adresse e-mail à toi ? Coche « Je n'ai pas d'adresse e-mail à moi ». L'e-mail est alors envoyé à ton chef de chantier (Polier) ou au salarié auquel tu es affecté(e). Il te transmet le code en personne.",
-    "À la place du PIN, tu peux utiliser l'empreinte digitale ou la reconnaissance faciale. Cela reste sur ton téléphone.",
+    "Tu reçois une lettre par la poste. Elle contient ton identifiant (ton numéro de personnel) et un mot de passe à usage unique. Il est valable 14 jours et seulement pour la première connexion.",
+    "Ouvre l’application et touche « Première connexion avec la lettre ». Saisis l’identifiant et le mot de passe à usage unique. Après 5 erreurs, la connexion est bloquée 15 minutes.",
+    "Définis tout de suite ton propre mot de passe : au moins 8 caractères, avec au moins une lettre et un chiffre. Ne le donne à personne, même pas au chef de chantier. Détruis ensuite la lettre.",
     "Lis les informations sur la protection des données et sur la pièce d'identité. Coche la case pour chacune. Puis autorise la position avec « Lorsque l'app est active ».",
     "Mets l'application sur ton écran d'accueil. C'est la seule façon pour elle de t'envoyer des notifications. Si ton téléphone te le demande, choisis « Autoriser ».",
-    "L'application se verrouille après 5 minutes sans utilisation. PIN oublié ? Appuie sur « PIN oublié ». Tu reçois un nouveau code par e-mail et tu choisis un nouveau PIN.",
-    "Nouveau téléphone ou téléphone perdu ? Appelle le bureau. Le bureau bloque l'ancien accès et envoie une nouvelle invitation par e-mail."
+    "Ensuite, ton téléphone reste connecté. Tu n’as pas besoin de te reconnecter à chaque ouverture de l’application. Sous « Plus », tu peux changer ton mot de passe et te déconnecter sur ce téléphone.",
+    "Mot de passe oublié ? Le service de paie t’envoie une nouvelle lettre. Nouveau téléphone ? Connecte-toi avec ton identifiant et ton mot de passe. Téléphone perdu ? Appelle tout de suite le bureau. Le bureau déconnecte l’ancien téléphone."
    ],
-   "k": "connexion mot de passe code qr e-mail mail chef de chantier empreinte verrouillé perdu invitation inscription"
+   "k": "connexion mot de passe code qr e-mail mail chef de chantier empreinte verrouillé perdu invitation inscription lettre mot de passe unique identifiant numéro de personnel déconnexion"
   },
   {
    "id": "zeit",

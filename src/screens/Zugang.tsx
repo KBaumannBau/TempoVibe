@@ -1,83 +1,146 @@
-// Registrierung (Einladung, Code, PIN, Datenschutz, Ausweis, Standort) und tägliches Öffnen mit PIN (Entwurf V1)
+// Registrierung mit Brief und Einmal-Passwort, Pflicht zum eigenen Passwort, Datenschutz, Ausweis, Standort.
+// Danach bleibt das Handy angemeldet. Anmelden mit Passwort nur auf neuem Handy oder nach dem Abmelden.
 
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { Fueller, Seite, startVon } from '../components/Rahmen';
-import { Auswahl, Knopf, PinFeld } from '../components/Teile';
+import { Auswahl, Knopf } from '../components/Teile';
 import { useDaten } from '../domain/store';
-import { voll } from '../domain/sel';
+import { plusTage, tmj } from '../domain/zeit';
+import { BRIEF_TAGE, DEMO_EINMAL, DEMO_PASSWORT, einmalPasst, passwortFehler, passwortPasst } from '../domain/zugang';
+import type { Person } from '../domain/types';
 import { tx } from '../i18n';
 
-const SCHRITTE = [tx("E-Mail und Code"), tx("PIN festlegen"), tx("Datenschutz"), tx("Ausweis"), tx("Standort"), tx("Fertig")];
+const SCHRITTE = [tx("Erste Anmeldung"), tx("Eigenes Passwort"), tx("Datenschutz"), tx("Ausweis"), tx("Standort"), tx("Fertig")];
+
+/** Passwortfeld mit „Anzeigen“ */
+export function PasswortFeld({ id, label, wert, setWert, auto }: { id: string; label: string; wert: string; setWert: (s: string) => void; auto: string }) {
+  const [zeigen, setZeigen] = useState(false);
+  return (
+    <div className="feld">
+      <label htmlFor={id}>{label}</label>
+      <div style={{ display: 'flex', gap: 8 }}>
+        <input id={id} className="eingabe" style={{ flex: 1 }} type={zeigen ? 'text' : 'password'} autoComplete={auto} autoCapitalize="off" autoCorrect="off" spellCheck={false} value={wert} onChange={(e) => setWert(e.target.value)} />
+        <button type="button" className="link" onClick={() => setZeigen(!zeigen)}>{zeigen ? tx("Verbergen") : tx("Anzeigen")}</button>
+      </div>
+    </div>
+  );
+}
+
+/** Pflichtschritt: eigenes Passwort festlegen; ohne geht es nicht weiter */
+export function NeuesPasswort({ verboten, fertig, knopf }: { verboten: string[]; fertig: (pw: string) => void; knopf: string }) {
+  const [pw1, setPw1] = useState('');
+  const [pw2, setPw2] = useState('');
+  const [fehler, setFehler] = useState('');
+  const los = () => {
+    const f = passwortFehler(pw1, verboten);
+    if (f) return setFehler(tx(f));
+    if (pw1 !== pw2) return setFehler(tx("Die beiden Passwörter sind nicht gleich."));
+    fertig(pw1);
+  };
+  return <>
+    <PasswortFeld id="pw1" label={tx("Neues Passwort")} wert={pw1} setWert={(x) => { setPw1(x); setFehler(''); }} auto="new-password" />
+    <PasswortFeld id="pw2" label={tx("Neues Passwort wiederholen")} wert={pw2} setWert={(x) => { setPw2(x); setFehler(''); }} auto="new-password" />
+    <span className="klein">{tx("Mindestens 8 Zeichen, mit mindestens einem Buchstaben und einer Ziffer. Gib das Passwort niemandem weiter, auch nicht dem Polier.")}</span>
+    {fehler && <div className="hinweis orange" role="alert">{fehler}</div>}
+    <Fueller />
+    <Knopf gesperrt={!pw1 || !pw2} onClick={los}>{knopf}</Knopf>
+  </>;
+}
+
+/** Musterbrief, wie ihn das Büro ausdruckt und per Post schickt */
+export function BriefInhalt({ p, passwort, erstellt, gueltigBis }: { p: Person; passwort: string; erstellt: string; gueltigBis: string }) {
+  const nu = p.rolle === 'nu';
+  return (
+    <div className="text" style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <span className="klein">{tx("K. Baumann Baugesellschaft · Lohnbuchhaltung · {0}", tmj(erstellt))}</span>
+      <span className="fett">{tx("Dein Zugang zur Stundenerfassung")}</span>
+      <span>{nu
+        ? tx("Hallo {0}, du arbeitest über deine Firma auf unseren Baustellen. Mit diesem Brief meldest du dich einmal in der App an.", p.vorname)
+        : tx("Hallo {0}, mit diesem Brief meldest du dich einmal in der App an.", p.vorname)}</span>
+      <div className="karte pad" style={{ background: 'var(--flaeche, #f4f6f8)', gap: 4 }}>
+        <span>{tx("Benutzername")}: <strong style={{ fontSize: 20, letterSpacing: 1 }}>{p.persNr}</strong></span>
+        <span>{tx("Einmal-Passwort")}: <strong style={{ fontSize: 20, letterSpacing: 2, fontFamily: 'monospace' }}>{passwort}</strong></span>
+        <span className="klein">{tx("Gilt bis {0} und nur für die erste Anmeldung.", tmj(gueltigBis))}</span>
+      </div>
+      <ol style={{ paddingLeft: 20, margin: 0, display: 'flex', flexDirection: 'column', gap: 4 }}>
+        <li>{tx("App öffnen und „Erste Anmeldung mit Brief“ tippen.")}</li>
+        <li>{tx("Benutzername und Einmal-Passwort eintragen.")}</li>
+        <li>{tx("Sofort ein eigenes Passwort festlegen.")}</li>
+      </ol>
+      <span>{tx("Danach bleibt die App auf deinem Handy angemeldet. Bewahre den Brief nicht zusammen mit dem Handy auf und vernichte ihn nach der Anmeldung.")}</span>
+    </div>
+  );
+}
 
 export function Registrierung() {
   const { d, anmelden, a } = useDaten();
   const nav = useNavigate();
   const [wer, setWer] = useState<'stefan' | 'horvat'>('stefan');
   const [schritt, setSchritt] = useState(-1);
-  const [mail, setMail] = useState('');
-  const [mailOk, setMailOk] = useState(false);
-  const [code, setCode] = useState('');
-  const [codeFehler, setCodeFehler] = useState(0);
-  const [pin1, setPin1] = useState('');
-  const [pinMsg, setPinMsg] = useState('');
+  const [benutzer, setBenutzer] = useState('');
+  const [einmal, setEinmal] = useState('');
+  const [fehler, setFehler] = useState(0);
+  const [meldung, setMeldung] = useState('');
   const [ds, setDs] = useState(false);
-  const p = d.personen.find((x) => x.id === wer)!;
+  const [pid, setPid] = useState('');
+  const demo = d.personen.find((x) => x.id === wer)!;
+  const p = d.personen.find((x) => x.id === pid) ?? demo;
   const nu = p.rolle === 'nu';
   const weiter = () => setSchritt(schritt + 1);
   const kopf = schritt >= 0 && <span className="unter">{tx("Schritt {0} von 6: {1}", schritt + 1, SCHRITTE[schritt])}</span>;
+  const fertig = (ziel: string) => { anmelden(p.id, true); nav(ziel); };
 
   if (schritt === -1) return (
-    <Seite titel={tx("Einladung")} ohneMenue>
+    <Seite titel={tx("Registrierungsbrief")} ohneMenue>
       <Link to="/" className="link">{tx("‹ Zur Anmeldung")}</Link>
-      <h1 className="h1">{tx("Einladung per E-Mail")}</h1>
-      <span className="unter">{tx("Beispiel ansehen für:")}</span>
+      <h1 className="h1">{tx("Brief mit Einmal-Passwort")}</h1>
+      <span className="unter">{tx("Den Brief schickt dir die Lohnbuchhaltung per Post. Beispiel ansehen für:")}</span>
       <Auswahl label={tx("Für wen")} optionen={[{ wert: 'stefan' as const, text: tx("Eigener Mitarbeiter") }, { wert: 'horvat' as const, text: tx("Nachunternehmer-Person") }]} wert={wer} setWert={setWer} />
-      <section className="karte pad" aria-label={tx("E-Mail")}>
-        <span className="klein">{tx("E-Mail von K. Baumann · heute 06:41")}</span>
-        <span className="fett">{tx("Betreff: Dein Zugang zur Stundenerfassung")}</span>
-        <span className="text">{nu
-          ? tx("Hallo {0}, du arbeitest für die Bau-Service Kovač GmbH auf Baustellen der K. Baumann Baugesellschaft. Hier ist dein Zugang zur Stundenerfassung. Tippe auf den Link und folge den Schritten. Der Link gilt 7 Tage.", p.vorname)
-          : tx("Hallo {0}, hier ist dein Zugang zur Stundenerfassung der K. Baumann Baugesellschaft. Tippe auf den Link und folge den Schritten. Der Link gilt 7 Tage.", p.vorname)}</span>
-        <Knopf onClick={() => setSchritt(0)}>{tx("Link öffnen")}</Knopf>
+      <section className="karte pad" aria-label={tx("Brief")}>
+        <BriefInhalt p={demo} passwort={demo.brief?.passwort ?? DEMO_EINMAL} erstellt={demo.brief?.erstellt ?? d.heute} gueltigBis={demo.brief?.gueltigBis ?? plusTage(d.heute, BRIEF_TAGE)} />
       </section>
-      <p className="text">{tx("Ohne eigene E-Mail-Adresse zeigt dir dein Polier die Einladung auf seinem Handy. Du scannst den QR-Code mit deinem Handy. Den Code (6 Ziffern) sagt er dir danach persönlich. Eine Handynummer brauchst du nicht.")}</p>
+      <Knopf onClick={() => setSchritt(0)}>{tx("Erste Anmeldung mit Brief")}</Knopf>
     </Seite>
   );
 
+  if (schritt === 0) {
+    const pruefen = () => {
+      const x = d.personen.find((q) => q.persNr.toLowerCase() === benutzer.trim().toLowerCase() && q.nutztApp);
+      const r = x ? einmalPasst(x, einmal, d.heute) : 'falsch';
+      if (x && x.zugang === 'gesperrt') return setMeldung(tx("Dein Zugang ist gesperrt. Bitte melde dich in der Lohnbuchhaltung."));
+      if (r === 'abgelaufen') return setMeldung(tx("Das Einmal-Passwort ist abgelaufen. Die Lohnbuchhaltung schickt dir einen neuen Brief."));
+      if (r === 'falsch' || !x) { const n = fehler + 1; setFehler(n); return setMeldung(n >= 5 ? tx("Zu viele falsche Eingaben. Die Anmeldung ist für 15 Minuten gesperrt.") : tx("Benutzername oder Einmal-Passwort stimmt nicht. Noch {0} Versuche.", 5 - n)); }
+      setPid(x.id); setMeldung(''); weiter();
+    };
+    return (
+      <Seite titel={SCHRITTE[0]} ohneMenue>
+        {kopf}
+        <h1 className="h1">{tx("Erste Anmeldung")}</h1>
+        <p className="text">{tx("Trage den Benutzernamen und das Einmal-Passwort aus deinem Brief ein.")}</p>
+        <div className="feld"><label htmlFor="rb">{tx("Benutzername")}</label><input id="rb" className="eingabe" autoComplete="username" autoCapitalize="characters" value={benutzer} onChange={(e) => { setBenutzer(e.target.value); setMeldung(''); }} /></div>
+        <PasswortFeld id="re" label={tx("Einmal-Passwort aus dem Brief")} wert={einmal} setWert={(x) => { setEinmal(x); setMeldung(''); }} auto="one-time-code" />
+        <span className="klein">{tx("Demo: Benutzername {0}, Einmal-Passwort {1}.", demo.persNr, demo.brief?.passwort ?? DEMO_EINMAL)} <button type="button" className="link" onClick={() => { setBenutzer(demo.persNr); setEinmal(demo.brief?.passwort ?? DEMO_EINMAL); }}>{tx("eintragen")}</button></span>
+        {meldung && <div className="hinweis orange" role="alert">{meldung}</div>}
+        <Fueller />
+        <Knopf gesperrt={!benutzer || !einmal || fehler >= 5} onClick={pruefen}>{tx("Anmelden")}</Knopf>
+        <span className="klein">{tx("Brief verloren oder abgelaufen? Die Lohnbuchhaltung schickt dir einen neuen. Der alte gilt dann nicht mehr.")}</span>
+      </Seite>
+    );
+  }
+
   if (schritt === 1) return (
-    <Seite titel={tx("PIN festlegen")} ohneMenue>
+    <Seite titel={SCHRITTE[1]} ohneMenue>
       {kopf}
-      <PinFeld frage={pin1 ? tx("PIN wiederholen") : tx("Neue PIN (4 Ziffern)")} unter={pinMsg ? <div className="hinweis orange" role="alert">{pinMsg}</div> : <p className="text" style={{ textAlign: 'center' }}>{tx("Mit der PIN öffnest du die App jeden Tag.")}</p>} fertig={(x) => {
-        if (!pin1) { if (['1234', '0000', '1111', '4321'].includes(x)) return setPinMsg(tx("Bitte keine einfache PIN wie 1234 oder 0000.")); setPin1(x); setPinMsg(''); return; }
-        if (x !== pin1) { setPin1(''); return setPinMsg(tx("Die beiden PINs sind nicht gleich. Bitte noch einmal.")); }
-        setPinMsg(''); weiter();
-      }} />
+      <h1 className="h1">{tx("Lege jetzt dein eigenes Passwort fest")}</h1>
+      <p className="text">{tx("Das Einmal-Passwort aus dem Brief gilt ab jetzt nicht mehr. Ohne eigenes Passwort geht es nicht weiter.")}</p>
+      <NeuesPasswort verboten={[p.brief?.passwort ?? DEMO_EINMAL, p.persNr]} knopf={tx("Passwort speichern")} fertig={(pw) => { a.passwortSetzen(p.id, pw, 'Registrierung mit Brief abgeschlossen, eigenes Passwort festgelegt'); weiter(); }} />
     </Seite>
   );
 
   return (
     <Seite titel={SCHRITTE[schritt]} ohneMenue>
       {kopf}
-      {schritt === 0 && <>
-        <h1 className="h1">{tx("Bist du {0}?", voll(p))}</h1>
-        {!mailOk ? <>
-          <p className="text">{tx("Wir schicken dir einen Code per E-Mail. Trage die E-Mail-Adresse ein, die bei uns für dich hinterlegt ist.")}</p>
-          <div className="feld"><label htmlFor="rm">{tx("Deine E-Mail-Adresse")}</label><input id="rm" className="eingabe" type="email" value={mail} onChange={(e) => setMail(e.target.value)} placeholder={tx("name@beispiel.de")} /></div>
-          <span className="klein">{tx("Beispiel in der Demo: Hinterlegt ist")}{' '}{p.email ?? tx("keine Adresse")}. <button type="button" className="link" onClick={() => setMail(p.email ?? '')}>{tx("eintragen")}</button></span>
-          {mail && mail.trim().toLowerCase() !== (p.email ?? '').toLowerCase() && <div className="hinweis orange">{tx("Diese E-Mail-Adresse ist bei uns nicht hinterlegt. Bitte im Büro melden.")}</div>}
-          <Fueller />
-          <Knopf gesperrt={mail.trim().toLowerCase() !== (p.email ?? '-').toLowerCase()} onClick={() => setMailOk(true)}>{tx("Code senden")}</Knopf>
-        </> : <>
-          <p className="text">{tx("Wir haben einen Code per E-Mail an {0} geschickt. Bitte hier eintragen.", p.email)}</p>
-          <div className="feld"><label htmlFor="rc">{tx("Code aus der E-Mail (6 Ziffern)")}</label><input id="rc" className="eingabe" inputMode="numeric" maxLength={6} value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))} /></div>
-          <span className="klein">{tx("Demo-Code: 482913. Der Code gilt 15 Minuten und nur einmal. Nach 5 falschen Eingaben brauchst du einen neuen Code.")}</span>
-          {codeFehler > 0 && <div className="hinweis orange" role="alert">{codeFehler >= 5 ? tx("Zu viele falsche Eingaben. Bitte einen neuen Code anfordern.") : tx("Der Code stimmt nicht. Noch {0} Versuche.", 5 - codeFehler)}</div>}
-          <button type="button" className="link" onClick={() => { setCode(''); setCodeFehler(0); }}>{tx("Code neu senden")}</button>
-          <Fueller />
-          <Knopf gesperrt={code.length !== 6 || codeFehler >= 5} onClick={() => (code === '482913' ? weiter() : setCodeFehler(codeFehler + 1))}>{tx("Weiter")}</Knopf>
-        </>}
-      </>}
       {schritt === 2 && <>
         <h1 className="h1">{tx("Datenschutz")}</h1>
         <ul className="text" style={{ paddingLeft: 20, display: 'flex', flexDirection: 'column', gap: 6 }}>
@@ -109,29 +172,47 @@ export function Registrierung() {
       </>}
       {schritt === 5 && <>
         <h1 className="h1 gross">{tx("Fertig, {0}!", p.vorname)}</h1>
-        <p className="text">{tx("Du bist angemeldet. Ab jetzt öffnest du die App mit deiner PIN. Fingerabdruck geht auch, wenn du möchtest.")}</p>
+        <p className="text">{tx("Du bist angemeldet. Dieses Handy bleibt angemeldet, du musst dich beim Öffnen der App nicht neu anmelden.")}</p>
+        <p className="text">{tx("Dein Passwort brauchst du nur auf einem neuen Handy oder wenn du dich abgemeldet hast.")}</p>
         <Fueller />
-        <Knopf farbe="gruen" onClick={() => { anmelden(p.id); a.zugangSetzen(p.id, 'aktiv', 'Registrierung abgeschlossen'); nav('/intro'); }}>{tx("Einführung ansehen")}</Knopf>
-        <Knopf farbe="rahmen" onClick={() => { anmelden(p.id); a.zugangSetzen(p.id, 'aktiv', 'Registrierung abgeschlossen'); nav(startVon(p.rolle)); }}>{tx("Gleich loslegen")}</Knopf>
+        <Knopf farbe="gruen" onClick={() => fertig('/intro')}>{tx("Einführung ansehen")}</Knopf>
+        <Knopf farbe="rahmen" onClick={() => fertig(startVon(p.rolle))}>{tx("Gleich loslegen")}</Knopf>
       </>}
     </Seite>
   );
 }
 
-/** Tägliches Öffnen: PIN eingeben (Demo-PIN 1234) */
+/** Anmelden mit Benutzername und eigenem Passwort: nur auf einem neuen Handy oder nach dem Abmelden */
 export function Sperre() {
-  const { d, anmelden } = useDaten();
+  const { d, ich, gemerkt, anmelden } = useDaten();
   const nav = useNavigate();
-  const [wer, setWer] = useState('stefan');
+  const [benutzer, setBenutzer] = useState('');
+  const [pw, setPw] = useState('');
   const [fehler, setFehler] = useState(0);
-  const p = d.personen.find((x) => x.id === wer)!;
+  const [meldung, setMeldung] = useState('');
+  const [vergessen, setVergessen] = useState(false);
+  if (ich && gemerkt) return <Navigate to={startVon(ich.rolle)} replace />;
+  const los = () => {
+    const x = d.personen.find((q) => q.persNr.toLowerCase() === benutzer.trim().toLowerCase() && q.nutztApp);
+    if (x && x.zugang === 'gesperrt') return setMeldung(tx("Dein Zugang ist gesperrt. Bitte melde dich in der Lohnbuchhaltung."));
+    if (x && x.brief) return setMeldung(tx("Du hast einen Brief mit Einmal-Passwort. Bitte tippe unten auf „Erste Anmeldung mit Brief“."));
+    if (!x || !passwortPasst(x, pw)) { const n = fehler + 1; setFehler(n); return setMeldung(n >= 5 ? tx("Zu viele falsche Eingaben. Die Anmeldung ist für 15 Minuten gesperrt.") : tx("Benutzername oder Passwort stimmt nicht. Noch {0} Versuche.", 5 - n)); }
+    anmelden(x.id, true);
+    nav(startVon(x.rolle));
+  };
   return (
-    <Seite titel={tx("App öffnen")} ohneMenue>
-      <Auswahl label={tx("Beispiel ansehen")} klein spalten={3} optionen={[{ wert: 'stefan', text: tx("Stefan") }, { wert: 'horvat', text: tx("Marko (NU)") }, { wert: 'keller', text: tx("Martin (Polier)") }]} wert={wer} setWert={(w) => { setWer(w); setFehler(0); }} />
-      <PinFeld frage={tx("Hallo {0}", p.vorname)} unter={<p className="text" style={{ textAlign: 'center' }}>{fehler ? tx("PIN falsch. Noch {0} Versuche.", 5 - fehler) : tx("Gib deine PIN ein (Demo: 1234).")}</p>} fertig={(x) => {
-        if (x === p.pin || x === '1234') { anmelden(p.id); nav(startVon(p.rolle)); } else setFehler(fehler + 1);
-      }} />
-      <Link className="link" to="/registrierung" style={{ alignSelf: 'center' }}>{tx("PIN vergessen? Neuen Code anfordern")}</Link>
+    <Seite titel={tx("Anmelden")} ohneMenue>
+      <h1 className="h1">{tx("Anmelden")}</h1>
+      <p className="text">{tx("Nur nötig auf einem neuen Handy oder nachdem du dich abgemeldet hast. Danach bleibt dieses Handy angemeldet.")}</p>
+      <div className="feld"><label htmlFor="ab">{tx("Benutzername")}</label><input id="ab" className="eingabe" autoComplete="username" autoCapitalize="characters" value={benutzer} onChange={(e) => { setBenutzer(e.target.value); setMeldung(''); }} /></div>
+      <PasswortFeld id="ap" label={tx("Passwort")} wert={pw} setWert={(x) => { setPw(x); setMeldung(''); }} auto="current-password" />
+      <span className="klein">{tx("Demo: Benutzername 1001 (Stefan), Passwort {0}.", DEMO_PASSWORT)}</span>
+      {meldung && <div className="hinweis orange" role="alert">{meldung}</div>}
+      <Knopf gesperrt={!benutzer || !pw || fehler >= 5} onClick={los}>{tx("Anmelden")}</Knopf>
+      <button type="button" className="link" style={{ alignSelf: 'center' }} onClick={() => setVergessen(!vergessen)}>{tx("Passwort vergessen?")}</button>
+      {vergessen && <div className="hinweis blau">{tx("Melde dich bei der Lohnbuchhaltung oder sag deinem Polier Bescheid. Du bekommst einen neuen Brief mit Einmal-Passwort per Post. Dein altes Passwort gilt dann nicht mehr.")}</div>}
+      <Fueller />
+      <Link className="knopf rahmen" to="/registrierung">{tx("Erste Anmeldung mit Brief")}</Link>
     </Seite>
   );
 }

@@ -33,8 +33,8 @@
    "a": "Na kontu radnih sati skupljaju se tvoji sati: ako radiš više od plana, sati se dodaju, ako radiš manje, sati se oduzimaju. Stanje vidiš u „Konto”; za slobodno dodirni tamo „Uzmi slobodno s konta” i podnesi zahtjev. Ljeti (apr–nov) slobodno s konta moguće je tek od 100 h; zimi (dec–mar), dok na kontu ostane 50 h. Sati iznad 150 h isplaćuju se."
   },
   {
-   "q": "Ne sjećam se PIN-a. Ili imam novi mobitel.",
-   "a": "Zaboravljen PIN: pri otvaranju dodirni „Zaboravio/la sam PIN”. Dobit ćeš novi kod e-poštom i postaviti novi PIN. Kod vrijedi 15 minuta i samo jednom. Ako nemaš vlastitu adresu e-pošte, e-poruka ide tvom poslovođi ili radniku kojem si dodijeljen/a; on ti kod predaje osobno. Novi ili izgubljeni mobitel: nazovi ured. Ured blokira stari pristup i šalje ti novu pozivnicu e-poštom."
+   "q": "Zaboravio sam lozinku. Ili imam novi mobitel.",
+   "a": "Tvoj mobitel ostaje prijavljen. Lozinka ti treba samo na novom mobitelu ili nakon što si se odjavio. Zaboravljena lozinka: javi se obračunu plaća ili reci poslovođi. Poštom dobivaš novo pismo s jednokratnom lozinkom i s njom postavljaš novu lozinku. Novi mobitel: tamo se prijavi korisničkim imenom i lozinkom. Izgubljen mobitel: odmah nazovi ured. Ured odjavljuje stari mobitel."
   },
   {
    "q": "Kako promijeniti jezik? Gdje je pomoć?",
@@ -44,17 +44,17 @@
  "hilfe": [
   {
    "id": "anm",
-   "t": "Prijava, PIN, novi mobitel",
+   "t": "Prijava, lozinka, novi mobitel",
    "p": [
-    "Dobit ćeš pozivnicu e-poštom. Dodirni poveznicu. Vrijedi 7 dana. Nemaš vlastitu adresu e-pošte? Tada pozivnica ide tvom poslovođi (Polier) ili radniku kojem si dodijeljen/a. On ti je pokazuje na svom mobitelu. Skeniraj QR kod svojim mobitelom. Ured može pozivnicu i ispisati. Broj mobitela ti ne treba.",
-    "Upiši svoju adresu e-pošte. Dobit ćeš kod (6 znamenki) e-poštom. Vrijedi 15 minuta i samo jednom; nakon 5 pogrešnih unosa trebaš novi. Zatim postavi PIN od 4 znamenke. Ne koristi jednostavan PIN poput 1234 ili 0000. Nemaš vlastitu adresu e-pošte? Označi „Nemam vlastitu adresu e-pošte”. Tada e-poruka ide tvom poslovođi (Polier) ili radniku kojem si dodijeljen/a. On ti kod predaje osobno.",
-    "Umjesto PIN-a možeš koristiti otisak prsta ili prepoznavanje lica. To ostaje na tvom mobitelu.",
+    "Poštom dobivaš pismo. U njemu su tvoje korisničko ime (tvoj osobni broj) i jednokratna lozinka. Vrijedi 14 dana i samo za prvu prijavu.",
+    "Otvori aplikaciju i dodirni „Prva prijava s pismom”. Upiši korisničko ime i jednokratnu lozinku. Nakon 5 pogrešnih unosa prijava je blokirana 15 minuta.",
+    "Odmah postavi vlastitu lozinku: najmanje 8 znakova, s barem jednim slovom i jednom znamenkom. Nikome je ne daj, ni poslovođi. Zatim uništi pismo.",
     "Pročitaj informacije o zaštiti podataka i o osobnom dokumentu. Kod svake označi kvačicu. Zatim dopusti lokaciju s „Dok se aplikacija koristi”.",
     "Stavi aplikaciju na početni zaslon. Samo tako ti može slati obavijesti. Ako mobitel pita, odaberi „Dopusti”.",
-    "Aplikacija se zaključava nakon 5 minuta bez korištenja. Ne sjećaš se PIN-a? Dodirni „Zaboravio/la sam PIN”. Dobit ćeš novi kod e-poštom i postaviti novi PIN.",
-    "Novi mobitel ili izgubljen mobitel? Nazovi ured. Ured blokira stari pristup i šalje novu pozivnicu e-poštom."
+    "Nakon toga tvoj mobitel ostaje prijavljen. Ne moraš se ponovno prijavljivati pri otvaranju aplikacije. Pod „Više” možeš promijeniti lozinku i odjaviti se na ovom mobitelu.",
+    "Zaboravio si lozinku? Obračun plaća šalje ti novo pismo. Novi mobitel? Tamo se prijavi korisničkim imenom i lozinkom. Izgubljen mobitel? Odmah nazovi ured. Ured odjavljuje stari mobitel."
    ],
-   "k": "prijava lozinka kod qr e-pošta email poslovođa otisak prsta zaključan izgubljen pozivnica registracija"
+   "k": "prijava lozinka kod qr e-pošta email poslovođa otisak prsta zaključan izgubljen pozivnica registracija pismo jednokratna lozinka korisničko ime osobni broj odjava"
   },
   {
    "id": "zeit",

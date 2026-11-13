@@ -1,10 +1,12 @@
-// Mitarbeiter: Einteilung, Woche, Konto, Anträge, Mehr, PIN, Geräte, Abgemeldet
+// Mitarbeiter: Einteilung, Woche, Konto, Anträge, Mehr, Passwort, Geräte, Abgemeldet
 
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { IHandyWeg } from '../../components/Icons';
 import { Fueller, Seite, Zurueck, mehrVon } from '../../components/Rahmen';
-import { Auswahl, Erledigt, Knopf, PinFeld, Weiter } from '../../components/Teile';
+import { Auswahl, Erledigt, Knopf, Weiter } from '../../components/Teile';
+import { NeuesPasswort, PasswortFeld } from '../Zugang';
+import { passwortPasst } from '../../domain/zugang';
 import { useDaten, useIch } from '../../domain/store';
 import { abwesendBis, bsLang, bsName, einteilungAm, kontoStand, person, rechnung, stundenTag, tagVon, urlaubRest, voll } from '../../domain/sel';
 import type { AntragArt, TagStatus } from '../../domain/types';
@@ -233,7 +235,7 @@ export function Mehr() {
     { titel: tx("Auf der Baustelle"), punkte: [{ text: tx("Kalender"), to: '/ma/woche' }, { text: tx("Stempeln vergessen melden"), to: '/ma/vergessen' }, { text: tx("Ausweis eines Kollegen eintragen"), to: '/ma/ausweis' }] },
     { titel: tx("Für mich"), punkte: [{ text: tx("Mitteilungen"), to: '/ma/mitteilungen', zusatz: ungelesen ? `${ungelesen} neu` : undefined }, { text: tx("Betriebsurlaub"), to: '/ma/betriebsurlaub' }, { text: tx("Arbeitsbefreiung beantragen"), to: '/ma/arbeitsbefreiung' }] },
     { titel: tx("Hilfe"), punkte: [{ text: tx("Hilfe"), to: '/hilfe' }, { text: tx("Häufige Fragen"), to: '/faq' }, { text: tx("Einführung ansehen"), to: '/intro' }, { text: tx("Datenschutz"), to: '/datenschutz' }] },
-    { titel: tx("Sicherheit"), punkte: [{ text: tx("PIN ändern"), to: '/ma/pin' }, { text: tx("Meine Geräte"), to: '/ma/geraete' }] },
+    { titel: tx("Sicherheit"), punkte: [{ text: tx("Passwort ändern"), to: '/ma/pin' }, { text: tx("Meine Geräte"), to: '/ma/geraete' }] },
   ];
   return (
     <Seite titel={tx("Mehr")} menue="mehr">
@@ -269,8 +271,19 @@ export function MehrListe({ gruppen }: { gruppen: { titel: string; punkte: { tex
 
 /** Demo-Bereich unter „Mehr“: Standort simulieren, Person wechseln */
 export function Demo({ abmelden }: { abmelden: () => void }) {
-  const { d, ich, a } = useIch();
-  return (
+  const { d, ich, a, abmelden: ganzAbmelden } = useIch();
+  const nav = useNavigate();
+  const [frage, setFrage] = useState(false);
+  return (<>
+    {!frage
+      ? <Knopf farbe="rahmen" klasse="mittel" onClick={() => setFrage(true)}>{tx("Auf diesem Handy abmelden")}</Knopf>
+      : <div className="hinweis orange" role="alertdialog" aria-label={tx("Abmelden")}>
+          <span>{tx("Danach musst du dich mit Benutzername und Passwort neu anmelden.")}</span>
+          <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
+            <Knopf farbe="rahmen" klasse="mittel" onClick={() => setFrage(false)}>{tx("Abbrechen")}</Knopf>
+            <Knopf klasse="mittel" onClick={() => { nav('/sperre'); ganzAbmelden(); }}>{tx("Abmelden")}</Knopf>
+          </div>
+        </div>}
     <section aria-label={tx("Demo")} className="karte pad" style={{ borderStyle: 'dashed' }}>
       <span className="fett">{tx("Nur in der Demo")}</span>
       {ich.gruppe === 'gewerblich' && (
@@ -281,43 +294,39 @@ export function Demo({ abmelden }: { abmelden: () => void }) {
       )}
       <Knopf farbe="rahmen" klasse="mittel" onClick={abmelden}>{tx("Andere Person wählen")}</Knopf>
     </section>
-  );
+  </>);
 }
 
-/** S2: PIN ändern in drei Schritten */
+/** S2: Passwort ändern (bisheriges Passwort, dann neues zweimal) */
 export function Pin() {
   const { ich, a } = useIch();
-  const [schritt, setSchritt] = useState(0);
-  const [neu, setNeu] = useState('');
+  const [alt, setAlt] = useState('');
+  const [altOk, setAltOk] = useState(false);
   const [fehler, setFehler] = useState('');
-  const fragen = [tx("Deine bisherige PIN"), tx("Neue PIN"), tx("Neue PIN wiederholen")];
-  if (schritt >= 3) {
+  const [fertig, setFertig] = useState(false);
+  if (fertig) {
     return (
-      <Seite titel={tx("PIN geändert")} menue="mehr">
+      <Seite titel={tx("Passwort geändert")} menue="mehr">
         <Fueller />
-        <Erledigt titel={tx("PIN geändert")}><p className="text" style={{ textAlign: 'center' }}>{tx("Ab jetzt öffnest du die App mit der neuen PIN.")}</p></Erledigt>
+        <Erledigt titel={tx("Passwort geändert")}><p className="text" style={{ textAlign: 'center' }}>{tx("Dieses Handy bleibt angemeldet. Das neue Passwort brauchst du auf einem neuen Handy oder nach dem Abmelden.")}</p></Erledigt>
         <Fueller />
         <Link to={mehrVon(ich.rolle)} className="knopf blau">{tx("Fertig")}</Link>
       </Seite>
     );
   }
   return (
-    <Seite titel={tx("PIN ändern")} menue="mehr">
+    <Seite titel={tx("Passwort ändern")} menue="mehr">
       <Zurueck to={mehrVon(ich.rolle)}>{tx("Mehr")}</Zurueck>
-      <PinFeld
-        frage={fragen[schritt]}
-        unter={<span className="fett klein" style={{ textAlign: 'center' }}>{tx("Schritt {0} von 3", schritt + 1)}{fehler ? '' : ''}</span>}
-        fertig={(pin) => {
-          if (schritt === 0 && pin !== ich.pin) return setFehler(tx("Die PIN stimmt nicht."));
-          if (schritt === 1 && (pin === ich.pin || /^(\d)\1{3}$/.test(pin) || pin === '1234')) return setFehler(tx("Bitte eine andere PIN wählen, nicht 1234 und keine vier gleichen Ziffern."));
-          if (schritt === 2 && pin !== neu) { setSchritt(1); return setFehler(tx("Die beiden neuen PINs sind verschieden. Bitte noch einmal.")); }
-          setFehler('');
-          if (schritt === 1) setNeu(pin);
-          if (schritt === 2) a.pinAendern(ich.id, pin);
-          setSchritt(schritt + 1);
-        }}
-      />
-      {fehler && <div role="alert" className="hinweis rot">{fehler}</div>}
+      <h1 className="h1">{tx("Passwort ändern")}</h1>
+      {!altOk ? <>
+        <PasswortFeld id="alt" label={tx("Dein bisheriges Passwort")} wert={alt} setWert={(x) => { setAlt(x); setFehler(''); }} auto="current-password" />
+        {fehler && <div role="alert" className="hinweis rot">{fehler}</div>}
+        <Fueller />
+        <Knopf gesperrt={!alt} onClick={() => (passwortPasst(ich, alt) ? setAltOk(true) : setFehler(tx("Das Passwort stimmt nicht.")))}>{tx("Weiter")}</Knopf>
+        <span className="klein">{tx("Passwort vergessen? Die Lohnbuchhaltung schickt dir einen neuen Brief mit Einmal-Passwort.")}</span>
+      </> : (
+        <NeuesPasswort verboten={[alt, ich.persNr]} knopf={tx("Passwort speichern")} fertig={(pw) => { a.passwortSetzen(ich.id, pw, 'Passwort geändert'); setFertig(true); }} />
+      )}
     </Seite>
   );
 }
@@ -373,11 +382,10 @@ export function Abgemeldet() {
       <p role="status" className="text mitte" style={{ fontSize: 17, textAlign: 'center' }}>{tx("Es wurde von dir oder von der Lohnbuchhaltung abgemeldet. Von hier kann nichts mehr gesendet werden.")}</p>
       <section aria-label={tx("Was jetzt?")} className="karte pad" style={{ fontSize: 16, lineHeight: 1.4 }}>
         <span><strong>{tx("Nicht gesendete Zeiten")}</strong> {' '}{tx("von diesem Handy trägt {0} nach.", polier ? tx("dein Polier {0}", voll(polier)) : tx("dein Polier"))}</span>
-        <span><strong>{tx("Neues Handy?")}</strong> {' '}{tx("Die Lohnbuchhaltung schickt dir eine Einladung per E-Mail.")}</span>
+        <span><strong>{tx("Neues Handy?")}</strong> {' '}{tx("Melde dich dort mit Benutzername und Passwort an. Passwort vergessen? Die Lohnbuchhaltung schickt dir einen neuen Brief.")}</span>
       </section>
       <Fueller />
-      <Knopf onClick={() => { abmelden(); nav('/'); }}>{tx("Neu registrieren")}</Knopf>
-      <p className="text" style={{ textAlign: 'center' }}>{tx("Geht nur mit dem Link aus der Einladung. In der Demo: zurück zur Personenwahl.")}</p>
+      <Knopf onClick={() => { abmelden(); nav('/sperre'); }}>{tx("Neu anmelden")}</Knopf>
     </Seite>
   );
 }

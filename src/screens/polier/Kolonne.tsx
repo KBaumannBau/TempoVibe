@@ -457,7 +457,7 @@ export function PMehr() {
     { titel: 'Nachunternehmer', punkte: [{ text: 'Ausweis eintragen', to: '/ma/ausweis' }] },
     { titel: 'Am PC', punkte: [{ text: 'PC-Ansicht öffnen', to: '/pc/polier' }] },
     { titel: 'Hilfe', punkte: [{ text: 'Hilfe', to: '/hilfe' }, { text: 'Häufige Fragen', to: '/faq' }, { text: 'Einführung ansehen', to: '/intro' }, { text: 'Datenschutz', to: '/datenschutz' }] },
-    { titel: 'Sicherheit', punkte: [{ text: 'Mitteilungen', to: '/ma/mitteilungen' }, { text: 'PIN ändern', to: '/ma/pin' }, { text: 'Meine Geräte', to: '/ma/geraete' }] },
+    { titel: 'Sicherheit', punkte: [{ text: 'Mitteilungen', to: '/ma/mitteilungen' }, { text: 'Passwort ändern', to: '/ma/pin' }, { text: 'Meine Geräte', to: '/ma/geraete' }] },
   ];
   return (
     <Seite titel="Mehr" menue="mehr">

@@ -33,8 +33,8 @@
    "a": "În contul de ore se adună orele tale: dacă lucrezi mai mult decât norma, se adaugă ore, dacă lucrezi mai puțin, se scad ore. Soldul îl vezi la „Cont”; ca să iei liber, atinge acolo „Ia liber din cont” și fă cererea. Vara (apr–nov) zilele libere din cont merg abia de la 100 h; iarna (dec–mar), atâta timp cât în cont rămân 50 h. Orele peste 150 h se plătesc."
   },
   {
-   "q": "Am uitat PIN-ul. Sau am un telefon nou.",
-   "a": "PIN uitat: la deschidere atinge „Am uitat PIN-ul”. Primești un cod nou prin e-mail și setezi un PIN nou. Codul este valabil 15 minute și o singură dată. Dacă nu ai o adresă de e-mail proprie, e-mailul ajunge la maistrul tău sau la angajatul la care ești repartizat; el îți dă codul personal. Telefon nou sau pierdut: sună la birou. Biroul blochează vechiul acces și îți trimite o invitație nouă prin e-mail."
+   "q": "Am uitat parola. Sau am un telefon nou.",
+   "a": "Telefonul tău rămâne conectat. Parola îți trebuie doar pe un telefon nou sau după ce te-ai deconectat. Parolă uitată: anunță biroul de salarizare sau maistrul. Primești prin poștă o scrisoare nouă cu o parolă unică și cu ea îți setezi o parolă nouă. Telefon nou: conectează-te acolo cu numele de utilizator și parola. Telefon pierdut: sună imediat la birou. Biroul deconectează telefonul vechi."
   },
   {
    "q": "Cum schimb limba? Unde găsesc ajutor?",
@@ -44,17 +44,17 @@
  "hilfe": [
   {
    "id": "anm",
-   "t": "Conectare, PIN, telefon nou",
+   "t": "Conectare, parolă, telefon nou",
    "p": [
-    "Primești o invitație prin e-mail. Atinge linkul. Este valabil 7 zile. Nu ai o adresă de e-mail proprie? Atunci invitația ajunge la maistrul tău (Polier) sau la angajatul la care ești repartizat. El ți-o arată pe telefonul lui. Scanează codul QR cu telefonul tău. Biroul poate și să tipărească invitația. Nu ai nevoie de un număr de telefon.",
-    "Introdu adresa ta de e-mail. Primești un cod (6 cifre) prin e-mail. Este valabil 15 minute și o singură dată; după 5 introduceri greșite ai nevoie de unul nou. Apoi setează un PIN de 4 cifre. Nu alege un PIN simplu, precum 1234 sau 0000. Nu ai o adresă de e-mail proprie? Bifează „Nu am o adresă de e-mail proprie”. Atunci e-mailul ajunge la maistrul tău (Polier) sau la angajatul la care ești repartizat. El îți dă codul personal.",
-    "În loc de PIN poți folosi amprenta sau recunoașterea facială. Acestea rămân pe telefonul tău.",
+    "Primești o scrisoare prin poștă. În ea sunt numele tău de utilizator (numărul tău de personal) și o parolă unică. Este valabilă 14 zile și doar pentru prima conectare.",
+    "Deschide aplicația și atinge „Prima conectare cu scrisoarea”. Introdu numele de utilizator și parola unică. După 5 încercări greșite, conectarea este blocată 15 minute.",
+    "Setează imediat o parolă proprie: cel puțin 8 caractere, cu cel puțin o literă și o cifră. Nu o da nimănui, nici maistrului. Apoi distruge scrisoarea.",
     "Citește informările despre protecția datelor și despre actul de identitate. Bifează căsuța la fiecare. Apoi permite locația cu „În timpul folosirii aplicației”.",
     "Pune aplicația pe ecranul de start. Doar așa îți poate trimite notificări. Dacă telefonul întreabă, alege „Permite”.",
-    "Aplicația se blochează după 5 minute fără folosire. Ai uitat PIN-ul? Atinge „Am uitat PIN-ul”. Primești un cod nou prin e-mail și setezi un PIN nou.",
-    "Telefon nou sau telefon pierdut? Sună la birou. Biroul blochează vechiul acces și trimite o invitație nouă prin e-mail."
+    "După aceea telefonul tău rămâne conectat. Nu trebuie să te conectezi din nou la fiecare deschidere a aplicației. La „Mai mult” poți schimba parola și te poți deconecta de pe acest telefon.",
+    "Ai uitat parola? Biroul de salarizare îți trimite o scrisoare nouă. Telefon nou? Conectează-te acolo cu numele de utilizator și parola. Telefon pierdut? Sună imediat la birou. Biroul deconectează telefonul vechi."
    ],
-   "k": "conectare parolă cod qr e-mail mail maistru amprentă blocat pierdut invitație înregistrare"
+   "k": "conectare parolă cod qr e-mail mail maistru amprentă blocat pierdut invitație înregistrare scrisoare parolă unică nume de utilizator număr de personal deconectare"
   },
   {
    "id": "zeit",

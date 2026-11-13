@@ -7,10 +7,12 @@ import { useDaten } from '../../domain/store';
 import { kontoStand, nameKomma, person, urlaubRest, voll } from '../../domain/sel';
 import { arbeitstage, feiertage, istWerktag, monatPlus, monatVon, plusTage, sollFuer, tm, tmj, wtKurz } from '../../domain/zeit';
 import type { Antrag, Daten, Gruppe, Person } from '../../domain/types';
+import { BRIEF_TAGE, einmalPasswort } from '../../domain/zugang';
+import { BriefInhalt } from '../Zugang';
 
 const GRUPPE: Record<Gruppe, string> = { gewerblich: 'Gewerblich (BRTV)', angestellt: 'Angestellt (RTV)', azubi: 'Auszubildend' };
 const ZUGANG: Record<Person['zugang'], { t: string; f: 'gruen' | 'orange' | 'rot' | undefined }> = {
-  aktiv: { t: 'App aktiv', f: 'gruen' }, eingeladen: { t: 'eingeladen', f: 'orange' }, gesperrt: { t: 'gesperrt', f: 'rot' }, ohne: { t: 'ohne App', f: undefined },
+  aktiv: { t: 'App aktiv', f: 'gruen' }, eingeladen: { t: 'Brief verschickt', f: 'orange' }, gesperrt: { t: 'gesperrt', f: 'rot' }, ohne: { t: 'ohne App', f: undefined },
 };
 const mitarbeiter = (d: Daten) => d.personen.filter((p) => p.rolle !== 'nu' && p.rolle !== 'gl' && p.rolle !== 'admin').sort((a, b) => nameKomma(a).localeCompare(nameKomma(b)));
 
@@ -60,7 +62,7 @@ function Anlegen({ onFertig }: { onFertig: (id?: string, txt?: string) => void }
     if (teile.length < 2) return setFehler('Bitte Vor- und Nachnamen eintragen.');
     if (mail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.trim())) return setFehler('Die E-Mail-Adresse sieht nicht gültig aus.');
     const id = a.personAnlegen({ vorname: teile.slice(0, -1).join(' '), nachname: teile[teile.length - 1], gruppe, eintritt, email: mail.trim() || undefined, handy: handy.trim() || undefined });
-    onFertig(id, mail ? `${name.trim()} angelegt. Die Einladung mit Anmelde-Code geht an ${mail.trim()}.` : `${name.trim()} angelegt, noch ohne App-Zugang.`);
+    onFertig(id, `${name.trim()} angelegt, noch ohne App-Zugang. Den Registrierungsbrief erstellst du unten unter „App-Zugang“.`);
   };
   return (
     <section className="pc-karte" aria-label="Mitarbeiter anlegen" style={{ borderColor: 'var(--blau)' }}>
@@ -69,10 +71,10 @@ function Anlegen({ onFertig }: { onFertig: (id?: string, txt?: string) => void }
         <label className="pc-feld"><span>Vor- und Nachname</span><input value={name} onChange={(e) => { setName(e.target.value); setFehler(''); }} /></label>
         <label className="pc-feld"><span>Gruppe</span><select value={gruppe} onChange={(e) => setGruppe(e.target.value as Gruppe)}><option value="gewerblich">Gewerblich</option><option value="angestellt">Angestellt</option><option value="azubi">Auszubildend</option></select></label>
         <label className="pc-feld"><span>Eintritt</span><input type="date" value={eintritt} onChange={(e) => setEintritt(e.target.value)} /></label>
-        <label className="pc-feld"><span>E-Mail-Adresse (für die App)</span><input type="email" value={mail} onChange={(e) => setMail(e.target.value)} /></label>
+        <label className="pc-feld"><span>E-Mail-Adresse (freiwillig)</span><input type="email" value={mail} onChange={(e) => setMail(e.target.value)} /></label>
         <label className="pc-feld"><span>Handynummer (freiwillig)</span><input value={handy} onChange={(e) => setHandy(e.target.value)} /></label>
       </div>
-      <span className="klein">Ohne E-Mail-Adresse wird keine Einladung verschickt. Die Personalnummer vergibt das System.</span>
+      <span className="klein">Den App-Zugang bekommt der Mitarbeiter per Registrierungsbrief mit Einmal-Passwort (Post). Die Personalnummer vergibt das System, sie ist der Benutzername.</span>
       {fehler && <div role="alert" className="meldung rot">{fehler}</div>}
       <div className="pk-reihe"><Pk onClick={() => onFertig()}>Abbrechen</Pk><Pk farbe="blau" onClick={los}>Anlegen</Pk></div>
     </section>
@@ -94,6 +96,13 @@ function Detail({ p, d, a, zeige }: { p: Person; d: Daten; a: ReturnType<typeof 
   const [handy, setHandy] = useState(p.handy ?? '');
   const [austritt, setAustritt] = useState(p.austritt ?? '');
   const [sperrFrage, setSperrFrage] = useState(false);
+  const [briefZeigen, setBriefZeigen] = useState(false);
+  const briefNeu = () => {
+    const gueltig = plusTage(d.heute, BRIEF_TAGE);
+    a.briefErstellen(p.id, einmalPasswort(), d.heute, gueltig);
+    setBriefZeigen(true);
+    zeige(`Registrierungsbrief erstellt, gültig bis ${tmj(gueltig)}. Bitte drucken und per Post schicken.${p.zugang === 'aktiv' ? ' Das bisherige Passwort gilt nicht mehr.' : ''}`);
+  };
   const geaendert = gruppe !== p.gruppe || Number(anspruch) !== p.urlaubAnspruch || kinder.join() !== p.kinder.join() || allein !== !!p.alleinerziehend || u18 !== !!p.unter18
     || mail !== (p.email ?? '') || handy !== (p.handy ?? '') || austritt !== (p.austritt ?? '') || (abweichend || p.gruppe === 'angestellt' ? zahlDe(woche) !== (p.wochenStunden ?? (p.gruppe === 'angestellt' ? 38 : 41)) : !!p.wochenStunden);
   const speichern = () => {
@@ -170,16 +179,15 @@ function Detail({ p, d, a, zeige }: { p: Person; d: Daten; a: ReturnType<typeof 
       <section className="pc-karte">
         <div className="pk-reihe" style={{ justifyContent: 'space-between' }}><h2>App-Zugang</h2><Pill farbe={ZUGANG[p.zugang].f}>{ZUGANG[p.zugang].t}</Pill></div>
         <div className="pc-formular">
-          <label className="pc-feld"><span>E-Mail-Adresse für Einladung und Anmelde-Code</span><input type="email" value={mail} onChange={(e) => setMail(e.target.value)} /></label>
+          <label className="pc-feld"><span>E-Mail-Adresse (freiwillig, nur Kontakt)</span><input type="email" value={mail} onChange={(e) => setMail(e.target.value)} /></label>
           <label className="pc-feld"><span>Handynummer (freiwillig)</span><input value={handy} onChange={(e) => setHandy(e.target.value)} /></label>
         </div>
         <span className="klein">Die Handynummer ist nur Kontaktangabe für das Büro. Für die Anmeldung in der App ist sie nicht nötig.</span>
         {!p.nutztApp && <div className="meldung blau">Kein Smartphone: Der Polier erfasst die Stunden. Bestätigt wird mit der PIN am Handy des Poliers.</div>}
         <div className="pk-reihe">
-          {(p.zugang === 'ohne' || p.zugang === 'gesperrt') && <Pk farbe="blau" gesperrt={!p.email} titel={!p.email ? 'Zuerst E-Mail-Adresse speichern' : undefined} onClick={() => { a.zugangSetzen(p.id, 'eingeladen', 'Einladung gesendet'); zeige(`Einladung mit Anmelde-Code an ${p.email} gesendet. Der Code gilt 7 Tage.`); }}>Einladung senden</Pk>}
-          {p.zugang === 'eingeladen' && <Pk onClick={() => { a.zugangSetzen(p.id, 'ohne', 'Einladung zurückgezogen'); zeige('Einladung zurückgezogen.'); }}>Einladung zurückziehen</Pk>}
-          <Pk onClick={() => zeige('Die Einladung mit QR-Code ist zum Drucken bereit (in der Demo ohne Ausdruck).', 'blau')}>Einladung drucken (QR-Code)</Pk>
-          {p.zugang === 'aktiv' && <Pk onClick={() => { a.zugangSetzen(p.id, 'aktiv', 'PIN zurückgesetzt'); zeige('PIN zurückgesetzt. Der PIN-Brief mit der Start-PIN ist zum Drucken bereit.'); }}>PIN zurücksetzen</Pk>}
+          {p.nutztApp && p.zugang !== 'aktiv' && <Pk farbe="blau" onClick={briefNeu}>{p.brief ? 'Neuen Brief erstellen (alter wird ungültig)' : 'Registrierungsbrief erstellen'}</Pk>}
+          {p.nutztApp && p.zugang === 'aktiv' && <Pk onClick={briefNeu}>Passwort zurücksetzen (neuer Brief)</Pk>}
+          {p.brief && <Pk onClick={() => setBriefZeigen(!briefZeigen)}>{briefZeigen ? 'Brief ausblenden' : 'Brief anzeigen und drucken'}</Pk>}
           {p.zugang !== 'gesperrt' && p.zugang !== 'ohne' && <Pk farbe="rot" onClick={() => setSperrFrage(true)}>Zugang sperren</Pk>}
         </div>
         {sperrFrage && (
@@ -188,7 +196,14 @@ function Detail({ p, d, a, zeige }: { p: Person; d: Daten; a: ReturnType<typeof 
             <div className="pk-reihe" style={{ marginTop: 8 }}><Pk onClick={() => setSperrFrage(false)}>Abbrechen</Pk><Pk farbe="rot" onClick={() => { a.zugangSetzen(p.id, 'gesperrt', 'Zugang gesperrt'); setSperrFrage(false); zeige('Zugang gesperrt.', 'orange'); }}>Ja, sperren</Pk></div>
           </div>
         )}
-        <span className="klein">Den Code gibt das Büro oder der Polier nur persönlich weiter. Die eigene PIN sieht niemand, auch die Verwaltung nicht.</span>
+        {p.brief && <span className="klein">Brief erstellt am {tmj(p.brief.erstellt)}, Einmal-Passwort gültig bis {tmj(p.brief.gueltigBis)} und nur für die erste Anmeldung.</span>}
+        {p.brief && briefZeigen && (
+          <div className="pc-karte druck-brief" style={{ maxWidth: 520 }}>
+            <BriefInhalt p={p} passwort={p.brief.passwort} erstellt={p.brief.erstellt} gueltigBis={p.brief.gueltigBis} />
+            <div className="pk-reihe nicht-drucken"><Pk farbe="blau" onClick={() => window.print()}>Drucken</Pk></div>
+          </div>
+        )}
+        <span className="klein">Der Mitarbeiter meldet sich einmal mit Personalnummer und Einmal-Passwort an und muss sofort ein eigenes Passwort festlegen. Danach bleibt sein Handy angemeldet. Das eigene Passwort sieht niemand, auch die Verwaltung nicht. Das Einmal-Passwort ist nur sichtbar, bis es benutzt wurde.</span>
       </section>
     </div>
   );

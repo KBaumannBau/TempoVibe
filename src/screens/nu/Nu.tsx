@@ -164,7 +164,7 @@ export function NuMehr() {
   const nav = useNavigate();
   const gruppen = [
     { titel: tx("Hilfe"), punkte: [{ text: tx("Hilfe"), to: '/hilfe' }, { text: tx("Häufige Fragen"), to: '/faq' }, { text: tx("Einführung ansehen"), to: '/intro' }, { text: tx("Datenschutz"), to: '/datenschutz' }] },
-    { titel: tx("Für mich"), punkte: [{ text: tx("Mitteilungen"), to: '/ma/mitteilungen' }, { text: tx("PIN ändern"), to: '/ma/pin' }, { text: tx("Meine Geräte"), to: '/ma/geraete' }] },
+    { titel: tx("Für mich"), punkte: [{ text: tx("Mitteilungen"), to: '/ma/mitteilungen' }, { text: tx("Passwort ändern"), to: '/ma/pin' }, { text: tx("Meine Geräte"), to: '/ma/geraete' }] },
   ];
   return (
     <Seite titel={tx("Mehr")} menue="mehr">

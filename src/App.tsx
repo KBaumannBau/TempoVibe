@@ -32,7 +32,7 @@ function Geschuetzt({ rollen, children }: { rollen?: Rolle[]; children: ReactNod
   const { d, ich } = useDaten();
   if (!ich) return <Navigate to="/" replace />;
   const geraet = d.geraete.find((g) => g.personId === ich.id && g.diesesHandy);
-  if (geraet && !geraet.aktiv) return <Navigate to="/abgemeldet" replace />;
+  if ((geraet && !geraet.aktiv) || ich.zugang === 'gesperrt') return <Navigate to="/abgemeldet" replace />;
   if (rollen && !rollen.includes(ich.rolle)) return <Navigate to={startVon(ich.rolle)} replace />;
   return <>{children}</>;
 }

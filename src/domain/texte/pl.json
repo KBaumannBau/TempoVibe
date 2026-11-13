@@ -33,8 +33,8 @@
    "a": "Na koncie czasu pracy zbierają się twoje godziny: jeśli pracujesz więcej niż plan, godziny się dodają, jeśli mniej, godziny się odejmują. Stan widzisz w „Konto”; żeby wziąć wolne, stuknij tam w „Weź wolne z konta” i złóż wniosek. Latem (kwi–lis) wolne z konta jest możliwe dopiero od 100 h; zimą (gru–mar), dopóki na koncie zostaje 50 h. Godziny powyżej 150 h są wypłacane."
   },
   {
-   "q": "Nie pamiętam PIN-u. Albo mam nowy telefon.",
-   "a": "Nie pamiętasz PIN-u: przy otwieraniu stuknij w „Nie pamiętam PIN-u”. Dostaniesz nowy kod e-mailem i ustawisz nowy PIN. Kod jest ważny 15 minut i tylko raz. Jeśli nie masz własnego adresu e-mail, e-mail trafia do twojego majstra albo do pracownika, do którego jesteś przydzielony(-a); przekaże ci kod osobiście. Nowy albo zgubiony telefon: zadzwoń do biura. Biuro zablokuje stary dostęp i wyśle ci nowe zaproszenie e-mailem."
+   "q": "Nie pamiętam hasła. Albo mam nowy telefon.",
+   "a": "Twój telefon pozostaje zalogowany. Hasło potrzebujesz tylko na nowym telefonie albo po wylogowaniu. Zapomniane hasło: zgłoś się do działu płac albo powiedz majstrowi. Dostaniesz pocztą nowy list z hasłem jednorazowym i ustawisz nim nowe hasło. Nowy telefon: zaloguj się tam nazwą użytkownika i hasłem. Zgubiony telefon: od razu zadzwoń do biura. Biuro wyloguje stary telefon."
   },
   {
    "q": "Jak zmienić język? Gdzie znajdę pomoc?",
@@ -44,17 +44,17 @@
  "hilfe": [
   {
    "id": "anm",
-   "t": "Logowanie, PIN, nowy telefon",
+   "t": "Logowanie, hasło, nowy telefon",
    "p": [
-    "Dostaniesz zaproszenie e-mailem. Stuknij w link. Jest ważny 7 dni. Nie masz własnego adresu e-mail? Wtedy zaproszenie trafia do twojego majstra (Polier) albo do pracownika, do którego jesteś przydzielony(-a). Pokaże ci je na swoim telefonie. Zeskanuj kod QR swoim telefonem. Biuro może też wydrukować zaproszenie. Numer telefonu nie jest potrzebny.",
-    "Wpisz swój adres e-mail. Dostaniesz kod (6 cyfr) e-mailem. Jest ważny 15 minut i tylko raz; po 5 błędnych próbach potrzebujesz nowego. Potem ustaw PIN z 4 cyfr. Nie używaj prostego PIN-u, np. 1234 lub 0000. Nie masz własnego adresu e-mail? Zaznacz „Nie mam własnego adresu e-mail”. Wtedy e-mail trafi do twojego majstra (Polier) albo do pracownika, do którego jesteś przydzielony(-a). Przekaże ci kod osobiście.",
-    "Zamiast PIN-u możesz używać odcisku palca lub rozpoznawania twarzy. To zostaje na twoim telefonie.",
+    "Dostajesz list pocztą. Jest w nim twoja nazwa użytkownika (twój numer osobowy) i hasło jednorazowe. Jest ważne 14 dni i tylko do pierwszego logowania.",
+    "Otwórz aplikację i dotknij „Pierwsze logowanie z listem”. Wpisz nazwę użytkownika i hasło jednorazowe. Po 5 błędnych próbach logowanie jest zablokowane na 15 minut.",
+    "Od razu ustaw własne hasło: co najmniej 8 znaków, z co najmniej jedną literą i jedną cyfrą. Nikomu go nie podawaj, nawet majstrowi. Potem zniszcz list.",
     "Przeczytaj informacje o ochronie danych i o dowodzie tożsamości. Przy każdej zaznacz pole. Potem zezwól na lokalizację opcją „Podczas używania aplikacji”.",
     "Dodaj aplikację do ekranu głównego. Tylko tak może wysyłać ci powiadomienia. Jeśli telefon zapyta, wybierz „Zezwól”.",
-    "Aplikacja blokuje się po 5 minutach bez używania. Nie pamiętasz PIN-u? Stuknij w „Nie pamiętam PIN-u”. Dostaniesz nowy kod e-mailem i ustawisz nowy PIN.",
-    "Nowy telefon albo zgubiony telefon? Zadzwoń do biura. Biuro zablokuje stary dostęp i wyśle nowe zaproszenie e-mailem."
+    "Potem twój telefon pozostaje zalogowany. Nie musisz logować się od nowa przy każdym otwarciu aplikacji. W „Więcej” możesz zmienić hasło i wylogować się na tym telefonie.",
+    "Zapomniane hasło? Dział płac wyśle ci nowy list. Nowy telefon? Zaloguj się tam nazwą użytkownika i hasłem. Zgubiony telefon? Od razu zadzwoń do biura. Biuro wyloguje stary telefon."
    ],
-   "k": "logowanie hasło kod qr e-mail mail majster odcisk palca zablokowany zgubiony zaproszenie rejestracja"
+   "k": "logowanie hasło kod qr e-mail mail majster odcisk palca zablokowany zgubiony zaproszenie rejestracja list hasło jednorazowe nazwa użytkownika numer osobowy wylogowanie"
   },
   {
    "id": "zeit",

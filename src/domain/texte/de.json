@@ -33,8 +33,8 @@
    "a": "Auf dem Arbeitszeitkonto sammeln sich deine Stunden: Arbeitest du mehr als dein Soll, kommen Stunden dazu, arbeitest du weniger, gehen Stunden ab. Deinen Stand siehst du unter „Konto“; zum Frei nehmen tippe dort auf „Frei nehmen vom Konto“ und stelle den Antrag. Im Sommer (Apr–Nov) geht Frei vom Konto erst ab 100 h; im Winter (Dez–Mär) geht es, solange 50 h auf dem Konto bleiben. Stunden über 150 h werden ausbezahlt."
   },
   {
-   "q": "Ich habe meine PIN vergessen. Oder ich habe ein neues Handy.",
-   "a": "PIN vergessen: Tippe beim Öffnen auf „PIN vergessen“. Du bekommst einen neuen Code per E-Mail und legst eine neue PIN fest. Der Code gilt 15 Minuten und nur einmal. Hast du keine eigene E-Mail-Adresse, geht die E-Mail an deinen Polier oder an den Mitarbeiter, bei dem du eingeteilt bist; er gibt dir den Code persönlich weiter. Neues Handy oder Handy verloren: Ruf im Büro an. Das Büro sperrt den alten Zugang und schickt dir eine neue Einladung per E-Mail."
+   "q": "Ich habe mein Passwort vergessen. Oder ich habe ein neues Handy.",
+   "a": "Dein Handy bleibt angemeldet. Das Passwort brauchst du nur auf einem neuen Handy oder nachdem du dich abgemeldet hast. Passwort vergessen: Melde dich bei der Lohnbuchhaltung oder sag deinem Polier Bescheid. Du bekommst einen neuen Brief mit Einmal-Passwort per Post und legst damit ein neues Passwort fest. Neues Handy: Melde dich dort mit Benutzername und Passwort an. Handy verloren: Ruf sofort im Büro an. Das Büro meldet das alte Handy ab."
   },
   {
    "q": "Wie ändere ich die Sprache? Wo finde ich Hilfe?",
@@ -44,17 +44,17 @@
  "hilfe": [
   {
    "id": "anm",
-   "t": "Anmeldung, PIN, neues Handy",
+   "t": "Anmeldung, Passwort, neues Handy",
    "p": [
-    "Du bekommst eine Einladung per E-Mail. Tippe auf den Link. Er gilt 7 Tage. Hast du keine eigene E-Mail-Adresse? Dann geht die Einladung an deinen Polier oder an den Mitarbeiter, bei dem du eingeteilt bist. Er zeigt sie dir auf seinem Handy. Scanne den QR-Code mit deinem Handy. Das Büro kann die Einladung auch ausdrucken. Eine Handynummer brauchst du nicht.",
-    "Gib deine E-Mail-Adresse ein. Du bekommst einen Code per E-Mail (6 Ziffern). Er gilt 15 Minuten und nur einmal; nach 5 falschen Eingaben brauchst du einen neuen. Lege dann eine PIN mit 4 Ziffern fest. Nimm keine einfache PIN wie 1234 oder 0000. Hast du keine eigene E-Mail-Adresse? Setze den Haken bei „Ich habe keine eigene E-Mail-Adresse“. Dann geht die E-Mail an deinen Polier oder an den Mitarbeiter, bei dem du eingeteilt bist. Er gibt dir den Code persönlich weiter.",
-    "Statt der PIN kannst du auch Fingerabdruck oder Gesichtserkennung nutzen. Das bleibt auf deinem Handy.",
+    "Du bekommst einen Brief per Post. Darin stehen dein Benutzername (deine Personalnummer) und ein Einmal-Passwort. Es gilt 14 Tage und nur für die erste Anmeldung.",
+    "Öffne die App und tippe auf „Erste Anmeldung mit Brief“. Trage Benutzername und Einmal-Passwort ein. Nach 5 falschen Eingaben ist die Anmeldung 15 Minuten gesperrt.",
+    "Lege sofort ein eigenes Passwort fest: mindestens 8 Zeichen, mit mindestens einem Buchstaben und einer Ziffer. Gib es niemandem weiter, auch nicht dem Polier. Vernichte danach den Brief.",
     "Lies die Hinweise zu Datenschutz und Ausweis. Setze bei jedem den Haken. Erlaube dann den Standort mit „Beim Verwenden der App“.",
     "Lege die App auf den Startbildschirm. Nur so kann sie dir Benachrichtigungen schicken. Fragt dein Handy danach, wähle „Erlauben“.",
-    "Die App sperrt sich nach 5 Minuten ohne Benutzung. PIN vergessen? Tippe auf „PIN vergessen“. Du bekommst einen neuen Code per E-Mail und legst eine neue PIN fest.",
-    "Neues Handy oder Handy verloren? Ruf im Büro an. Das Büro sperrt den alten Zugang und schickt eine neue Einladung per E-Mail."
+    "Danach bleibt dein Handy angemeldet. Du musst dich beim Öffnen der App nicht neu anmelden. Unter „Mehr“ kannst du dein Passwort ändern und dich auf diesem Handy abmelden.",
+    "Passwort vergessen? Die Lohnbuchhaltung schickt dir einen neuen Brief. Neues Handy? Melde dich dort mit Benutzername und Passwort an. Handy verloren? Ruf sofort im Büro an. Das Büro meldet das alte Handy ab."
    ],
-   "k": "login passwort code qr email e-mail polier fingerabdruck gesperrt verloren einladung registrierung anmelden"
+   "k": "login passwort code qr email e-mail polier fingerabdruck gesperrt verloren einladung registrierung anmelden brief einmal-passwort benutzername personalnummer abmelden"
   },
   {
    "id": "zeit",

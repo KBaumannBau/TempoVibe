@@ -33,8 +33,8 @@
    "a": "Your hours collect on the working-time account: if you work more than your target, hours are added; if you work less, hours are taken off. You see your balance under \"Account\"; to take time off, tap \"Take time off from account\" there and make the request. In summer (Apr–Nov) this is only possible from 100 h; in winter (Dec–Mar) as long as 50 h stay on the account. Hours above 150 h are paid out."
   },
   {
-   "q": "I forgot my PIN. Or I have a new phone.",
-   "a": "Forgot PIN: tap \"Forgot PIN\" when you open the app. You get a new code by email and set a new PIN. The code is valid for 15 minutes and can be used only once. If you do not have your own email address, the email goes to your site foreman or to the employee you are assigned to; he gives you the code in person. New or lost phone: call the office. The office blocks the old access and sends you a new invitation by email."
+   "q": "I forgot my password. Or I have a new phone.",
+   "a": "Your phone stays signed in. You only need the password on a new phone or after you have signed out. Forgot your password: contact payroll or tell your site foreman. You will get a new letter with a one-time password by post and use it to set a new password. New phone: sign in there with your user name and password. Lost phone: call the office immediately. The office signs out the old phone."
   },
   {
    "q": "How do I change the language? Where do I find help?",
@@ -44,17 +44,17 @@
  "hilfe": [
   {
    "id": "anm",
-   "t": "Sign-in, PIN, new phone",
+   "t": "Sign-in, password, new phone",
    "p": [
-    "You will get an invitation by email. Tap the link. It is valid for 7 days. No email address of your own? Then the invitation goes to your site foreman (Polier) or to the employee you are assigned to. He shows it to you on his phone. Scan the QR code with your phone. The office can also print the invitation. You do not need a phone number.",
-    "Enter your email address. You get a code (6 digits) by email. It is valid for 15 minutes and can be used only once; after 5 wrong entries you need a new one. Then set a PIN with 4 digits. Do not use a simple PIN like 1234 or 0000. No email address of your own? Tick \"I do not have my own email address\". Then the email goes to your site foreman (Polier) or to the employee you are assigned to. He gives you the code in person.",
-    "Instead of the PIN you can use your fingerprint or face recognition. This stays on your phone.",
+    "You receive a letter by post. It contains your user name (your personnel number) and a one-time password. It is valid for 14 days and only for the first sign-in.",
+    "Open the app and tap “First sign-in with letter”. Enter your user name and one-time password. After 5 wrong entries, sign-in is blocked for 15 minutes.",
+    "Set your own password right away: at least 8 characters, with at least one letter and one digit. Do not give it to anyone, not even the site foreman. Then destroy the letter.",
     "Read the notes on privacy and ID. Tick the box for each one. Then allow location with \"While Using the App\".",
     "Put the app on your home screen. This is the only way it can send you notifications. If your phone asks, choose \"Allow\".",
-    "The app locks after 5 minutes without use. Forgot your PIN? Tap \"Forgot PIN\". You get a new code by email and set a new PIN.",
-    "New phone or lost phone? Call the office. The office blocks the old access and sends a new invitation by email."
+    "After that your phone stays signed in. You do not have to sign in again when you open the app. Under “More” you can change your password and sign out on this phone.",
+    "Forgot your password? Payroll sends you a new letter. New phone? Sign in there with your user name and password. Lost phone? Call the office immediately. The office signs out the old phone."
    ],
-   "k": "login password code qr email mail foreman fingerprint locked lost invitation registration"
+   "k": "login password code qr email mail foreman fingerprint locked lost invitation registration letter one-time password user name personnel number sign out"
   },
   {
    "id": "zeit",

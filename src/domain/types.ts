@@ -33,6 +33,10 @@ export interface Person {
   email?: string;
   handy?: string;
   zugang: Zugang;
+  /** Registrierungsbrief per Post mit Einmal-Passwort (echt: nur als Hash, gilt 14 Tage und nur einmal) */
+  brief?: { passwort: string; erstellt: string; gueltigBis: string };
+  /** Demo: eigenes Passwort für die App (echt: nur als Hash auf dem Server). Ohne Eintrag gilt das Demo-Passwort. */
+  passwort?: string;
   /** nur Geburtsmonat/-jahr (MM/JJJJ), kein Name */
   kinder: string[];
   alleinerziehend?: boolean;

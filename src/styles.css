@@ -362,3 +362,11 @@ table.tabelle .r, table.tabelle th.r { text-align: right; font-variant-numeric: 
 .dispo-arbeit > .dispo-pool { position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow-y: auto; }
 .dispo-arbeit > .dispo-pool .reiter button { padding: 0 8px; font-size: 13px; min-height: 32px; }
 @media (max-width: 1200px) { .dispo-arbeit { grid-template-columns: 1fr; } .dispo-arbeit > .dispo-pool { position: static; max-height: none; } }
+
+/* Registrierungsbrief drucken: nur den Brief aufs Papier */
+@media print {
+  body * { visibility: hidden; }
+  .druck-brief, .druck-brief * { visibility: visible; }
+  .druck-brief { position: absolute; left: 0; top: 0; border: 0 !important; box-shadow: none !important; }
+  .druck-brief .nicht-drucken { display: none; }
+}

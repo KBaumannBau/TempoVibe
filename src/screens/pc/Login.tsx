@@ -49,7 +49,7 @@ export function PcLogin() {
           <strong style={{ color: '#fff' }}>Nach der Anmeldung öffnet sich die Seite deiner Rolle.</strong>
           {leute.map((p) => <span key={p.id} style={{ borderTop: '1px solid #2c3e4e', paddingTop: 8 }}><strong style={{ color: '#fff' }}>{rollenText(p.rolle)}</strong> · {voll(p)}</span>)}
         </div>
-        <span style={{ marginTop: 'auto', fontSize: 14, color: '#a6b3be' }}>Gewerbliche Mitarbeiter melden sich nicht hier an, sondern in der App auf dem Handy (Einladung und Code per E-Mail, PIN).</span>
+        <span style={{ marginTop: 'auto', fontSize: 14, color: '#a6b3be' }}>Gewerbliche Mitarbeiter melden sich nicht hier an, sondern in der App auf dem Handy (Registrierungsbrief mit Einmal-Passwort per Post, danach bleibt das Handy angemeldet).</span>
       </aside>
       <main>
         <section className="pc-karte" aria-labelledby="lg-h">

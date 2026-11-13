@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { Kopf, startVon } from '../components/Rahmen';
 import { Weiter } from '../components/Teile';
 import { useDaten } from '../domain/store';
@@ -11,11 +11,13 @@ const ROLLEN: Record<string, string> = {
 
 /**
  * Demo-Anmeldung: Person wählen. In der echten App meldet man sich einmal
- * über den Einladungslink an und öffnet die App danach mit der eigenen PIN.
+ * mit dem Registrierungsbrief an; danach bleibt das Handy angemeldet.
  */
 export function Anmeldung() {
-  const { d, anmelden, zuruecksetzen } = useDaten();
+  const { d, ich, gemerkt, anmelden, zuruecksetzen } = useDaten();
   const nav = useNavigate();
+  // gemerktes Handy: direkt in die App, ohne neue Anmeldung
+  if (ich && gemerkt) return <Navigate to={startVon(ich.rolle)} replace />;
   const auswahl = ['stefan', 'kern', 'tobias', 'keller', 'buerger', 'horvat'].map((id) => d.personen.find((p) => p.id === id)!).filter(Boolean);
   return (
     <div className="screen">
@@ -39,15 +41,15 @@ export function Anmeldung() {
           <span className="fett">Weitere Bereiche</span>
           <Link to="/pc" className="knopf blau mittel">Am PC anmelden (Büro, Leitung, Einkauf, Admin)</Link>
           <div className="zwei">
-            <Link to="/registrierung" className="knopf rahmen mittel">Einladung und Registrierung</Link>
-            <Link to="/sperre" className="knopf rahmen mittel">App öffnen mit PIN</Link>
+            <Link to="/registrierung" className="knopf rahmen mittel">Erste Anmeldung mit Brief</Link>
+            <Link to="/sperre" className="knopf rahmen mittel">Anmelden mit Passwort</Link>
           </div>
           <div className="pk-reihe"><Link className="link" to="/intro">Einführung</Link><Link className="link" to="/hilfe">Hilfe</Link><Link className="link" to="/faq">Häufige Fragen</Link><Link className="link" to="/datenschutz">Datenschutz</Link></div>
         </section>
         <section className="hinweis blau" aria-label="So funktioniert die Demo">
           <strong>So funktioniert die Demo:</strong> Alle Daten sind erfunden und liegen nur in diesem Browser. Stempelt Stefan einen Tag und sendet ihn, erscheint er bei Polier Martin Keller und danach bei Bauleiter Willibald Bürger. Oben rechts im Kopf kommst du über „?“ zu „Mehr“ und dort zum Personenwechsel.
         </section>
-        <p className="text">Demo-PIN für alle: <strong>1234</strong>. Florin Popescu (ohne Handy) bestätigt mit <strong>2468</strong>.</p>
+        <p className="text">Demo-Passwort für alle in der App: <strong>Baustelle-2026</strong> (Benutzername = Personalnummer, z. B. 1001). Florin Popescu (ohne Handy) bestätigt am Handy des Poliers mit der PIN <strong>2468</strong>.</p>
         <button type="button" className="link" onClick={() => { if (confirm('Alle Demo-Eingaben löschen und die Beispieldaten neu laden?')) zuruecksetzen(); }}>Demo zurücksetzen</button>
       </main>
     </div>

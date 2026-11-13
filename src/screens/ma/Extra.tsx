@@ -344,7 +344,7 @@ export function Datenschutz() {
 
 const INTRO_MA = [
   [tx("Willkommen"), tx("Mit dieser App schreibst du deine Arbeitszeit auf. Wir zeigen dir kurz, wie es geht.")],
-  [tx("Anmelden mit PIN"), tx("Du bekommst eine Einladung per E-Mail. Tippe auf den Link, gib deine E-Mail-Adresse ein und dann den Code aus der E-Mail. Lege dann eine PIN mit 4 Ziffern fest.")],
+  [tx("Anmelden"), tx("Du bekommst einen Brief mit Benutzername und Einmal-Passwort per Post. Damit meldest du dich einmal an und legst sofort ein eigenes Passwort fest. Danach bleibt dein Handy angemeldet.")],
   [tx("Arbeitsbeginn und Arbeitsende tippen"), tx("Tippe morgens auf „Arbeitsbeginn“ und abends auf „Arbeitsende“. Die App schlägt deine Baustelle vor. Stimmt sie nicht, tippe auf „Andere Baustelle wählen“.")],
   [tx("Pause und Baustellenwechsel"), tx("Tippe auf „Pause“, wenn deine Pause beginnt, und danach auf „Weiter arbeiten“. Fährst du zu einer anderen Baustelle, tippe bei der Abfahrt auf „Baustelle wechseln“.")],
   [tx("Dein Standort"), tx("Die App vergleicht deinen Standort nur in dem Moment, in dem du tippst. Die genaue Position wird nicht gespeichert. Gespeichert wird nur: „passt“ oder „weicht ab“.")],
