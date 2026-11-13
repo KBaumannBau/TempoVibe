@@ -379,13 +379,12 @@ export function erzeugeDemo(heuteDate = new Date()): Daten {
     rollenJeBaustelle: [
       { personId: 'buerger', baustelleId: 'b25050', rolle: 'bauleitung' }, { personId: 'buerger', baustelleId: 'b25062', rolle: 'bauleitung' }, { personId: 'buerger', baustelleId: 'b25075', rolle: 'bauleitung' },
       { personId: 'keller', baustelleId: 'b25050', rolle: 'polier' }, { personId: 'keller', baustelleId: 'b25062', rolle: 'polier' }, { personId: 'rieger', baustelleId: 'b25075', rolle: 'polier' },
-      { personId: 'kern', baustelleId: 'b25050', rolle: 'vorarbeiter' },
     ],
     mittellohn: { [monatPlus(monat, -3)]: 62.8, [monatPlus(monat, -2)]: 63.1, [vormonat]: 63.5, [monat]: 63.5 },
     vertretung: { aktiv: false },
     techLog: [
       { zeit: isoAus(heute, '07:41'), wer: 'Anna Weber', was: 'Anmeldung am PC' },
-      { zeit: isoAus(g, '16:02'), wer: 'Thomas Brunner', was: 'Rolle „Vorarbeiter mit Polierrolle“ auf 25050 an Markus Kern vergeben' },
+      { zeit: isoAus(g, '16:02'), wer: 'Thomas Brunner', was: 'Rolle „Vorarbeiter“ an Markus Kern vergeben' },
       { zeit: isoAus(g, '17:10'), wer: 'Lohnbuchhaltung', was: 'Zugang von Jonas Wimmer gesperrt (Handy verloren)' },
       { zeit: isoAus(vg, '08:15'), wer: 'Thomas Brunner', was: 'Einladung an Marko Horvat (Bau-Service Kovač GmbH) gesendet' },
     ],

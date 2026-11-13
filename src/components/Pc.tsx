@@ -3,7 +3,7 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDaten } from '../domain/store';
-import { tageBeiBauleitung, tageBeimPolier, voll } from '../domain/sel';
+import { appRolle, tageBeiBauleitung, tageBeimPolier, voll } from '../domain/sel';
 import type { Daten, Person, Rolle } from '../domain/types';
 import { Logo } from './Logo';
 
@@ -62,7 +62,8 @@ export function PcSeite({ titel, pfad, rechts, children }: { titel: string; pfad
     window.scrollTo(0, 0);
   }, [titel]);
   if (!ich) return null;
-  const punkte = PC_NAV.filter((p) => p.rollen.includes(ich.rolle));
+  const rolle = appRolle(d, ich);
+  const punkte = PC_NAV.filter((p) => p.rollen.includes(rolle));
   return (
     <div className="pc">
       <nav className="pc-nav" aria-label="Bereiche">
@@ -76,8 +77,8 @@ export function PcSeite({ titel, pfad, rechts, children }: { titel: string; pfad
           );
         })}
         <div className="wer">
-          <span><strong style={{ color: '#fff' }}>{voll(ich)}</strong><br />{rollenText(ich.rolle)}</span>
-          {(ich.rolle === 'polier' || ich.rolle === 'bauleitung') && <button type="button" onClick={() => nav(ich.rolle === 'polier' ? '/p/heute' : '/b/heute')}>Auf dem Handy ansehen</button>}
+          <span><strong style={{ color: '#fff' }}>{voll(ich)}</strong><br />{rollenText(ich.rolle)}{rolle !== ich.rolle ? ' (als Polier)' : ''}</span>
+          {(rolle === 'polier' || rolle === 'bauleitung') && <button type="button" onClick={() => nav(rolle === 'polier' ? '/p/heute' : '/b/heute')}>Auf dem Handy ansehen</button>}
           <button type="button" onClick={() => { abmelden(); nav('/pc'); }}>Abmelden</button>
         </div>
       </nav>

@@ -1,7 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useDaten } from '../domain/store';
-import { tageBeiBauleitung, tageBeimPolier } from '../domain/sel';
+import { appRolle, tageBeiBauleitung, tageBeimPolier } from '../domain/sel';
 import type { Rolle } from '../domain/types';
 import { Logo } from './Logo';
 import { SPRACHEN, nurDeutsch, sprache, spracheAbgleichen, spracheWaehlen, tx, type Sprache } from '../i18n';
@@ -55,7 +55,7 @@ export function mehrVon(rolle: Rolle) {
 }
 
 export function Kopf() {
-  const { ich, a } = useDaten();
+  const { d, ich, a } = useDaten();
   const [offen, setOffen] = useState(false);
   // Gespeicherte Sprache der Person gilt auch auf diesem Gerät
   useEffect(() => { spracheAbgleichen(ich?.sprache); }, [ich?.sprache]);
@@ -66,7 +66,7 @@ export function Kopf() {
   };
   return (
     <header className="kopf">
-      <Link to={ich ? startVon(ich.rolle) : '/'} aria-label={tx('Startseite')} style={{ color: '#fff' }}><Logo /></Link>
+      <Link to={ich ? startVon(appRolle(d, ich)) : '/'} aria-label={tx('Startseite')} style={{ color: '#fff' }}><Logo /></Link>
       <div className="kopf-rechts">
         {!nurDeutsch() && <button type="button" className="kopf-knopf" aria-label={`${tx('Sprache wählen')}: ${aktuell.name}`} aria-expanded={offen} onClick={() => setOffen(!offen)}>
           <IWelt size={20} />{sprache.toUpperCase()}
@@ -99,7 +99,7 @@ function Menue({ aktiv }: { aktiv?: MenuePunkt }) {
   const offenB = tageBeiBauleitung(d, ich.id).reduce((s, g) => s + g.tage.length, 0);
   // Seiten der Mitarbeiter (z. B. Stempeln, PIN) zeigen für Polier und Bauleitung deren eigenes Menü
   let ziel = aktiv;
-  const liste = punkte(ich.rolle, offenP, offenB);
+  const liste = punkte(appRolle(d, ich), offenP, offenB);
   if (ziel && !liste.some((p) => p.key === ziel)) ziel = ziel === 'stempeln' ? 'heute' : 'mehr';
   return (
     <nav className="menue" aria-label={tx("Hauptmenü")}>

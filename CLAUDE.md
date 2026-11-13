@@ -68,6 +68,12 @@ Fahrtkosten, Verpflegung und Wegezeit trägt der Mitarbeiter nicht ein. Die Lohn
 - Wer Zeiten nachträgt, gibt sie nicht frei. Der Mitarbeiter muss nachgetragene Zeiten bestätigen.
 - Bei einem Baustellenwechsel gibt jeder Polier die Stunden seiner eigenen Baustelle frei.
 
+**Vorarbeiter.** Es gibt keine eigene Vorarbeiter-Oberfläche.
+
+- Am PC kann bei einer Baustelle statt eines Poliers ein Vorarbeiter als verantwortlich eingetragen werden (`polierId`), zum Beispiel bei Kleinaufträgen.
+- Dann nutzt er die Polier-Oberfläche und prüft die Stunden dieser Baustelle (`appRolle` in `src/domain/sel.ts`).
+- Für Lohn und Zuschläge gilt weiter seine echte Rolle `vorarbeiter`.
+
 **Anträge.** Urlaub, Frei vom Konto und Arbeitsbefreiung gehen an die Oberbauleitung. Urlaub geht danach noch an die Geschäftsführung.
 
 **Zuschläge.** Die Zuschläge richten sich nach dem BRTV Bau. Jeder Info-Text sagt eindeutig, wann der Zuschlag bezahlt wird und wann nicht.

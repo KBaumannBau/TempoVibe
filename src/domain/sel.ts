@@ -1,6 +1,6 @@
 // Lese-Funktionen auf den Daten. Sie ändern nichts.
 
-import type { Baustelle, Daten, Person, Tag } from './types';
+import type { Baustelle, Daten, Person, Rolle, Tag } from './types';
 import { plusTage, rechneTag, sollFuer, werktag } from './zeit';
 import { geltendeStunden } from './zuschlaege';
 import { tx } from '../i18n';
@@ -14,6 +14,13 @@ export const bsName = (b?: Baustelle) => (b ? `${b.kst} ${b.strasse}` : tx("ohne
 export const bsLang = (b?: Baustelle) => (b ? `${b.kst} - ${b.strasse}, ${b.plzOrt}` : tx("ohne Baustelle"));
 
 export const istPolier = (p: Person) => p.rolle === 'polier';
+/** Vorarbeiter, der auf mindestens einer aktiven Baustelle als Polier eingetragen ist (z. B. Kleinauftrag) */
+export const vorarbeiterAlsPolier = (d: Daten, p: Person) => p.rolle === 'vorarbeiter' && d.baustellen.some((b) => b.polierId === p.id && !b.archiviert);
+/**
+ * Rolle für Oberfläche und Rechte: Ein Vorarbeiter, der eine Baustelle verantwortet, nutzt die Polier-Oberfläche.
+ * Für Lohn und Zuschläge gilt weiter die echte Rolle (p.rolle).
+ */
+export const appRolle = (d: Daten, p: Person): Rolle => (vorarbeiterAlsPolier(d, p) ? 'polier' : p.rolle);
 export const istBauleitung = (p: Person) => p.rolle === 'bauleitung';
 /** Erschwerniszuschläge gibt es nur für gewerbliche Arbeitnehmer, nicht für Poliere */
 export const hatZuschlaege = (p: Person) => p.gruppe === 'gewerblich' && p.rolle !== 'polier';

@@ -6,7 +6,7 @@ import { PcSeite, Pill, Pk, Reiter, h1, useToast, zahlDe } from '../../component
 import { useDaten } from '../../domain/store';
 import { bsLang, nachtragSumme, person, rechnung, voll } from '../../domain/sel';
 import { euro, monatName, monatVon, tmj } from '../../domain/zeit';
-import type { Baustelle, Daten, Kosten4, KostenMonat } from '../../domain/types';
+import type { Baustelle, Daten, Kosten4, KostenMonat, Person } from '../../domain/types';
 
 /** offene Tage auf einer Baustelle (nicht freigegeben oder nicht übernommen) */
 export function offeneTage(d: Daten, b: Baustelle) {
@@ -40,8 +40,9 @@ export function PcBaustellen() {
   const [letzte, setLetzte] = useState<string>();
   const liste = d.baustellen.filter((b) => !b.archiviert && `${b.kst} ${b.strasse} ${b.plzOrt} ${b.massnahme ?? ''}`.toLowerCase().includes(suche.trim().toLowerCase()))
     .sort((x, y) => sort === 'kst' ? y.kst.localeCompare(x.kst) : sort === 'adr' ? x.strasse.localeCompare(y.strasse) : voll(person(d, x.bauleitungId)).localeCompare(voll(person(d, y.bauleitungId))));
-  const poliere = mitarbeiterMit(d, ['polier']);
-  const vorarbeiter = mitarbeiterMit(d, ['vorarbeiter']);
+  // Polier einer Baustelle kann auch ein Vorarbeiter sein (z. B. Kleinauftrag); er bekommt dann die Polier-Oberfläche
+  const poliere = [...mitarbeiterMit(d, ['polier']), ...mitarbeiterMit(d, ['vorarbeiter'])];
+  const polierText = (p: Person) => `${voll(p)}${p.rolle === 'vorarbeiter' ? ' (Vorarbeiter)' : ''}`;
   const bl = mitarbeiterMit(d, ['bauleitung']);
   const fb = frage ? d.baustellen.find((b) => b.id === frage)! : undefined;
   return (
@@ -58,25 +59,23 @@ export function PcBaustellen() {
       <div className="pk-reihe"><input className="pc-in" style={{ minWidth: 280 }} aria-label="Suchen" placeholder="Suchen (Kostenstelle, Adresse, Maßnahme)" value={suche} onChange={(e) => setSuche(e.target.value)} />
         <Reiter label="Sortierung" wert={sort} setWert={setSort} optionen={[{ wert: 'kst', text: 'Kostenstelle' }, { wert: 'adr', text: 'Adresse' }, { wert: 'bl', text: 'Bauleiter' }]} /></div>
       <div className="tab-wrap"><table className="tabelle">
-        <thead><tr><th>Kst.</th><th>Adresse</th><th>Baumaßnahme</th><th>Bauleiter</th><th>Polier</th><th>Vorarbeiter</th><th>Ortung</th><th>Archiv</th></tr></thead>
+        <thead><tr><th>Kst.</th><th>Adresse</th><th>Baumaßnahme</th><th>Bauleiter</th><th>Polier / verantwortlich</th><th>Ortung</th><th>Archiv</th></tr></thead>
         <tbody>
           {liste.map((b) => {
             const offen = offeneTage(d, b);
-            const va = d.rollenJeBaustelle.find((r) => r.baustelleId === b.id && r.rolle === 'vorarbeiter')?.personId;
             return (
               <tr key={b.id}>
                 <td className="mono"><strong>{b.kst}</strong></td>
                 <td>{b.strasse}<br /><span className="klein">{b.plzOrt}</span></td>
                 <td>{b.massnahme ?? '–'}</td>
                 <td><select className="pc-in" aria-label={`Bauleiter ${b.kst}`} value={b.bauleitungId} onChange={(e) => a.baustelleAendern(b.id, { bauleitungId: e.target.value })}>{bl.map((p) => <option key={p.id} value={p.id}>{voll(p)}</option>)}</select></td>
-                <td><select className="pc-in" aria-label={`Polier ${b.kst}`} value={b.polierId ?? ''} onChange={(e) => a.baustelleAendern(b.id, { polierId: e.target.value || undefined })}><option value="">–</option>{poliere.map((p) => <option key={p.id} value={p.id}>{voll(p)}</option>)}</select></td>
-                <td><select className="pc-in" aria-label={`Vorarbeiter ${b.kst}`} value={va ?? ''} onChange={(e) => { if (va) a.rolleJeBaustelle(va, b.id, 'vorarbeiter', false); if (e.target.value) a.rolleJeBaustelle(e.target.value, b.id, 'vorarbeiter', true); }}><option value="">–</option>{[...vorarbeiter, ...mitarbeiterMit(d, ['facharbeiter'])].map((p) => <option key={p.id} value={p.id}>{voll(p)}</option>)}</select></td>
+                <td><select className="pc-in" aria-label={`Polier ${b.kst}`} value={b.polierId ?? ''} onChange={(e) => a.baustelleAendern(b.id, { polierId: e.target.value || undefined })}><option value="">–</option>{poliere.map((p) => <option key={p.id} value={p.id}>{polierText(p)}</option>)}</select></td>
                 <td>{b.ortung ? '✓' : 'ohne'}</td>
                 <td><Pk klein gesperrt={offen > 0} titel={offen ? `${offen} Tage noch offen` : undefined} onClick={() => setFrage(b.id)}>Archivieren</Pk>{offen > 0 && <><br /><span className="klein">{offen} Tage offen · <Link className="link" to="/pc/stunden">Stunden</Link></span></>}</td>
               </tr>
             );
           })}
-          {!liste.length && <tr><td colSpan={8} className="klein">Keine Baustelle gefunden.</td></tr>}
+          {!liste.length && <tr><td colSpan={7} className="klein">Keine Baustelle gefunden.</td></tr>}
         </tbody>
       </table></div>
       <section className="pc-karte">
@@ -110,7 +109,7 @@ function Anlegen({ onFertig }: { onFertig: (t?: string) => void }) {
       <div className="pc-formular">
         {feld('kst', 'Kostenstelle', { inputMode: 'numeric' })}{feld('str', 'Straße und Hausnummer')}{feld('plz', 'PLZ', { inputMode: 'numeric' })}{feld('ort', 'Ort')}
         <label className="pc-feld"><span>Bauleiter</span><select value={f.bl} onChange={(e) => set('bl', e.target.value)}><option value="">– bitte wählen –</option>{mitarbeiterMit(d, ['bauleitung']).map((p) => <option key={p.id} value={p.id}>{voll(p)}</option>)}</select>{versucht && fehler.bl && <span className="klein" style={{ color: 'var(--rot-text)' }}>{fehler.bl}</span>}</label>
-        <label className="pc-feld"><span>Polier (freiwillig)</span><select value={f.polier} onChange={(e) => set('polier', e.target.value)}><option value="">–</option>{mitarbeiterMit(d, ['polier']).map((p) => <option key={p.id} value={p.id}>{voll(p)}</option>)}</select></label>
+        <label className="pc-feld"><span>Polier oder verantwortlicher Vorarbeiter (freiwillig)</span><select value={f.polier} onChange={(e) => set('polier', e.target.value)}><option value="">–</option>{[...mitarbeiterMit(d, ['polier']), ...mitarbeiterMit(d, ['vorarbeiter'])].map((p) => <option key={p.id} value={p.id}>{voll(p)}{p.rolle === 'vorarbeiter' ? ' (Vorarbeiter)' : ''}</option>)}</select></label>
         <label className="pc-feld"><span>Ortung</span><select value={f.ortung ? 'ja' : 'nein'} onChange={(e) => set('ortung', e.target.value === 'ja')}><option value="ja">ja, über die Adresse</option><option value="nein">ohne festen Ort</option></select></label>
         <label className="pc-feld" style={{ gridColumn: '1 / -1' }}><span>Baumaßnahme (freiwillig)</span><input value={f.m} onChange={(e) => set('m', e.target.value)} /></label>
       </div>

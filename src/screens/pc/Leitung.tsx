@@ -180,7 +180,7 @@ export function PcAdmin() {
           {jeBs.length ? jeBs.map((x, i) => <div key={i} className="pk-reihe" style={{ justifyContent: 'space-between' }}><span>{x.r} · {bsName(x.b)}</span>{x.fest ? <span className="klein">aus der Baustellenliste</span> : <Pk klein onClick={() => a.rolleJeBaustelle(p.id, x.b.id, x.roh!, false)}>Entfernen</Pk>}</div>) : <span className="klein">Keine Rolle je Baustelle.</span>}
           <div className="pk-reihe">
             <select className="pc-in" aria-label="Baustelle" value={rb.b} onChange={(e) => setRb({ ...rb, b: e.target.value })}><option value="">Baustelle</option>{d.baustellen.filter((b) => !b.archiviert).map((b) => <option key={b.id} value={b.id}>{bsName(b)}</option>)}</select>
-            <select className="pc-in" aria-label="Rolle" value={rb.r} onChange={(e) => setRb({ ...rb, r: e.target.value as typeof rb.r })}><option value="bauleitung">Bauleitung</option><option value="polier">Polier</option><option value="vorarbeiter">Vorarbeiter mit Polierrolle</option></select>
+            <select className="pc-in" aria-label="Rolle" value={rb.r} onChange={(e) => setRb({ ...rb, r: e.target.value as typeof rb.r })}><option value="bauleitung">Bauleitung</option><option value="polier">Polier</option></select>
             <Pk gesperrt={!rb.b} onClick={() => { a.rolleJeBaustelle(p.id, rb.b, rb.r, true); setRb({ ...rb, b: '' }); zeige('Rolle je Baustelle hinzugefügt.'); }}>Rolle je Baustelle hinzufügen</Pk>
           </div>
           <div className="pk-reihe">

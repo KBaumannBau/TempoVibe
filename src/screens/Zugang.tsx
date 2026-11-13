@@ -9,6 +9,7 @@ import { useDaten } from '../domain/store';
 import { plusTage, tmj } from '../domain/zeit';
 import { BRIEF_TAGE, DEMO_EINMAL, DEMO_PASSWORT, einmalPasst, passwortFehler, passwortPasst } from '../domain/zugang';
 import type { Person } from '../domain/types';
+import { appRolle } from '../domain/sel';
 import { tx } from '../i18n';
 
 const SCHRITTE = [tx("Erste Anmeldung"), tx("Eigenes Passwort"), tx("Datenschutz"), tx("Ausweis"), tx("Standort"), tx("Fertig")];
@@ -176,7 +177,7 @@ export function Registrierung() {
         <p className="text">{tx("Dein Passwort brauchst du nur auf einem neuen Handy oder wenn du dich abgemeldet hast.")}</p>
         <Fueller />
         <Knopf farbe="gruen" onClick={() => fertig('/intro')}>{tx("Einführung ansehen")}</Knopf>
-        <Knopf farbe="rahmen" onClick={() => fertig(startVon(p.rolle))}>{tx("Gleich loslegen")}</Knopf>
+        <Knopf farbe="rahmen" onClick={() => fertig(startVon(appRolle(d, p)))}>{tx("Gleich loslegen")}</Knopf>
       </>}
     </Seite>
   );
@@ -191,14 +192,14 @@ export function Sperre() {
   const [fehler, setFehler] = useState(0);
   const [meldung, setMeldung] = useState('');
   const [vergessen, setVergessen] = useState(false);
-  if (ich && gemerkt) return <Navigate to={startVon(ich.rolle)} replace />;
+  if (ich && gemerkt) return <Navigate to={startVon(appRolle(d, ich))} replace />;
   const los = () => {
     const x = d.personen.find((q) => q.persNr.toLowerCase() === benutzer.trim().toLowerCase() && q.nutztApp);
     if (x && x.zugang === 'gesperrt') return setMeldung(tx("Dein Zugang ist gesperrt. Bitte melde dich in der Lohnbuchhaltung."));
     if (x && x.brief) return setMeldung(tx("Du hast einen Brief mit Einmal-Passwort. Bitte tippe unten auf „Erste Anmeldung mit Brief“."));
     if (!x || !passwortPasst(x, pw)) { const n = fehler + 1; setFehler(n); return setMeldung(n >= 5 ? tx("Zu viele falsche Eingaben. Die Anmeldung ist für 15 Minuten gesperrt.") : tx("Benutzername oder Passwort stimmt nicht. Noch {0} Versuche.", 5 - n)); }
     anmelden(x.id, true);
-    nav(startVon(x.rolle));
+    nav(startVon(appRolle(d, x)));
   };
   return (
     <Seite titel={tx("Anmelden")} ohneMenue>

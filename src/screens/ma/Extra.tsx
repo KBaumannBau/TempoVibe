@@ -6,7 +6,8 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Fueller, Seite, Zurueck, mehrVon, startVon } from '../../components/Rahmen';
 import { Auswahl, Erledigt, Knopf } from '../../components/Teile';
 import { useDaten, useIch } from '../../domain/store';
-import { bsName, einteilungAm, kontoStand, person, urlaubRest, voll } from '../../domain/sel';
+import { appRolle, bsName, einteilungAm, kontoStand, person, urlaubRest, voll } from '../../domain/sel';
+import type { Daten, Person } from '../../domain/types';
 import { arbeitstage, plusTage, stunden, tm, tmj, uhr, werktag, wtKurz } from '../../domain/zeit';
 import tDe from '../../domain/texte/de.json';
 import tPl from '../../domain/texte/pl.json';
@@ -28,7 +29,7 @@ export function Mitteilungen() {
   const liste = d.mitteilungen.filter((m) => m.personId === ich.id).sort((x, y) => y.zeit.localeCompare(x.zeit));
   return (
     <Seite titel={tx("Mitteilungen")} menue="mehr">
-      <Zurueck to={mehrVon(ich.rolle)}>{tx("Mehr")}</Zurueck>
+      <Zurueck to={mehrVon(appRolle(d, ich))}>{tx("Mehr")}</Zurueck>
       <h1 className="h1">{tx("Mitteilungen")}</h1>
       <ul className="liste">
         {liste.map((m) => (
@@ -260,7 +261,7 @@ export function AusweisSichtung() {
   const abgelaufen = !!bis && bis < d.heute;
   return (
     <Seite titel={tx("Ausweis eintragen")} menue="mehr">
-      <Zurueck to={mehrVon(ich.rolle)}>{tx("Mehr")}</Zurueck>
+      <Zurueck to={mehrVon(appRolle(d, ich))}>{tx("Mehr")}</Zurueck>
       <h1 className="h1">{tx("Ausweis eintragen")}</h1>
       <p className="text">{tx("Lass dir den Ausweis im Original zeigen. Trag nur die Daten unten ein. Es wird kein Foto, keine Kopie und keine Ausweisnummer gespeichert.")}</p>
       {fertig ? <><Erledigt titel={tx("Gespeichert")}>{fertig}</Erledigt><Knopf farbe="rahmen" onClick={() => { setFertig(undefined); setPid(undefined); setOk(false); setBis(''); }}>{tx("Weitere Person")}</Knopf></> : <>
@@ -285,18 +286,18 @@ export function AusweisSichtung() {
 
 // ------------------------------------------------------------------ Hilfe, Häufige Fragen, Datenschutz
 
-function zurueckZiel(rolle?: string) {
-  return rolle ? mehrVon(rolle as Parameters<typeof mehrVon>[0]) : '/';
+function zurueckZiel(d: Daten, ich?: Person) {
+  return ich ? mehrVon(appRolle(d, ich)) : '/';
 }
 
 export function Hilfe() {
-  const { ich } = useDaten();
+  const { d, ich } = useDaten();
   const [suche, setSuche] = useState('');
   const q = suche.trim().toLowerCase();
   const liste = texte.hilfe.filter((h) => !q || `${h.t} ${h.p.join(' ')} ${h.k}`.toLowerCase().includes(q));
   return (
     <Seite titel={tx("Hilfe")} menue="mehr">
-      <Zurueck to={zurueckZiel(ich?.rolle)}>{ich ? tx("Mehr") : tx("Anmeldung")}</Zurueck>
+      <Zurueck to={zurueckZiel(d, ich)}>{ich ? tx("Mehr") : tx("Anmeldung")}</Zurueck>
       <h1 className="h1">{tx("Hilfe")}</h1>
       <div className="feld"><label htmlFor="hs">{tx("Suchen")}</label><input id="hs" className="eingabe" type="search" value={suche} onChange={(e) => setSuche(e.target.value)} placeholder={tx("z. B. PIN, Pause, Urlaub")} /></div>
       <div className="pk-reihe"><Link className="link" to="/faq">{tx("Häufige Fragen")}</Link><Link className="link" to="/intro">{tx("Einführung ansehen")}</Link><Link className="link" to="/datenschutz">{tx("Datenschutz")}</Link></div>
@@ -309,10 +310,10 @@ export function Hilfe() {
 }
 
 export function Faq() {
-  const { ich } = useDaten();
+  const { d, ich } = useDaten();
   return (
     <Seite titel={tx("Häufige Fragen")} menue="mehr">
-      <Zurueck to={zurueckZiel(ich?.rolle)}>{ich ? tx("Mehr") : tx("Anmeldung")}</Zurueck>
+      <Zurueck to={zurueckZiel(d, ich)}>{ich ? tx("Mehr") : tx("Anmeldung")}</Zurueck>
       <h1 className="h1">{tx("Häufige Fragen")}</h1>
       {texte.faq.map((f, i) => <details key={i} className="faq"><summary>{f.q}</summary><p className="text">{f.a}</p></details>)}
       <div className="pk-reihe"><Link className="link" to="/hilfe">{tx("Zur Hilfe")}</Link><Link className="link" to="/intro">{tx("Einführung ansehen")}</Link></div>
@@ -321,12 +322,12 @@ export function Faq() {
 }
 
 export function Datenschutz() {
-  const { ich } = useDaten();
+  const { d, ich } = useDaten();
   const [alle, setAlle] = useState(false);
   const ds = texte.datenschutz;
   return (
     <Seite titel={tx("Datenschutzhinweise")} menue="mehr">
-      <Zurueck to={zurueckZiel(ich?.rolle)}>{ich ? tx("Mehr") : tx("Anmeldung")}</Zurueck>
+      <Zurueck to={zurueckZiel(d, ich)}>{ich ? tx("Mehr") : tx("Anmeldung")}</Zurueck>
       <span className="pill vor" style={{ alignSelf: 'flex-start' }}>{ds.entwurf}</span>
       <h1 className="h1">{tx("Datenschutzhinweise")}</h1>
       <p className="text">{ds.intro}</p>
@@ -363,12 +364,12 @@ const INTRO_NU = [
 ];
 
 export function Intro() {
-  const { ich, a } = useDaten();
+  const { d, ich, a } = useDaten();
   const nav = useNavigate();
   const [wer, setWer] = useState<'ma' | 'nu'>(ich?.rolle === 'nu' ? 'nu' : 'ma');
   const [i, setI] = useState(0);
   const schritte = wer === 'nu' ? INTRO_NU : INTRO_MA;
-  const ende = () => { if (ich) { a.introGesehen(ich.id); nav(startVon(ich.rolle)); } else nav('/'); };
+  const ende = () => { if (ich) { a.introGesehen(ich.id); nav(startVon(appRolle(d, ich))); } else nav('/'); };
   return (
     <Seite titel={tx("Einführung")} ohneMenue>
       {!ich && <Auswahl label={tx("Beispiel ansehen")} klein optionen={[{ wert: 'ma' as const, text: tx("Mitarbeiter") }, { wert: 'nu' as const, text: tx("Nachunternehmer-Person") }]} wert={wer} setWert={(w) => { setWer(w); setI(0); }} />}

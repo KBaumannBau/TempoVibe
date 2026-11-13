@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { startVon } from './components/Rahmen';
 import { PC_NAV, darfPc, pcStart } from './components/Pc';
+import { appRolle } from './domain/sel';
 import { DatenProvider, useDaten } from './domain/store';
 import type { Rolle } from './domain/types';
 import { Anmeldung } from './screens/Anmeldung';
@@ -31,18 +32,20 @@ import {
 function Geschuetzt({ rollen, children }: { rollen?: Rolle[]; children: ReactNode }) {
   const { d, ich } = useDaten();
   if (!ich) return <Navigate to="/" replace />;
+  const rolle = appRolle(d, ich);
   const geraet = d.geraete.find((g) => g.personId === ich.id && g.diesesHandy);
   if ((geraet && !geraet.aktiv) || ich.zugang === 'gesperrt') return <Navigate to="/abgemeldet" replace />;
-  if (rollen && !rollen.includes(ich.rolle)) return <Navigate to={startVon(ich.rolle)} replace />;
+  if (rollen && !rollen.includes(rolle)) return <Navigate to={startVon(rolle)} replace />;
   return <>{children}</>;
 }
 
 /** PC-Seiten: angemeldet am PC und die Rolle darf die Seite sehen */
 function PcGeschuetzt({ pfad, children }: { pfad: string; children: ReactNode }) {
-  const { ich } = useDaten();
-  if (!ich || !darfPc(ich.rolle)) return <Navigate to="/pc" replace />;
+  const { d, ich } = useDaten();
+  const rolle = ich && appRolle(d, ich);
+  if (!ich || !rolle || !darfPc(rolle)) return <Navigate to="/pc" replace />;
   const punkt = PC_NAV.find((p) => p.to === pfad);
-  if (punkt && !punkt.rollen.includes(ich.rolle)) return <Navigate to={pcStart(ich.rolle)} replace />;
+  if (punkt && !punkt.rollen.includes(rolle)) return <Navigate to={pcStart(rolle)} replace />;
   return <>{children}</>;
 }
 

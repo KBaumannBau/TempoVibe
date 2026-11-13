@@ -2,7 +2,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { Kopf, startVon } from '../components/Rahmen';
 import { Weiter } from '../components/Teile';
 import { useDaten } from '../domain/store';
-import { voll } from '../domain/sel';
+import { appRolle, vorarbeiterAlsPolier, voll } from '../domain/sel';
 import { tagLangJahr } from '../domain/zeit';
 
 const ROLLEN: Record<string, string> = {
@@ -17,7 +17,7 @@ export function Anmeldung() {
   const { d, ich, gemerkt, anmelden, zuruecksetzen } = useDaten();
   const nav = useNavigate();
   // gemerktes Handy: direkt in die App, ohne neue Anmeldung
-  if (ich && gemerkt) return <Navigate to={startVon(ich.rolle)} replace />;
+  if (ich && gemerkt) return <Navigate to={startVon(appRolle(d, ich))} replace />;
   const auswahl = ['stefan', 'kern', 'tobias', 'keller', 'buerger', 'horvat'].map((id) => d.personen.find((p) => p.id === id)!).filter(Boolean);
   return (
     <div className="screen">
@@ -30,8 +30,8 @@ export function Anmeldung() {
         <ul className="liste">
           {auswahl.map((p) => (
             <li key={p.id}>
-              <button type="button" className="zeile" style={{ minHeight: 64, cursor: 'pointer' }} onClick={() => { anmelden(p.id); nav(startVon(p.rolle)); }}>
-                <span className="wachs"><span className="name">{voll(p)}</span><span className="klein">{p.gruppe === 'azubi' ? 'Auszubildender, unter 18' : ROLLEN[p.rolle]}{p.gruppe === 'angestellt' ? ' · angestellt, ohne Ortung' : ''}</span></span>
+              <button type="button" className="zeile" style={{ minHeight: 64, cursor: 'pointer' }} onClick={() => { anmelden(p.id); nav(startVon(appRolle(d, p))); }}>
+                <span className="wachs"><span className="name">{voll(p)}</span><span className="klein">{p.gruppe === 'azubi' ? 'Auszubildender, unter 18' : ROLLEN[p.rolle]}{vorarbeiterAlsPolier(d, p) ? ' · als Polier auf ' + d.baustellen.filter((b) => b.polierId === p.id && !b.archiviert).map((b) => b.kst).join(', ') : ''}{p.gruppe === 'angestellt' ? ' · angestellt, ohne Ortung' : ''}</span></span>
                 <Weiter />
               </button>
             </li>

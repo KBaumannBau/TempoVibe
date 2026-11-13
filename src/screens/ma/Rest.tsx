@@ -8,7 +8,7 @@ import { Auswahl, Erledigt, Knopf, Weiter } from '../../components/Teile';
 import { NeuesPasswort, PasswortFeld } from '../Zugang';
 import { passwortPasst } from '../../domain/zugang';
 import { useDaten, useIch } from '../../domain/store';
-import { abwesendBis, bsLang, bsName, einteilungAm, kontoStand, person, rechnung, stundenTag, tagVon, urlaubRest, voll } from '../../domain/sel';
+import { abwesendBis, appRolle, bsLang, bsName, einteilungAm, kontoStand, person, rechnung, stundenTag, tagVon, urlaubRest, voll } from '../../domain/sel';
 import type { AntragArt, TagStatus } from '../../domain/types';
 import { arbeitstage, ausKey, feiertag, istWerktag, kw, montagDerWoche, plusTage, sollFuer, stunden, tagLang, tm, vorzeichen, werktag, wtKurz } from '../../domain/zeit';
 import { anlassText } from './Extra';
@@ -299,7 +299,7 @@ export function Demo({ abmelden }: { abmelden: () => void }) {
 
 /** S2: Passwort ändern (bisheriges Passwort, dann neues zweimal) */
 export function Pin() {
-  const { ich, a } = useIch();
+  const { d, ich, a } = useIch();
   const [alt, setAlt] = useState('');
   const [altOk, setAltOk] = useState(false);
   const [fehler, setFehler] = useState('');
@@ -310,13 +310,13 @@ export function Pin() {
         <Fueller />
         <Erledigt titel={tx("Passwort geändert")}><p className="text" style={{ textAlign: 'center' }}>{tx("Dieses Handy bleibt angemeldet. Das neue Passwort brauchst du auf einem neuen Handy oder nach dem Abmelden.")}</p></Erledigt>
         <Fueller />
-        <Link to={mehrVon(ich.rolle)} className="knopf blau">{tx("Fertig")}</Link>
+        <Link to={mehrVon(appRolle(d, ich))} className="knopf blau">{tx("Fertig")}</Link>
       </Seite>
     );
   }
   return (
     <Seite titel={tx("Passwort ändern")} menue="mehr">
-      <Zurueck to={mehrVon(ich.rolle)}>{tx("Mehr")}</Zurueck>
+      <Zurueck to={mehrVon(appRolle(d, ich))}>{tx("Mehr")}</Zurueck>
       <h1 className="h1">{tx("Passwort ändern")}</h1>
       {!altOk ? <>
         <PasswortFeld id="alt" label={tx("Dein bisheriges Passwort")} wert={alt} setWert={(x) => { setAlt(x); setFehler(''); }} auto="current-password" />
@@ -340,7 +340,7 @@ export function Geraete() {
   const andere = meine.filter((g) => !g.diesesHandy);
   return (
     <Seite titel={tx("Meine Geräte")} menue="mehr">
-      <Zurueck to={mehrVon(ich.rolle)}>{tx("Mehr")}</Zurueck>
+      <Zurueck to={mehrVon(appRolle(d, ich))}>{tx("Mehr")}</Zurueck>
       <h1 className="h1">{tx("Meine Geräte")}</h1>
       {dieses && (
         <section aria-label={tx("Dieses Handy")} className="karte pad aktiv-rand">
