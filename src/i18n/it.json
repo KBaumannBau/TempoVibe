@@ -823,5 +823,14 @@
  "Das Passwort stimmt nicht.": "La password è errata.",
  "Passwort vergessen? Die Lohnbuchhaltung schickt dir einen neuen Brief mit Einmal-Passwort.": "Password dimenticata? L’ufficio paghe ti manda una nuova lettera con password monouso.",
  "Melde dich dort mit Benutzername und Passwort an. Passwort vergessen? Die Lohnbuchhaltung schickt dir einen neuen Brief.": "Accedi lì con nome utente e password. Password dimenticata? L’ufficio paghe ti manda una nuova lettera.",
- "Neu anmelden": "Accedi di nuovo"
+ "Neu anmelden": "Accedi di nuovo",
+ "Gesetzliche Pause fehlte: {0} Min. automatisch abgezogen": "Pausa obbligatoria mancante: {0} min. detratti automaticamente",
+ "Raucherpausen: {0} Min.": "Pause sigaretta: {0} min.",
+ "Raucherpause": "Pausa sigaretta",
+ "Raucherpause seit {0}": "Pausa sigaretta dalle {0}",
+ "Die Raucherpause ist keine Arbeitszeit. Unter 15 Minuten zählt sie nicht als gesetzliche Pause.": "La pausa sigaretta non è orario di lavoro. Sotto i 15 minuti non conta come pausa obbligatoria.",
+ "Denk an deine Pause.": "Ricordati della pausa.",
+ "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Fehlende Pause wird am Ende des Tages automatisch abgezogen.": "Dopo 6 ore di lavoro sono obbligatori 30 minuti di pausa, dopo 9 ore 45 minuti. La pausa mancante viene detratta automaticamente a fine giornata.",
+ "Davon {0} Min. automatisch abgezogen (gesetzliche Pause)": "Di cui {0} min. detratti automaticamente (pausa obbligatoria)",
+ "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Deshalb wurden {0} Min. automatisch von deiner Arbeitszeit abgezogen.": "Dopo 6 ore di lavoro sono obbligatori 30 minuti di pausa, dopo 9 ore 45 minuti. Per questo {0} min. sono stati detratti automaticamente dal tuo orario di lavoro."
 }

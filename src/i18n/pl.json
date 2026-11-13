@@ -823,5 +823,14 @@
  "Das Passwort stimmt nicht.": "Hasło jest błędne.",
  "Passwort vergessen? Die Lohnbuchhaltung schickt dir einen neuen Brief mit Einmal-Passwort.": "Nie pamiętasz hasła? Dział płac wyśle ci nowy list z hasłem jednorazowym.",
  "Melde dich dort mit Benutzername und Passwort an. Passwort vergessen? Die Lohnbuchhaltung schickt dir einen neuen Brief.": "Zaloguj się tam nazwą użytkownika i hasłem. Nie pamiętasz hasła? Dział płac wyśle ci nowy list.",
- "Neu anmelden": "Zaloguj się ponownie"
+ "Neu anmelden": "Zaloguj się ponownie",
+ "Gesetzliche Pause fehlte: {0} Min. automatisch abgezogen": "Brak ustawowej przerwy: automatycznie odjęto {0} min.",
+ "Raucherpausen: {0} Min.": "Przerwy na papierosa: {0} min.",
+ "Raucherpause": "Przerwa na papierosa",
+ "Raucherpause seit {0}": "Przerwa na papierosa od {0}",
+ "Die Raucherpause ist keine Arbeitszeit. Unter 15 Minuten zählt sie nicht als gesetzliche Pause.": "Przerwa na papierosa nie jest czasem pracy. Poniżej 15 minut nie liczy się jako przerwa ustawowa.",
+ "Denk an deine Pause.": "Pamiętaj o przerwie.",
+ "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Fehlende Pause wird am Ende des Tages automatisch abgezogen.": "Po 6 godzinach pracy obowiązkowa jest 30-minutowa przerwa, po 9 godzinach 45 minut. Brakująca przerwa zostanie automatycznie odjęta na koniec dnia.",
+ "Davon {0} Min. automatisch abgezogen (gesetzliche Pause)": "W tym {0} min. odjęte automatycznie (przerwa ustawowa)",
+ "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Deshalb wurden {0} Min. automatisch von deiner Arbeitszeit abgezogen.": "Po 6 godzinach pracy obowiązkowa jest 30-minutowa przerwa, po 9 godzinach 45 minut. Dlatego {0} min. zostało automatycznie odjęte od twojego czasu pracy."
 }

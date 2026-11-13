@@ -53,6 +53,13 @@ Die Demo hat **keinen Server**. Alle Daten liegen im Browser (localStorage `stun
 
 Fahrtkosten, Verpflegung und Wegezeit trägt der Mitarbeiter nicht ein. Die Lohnbuchhaltung ermittelt sie aus den Zeiten und der Baustelle.
 
+**Pausen (§ 4 ArbZG).**
+
+- Bei mehr als 6 h Arbeit sind 30 Min. Pause Pflicht, bei mehr als 9 h 45 Min.
+- Als gesetzliche Pause zählen nur Blöcke ab 15 Min.
+- Fehlt am Ende des Tages Pause, zieht `rechneTag` in `src/domain/zeit.ts` sie automatisch von der Arbeitszeit ab, höchstens bis auf 6 h bzw. 9 h (`pauseAutoMin`).
+- Raucherpausen werden mit eigenem Knopf als Pause gestempelt (`raucher: true`). Sie sind keine Arbeitszeit.
+
 **Freigabe nach dem Vier-Augen-Prinzip.**
 
 - Niemand gibt seinen eigenen Tag frei:

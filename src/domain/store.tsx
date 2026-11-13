@@ -36,6 +36,8 @@ export interface StempelOptionen {
   baustelleId?: string;
   vonHand?: boolean;
   begruendung?: string;
+  /** nur bei art 'pause': Raucherpause */
+  raucher?: boolean;
 }
 
 function erzeugeAktionen(aendern: (fn: (d: Daten) => void) => void, ich: () => Person | undefined) {
@@ -99,10 +101,11 @@ function erzeugeAktionen(aendern: (fn: (d: Daten) => void) => void, ich: () => P
           personId: p.id, datum: heute, art, zeit: isoMitZone(new Date()), baustelleId,
           standort, entfernungM: standort === 'weicht_ab' ? 400 : undefined,
           begruendung: o.begruendung, vonHandGewaehlt: o.vonHand,
+          raucher: art === 'pause' && o.raucher ? true : undefined,
           herkunft: navigator.onLine ? 'gestempelt' : 'nachgesendet', erfasstVon: p.id,
         });
         tagHolen(d, p.id, heute);
-        log(d, `${artName(art)} gestempelt`);
+        log(d, `${art === 'pause' && o.raucher ? 'Raucherpause' : artName(art)} gestempelt`);
       });
     },
     setDemoStandort(s: Daten['demoStandort']) {

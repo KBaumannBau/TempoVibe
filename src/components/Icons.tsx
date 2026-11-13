@@ -24,6 +24,7 @@ export const IWeiter = (p: P) => <S size={p.size ?? 18} sw={2.5}><path d="M9 5l7
 export const IRunter = (p: P) => <S size={p.size ?? 20} sw={2.5}><path d="M6 9l6 6 6-6" /></S>;
 export const IPlay = ({ size = 34 }: P) => <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12-7.5z" /></svg>;
 export const IPause = ({ size = 30 }: P) => <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4.5" width="4" height="15" rx="1" /><rect x="14" y="4.5" width="4" height="15" rx="1" /></svg>;
+export const IRaucher = ({ size = 26 }: P) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" aria-hidden="true"><rect x="2.5" y="14" width="15" height="4" rx="1" /><path d="M13 14v4M20 14v4M17.5 4c0 2 2 2 2 4s-2 2-2 4M21 5c0 1.5 1 1.5 1 3" /></svg>;
 export const IStop = ({ size = 28 }: P) => <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5.5" y="5.5" width="13" height="13" rx="2" /></svg>;
 export const IHandyWeg = (p: P) => <S size={p.size ?? 40} sw={2.2}><rect x="7" y="2.5" width="10" height="19" rx="2" /><path d="M4 4l16 16" /></S>;
 export const IOrt = (p: P) => <S {...p}><path d="M12 21s-7-6.2-7-11.5A7 7 0 0119 9.5C19 14.8 12 21 12 21z" /><circle cx="12" cy="9.5" r="2.5" /></S>;

@@ -168,7 +168,7 @@ export function PTag() {
         {r.gueltig.map((s) => (
           <li key={s.id} className="zeile">
             <span className="fett tab" style={{ width: 56 }}>{uhr(s.zeit)}</span>
-            <span style={{ flexGrow: 1 }}>{artName(s.art)}{s.herkunft === 'korrektur' ? ' (korrigiert)' : ''}</span>
+            <span style={{ flexGrow: 1 }}>{s.raucher ? "Raucherpause" : artName(s.art)}{s.herkunft === 'korrektur' ? ' (korrigiert)' : ''}</span>
             {s.standort === 'weicht_ab' && <span className="warn" style={{ fontSize: 14 }}>ca. {s.entfernungM} m weg</span>}
           </li>
         ))}

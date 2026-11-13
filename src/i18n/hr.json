@@ -823,5 +823,14 @@
  "Das Passwort stimmt nicht.": "Lozinka nije točna.",
  "Passwort vergessen? Die Lohnbuchhaltung schickt dir einen neuen Brief mit Einmal-Passwort.": "Zaboravljena lozinka? Obračun plaća šalje ti novo pismo s jednokratnom lozinkom.",
  "Melde dich dort mit Benutzername und Passwort an. Passwort vergessen? Die Lohnbuchhaltung schickt dir einen neuen Brief.": "Tamo se prijavi korisničkim imenom i lozinkom. Zaboravljena lozinka? Obračun plaća šalje ti novo pismo.",
- "Neu anmelden": "Ponovno se prijavi"
+ "Neu anmelden": "Ponovno se prijavi",
+ "Gesetzliche Pause fehlte: {0} Min. automatisch abgezogen": "Nedostaje zakonska pauza: {0} min. automatski oduzeto",
+ "Raucherpausen: {0} Min.": "Pauze za pušenje: {0} min.",
+ "Raucherpause": "Pauza za pušenje",
+ "Raucherpause seit {0}": "Pauza za pušenje od {0}",
+ "Die Raucherpause ist keine Arbeitszeit. Unter 15 Minuten zählt sie nicht als gesetzliche Pause.": "Pauza za pušenje nije radno vrijeme. Ispod 15 minuta ne računa se kao zakonska pauza.",
+ "Denk an deine Pause.": "Sjeti se pauze.",
+ "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Fehlende Pause wird am Ende des Tages automatisch abgezogen.": "Nakon 6 sati rada obavezna je pauza od 30 minuta, nakon 9 sati 45 minuta. Pauza koja nedostaje automatski se oduzima na kraju dana.",
+ "Davon {0} Min. automatisch abgezogen (gesetzliche Pause)": "Od toga {0} min. automatski oduzeto (zakonska pauza)",
+ "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Deshalb wurden {0} Min. automatisch von deiner Arbeitszeit abgezogen.": "Nakon 6 sati rada obavezna je pauza od 30 minuta, nakon 9 sati 45 minuta. Zato je {0} min. automatski oduzeto od tvog radnog vremena."
 }

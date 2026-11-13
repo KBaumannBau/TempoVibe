@@ -64,7 +64,7 @@ export function TagPruefen() {
         {r.gueltig.map((s) => (
           <li key={s.id} className="zeile">
             <span className="fett tab" style={{ width: 56 }}>{uhr(s.zeit)}</span>
-            <span style={{ flexGrow: 1 }}>{artName(s.art)}{s.herkunft === 'korrektur' ? tx(" (vom Polier)") : ''}</span>
+            <span style={{ flexGrow: 1 }}>{s.raucher ? tx("Raucherpause") : artName(s.art)}{s.herkunft === 'korrektur' ? tx(" (vom Polier)") : ''}</span>
             {s.standort === 'passt' && <span className="ok" style={{ fontSize: 14 }}>{tx("Standort passt")}</span>}
             {s.standort === 'weicht_ab' && <span className="warn" style={{ fontSize: 14 }}>{tx("weicht ab, begründet")}</span>}
           </li>
@@ -76,7 +76,7 @@ export function TagPruefen() {
         <div className="kopfzeilen"><span className="klein">{tx("Soll")}</span><span className="zahl" style={{ fontSize: 22 }}>{stunden(soll)}</span></div>
         <div className="kopfzeilen"><span className="klein">{tx("Konto")}</span><span className="zahl" style={{ fontSize: 22 }}>{vorzeichen(ist - soll)}</span></div>
       </section>
-      {r.pauseFehlt && <div className="hinweis orange"><strong>{tx("Zu wenig Pause.")}</strong> {' '}{tx("Ab 6 h sind 30 Min., ab 9 h 45 Min. Pause Pflicht. Der Polier bekommt einen Hinweis.")}</div>}
+      {r.pauseAutoMin > 0 && <div className="hinweis orange"><strong>{tx("Zu wenig Pause.")}</strong> {' '}{tx("Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Deshalb wurden {0} Min. automatisch von deiner Arbeitszeit abgezogen.", r.pauseAutoMin)}</div>}
       {unfertig ? <NichtBeendet /> : <>
         {mitZ && (
           <section aria-label={tx("Zuschläge")} className="karte pad">

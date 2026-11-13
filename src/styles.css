@@ -149,6 +149,7 @@ a.zeile:hover, button.zeile:hover { background: #f7f9fa; color: var(--text); }
 .knopf.rahmen { background: var(--weiss); border: 2px solid var(--blau); color: var(--blau); }
 .knopf.rahmen-rot { background: var(--weiss); border: 2px solid var(--rot); color: var(--rot); }
 .knopf.riesig { min-height: 112px; border-radius: 16px; font-size: 26px; font-weight: 800; }
+.knopf.raucher { background: var(--orange-hell); border: 2px solid var(--orange); color: var(--orange-dunkel); }
 .knopf.mittel { min-height: 52px; font-size: 17px; border-radius: 12px; }
 .knopf:hover { filter: brightness(1.06); }
 .knopf.blau:hover, .knopf.gruen:hover, .knopf.dunkel:hover, .knopf.rot:hover { color: var(--weiss); }

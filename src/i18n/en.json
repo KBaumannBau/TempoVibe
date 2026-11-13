@@ -823,5 +823,14 @@
  "Das Passwort stimmt nicht.": "The password is wrong.",
  "Passwort vergessen? Die Lohnbuchhaltung schickt dir einen neuen Brief mit Einmal-Passwort.": "Forgot your password? Payroll will send you a new letter with a one-time password.",
  "Melde dich dort mit Benutzername und Passwort an. Passwort vergessen? Die Lohnbuchhaltung schickt dir einen neuen Brief.": "Sign in there with your user name and password. Forgot your password? Payroll will send you a new letter.",
- "Neu anmelden": "Sign in again"
+ "Neu anmelden": "Sign in again",
+ "Gesetzliche Pause fehlte: {0} Min. automatisch abgezogen": "Statutory break missing: {0} min. deducted automatically",
+ "Raucherpausen: {0} Min.": "Smoking breaks: {0} min.",
+ "Raucherpause": "Smoking break",
+ "Raucherpause seit {0}": "Smoking break since {0}",
+ "Die Raucherpause ist keine Arbeitszeit. Unter 15 Minuten zählt sie nicht als gesetzliche Pause.": "A smoking break is not working time. Under 15 minutes it does not count as a statutory break.",
+ "Denk an deine Pause.": "Remember your break.",
+ "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Fehlende Pause wird am Ende des Tages automatisch abgezogen.": "After 6 hours of work a 30-minute break is required, after 9 hours 45 minutes. Any missing break is deducted automatically at the end of the day.",
+ "Davon {0} Min. automatisch abgezogen (gesetzliche Pause)": "Of which {0} min. deducted automatically (statutory break)",
+ "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Deshalb wurden {0} Min. automatisch von deiner Arbeitszeit abgezogen.": "After 6 hours of work a 30-minute break is required, after 9 hours 45 minutes. That is why {0} min. were deducted automatically from your working time."
 }

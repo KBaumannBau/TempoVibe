@@ -140,7 +140,7 @@ export function BTag() {
         {r.gueltig.map((s) => (
           <li key={s.id} className="zeile">
             <span className="fett tab" style={{ width: 56 }}>{uhr(s.zeit)}</span>
-            <span style={{ flexGrow: 1 }}>{artName(s.art)}</span>
+            <span style={{ flexGrow: 1 }}>{s.raucher ? "Raucherpause" : artName(s.art)}</span>
             {s.herkunft !== 'gestempelt' && <span className="klein">{s.herkunft === 'korrektur' ? 'vom Polier' : s.herkunft === 'polier_ohne_handy' ? 'ohne Handy' : s.herkunft}</span>}
           </li>
         ))}

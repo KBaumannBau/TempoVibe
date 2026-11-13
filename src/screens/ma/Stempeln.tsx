@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { Fueller, Seite, Zurueck } from '../../components/Rahmen';
-import { IOrt, IPause, IPlay, IStop } from '../../components/Icons';
+import { IOrt, IPause, IPlay, IRaucher, IStop } from '../../components/Icons';
 import { Auswahl, Knopf } from '../../components/Teile';
 import { useIch } from '../../domain/store';
 import { baustelle, bsLang, bsName, einteilungAm, hatOrtung, person, rechnung, tagVon, voll } from '../../domain/sel';
@@ -43,12 +43,12 @@ export function Heute() {
   const gestern = werktag(d.heute, -1);
   const gesternOffen = tagVon(d, ich.id, gestern)?.status === 'offen' && rechnung(d, ich.id, gestern).zustand === 'fertig';
 
-  const tippe = (art: StempelArt) => {
+  const tippe = (art: StempelArt, raucher?: boolean) => {
     if (ortung && d.demoStandort === 'weicht_ab') {
       nav(`/ma/standort?art=${art}`, { state: { ...gewaehlt, bs: aktuell?.id } });
       return;
     }
-    a.stempeln(art, { baustelleId: aktuell?.id, vonHand: gewaehlt.vonHand, begruendung: gewaehlt.grund });
+    a.stempeln(art, { baustelleId: aktuell?.id, vonHand: gewaehlt.vonHand, begruendung: gewaehlt.grund, raucher });
     if (gewaehlt.bs) nav('.', { replace: true, state: null });
   };
 
@@ -115,17 +115,25 @@ export function Heute() {
   if (r.zustand === 'arbeit' || r.zustand === 'pause') {
     const pause = r.zustand === 'pause';
     const lauf = r.pausen[r.pausen.length - 1];
+    const raucher = pause && !!lauf?.raucher;
+    // Hinweis ab 5:30 h, wenn die gesetzliche Pause noch fehlt
+    const pauseNoetig = r.arbeitMin > 540 ? 45 : r.arbeitMin > 330 ? 30 : 0;
+    const pauseFehltNoch = !pause && pauseNoetig > 0 && r.pauseGesetzlichMin < pauseNoetig;
     return (
-      <Seite titel={pause ? tx("Pause") : tx("Arbeitszeit läuft")} menue="stempeln">
+      <Seite titel={raucher ? tx("Raucherpause") : pause ? tx("Pause") : tx("Arbeitszeit läuft")} menue="stempeln">
         {!online && <div className="hinweis orange"><strong>{tx("Kein Netz.")}</strong> {' '}{tx("Deine Zeiten sind auf dem Handy gespeichert und werden nachgesendet.")}</div>}
         {hinweise}
         <section aria-label={pause ? tx("Pause") : tx("Arbeitszeit")} className="karte pad mitte" style={{ padding: '20px 16px' }}>
           <span className="fett" style={{ fontSize: 15, color: pause ? 'var(--orange-text)' : 'var(--gruen)' }}>
-            {pause ? tx("Pause seit {0}", lauf?.von) : tx("Arbeitszeit läuft seit {0}", uhr(r.beginn!.zeit))}
+            {raucher ? tx("Raucherpause seit {0}", lauf?.von) : pause ? tx("Pause seit {0}", lauf?.von) : tx("Arbeitszeit läuft seit {0}", uhr(r.beginn!.zeit))}
           </span>
           <span className="zahl" style={{ fontSize: 44 }}>{dauer(pause ? lauf?.min ?? 0 : r.arbeitMin)}</span>
           <span className="unter">{pause ? `gearbeitet ${dauer(r.arbeitMin)}` : tx("Pausen bisher {0} Min.", Math.round(r.pauseMin))}</span>
         </section>
+        {raucher && <p className="text">{tx("Die Raucherpause ist keine Arbeitszeit. Unter 15 Minuten zählt sie nicht als gesetzliche Pause.")}</p>}
+        {pauseFehltNoch && (
+          <div className="hinweis orange"><strong>{tx("Denk an deine Pause.")}</strong> {' '}{tx("Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Fehlende Pause wird am Ende des Tages automatisch abgezogen.")}</div>
+        )}
         <section aria-label={tx("Baustelle")} className="karte pad">
           <span className="titel fett" style={{ fontSize: 17 }}>{bsName(aktuell)}</span>
           <Link to="/ma/baustelle" className="link">{tx("Baustelle wechseln")}</Link>
@@ -134,10 +142,13 @@ export function Heute() {
         {pause ? (
           <Knopf farbe="gruen" klasse="riesig" onClick={() => tippe('weiter')}><IPlay /><span>{tx("Weiter arbeiten")}</span></Knopf>
         ) : (
-          <div className="zwei">
-            <Knopf farbe="rahmen" onClick={() => tippe('pause')}><IPause size={24} />{tx("Pause")}</Knopf>
-            <Knopf farbe="dunkel" onClick={() => tippe('ende')}><IStop size={22} />{tx("Arbeitsende")}</Knopf>
-          </div>
+          <>
+            <Knopf farbe="raucher" klasse="mittel" onClick={() => tippe('pause', true)}><IRaucher />{tx("Raucherpause")}</Knopf>
+            <div className="zwei">
+              <Knopf farbe="rahmen" onClick={() => tippe('pause')}><IPause size={24} />{tx("Pause")}</Knopf>
+              <Knopf farbe="dunkel" onClick={() => tippe('ende')}><IStop size={22} />{tx("Arbeitsende")}</Knopf>
+            </div>
+          </>
         )}
         {status}
       </Seite>
@@ -155,6 +166,7 @@ export function Heute() {
       </div>
       <section aria-label={tx("Heute")} className="karte pad">
         <span className="fett" style={{ fontSize: 17 }}>{tx("{0} bis {1} · Pause {2} Min.", uhr(r.beginn!.zeit), uhr(r.ende!.zeit), Math.round(r.pauseMin))}</span>
+        {r.pauseAutoMin > 0 && <span className="unter" style={{ color: 'var(--orange-text)' }}>{tx("Davon {0} Min. automatisch abgezogen (gesetzliche Pause)", r.pauseAutoMin)}</span>}
         <span className="unter">{tx("{0} gearbeitet · Soll {1}", stunden(r.arbeitMin / 60), stunden(sollFuer(ich, d.heute)))}</span>
       </section>
       {gesendet ? (

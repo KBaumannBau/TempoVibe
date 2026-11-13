@@ -118,6 +118,8 @@ export interface Stempelung {
   entfernungM?: number;
   begruendung?: string;
   vonHandGewaehlt?: boolean;
+  /** Pause als Raucherpause gestempelt (zählt nicht als Arbeitszeit) */
+  raucher?: boolean;
   herkunft: Herkunft;
   erfasstVon: string;
   /** gesetzt, wenn eine Korrektur diesen Eintrag ersetzt */

@@ -166,11 +166,16 @@ export interface TagRechnung {
   ende?: Stempelung;
   arbeitMin: number;
   pauseMin: number;
-  pausen: { von: string; bis?: string; min: number }[];
+  /** alle Pausen; raucher = als Raucherpause gestempelt */
+  pausen: { von: string; bis?: string; min: number; raucher?: boolean }[];
+  /** Pausenblöcke ab 15 Min., die nach § 4 ArbZG als Ruhepause zählen */
+  pauseGesetzlichMin: number;
+  /** automatisch abgezogene Pause, weil die gesetzliche Pause fehlte (in pauseMin enthalten) */
+  pauseAutoMin: number;
   zustand: Zustand;
   seit?: string; // ISO der letzten Stempelung
   hinweise: string[];
-  /** Tag über 6 h ohne ausreichende Pause (nur mit Begründung freigebbar) */
+  /** Tag über 6 h ohne ausreichende Pause. Seit dem automatischen Abzug immer false, bleibt für alte Prüfungen. */
   pauseFehlt: boolean;
   /** Arbeitsminuten je Baustelle (Wechsel am selben Tag) */
   abschnitte: { baustelleId?: string; min: number }[];
@@ -192,7 +197,9 @@ const ms = (iso: string) => new Date(iso).getTime();
 
 /**
  * Rechnet einen Tag aus seinen gültigen Stempelungen.
- * Pausenregel nach § 4 ArbZG: ab 6 h mind. 30 Min., ab 9 h mind. 45 Min.
+ * Pausenregel nach § 4 ArbZG: mehr als 6 h Arbeit mind. 30 Min., mehr als 9 h mind. 45 Min. Pause,
+ * in Abschnitten von mindestens 15 Min. Fehlt am Ende des Tages Pause, wird sie automatisch
+ * von der Arbeitszeit abgezogen, höchstens bis auf 6 h bzw. 9 h.
  */
 export function rechneTag(alle: Stempelung[], jetzt: Date = new Date()): TagRechnung {
   const gueltig = alle.filter((s) => !s.ersetztDurch).sort((a, b) => ms(a.zeit) - ms(b.zeit));
@@ -227,7 +234,7 @@ export function rechneTag(alle: Stempelung[], jetzt: Date = new Date()): TagRech
       if (pauseStart) {
         const m = (t - ms(pauseStart.zeit)) / 60000;
         pauseMin += m;
-        pausen.push({ von: uhr(pauseStart.zeit), bis: uhr(s.zeit), min: m });
+        pausen.push({ von: uhr(pauseStart.zeit), bis: uhr(s.zeit), min: m, raucher: pauseStart.raucher });
         pauseStart = null;
       }
       marke = t;
@@ -242,7 +249,7 @@ export function rechneTag(alle: Stempelung[], jetzt: Date = new Date()): TagRech
       if (pauseStart) {
         const m = (t - ms(pauseStart.zeit)) / 60000;
         pauseMin += m;
-        pausen.push({ von: uhr(pauseStart.zeit), bis: uhr(s.zeit), min: m });
+        pausen.push({ von: uhr(pauseStart.zeit), bis: uhr(s.zeit), min: m, raucher: pauseStart.raucher });
         pauseStart = null;
       }
       marke = null;
@@ -254,14 +261,32 @@ export function rechneTag(alle: Stempelung[], jetzt: Date = new Date()): TagRech
   if (zustand === 'pause' && pauseStart) {
     const m = Math.max(0, (jetzt.getTime() - ms(pauseStart.zeit)) / 60000);
     pauseMin += m;
-    pausen.push({ von: uhr(pauseStart.zeit), min: m });
+    pausen.push({ von: uhr(pauseStart.zeit), min: m, raucher: pauseStart.raucher });
   }
 
   const hinweise: string[] = [];
-  const arbeitH = arbeitMin / 60;
-  const noetig = arbeitH > 9 ? 45 : arbeitH > 6 ? 30 : 0;
-  const pauseFehlt = zustand === 'fertig' && noetig > 0 && pauseMin + 0.5 < noetig;
-  if (pauseFehlt) hinweise.push(tx("Über {0} h mit nur {1} Min. Pause", arbeitH > 9 ? 9 : 6, Math.round(pauseMin)));
+  // Ruhepause nach § 4 ArbZG: nur Blöcke ab 15 Min. zählen
+  const pauseGesetzlichMin = pausen.filter((p) => p.min >= 15).reduce((x, p) => x + p.min, 0);
+  // fehlende Pause am Ende des Tages automatisch abziehen
+  let pauseAutoMin = 0;
+  if (zustand === 'fertig') {
+    if (arbeitMin > 360 && pauseGesetzlichMin < 30) pauseAutoMin = Math.min(30 - pauseGesetzlichMin, arbeitMin - 360);
+    const rest = arbeitMin - pauseAutoMin;
+    const bisher = pauseGesetzlichMin + pauseAutoMin;
+    if (rest > 540 && bisher < 45) pauseAutoMin += Math.min(45 - bisher, rest - 540);
+    pauseAutoMin = Math.round(pauseAutoMin);
+  }
+  if (pauseAutoMin > 0) {
+    arbeitMin -= pauseAutoMin;
+    pauseMin += pauseAutoMin;
+    // vom größten Abschnitt (Baustelle) abziehen
+    const gr = [...abschnitte].sort((a, b) => b.min - a.min)[0];
+    if (gr) gr.min -= pauseAutoMin;
+    hinweise.push(tx("Gesetzliche Pause fehlte: {0} Min. automatisch abgezogen", pauseAutoMin));
+  }
+  const raucherMin = pausen.filter((p) => p.raucher).reduce((x, p) => x + p.min, 0);
+  if (zustand === 'fertig' && raucherMin > 0) hinweise.push(tx("Raucherpausen: {0} Min.", Math.round(raucherMin)));
+  const pauseFehlt = false;
   for (const s of gueltig) {
     if (s.standort === 'weicht_ab') hinweise.push(tx("{0}: Standort ca. {1} m entfernt", artName(s.art), s.entfernungM ?? '?'));
     if (s.vonHandGewaehlt) hinweise.push(tx("Baustelle von Hand gewählt"));
@@ -278,6 +303,8 @@ export function rechneTag(alle: Stempelung[], jetzt: Date = new Date()): TagRech
     arbeitMin,
     pauseMin,
     pausen,
+    pauseGesetzlichMin,
+    pauseAutoMin,
     zustand,
     seit: last?.zeit,
     hinweise: [...new Set(hinweise)],

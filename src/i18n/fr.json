@@ -823,5 +823,14 @@
  "Das Passwort stimmt nicht.": "Le mot de passe est incorrect.",
  "Passwort vergessen? Die Lohnbuchhaltung schickt dir einen neuen Brief mit Einmal-Passwort.": "Mot de passe oublié ? Le service de paie t’envoie une nouvelle lettre avec un mot de passe à usage unique.",
  "Melde dich dort mit Benutzername und Passwort an. Passwort vergessen? Die Lohnbuchhaltung schickt dir einen neuen Brief.": "Connecte-toi avec ton identifiant et ton mot de passe. Mot de passe oublié ? Le service de paie t’envoie une nouvelle lettre.",
- "Neu anmelden": "Se reconnecter"
+ "Neu anmelden": "Se reconnecter",
+ "Gesetzliche Pause fehlte: {0} Min. automatisch abgezogen": "Pause légale manquante : {0} min. déduites automatiquement",
+ "Raucherpausen: {0} Min.": "Pauses cigarette : {0} min.",
+ "Raucherpause": "Pause cigarette",
+ "Raucherpause seit {0}": "Pause cigarette depuis {0}",
+ "Die Raucherpause ist keine Arbeitszeit. Unter 15 Minuten zählt sie nicht als gesetzliche Pause.": "La pause cigarette n’est pas du temps de travail. En dessous de 15 minutes, elle ne compte pas comme pause légale.",
+ "Denk an deine Pause.": "Pense à ta pause.",
+ "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Fehlende Pause wird am Ende des Tages automatisch abgezogen.": "Après 6 heures de travail, 30 minutes de pause sont obligatoires, après 9 heures 45 minutes. La pause manquante est déduite automatiquement en fin de journée.",
+ "Davon {0} Min. automatisch abgezogen (gesetzliche Pause)": "Dont {0} min. déduites automatiquement (pause légale)",
+ "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Deshalb wurden {0} Min. automatisch von deiner Arbeitszeit abgezogen.": "Après 6 heures de travail, 30 minutes de pause sont obligatoires, après 9 heures 45 minutes. C’est pourquoi {0} min. ont été déduites automatiquement de ton temps de travail."
 }

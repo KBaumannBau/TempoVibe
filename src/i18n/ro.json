@@ -823,5 +823,14 @@
  "Das Passwort stimmt nicht.": "Parola nu este corectă.",
  "Passwort vergessen? Die Lohnbuchhaltung schickt dir einen neuen Brief mit Einmal-Passwort.": "Ai uitat parola? Biroul de salarizare îți trimite o scrisoare nouă cu parolă unică.",
  "Melde dich dort mit Benutzername und Passwort an. Passwort vergessen? Die Lohnbuchhaltung schickt dir einen neuen Brief.": "Conectează-te acolo cu numele de utilizator și parola. Ai uitat parola? Biroul de salarizare îți trimite o scrisoare nouă.",
- "Neu anmelden": "Conectează-te din nou"
+ "Neu anmelden": "Conectează-te din nou",
+ "Gesetzliche Pause fehlte: {0} Min. automatisch abgezogen": "Lipsește pauza legală: {0} min. scăzute automat",
+ "Raucherpausen: {0} Min.": "Pauze de fumat: {0} min.",
+ "Raucherpause": "Pauză de fumat",
+ "Raucherpause seit {0}": "Pauză de fumat de la {0}",
+ "Die Raucherpause ist keine Arbeitszeit. Unter 15 Minuten zählt sie nicht als gesetzliche Pause.": "Pauza de fumat nu este timp de lucru. Sub 15 minute nu contează ca pauză legală.",
+ "Denk an deine Pause.": "Nu uita de pauză.",
+ "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Fehlende Pause wird am Ende des Tages automatisch abgezogen.": "După 6 ore de lucru sunt obligatorii 30 de minute de pauză, după 9 ore 45 de minute. Pauza lipsă se scade automat la sfârșitul zilei.",
+ "Davon {0} Min. automatisch abgezogen (gesetzliche Pause)": "Din care {0} min. scăzute automat (pauză legală)",
+ "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Deshalb wurden {0} Min. automatisch von deiner Arbeitszeit abgezogen.": "După 6 ore de lucru sunt obligatorii 30 de minute de pauză, după 9 ore 45 de minute. De aceea s-au scăzut automat {0} min. din timpul tău de lucru."
 }
