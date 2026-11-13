@@ -832,5 +832,6 @@
  "Denk an deine Pause.": "Pense à ta pause.",
  "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Fehlende Pause wird am Ende des Tages automatisch abgezogen.": "Après 6 heures de travail, 30 minutes de pause sont obligatoires, après 9 heures 45 minutes. La pause manquante est déduite automatiquement en fin de journée.",
  "Davon {0} Min. automatisch abgezogen (gesetzliche Pause)": "Dont {0} min. déduites automatiquement (pause légale)",
- "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Deshalb wurden {0} Min. automatisch von deiner Arbeitszeit abgezogen.": "Après 6 heures de travail, 30 minutes de pause sont obligatoires, après 9 heures 45 minutes. C’est pourquoi {0} min. ont été déduites automatiquement de ton temps de travail."
+ "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Deshalb wurden {0} Min. automatisch von deiner Arbeitszeit abgezogen.": "Après 6 heures de travail, 30 minutes de pause sont obligatoires, après 9 heures 45 minutes. C’est pourquoi {0} min. ont été déduites automatiquement de ton temps de travail.",
+ "gearbeitet {0}": "travaillé {0}"
 }

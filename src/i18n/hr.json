@@ -832,5 +832,6 @@
  "Denk an deine Pause.": "Sjeti se pauze.",
  "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Fehlende Pause wird am Ende des Tages automatisch abgezogen.": "Nakon 6 sati rada obavezna je pauza od 30 minuta, nakon 9 sati 45 minuta. Pauza koja nedostaje automatski se oduzima na kraju dana.",
  "Davon {0} Min. automatisch abgezogen (gesetzliche Pause)": "Od toga {0} min. automatski oduzeto (zakonska pauza)",
- "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Deshalb wurden {0} Min. automatisch von deiner Arbeitszeit abgezogen.": "Nakon 6 sati rada obavezna je pauza od 30 minuta, nakon 9 sati 45 minuta. Zato je {0} min. automatski oduzeto od tvog radnog vremena."
+ "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Deshalb wurden {0} Min. automatisch von deiner Arbeitszeit abgezogen.": "Nakon 6 sati rada obavezna je pauza od 30 minuta, nakon 9 sati 45 minuta. Zato je {0} min. automatski oduzeto od tvog radnog vremena.",
+ "gearbeitet {0}": "odrađeno {0}"
 }

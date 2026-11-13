@@ -174,7 +174,16 @@ export function helferStunden(h: { von: string; bis: string; pauseMin: number })
     const [hh, mm] = x.split(':').map(Number);
     return hh * 60 + mm;
   });
-  return Math.max(0, b - a - h.pauseMin) / 60;
+  const pause = Math.max(0, h.pauseMin);
+  const netto = Math.max(0, b - a - pause);
+  // fehlende gesetzliche Pause (§ 4 ArbZG) automatisch abziehen, wie in rechneTag:
+  // mehr als 6 h → 30 Min., mehr als 9 h → 45 Min., nie unter 6 h bzw. 9 h
+  let auto = 0;
+  if (netto > 360 && pause < 30) auto = Math.min(30 - pause, netto - 360);
+  const rest = netto - auto;
+  const bisher = pause + auto;
+  if (rest > 540 && bisher < 45) auto += Math.min(45 - bisher, rest - 540);
+  return (netto - auto) / 60;
 }
 
 /** Anträge der Leute auf den Baustellen eines Bauleiters (nur zur Info; entscheidet die Oberbauleitung) */

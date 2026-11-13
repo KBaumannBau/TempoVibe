@@ -832,5 +832,6 @@
  "Denk an deine Pause.": "Nu uita de pauză.",
  "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Fehlende Pause wird am Ende des Tages automatisch abgezogen.": "După 6 ore de lucru sunt obligatorii 30 de minute de pauză, după 9 ore 45 de minute. Pauza lipsă se scade automat la sfârșitul zilei.",
  "Davon {0} Min. automatisch abgezogen (gesetzliche Pause)": "Din care {0} min. scăzute automat (pauză legală)",
- "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Deshalb wurden {0} Min. automatisch von deiner Arbeitszeit abgezogen.": "După 6 ore de lucru sunt obligatorii 30 de minute de pauză, după 9 ore 45 de minute. De aceea s-au scăzut automat {0} min. din timpul tău de lucru."
+ "Ab 6 Stunden Arbeit sind 30 Minuten Pause Pflicht, ab 9 Stunden 45 Minuten. Deshalb wurden {0} Min. automatisch von deiner Arbeitszeit abgezogen.": "După 6 ore de lucru sunt obligatorii 30 de minute de pauză, după 9 ore 45 de minute. De aceea s-au scăzut automat {0} min. din timpul tău de lucru.",
+ "gearbeitet {0}": "lucrat {0}"
 }

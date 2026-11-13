@@ -45,7 +45,7 @@ export function Heute() {
 
   const tippe = (art: StempelArt, raucher?: boolean) => {
     if (ortung && d.demoStandort === 'weicht_ab') {
-      nav(`/ma/standort?art=${art}`, { state: { ...gewaehlt, bs: aktuell?.id } });
+      nav(`/ma/standort?art=${art}${raucher ? '&raucher=1' : ''}`, { state: { ...gewaehlt, bs: aktuell?.id } });
       return;
     }
     a.stempeln(art, { baustelleId: aktuell?.id, vonHand: gewaehlt.vonHand, begruendung: gewaehlt.grund, raucher });
@@ -128,7 +128,7 @@ export function Heute() {
             {raucher ? tx("Raucherpause seit {0}", lauf?.von) : pause ? tx("Pause seit {0}", lauf?.von) : tx("Arbeitszeit läuft seit {0}", uhr(r.beginn!.zeit))}
           </span>
           <span className="zahl" style={{ fontSize: 44 }}>{dauer(pause ? lauf?.min ?? 0 : r.arbeitMin)}</span>
-          <span className="unter">{pause ? `gearbeitet ${dauer(r.arbeitMin)}` : tx("Pausen bisher {0} Min.", Math.round(r.pauseMin))}</span>
+          <span className="unter">{pause ? tx("gearbeitet {0}", dauer(r.arbeitMin)) : tx("Pausen bisher {0} Min.", Math.round(r.pauseMin))}</span>
         </section>
         {raucher && <p className="text">{tx("Die Raucherpause ist keine Arbeitszeit. Unter 15 Minuten zählt sie nicht als gesetzliche Pause.")}</p>}
         {pauseFehltNoch && (
@@ -188,6 +188,8 @@ export function Standort() {
   const { a } = useIch();
   const [sp] = useSearchParams();
   const art = (sp.get('art') ?? 'beginn') as StempelArt;
+  const raucher = art === 'pause' && sp.get('raucher') === '1';
+  const artText = raucher ? tx("Raucherpause") : artName(art);
   const loc = useLocation();
   const nav = useNavigate();
   const gewaehlt = (loc.state ?? {}) as Gewaehlt;
@@ -199,7 +201,7 @@ export function Standort() {
       <Zurueck to="/ma/heute">{tx("Stempeln")}</Zurueck>
       <span className="gross-kreis" style={{ background: 'var(--orange-hell)', color: 'var(--orange-text)' }} aria-hidden="true"><IOrt size={40} /></span>
       <h1 className="h1" style={{ textAlign: 'center' }}>{tx("Du bist ca. 400 m von der Baustelle entfernt")}</h1>
-      <p className="text" style={{ textAlign: 'center' }}>{tx("Deine Zeit für „{0}“ wird trotzdem gespeichert. Sag kurz, warum.", artName(art))}</p>
+      <p className="text" style={{ textAlign: 'center' }}>{tx("Deine Zeit für „{0}“ wird trotzdem gespeichert. Sag kurz, warum.", artText)}</p>
       <Auswahl label={tx("Grund")} spalten={1} optionen={STANDORT_GRUENDE.map((g) => ({ wert: g, text: g }))} wert={grund} setWert={setGrund} />
       {grund === 'Anderer Grund' && (
         <div className="feld"><label htmlFor="sgrund">{tx("Grund in eigenen Worten")}</label><textarea id="sgrund" className="eingabe" rows={2} value={text} onChange={(e) => setText(e.target.value)} /></div>
@@ -207,9 +209,9 @@ export function Standort() {
       <p className="text">{tx("Der Polier sieht nur den Abstand und deinen Grund, keine Karte.")}</p>
       <Fueller />
       <Knopf gesperrt={!fertig} onClick={() => {
-        a.stempeln(art, { baustelleId: gewaehlt.bs, vonHand: gewaehlt.vonHand, begruendung: grund === 'Anderer Grund' ? text.trim() : grund });
+        a.stempeln(art, { baustelleId: gewaehlt.bs, vonHand: gewaehlt.vonHand, begruendung: grund === 'Anderer Grund' ? text.trim() : grund, raucher });
         nav('/ma/heute', { replace: true });
-      }}>{tx("{0} speichern", artName(art))}</Knopf>
+      }}>{tx("{0} speichern", artText)}</Knopf>
       <Link to="/ma/baustelle" className="link mitte">{tx("Andere Baustelle wählen")}</Link>
     </Seite>
   );
